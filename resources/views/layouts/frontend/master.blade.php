@@ -1,0 +1,5 @@
+@include('layouts.frontend.includes.head_files')
+@include('layouts.frontend.includes.header')
+@yield('content')
+@include('layouts.frontend.includes.footer')
+@include('layouts.frontend.includes.footer_files')
