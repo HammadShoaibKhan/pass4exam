@@ -57,7 +57,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
- <a class="navbar-brand" href="index.html">
+ <a class="navbar-brand" href="/">
      <img class="cartLogo" src="{{asset('frontend/assets/site/image/1619507533_study4examslogo.webp')}}" alt="Study4Exam"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -144,7 +144,7 @@
     font-size: 16px;
 "> 0 </span><img src="{{asset('frontend/assets/site/img/cart.png')}}" alt=""> </a>
         &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a id="nav_login_btn" rel="nofollow" href="register.html" class="btn"style="border-radius: 0px;"> <i class="fa fa-user"></i> LOGIN / REGISTER</a>
+                                    <a id="nav_login_btn" rel="nofollow" href="{{ route('login') }}" class="btn"style="border-radius: 0px;"> <i class="fa fa-user"></i> LOGIN / REGISTER</a>
 									
       </div>
   </div>
