@@ -18,7 +18,7 @@ class CreateCertificationsTable extends Migration
             $table->integer('vender_id');
             $table->string('title');
             $table->string('slug');
-            $table->string('description');
+            $table->longText('description');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

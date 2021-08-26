@@ -17,7 +17,7 @@ class CreateVendersTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->string('description');
+            $table->longText('description');
             $table->tinyInteger('status');
             $table->timestamps();
         });
