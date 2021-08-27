@@ -16,10 +16,10 @@ class CreateExamsTable extends Migration
         Schema::create('exams', function (Blueprint $table) {
             $table->id();
             $table->integer('certificate_id');
-            $table->string('title');
-            $table->string('exam_code');
-            $table->string('slug');
-            $table->longText('description');
+            $table->string('title')->nullable();
+            $table->string('exam_code')->nullable();
+            $table->string('slug')->nullable();
+            $table->longText('description')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

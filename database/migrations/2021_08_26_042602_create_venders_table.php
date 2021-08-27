@@ -16,9 +16,9 @@ class CreateVendersTable extends Migration
         Schema::create('venders', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
-            $table->longText('description');
-            $table->tinyInteger('status');
+            $table->string('slug')->nullable();
+            $table->longText('description')->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

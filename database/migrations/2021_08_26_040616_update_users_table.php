@@ -14,13 +14,13 @@ class UpdateUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('slug');
-            $table->string('phone');
-            $table->string('address');
-            $table->string('city');
-            $table->string('country');
-            $table->string('state');
-            $table->string('zip');
+            $table->string('slug')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zip')->nullable();
             $table->string('vat_number')->nullable();
             $table->tinyInteger('status')->default(1);
         });   
