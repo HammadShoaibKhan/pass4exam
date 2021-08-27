@@ -18,8 +18,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.index');
+Route::group(['prefix' => 'admin'], function () {
+    
+    Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'index']);
+
+    Route::get('/vendors', [App\Http\Controllers\Admin\VendorController::class, 'index'])->name('admin.vendors');
 });
 
 Auth::routes();

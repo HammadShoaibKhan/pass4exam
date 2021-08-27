@@ -14,6 +14,9 @@
 
 <link rel="stylesheet" href="{{asset('frontend/assets/site/css/bootstraps.min.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/assets/site/css/style.css')}}">
+<link media="all" rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/site/css/main.css') }}" />
+
+<link media="all" rel="stylesheet" type="text/css" href="{{ asset('assets/site/css/popup.css') }}" />
 
 <script type="text/javascript" src="{{asset('frontend/assets/site/js/jquery-new.min.js')}}"></script>
 
@@ -21,3 +24,4 @@
 </head>
 
 <body>
+    
