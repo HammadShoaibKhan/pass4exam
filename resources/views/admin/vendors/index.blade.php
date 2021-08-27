@@ -27,7 +27,7 @@
             <div class="col-10">
             </div>
             <div class="col-2">
-                <button type="button" class="btn btn-block btn-primary btn-sm">Add Vendor</button>
+                <a href="{{ route('admin.vendor.create') }}" class="btn btn-block btn-primary btn-md">Add Vendor</a>
             </div>
         </div>
         <br>
@@ -47,17 +47,26 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 
-                        <a href="javascript:;" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
-                        <a href="javascript:;" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                    </td>
-                  </tr>
+                    @forelse($vendors as $key => $vendor)
+                      <tr>
+                        <td>{{ $key + 1 }}</td>
+                        <td>{{ $vendor->title ?? '' }}</td>
+                        <td>
+                          @if ($vendor->status == 1)
+                            Active
+                          @endif
+                          @if ($vendor->status == 0)
+                            Disabled
+                          @endif
+                          
+                        </td>
+                        <td> 
+                            <a href="{{ route('admin.vendors.edit', $vendor->id) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="javascript:;" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                        </td>
+                      </tr>
+                    @empty
+                    @endforelse
                   </tbody>
                 </table>
               </div>

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\VendorController;
+use App\Http\Controllers\Admin\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,12 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     
-    Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'index']);
+    Route::get('/dashboard', [HomeController::class, 'index']);
 
-    Route::get('/vendors', [App\Http\Controllers\Admin\VendorController::class, 'index'])->name('admin.vendors');
+    Route::get('/vendors', [VendorController::class, 'index'])->name('admin.vendors');
+    Route::get('/vendor/create', [VendorController::class, 'create'])->name('admin.vendor.create');
+    Route::post('/vendor/create', [VendorController::class, 'store'])->name('admin.vendor.create');
+    Route::get('vendor/{id}/edit', [VendorController::class, 'edit'])->name('admin.vendors.edit');
 });
 
 Auth::routes();
