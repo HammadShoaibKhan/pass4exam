@@ -13,7 +13,9 @@
                               <ol class="BreadCrumbList">
                                   <li>
                                       <a href="{{ route('home') }}">Home </a>
-                                      <i class="fa fa-chevron-right "></i>
+                                  </li>
+                                  <li>
+                                    <i class="fa fa-chevron-right "></i>
                                   </li>
                                   <li>Vendors</li>
                               </ol>
