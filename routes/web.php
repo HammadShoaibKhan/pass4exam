@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
+use App\Http\Controllers\Admin\VendorController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\LoginController;
+=======
 use Illuminate\Support\Facades\Auth;
+>>>>>>> 48f91b4592dd33a8c6fb178338b3889219258ece
 
 /*
 |--------------------------------------------------------------------------
@@ -14,21 +20,39 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['middleware' => 'customer'], function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
+
+
 });
 
 
-Route::group(['prefix' => 'admin'], function () {
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
     
-    Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'index']);
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
 
-    Route::get('/vendors', [App\Http\Controllers\Admin\VendorController::class, 'index'])->name('admin.vendors');
+    Route::get('/vendors', [VendorController::class, 'index'])->name('admin.vendors');
+    Route::get('/vendor/create', [VendorController::class, 'create'])->name('admin.vendor.create');
+    Route::post('/vendor/create', [VendorController::class, 'store'])->name('admin.vendor.create');
+    Route::get('vendor/{id}/edit', [VendorController::class, 'edit'])->name('admin.vendors.edit');
+    Route::post('/vendor/update/{id}', [VendorController::class, 'update'])->name('admin.vendor.update');
+
+    Route::post('/vendor/delete', [VendorController::class, 'delete'])->name('admin.vendor.delete');
+    Route::post('/vendor/multiple_delete', [VendorController::class, 'multipleDelete'])->name('admin.vendors.delete');
+
+    Route::post('/vendor/status-change', [VendorController::class, 'changeStatus'])->name('admin.vendors.change-status');
+
+    Route::post('vendor/name-exists', [VendorController::class, 'checkNameExists']);
 });
+
+
+Route::get('custodian', [LoginController::class, 'index'])->name('admin.login');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/venders', [App\Http\Controllers\VendorController::class, 'index'])->name('venders');
 
