@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\LoginController;
+=======
+use Illuminate\Support\Facades\Auth;
+>>>>>>> 48f91b4592dd33a8c6fb178338b3889219258ece
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +54,5 @@ Route::get('custodian', [LoginController::class, 'index'])->name('admin.login');
 Auth::routes();
 
 
+Route::get('/venders', [App\Http\Controllers\VendorController::class, 'index'])->name('venders');
 
