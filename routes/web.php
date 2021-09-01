@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,23 +16,38 @@ use App\Http\Controllers\Admin\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['middleware' => 'customer'], function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
+
+
 });
 
 
-Route::group(['prefix' => 'admin'], function () {
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
     
-    Route::get('/dashboard', [HomeController::class, 'index']);
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
 
     Route::get('/vendors', [VendorController::class, 'index'])->name('admin.vendors');
     Route::get('/vendor/create', [VendorController::class, 'create'])->name('admin.vendor.create');
     Route::post('/vendor/create', [VendorController::class, 'store'])->name('admin.vendor.create');
     Route::get('vendor/{id}/edit', [VendorController::class, 'edit'])->name('admin.vendors.edit');
+    Route::post('/vendor/update/{id}', [VendorController::class, 'update'])->name('admin.vendor.update');
+
+    Route::post('/vendor/delete', [VendorController::class, 'delete'])->name('admin.vendor.delete');
+    Route::post('/vendor/multiple_delete', [VendorController::class, 'multipleDelete'])->name('admin.vendors.delete');
+
+    Route::post('/vendor/status-change', [VendorController::class, 'changeStatus'])->name('admin.vendors.change-status');
+
+    Route::post('vendor/name-exists', [VendorController::class, 'checkNameExists']);
 });
+
+
+Route::get('custodian', [LoginController::class, 'index'])->name('admin.login');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

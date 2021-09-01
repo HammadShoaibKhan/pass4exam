@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  
   <title>{{ $title ?? '' }} | Pass 4 Exam</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -24,7 +26,20 @@
     <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
+   <!-- summernote -->
+   <link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.min.css') }}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+
+  <!--Sweet Alert 2-->
+  <link href="{{ asset('admin/plugins/sweetalert2/sweetalert2.min.css') }}">
+
+
+  <style>
+    .error {
+      color : red !important;
+      font-weight: normal !important;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

@@ -9,6 +9,9 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+<!--jQuery Validation-->
+<script src="{{ asset('admin/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <!-- DataTables  & Plugins -->
 <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
@@ -32,6 +35,10 @@
 <script src="{{asset('admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <!-- Summernote -->
 <script src="{{asset('admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
+
+<!--Sweet Alert 2-->
+<script src="{{ asset('admin/plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
+
 <!-- overlayScrollbars -->
 <script src="{{asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
@@ -39,7 +46,9 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>
 
+
 <!--Custom JS-->
 <script src="{{ asset('admin/js/custom.js') }}"></script>
+<script src="{{ asset('admin/js/custom-validations.js') }}"></script>
 </body>
 </html>

@@ -1,8 +1,7 @@
 
             <div class="popup-bg" style="display: none;"></div>
     <div id="wrapper">
-        	<div class="topDiscountBar"><div><span id="couponDesc">Decide Fast & Get 50% Discount | Limited Time Offer</span> - <span> Ends In </span><span id="coupontimeRem">00:00:00</span><span> Coupon code: </span><span id="couponCodeBx">SAVE50</span></div>
-	<span style="display:none;" class="closeBtn" onclick="closeDisBox(); return false;">X</span></div>
+        	
 	<style>
 		.topDiscountBar {
 			width: 100%;
@@ -57,8 +56,10 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
- <a class="navbar-brand" href="/">
-     <img class="cartLogo" src="{{asset('frontend/assets/site/image/1619507533_study4examslogo.webp')}}" alt="Study4Exam"></a>
+ {{-- <a class="navbar-brand" href="/">
+     <img class="cartLogo" src="{{asset('frontend/assets/site/image/1619507533_study4examslogo.webp')}}" alt="Study4Exam"></a> --}}
+     <a class="navbar-brand" href="/" style="background: #ccc; width: 145px; height: 60px;">
+      </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -153,7 +154,8 @@
 	    	 <!--------------------------------------------------------- banner --------------------------------------------------------->
 <style>
     .home_banner_top{
-      background-image: url( '{{asset("frontend/assets/site/img/homebanner.webp")}}');  
+      /* background-image: url( '{{asset("frontend/assets/site/img/homebanner.webp")}}');   */
+      background: #ccc;
         
     }
     @media(max-width: 425px){

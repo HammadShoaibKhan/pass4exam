@@ -44,14 +44,14 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                  <form action="{{ route('admin.vendor.create') }}" method="POST">
+                                  <form action="{{ route('admin.vendor.create') }}" method="POST" id="add-vendor-form">
                                     {{ csrf_field() }}
                                     <div class="row">
                                       <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                           <label>Name</label>
-                                          <input type="text" class="form-control" name="title" placeholder="Name">
+                                          <input type="text" class="form-control" id="title" name="title" placeholder="Name">
                                             <p class="text-danger">
                                             @error('title')
                                             {{ $message }}
@@ -77,7 +77,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                           <label>Description</label>
-                                          <textarea class="form-control" name="description" rows="10"></textarea>
+                                          <textarea class="form-control" name="description" id="summernote" rows="10"></textarea>
                                         </div>
                                       </div>
                                     </div>
