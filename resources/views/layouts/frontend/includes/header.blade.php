@@ -162,18 +162,18 @@
     .home_banner_top{
       /* background-image: url( '{{asset("frontend/assets/site/img/homebanner.webp")}}');   */
       background: #ccc;
-        
+
     }
     @media(max-width: 425px){
-        
+
        .home_banner_top{
       background-image: none;
       background-color: #429482;
-        
-    } 
-    
+
+    }
+
     /*#home_banner_top{*/
-        
+
     /*    display: none;*/
     /*}*/
     }
