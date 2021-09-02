@@ -136,7 +136,7 @@
     						</div>
     						<div class="input-holder form-group">
     							<label>Full Name</label>
-    							<input type="text" required="required" value="" name="full_name" id="full_name">
+    							<input type="text" required="required" value="" name="name" id="name">
     						</div>
     						<div class="input-holder form-group">
     							<button class="btn" type="submit">register</button><span>You will get instructions to set your password in your email. Kindly check your SPAM/Junk folder also.</span>

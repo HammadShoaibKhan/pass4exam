@@ -12,5 +12,12 @@
 
 <!-- Moderate actions: -->
     <script type="text/javascript" src="assets/site/js/comments.js"></script>
+
+    <!--jQuery Validation-->
+<script src="{{ asset('admin/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+
+<!-- CUSTOM JS -->
+<script src="{{ asset('frontend/js/custom.js') }}"></script>
+<script src="{{ asset('frontend/js/custom-validations.js') }}"></script>
 </body>
 </html>
