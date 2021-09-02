@@ -101,14 +101,12 @@
 
 
                 <div class="nav-item dropdown">
-                    <a href="{{ route('vendors') }}" class="nav-link hvr-underline-from-center">Microsoft</a>
-
+                    <a href="{{ route('vendors','microsoft') }}" class="nav-link hvr-underline-from-center">Microsoft</a>
                 </div>
 
 
                 <div class="nav-item dropdown">
-                    <a href="sap-exams.html" class="nav-link hvr-underline-from-center">SAP</a>
-
+                    <a href="{{ route('vendors','sap') }}" class="nav-link hvr-underline-from-center">SAP</a>
                 </div>
 
 
