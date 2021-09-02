@@ -1,5 +1,9 @@
 @extends('layouts.frontend.master')
 @section('content')
+<?php foreach ($vendor as $item)
+  $title = $item->title;
+  $description = $item->description;
+?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -40,7 +44,7 @@
                   <div class="content left-content" style="padding-right: 0px;">
                     <div class="left-content-fst">
                       <h1 style="font-size: 30px; color: #e2574c; font-family: 'Roboto'; font-weight: bold;">
-                        Microsoft Certification Exams Discount Pack
+                        {{$title}} Certification Exams Discount Pack
                       </h1>
                       <br>
                       <p style="color: #363636; font-size: 22px; font-weight: bold; font-family: 'Roboto'; margin: 0px;">
@@ -200,24 +204,12 @@
           {{-- <!-------------Features vendor--------------------------------------------> --}}
           <section class="exam_vendor pt-5 pb-5 bg-f7fafd">
             <div class="section-title"> 
-              <span class="heading_bg_heading_1">Microsoft </span> 
-              <h2>Select Microsoft Exam From the list Below</h2> 
+              <span class="heading_bg_heading_1">{{$title}} </span> 
+              <h2>Select {{$title}} Exam From the list Below</h2> 
             </div> 
             <div class="container-fluid"> 
               <p class="content">
-                If you are planning to be a Microsoft certified professional, you must choose a certificate and start training.
-                There is tough competition in the IT industry and you can face hardships in getting the job of your dreams. 
-                But if you possess certified skills, it can be much easier for you to get the most suitable job. 
-                Success in the Microsoft certification exams ensures your selection for well-paid jobs. 
-                Passing the Microsoft certifications exams validate your technical understandings and skills. 
-                You have to make certain that you are studying from the updated Microsoft preparation material to get prepared for your actual Microsoft exam.
-                <br /> <br /> <br /> 
-                Your success in the Microsoft exams is not possible if you don&rsquo;t prepare from accurate and newest Microsoft practice questions. 
-                If you want to prepare from such training material that is designed by IT professionals and offers success guarantee, 
-                then study4exam should be your first choice. We provide you with practice questions in PDF format that contain correct answers. 
-                With study4exam desktop and web-based Microsoft practice test, 
-                you can tackle exam anxiety, evaluate preparation, and remove preparation mistakes before the final Microsoft exam. 
-                We are offering you up-to-date Microsoft questions at an affordable price with free updates and a refund guarantee..
+                <?php echo strip_tags($description,'<br>') ?>
               </p> 
             </div>     		 
           </section>
@@ -231,7 +223,7 @@
 
                 </div>
                 <h2>
-                  Microsoft Certifications Exams List
+                  {{$title}} Certifications Exams List
                 </h2> 
               </div>
               <div class="certification_2col_vendor">
@@ -499,7 +491,7 @@
           <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
             <div class="section-title">
               {{-- <span class="new_testimonials_bg_heading">TESTIMONIALS</span> --}}
-              <h3>Microsoft Certification Exam Testimonials</h3>
+              <h3>{{$title}} Certification Exam Testimonials</h3>
             </div>
             <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
               <div id="parant_comment" class="container mt-3">
@@ -590,181 +582,116 @@
           </section>
           {{-- END <!------------- Comments Area ----------------------------------------> --}}
 
-  {{-- <script>
-    $("#submitcontactdata").click(function(){
-        
-      name = $("#full_name").val(); 
-      email = $("#email").val(); 
-      subject = $("#subject").val(); 
-      message = $("#message").val(); 
-      captcha = $("#captcha").val(); 
-        if($("#full_name").val() == "" && $("#email").val() == "" && $("#subject").val() == "" && $("#message").val() == ""){
-            $(".mainformarea input").css("border-color","red");
-            $(".mainformarea textarea").css("border-color","red");
-        }
-        if(name == "" ){
-            $("#full_name").focus();
-        }else if(email == ""){
-            $("#email").focus();
-        }else if(subject == ""){
-            $("#subject").focus();
-        }else if(message == ""){
-            $("#message").focus();
-        }else{
-            $.post(BASE_URL + 'submitcontact',{
-              name:name,
-              email: email,
-              subject:subject,
-              message: message, //parameters
-              captcha: captcha, //parameters
-            }, function(resp){
-              resp = $.parseJSON(resp); //data decoded
-              if(resp.msgStatus == "Success"){
-                // alert(resp.msgText); 
-                $(".alert-success").html(resp.msgText);
-                $(".mainformarea .alert-success").show();
+          {{-- <script>
+            $("#submitcontactdata").click(function(){
                 
-                $("#full_name").val("");
-                $("#email").val("");
-                $("#subject").val("");
-                $("#message").val("");
-                $("#contactusForm").hide();
-                $(".aftersumithide").hide();
-                $("#contactusForm").before('<h4 class="text-center">Please refresh Page to submit another Comment <br> <a href="https://www.study4exam.com/microsoft-exams">Click this link to Submit New comment</a></h4>');
-                // setTimeout(function() {
-                //     $(".innerLogincolm .alert-success").fadeOut();
-                // }, 5000);
-              }else{
-                $(".alert-danger").html(resp.msgText);
-                $(".mainformarea .alert-danger").show();
-                setTimeout(function() {
-                    $(".mainformarea .alert-danger").fadeOut();
-                }, 5000);
-              }
-            })
-        }
-    });
-  </script>
+              name = $("#full_name").val(); 
+              email = $("#email").val(); 
+              subject = $("#subject").val(); 
+              message = $("#message").val(); 
+              captcha = $("#captcha").val(); 
+                if($("#full_name").val() == "" && $("#email").val() == "" && $("#subject").val() == "" && $("#message").val() == ""){
+                    $(".mainformarea input").css("border-color","red");
+                    $(".mainformarea textarea").css("border-color","red");
+                }
+                if(name == "" ){
+                    $("#full_name").focus();
+                }else if(email == ""){
+                    $("#email").focus();
+                }else if(subject == ""){
+                    $("#subject").focus();
+                }else if(message == ""){
+                    $("#message").focus();
+                }else{
+                    $.post(BASE_URL + 'submitcontact',{
+                      name:name,
+                      email: email,
+                      subject:subject,
+                      message: message, //parameters
+                      captcha: captcha, //parameters
+                    }, function(resp){
+                      resp = $.parseJSON(resp); //data decoded
+                      if(resp.msgStatus == "Success"){
+                        // alert(resp.msgText); 
+                        $(".alert-success").html(resp.msgText);
+                        $(".mainformarea .alert-success").show();
+                        
+                        $("#full_name").val("");
+                        $("#email").val("");
+                        $("#subject").val("");
+                        $("#message").val("");
+                        $("#contactusForm").hide();
+                        $(".aftersumithide").hide();
+                        $("#contactusForm").before('<h4 class="text-center">Please refresh Page to submit another Comment <br> <a href="https://www.study4exam.com/microsoft-exams">Click this link to Submit New comment</a></h4>');
+                        // setTimeout(function() {
+                        //     $(".innerLogincolm .alert-success").fadeOut();
+                        // }, 5000);
+                      }else{
+                        $(".alert-danger").html(resp.msgText);
+                        $(".mainformarea .alert-danger").show();
+                        setTimeout(function() {
+                            $(".mainformarea .alert-danger").fadeOut();
+                        }, 5000);
+                      }
+                    })
+                }
+            });
+          </script>
 
-  <script>
-    function submitBundle(){$("#bundleInfoForm").submit()}
-      $(document).ready(function(){
-          
-      })
-      
-      function updateBundlePrice() {
-      var e = $("#subscription").val(),
-          r = $("#subscription_plan").val(),
-          a = $("#price").val();
-      $("#checkout_price").val(),
-          $("#subscription_price_3_inc").val(),
-          $("#subscription_price_6_inc").val(),
-          $("#subscription_price_12_inc").val(),
-          $("#individual_pcs").val(),
-          $("#individual_price_inc").val(),
-          $("#corporate_pcs").val(),
-          $("#corporate_price_inc").val(),
-          $("#trainer_pcs").val(),
-          $("#trainer_price_inc").val();
-      (a = parseInt(a) + parseInt($("#subscription_price_" + e + "_inc").val())), (a = parseInt(a) + parseInt($("#" + r + "_price_inc").val())), $("#checkout_price").val(a), $("#lbl_price").html(a);
-      var t = 30 * e;
-      $("#free_update").html(t + " days"), $("#plan_type").html($("#" + r + "_pcs").val() + " PC's");
-    }
-  </script> --}}
+          <script>
+            function submitBundle(){$("#bundleInfoForm").submit()}
+              $(document).ready(function(){
+                  
+              })
+              
+              function updateBundlePrice() {
+              var e = $("#subscription").val(),
+                  r = $("#subscription_plan").val(),
+                  a = $("#price").val();
+              $("#checkout_price").val(),
+                  $("#subscription_price_3_inc").val(),
+                  $("#subscription_price_6_inc").val(),
+                  $("#subscription_price_12_inc").val(),
+                  $("#individual_pcs").val(),
+                  $("#individual_price_inc").val(),
+                  $("#corporate_pcs").val(),
+                  $("#corporate_price_inc").val(),
+                  $("#trainer_pcs").val(),
+                  $("#trainer_price_inc").val();
+              (a = parseInt(a) + parseInt($("#subscription_price_" + e + "_inc").val())), (a = parseInt(a) + parseInt($("#" + r + "_price_inc").val())), $("#checkout_price").val(a), $("#lbl_price").html(a);
+              var t = 30 * e;
+              $("#free_update").html(t + " days"), $("#plan_type").html($("#" + r + "_pcs").val() + " PC's");
+            }
+          </script> --}}
 
 
 
           {{-- <!-------------DiscountDeals--------------------------------------------> --}}
-          <div class="row mt-3">
+          {{-- <div class="row mt-3">
               <div class="col-12">
                   <div class="card">
-                      <!-- /.card-header -->
                       <div class="card-body">
                           <style>
                               .thanku-details.all-vendor h2 {
                                   display: inline-block;
                                   width: 100%;
                               }
-
                               .vlisth2 {
                                   font-size: 22px !important;
                               }
-
                               .vlisth2 span {
                                   font-size: 18px !important;
                               }
-
                               .vlisth2 a {
                                   text-decoration: none;
                               }
-
                               .vlisth2 a:hover {
                                   color: #062F4F;
                                   text-decoration: none;
                               }
-
                               .thanku-details.all-vendor img {
                                   margin: 4px 11px 0 0;
                               }
-
-                          </style>
-                          <style>
-                              .topDiscountBar {
-                                  width: 100%;
-                                  /*background: #041963;*/
-                                  background-color: #22ad95;
-                                  padding: 10px;
-                                  text-align: center;
-                                  color: #fff;
-                                  font: 400 18px/22px 'Open Sans', sans-serif;
-                                  position: relative;
-                                  z-index: 99999999;
-                              }
-
-                              .topDiscountBar div {
-                                  margin-bottom: 0px;
-                                  margin-top: 0px;
-                                  font-size: inherit;
-                                  line-height: 30px;
-                              }
-
-                              #coupontimeRem {
-                                  font-weight: bold;
-                                  margin: 0px 5px;
-                              }
-
-                              #couponCodeBx {
-                                  /*background: #0785cb;*/
-                                  /*color: #041963;*/
-                                  background: #404040;
-                                  color: #ffffff;
-                                  padding: 5px 10px;
-                              }
-
-                              .closeBtn {
-                                  float: right;
-                                  font-size: 22px;
-                                  cursor: pointer;
-                                  position: absolute;
-                                  right: 100px;
-                                  top: 10px;
-                              }
-
-                              @media only screen and (max-width: 1050px) {
-                                  .closeBtn {
-                                      float: none !important;
-                                      font-size: 22px;
-                                      cursor: pointer;
-                                      position: relative !important;
-                                      right: 0px;
-                                      top: 5px;
-                                  }
-                              }
-
-                              section.bg.clearfix {
-                                  /*margin-top: 122px;*/
-                              }
-
                           </style>
                           <section class="about-details">
                               <div class="container p-0">
@@ -809,15 +736,10 @@
 
                               <!-- new container -->
                               <div class="container pt-1">
-
                                   <div class="row vendor_list_row">
                                       <div class="col-lg-1 col-md-4 col-sm-12 pt-3 m-auto">
-
-
                                           <img src="uploads/vendors/1484902809_worldatwork.jpg"
                                               alt="Worldatwork" style="max-width: 70px;">
-
-
                                       </div>
 
                                       <div class="col-lg-3 col-md-8 col-sm-12 pt-4 m-auto">
@@ -917,12 +839,9 @@
 
                           </section>
                       </div>
-                      <!-- /.card-body -->
                   </div>
-                  <!-- /.card -->
               </div>
-              <!-- /.col -->
-          </div>
+          </div> --}}
           {{-- END <!-------------DiscountDeals----------------------------------------> --}}
                     
         </section>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vendor;
 
 class VendorController extends Controller
 {
@@ -16,9 +17,11 @@ class VendorController extends Controller
     //     $this->middleware('auth');
     // }
     
-    public function index()
+    public function index($slug = null)
     {
         $title = 'Vendors';
-        return view('vendor', compact('title'));
+        $vendor = Vendor::where('slug', $slug )->get();
+        // $vendor = Vendor::where('slug', 'like', '%' . $slug . '%')->get();
+        return view('vendor', compact('title','vendor'));
     }
 }
