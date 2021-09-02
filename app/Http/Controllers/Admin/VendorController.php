@@ -34,7 +34,7 @@ class VendorController extends Controller
 
     public function edit($id = null)
     {
-        if ($id != null) {
+        if ($id != null && Vendor::where('id', $id)->exists()) {
             $title = "Update Vendor";
             $vendor = Vendor::find($id);
             return view('admin.vendors.edit', compact('title', 'vendor'));
