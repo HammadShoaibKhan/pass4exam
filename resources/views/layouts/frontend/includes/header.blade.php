@@ -101,7 +101,7 @@
 
 
                 <div class="nav-item dropdown">
-                    <a href="{{ route('venders') }}" class="nav-link hvr-underline-from-center">Microsoft</a>
+                    <a href="{{ route('vendors') }}" class="nav-link hvr-underline-from-center">Microsoft</a>
 
                 </div>
 

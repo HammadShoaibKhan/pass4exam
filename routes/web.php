@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::group(['middleware' => 'customer'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/venders', [App\Http\Controllers\VendorController::class, 'index'])->name('venders');
+    Route::get('/vendors', [App\Http\Controllers\VendorController::class, 'index'])->name('vendors');
 
 
 });
