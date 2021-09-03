@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vendor;
+use App\Models\Certification;
 
 class VendorController extends Controller
 {
@@ -20,8 +21,10 @@ class VendorController extends Controller
     public function index($slug = null)
     {
         $title = 'Vendors';
-        $vendor = Vendor::where('slug', $slug )->get();
+        $vendor = Vendor::where('slug', $slug )->where('status',1)->get();
+        $id = (sizeof($vendor)>0)? $vendor[0]->id:null;
         // $vendor = Vendor::where('slug', 'like', '%' . $slug . '%')->get();
-        return view('vendor', compact('title','vendor'));
+        $certifications = Certification::where('vender_id',$id)->get();
+        return view('vendor', compact('title','vendor','certifications'));
     }
 }
