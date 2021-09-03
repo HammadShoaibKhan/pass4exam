@@ -101,7 +101,7 @@
 
                     <div class="nav-item dropdown">
                         <!--<a href="https://www.study4exam.com/oracle-exams" class="nav-link dropdown-toggle" data-toggle="dropdown">Oracle</a>-->
-                        <a href="oracle-exams.html" class="nav-link hvr-underline-from-center" >Oracle</a>
+                        <a href="{{ route('vendors','oracle') }}" class="nav-link hvr-underline-from-center" >Oracle</a>
                     </div>
 
 
