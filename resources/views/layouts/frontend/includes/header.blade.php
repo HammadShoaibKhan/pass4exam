@@ -96,7 +96,7 @@
                         <a href="{{ route('vendor', $vendor->slug) }}" class="nav-link hvr-underline-from-center">{{ $vendor->title ?? '' }}</a>
                     </div>
                 @empty
-                    
+
                 @endforelse
 
                     <div class="nav-item dropdown">
@@ -118,17 +118,17 @@
                             border-radius: 50%;
                             color: #fff;
                             background-color: #22ad95;
-                            font-size: 16px;"> 
-                        
-                            0 
+                            font-size: 16px;">
+
+                            0
                         </span>
-                        <img src="{{asset('frontend/assets/site/img/cart.png')}}" alt=""> 
+                        <img src="{{asset('frontend/assets/site/img/cart.png')}}" alt="">
                     </a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <a id="nav_login_btn" rel="nofollow" href="{{ route('login') }}" class="btn"style="border-radius: 0px;">
                         <i class="fa fa-user"></i> LOGIN / REGISTER
                     </a>
-                </div>  
+                </div>
             </div>
         </nav>
         <input type="hidden" class="is-logged-in" value="0">

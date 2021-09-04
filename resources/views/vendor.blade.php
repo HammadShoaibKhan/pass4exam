@@ -228,6 +228,7 @@
               </div>
               <div class="certification_2col_vendor">
                 <div class="row">
+                  @foreach ($certifications as $certificate)                      
                   {{-- LEFT SIDE --}}
                   <div class="col-md-6 col-sm-6 certification_fst_vendor">
                     <div class="certification_fst_vendor_inner_1" style="">
@@ -235,12 +236,11 @@
                         <div style="font-weight: 500; text-align: center;margin-bottom: 0px; padding: 5px; font-family: 'Roboto'; font-size: 22px;"> 
                           <style>
                               #hoveron:hover{
-                                  
                                   text-decoration: none;
                                   border-bottom: 0px solid;
                               }
                           </style>
-                          Azure DevOps Certifications
+                          {{$certificate->title}}
                         </div>
                       </div>
                       <div class="row certification_fst_vendor_inner_2_row">
@@ -277,22 +277,13 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="certification_fst_vendor_inner_1" style="">
-                      <div class="certification_fst_vendor_inner_2" style="">
-                        <div style="font-weight: 500; text-align: center;margin-bottom: 0px; padding: 5px; font-family: 'Roboto'; font-size: 22px;"> 
-                          Azure Database Administrator Associate Certifications
-                        </div>
-                      </div>
-                      <div class="row certification_fst_vendor_inner_2_row">
                         <div  class="col-xl-6 col-lg-12 mb-4 top_error">
                           <div>
                             <!--<div id="line-left"></div>-->
                             <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                               <div class="card-header" >
-                                <a href="https://www.study4exam.com/microsoft/info/dp-300">
-                                  DP-300 
+                                <a href="https://www.study4exam.com/microsoft/info/az-400">
+                                  AZ-400 
                                 </a> 
                                 <span><span>
                                 <img width="25" height="25" alt="Desktop" src="https://www.study4exam.com/assets/site/img/Image_244.png"> 
@@ -301,15 +292,18 @@
                               </div>
                               <div class="card-body">
                                 <p>
-                                  Administering Relational Databases on Microsoft Azure                                        
+                                  Designing and Implementing Microsoft DevOps Solutions                                        
                                 </p>
                                 <div class="card-body-qd" style="">
                                   <div class="questions">
-                                    <i class="fas fa-clipboard-list questions_fst_i"></i> <i class="questions_sec_i"> 176  <span>Questions</span></i>
+                                    <i class="fas fa-clipboard-list questions_fst_i"></i> 
+                                    <i class="questions_sec_i"> 285  <span>Questions</span></i>
                                   </div>
                                   <div class="update_date" >
-                                    <i class="fas fa-sync-alt update_date_fst_i"></i> 
-                                    <i class="update_date_sec_i"> Aug 22 <span>Last Updated</span></i>
+                                    <i class="fas fa-sync-alt update_date_fst_i"></i>
+                                    <i class="update_date_sec_i"> 
+                                      Aug 16 <span>Last Updated</span>
+                                    </i>
                                   </div>
                                 </div>
                               </div> 
@@ -321,7 +315,7 @@
                   </div>
                   {{-- END LEFT SIDE --}}
                   {{-- RIGHT SIDE  --}}
-                  <div  class="col-md-6 col-sm-6 certification_sec_vendor">
+                  {{-- <div  class="col-md-6 col-sm-6 certification_sec_vendor">
                     <div class="certification_sec_vendor_inner_1" style="">
                       <!--<div id="heading-line-right"></div>-->
                       <div id="circle1">
@@ -478,8 +472,9 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
                   {{-- END RIGHT SIDE  --}}
+                  @endforeach
                 </div>
               </div>
             </div>
