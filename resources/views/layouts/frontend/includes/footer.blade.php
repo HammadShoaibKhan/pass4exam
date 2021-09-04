@@ -1,6 +1,6 @@
-    		
+
 	<!--_____________________________________________________________________________________-->
-	
+
 	<footer class="footer" style="">
     <div class="container">
       <div class="row">
@@ -11,10 +11,10 @@
             <ul class="list">
               <li><a href="index.html">Home</a></li>
               <li><a href="about-us.html">About us</a></li>
-             
+
               <li><a href="mega-packs.html">Mega Packs</a></li>
              <li><a href="vendors.html">Discount Deals</a></li>
-            
+
 
             </ul>
           </div>
@@ -25,19 +25,19 @@
             <br>
             <ul class="footer-contact-info">
               <li><a href="faqs.html">FAQ`s</a></li>
-              
+
 
               <li><a href="contact.html">Contact Us</a></li>
               <li style="color: #fff;"> <span style="color: #fff; font-size: 16px;
     padding-right: 10px;"><i class="fa fa-envelope" aria-hidden="true"></i> </span> <a
-                  style="color: #fff;     opacity: 1; 
+                  style="color: #fff;     opacity: 1;
     font-weight: 800;
-" href="mailto:sales@study4exam.com">sales@study4exam.com</a></li>
+" href="javascript:;">sales@certsidea.com</a></li>
               <li style="color: #fff;"><span style="color: #fff; font-size: 16px;
     padding-right: 10px;"><i class="fa fa-envelope" aria-hidden="true"></i> </span> <a
-                  style="color: #fff;     opacity: 1; 
+                  style="color: #fff;     opacity: 1;
     font-weight: 800;
-" href="mailto:support@study4exam.com">support@study4exam.com</a></li>
+" href="javascript:;">support@certsidea.com</a></li>
             </ul>
           </div>
         </div>
@@ -46,16 +46,16 @@
             <strong>SECURITY & PRIVACY</strong>
             <br>
 			<ul class="list">
-              
+
              <li><a href="terms-and-conditions.html">Terms And Conditions</a></li>
              <li><a href="guarantee.html">Guarantee</a></li>
              <li><a href="disclaimer.html">Disclaimer</a></li>
-             <li><a rel="noopener" target="_blank" href="https://www.couponchief.com/study4exam">Get Latest Promotions</a></li>
-             
+             <li><a rel="noopener" target="_blank" href="javascript:;">Get Latest Promotions</a></li>
+
 
 
             </ul>
-					
+
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 col-md-6">
@@ -67,7 +67,7 @@
     opacity: 0.8;
     font-size: 14px;
     font-weight: 500;
-">Study4exam uses SSL 256-bit encryption to ensure safe shopping and secure transaction.</p>
+">Certs Idea uses SSL 256-bit encryption to ensure safe shopping and secure transaction.</p>
             </div>
 
 

@@ -52,7 +52,7 @@
                       </p>
                       <br>
                     </div>
-                    <form method="post" name="bundleInfoForm" id="bundleInfoForm" action="https://www.study4exam.com/carts/" class="form-inline form">
+                    <form method="post" name="bundleInfoForm" id="bundleInfoForm" action="https://www.certsidea.com/carts/" class="form-inline form">
                       <input type="hidden" id="shop_type" name="shop_type" value="bundle" />
                       <input type="hidden" id="bundleType" name="bundleType" value="1" />
                       <input type="hidden" id="bundleIcon" name="bundleIcon" value="IMG_4210801752032.png" />
@@ -61,7 +61,7 @@
                           <div class="versions hvr-grow-shadow">
                             <div class="row">
                               <div class="versions_inner_left " style="  background-color: rgba(244,244,244,1); padding: 8px 12px; padding-top: 22px;">
-                                <img width="38" height="38" alt="Desktop Practice Test software" src="https://www.study4exam.com/assets/site/img/Image_244.png">
+                                <img width="38" height="38" alt="Desktop Practice Test software" src="https://www.certsidea.com/assets/site/img/Image_244.png">
                               </div>
                               <div class="versions_inner_right">
                                 <span style="">Desktop Practice <br>Test software</span>
@@ -71,7 +71,7 @@
                           <div class="versions hvr-grow-shadow">
                             <div class="row">
                               <div class="versions_inner_left" style="background-color: rgba(244,244,244,1); padding: 8px 14px;padding-top: 22px;">
-                                <img width="32" height="32" alt="Web Based Practice Test" src="https://www.study4exam.com/assets/site/img/Image_2455.png">
+                                <img width="32" height="32" alt="Web Based Practice Test" src="https://www.certsidea.com/assets/site/img/Image_2455.png">
                               </div>
                               <div class="versions_inner_right">
                                 <span style="">Web Based <br>Practice Test</span>
@@ -82,7 +82,7 @@
                             <div class="row">
                               <div class="versions_inner_left" style="background-color: rgba(244,244,244,1); padding: 8px 12px; ">
                                 <br>
-                                <img width="32" height="32" alt="Questions & Answers (PDF)" src="https://www.study4exam.com/assets/site/img/Image_246.png">
+                                <img width="32" height="32" alt="Questions & Answers (PDF)" src="https://www.certsidea.com/assets/site/img/Image_246.png">
                               </div>
                               <div class="versions_inner_right" style="">
                                 <span style="">Questions & <br> Answers (PDF)</span>
@@ -116,9 +116,9 @@
                             </div>
                           </div>
                         </div>
-                      
+
                         <br><br>
-                      
+
                         <div class="payment_option_main">
                           <strong style="color: #363636; font-size: 22px; font-weight: bold; font-family: 'Roboto';">
                             Payment Options
@@ -132,8 +132,8 @@
                                 width: 100%;
                                 font-size: 13px;
                                 font-weight: 400;
-                                margin-bottom: 10px;" 
-                                id="subscription" name="subscription" 
+                                margin-bottom: 10px;"
+                                id="subscription" name="subscription"
                                 onchange="updateBundlePrice();">
                                 <option value="3" selected="selected">3 Months Updates</option>
                                 <option value="6">6 Months Updates</option>
@@ -148,9 +148,9 @@
                                 width: 100%;
                                 font-size: 13px;
                                 font-weight: 400;
-                                margin-bottom: 10px;" 
-                                id="subscription_plan" 
-                                name="subscription_plan" 
+                                margin-bottom: 10px;"
+                                id="subscription_plan"
+                                name="subscription_plan"
                                 onchange="updateBundlePrice();">
                                 <option value="individual" selected="selected">Individual 2 PCs</option>
                                 <option value="corporate">Corporate 10 PCs</option>
@@ -163,7 +163,7 @@
                             <div class="___class_+?50___">
                               <div class="bundle_price">Price: $
                                 <span id="lbl_price">450</span>
-                                <del> Before: $900 </del> 
+                                <del> Before: $900 </del>
                               </div>
                             </div>
 
@@ -197,25 +197,25 @@
                   </div>
                 </div>
               </div>
-            </div>    
+            </div>
           </section>
           {{-- END <!-------------BundlePack----------------------------------------> --}}
-          
+
           {{-- <!-------------Features vendor--------------------------------------------> --}}
           <section class="exam_vendor pt-5 pb-5 bg-f7fafd">
-            <div class="section-title"> 
-              <span class="heading_bg_heading_1">{{$title ?? ''}} </span> 
-              <h2>Select {{$title ?? ''}} Exam From the list Below</h2> 
-            </div> 
-            <div class="container-fluid"> 
+            <div class="section-title">
+              <span class="heading_bg_heading_1">{{$title ?? ''}} </span>
+              <h2>Select {{$title ?? ''}} Exam From the list Below</h2>
+            </div>
+            <div class="container-fluid">
               <p class="content">
                 <?php echo strip_tags($description ?? '','<br>') ?>
-              </p> 
-            </div>     		 
+              </p>
+            </div>
           </section>
           {{-- END <!-------------Features vendor----------------------------------------> --}}
 
-          {{-- <!-------------Certification vendor--------------------------------------------> --}}  
+          {{-- <!-------------Certification vendor--------------------------------------------> --}}
           <section class="certification_vendor">
             <div class="container-fluid">
               <div class="certification_headibg_vendor">
@@ -224,16 +224,16 @@
                 </div>
                 <h2>
                   {{$title ?? ''}} Certifications Exams List
-                </h2> 
+                </h2>
               </div>
               <div class="certification_2col_vendor">
                 <div class="row">
-                  @foreach ($certifications as $certificate)                      
+                  @foreach ($vendor->certifications as $certificate)
                   {{-- LEFT SIDE --}}
                   <div class="col-md-6 col-sm-6 certification_fst_vendor">
                     <div class="certification_fst_vendor_inner_1" style="">
                       <div class="certification_fst_vendor_inner_2" style="">
-                        <div style="font-weight: 500; text-align: center;margin-bottom: 0px; padding: 5px; font-family: 'Roboto'; font-size: 22px;"> 
+                        <div style="font-weight: 500; text-align: center;margin-bottom: 0px; padding: 5px; font-family: 'Roboto'; font-size: 22px;">
                           <style>
                               #hoveron:hover{
                                   text-decoration: none;
@@ -249,31 +249,31 @@
                             <!--<div id="line-left"></div>-->
                             <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                               <div class="card-header" >
-                                <a href="https://www.study4exam.com/microsoft/info/az-400">
-                                  AZ-400 
-                                </a> 
+                                <a href="https://www.certsidea.com/microsoft/info/az-400">
+                                  AZ-400
+                                </a>
                                 <span><span>
-                                <img width="25" height="25" alt="Desktop" src="https://www.study4exam.com/assets/site/img/Image_244.png"> 
-                                <img alt="Web-Based" width="25" height="25" src="https://www.study4exam.com/assets/site/img/Image_245.png"> 
-                                <img alt="PDF" width="25" height="25" src="https://www.study4exam.com/assets/site/img/Image_246.png"></span>
+                                <img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png">
+                                <img alt="Web-Based" width="25" height="25" src="https://www.certsidea.com/assets/site/img/Image_245.png">
+                                <img alt="PDF" width="25" height="25" src="https://www.certsidea.com/assets/site/img/Image_246.png"></span>
                               </div>
                               <div class="card-body">
                                 <p>
-                                  Designing and Implementing Microsoft DevOps Solutions                                        
+                                  Designing and Implementing Microsoft DevOps Solutions
                                 </p>
                                 <div class="card-body-qd" style="">
                                   <div class="questions">
-                                    <i class="fas fa-clipboard-list questions_fst_i"></i> 
+                                    <i class="fas fa-clipboard-list questions_fst_i"></i>
                                     <i class="questions_sec_i"> 285  <span>Questions</span></i>
                                   </div>
                                   <div class="update_date" >
                                     <i class="fas fa-sync-alt update_date_fst_i"></i>
-                                    <i class="update_date_sec_i"> 
+                                    <i class="update_date_sec_i">
                                       Aug 16 <span>Last Updated</span>
                                     </i>
                                   </div>
                                 </div>
-                              </div> 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -282,31 +282,31 @@
                             <!--<div id="line-left"></div>-->
                             <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                               <div class="card-header" >
-                                <a href="https://www.study4exam.com/microsoft/info/az-400">
-                                  AZ-400 
-                                </a> 
+                                <a href="https://www.certsidea.com/microsoft/info/az-400">
+                                  AZ-400
+                                </a>
                                 <span><span>
-                                <img width="25" height="25" alt="Desktop" src="https://www.study4exam.com/assets/site/img/Image_244.png"> 
-                                <img alt="Web-Based" width="25" height="25" src="https://www.study4exam.com/assets/site/img/Image_245.png"> 
-                                <img alt="PDF" width="25" height="25" src="https://www.study4exam.com/assets/site/img/Image_246.png"></span>
+                                <img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png">
+                                <img alt="Web-Based" width="25" height="25" src="https://www.certsidea.com/assets/site/img/Image_245.png">
+                                <img alt="PDF" width="25" height="25" src="https://www.certsidea.com/assets/site/img/Image_246.png"></span>
                               </div>
                               <div class="card-body">
                                 <p>
-                                  Designing and Implementing Microsoft DevOps Solutions                                        
+                                  Designing and Implementing Microsoft DevOps Solutions
                                 </p>
                                 <div class="card-body-qd" style="">
                                   <div class="questions">
-                                    <i class="fas fa-clipboard-list questions_fst_i"></i> 
+                                    <i class="fas fa-clipboard-list questions_fst_i"></i>
                                     <i class="questions_sec_i"> 285  <span>Questions</span></i>
                                   </div>
                                   <div class="update_date" >
                                     <i class="fas fa-sync-alt update_date_fst_i"></i>
-                                    <i class="update_date_sec_i"> 
+                                    <i class="update_date_sec_i">
                                       Aug 16 <span>Last Updated</span>
                                     </i>
                                   </div>
                                 </div>
-                              </div> 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -334,30 +334,30 @@
                           <div>
                             <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                               <div class="card-header" >
-                                <a href="https://www.study4exam.com/microsoft/info/da-100">
-                                  DA-100 
-                                </a> 
+                                <a href="https://www.certsidea.com/microsoft/info/da-100">
+                                  DA-100
+                                </a>
                                 <span>
-                                  <img width="25" height="25" alt="Desktop" src="https://www.study4exam.com/assets/site/img/Image_244.png"> 
-                                  <img width="25" height="25" alt="Web-Based" src="https://www.study4exam.com/assets/site/img/Image_245.png"> 
-                                  <img width="25" height="25" alt="PDF" src="https://www.study4exam.com/assets/site/img/Image_246.png">
+                                  <img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png">
+                                  <img width="25" height="25" alt="Web-Based" src="https://www.certsidea.com/assets/site/img/Image_245.png">
+                                  <img width="25" height="25" alt="PDF" src="https://www.certsidea.com/assets/site/img/Image_246.png">
                                 </span>
                               </div>
                               <div class="card-body">
                                 <p>
-                                  Analyzing Data with Microsoft Power BI                                        
+                                  Analyzing Data with Microsoft Power BI
                                 </p>
                                 <div class="card-body-qd" style="">
                                   <div class="questions">
-                                    <i class="fas fa-clipboard-list questions_fst_i"></i> 
+                                    <i class="fas fa-clipboard-list questions_fst_i"></i>
                                     <i class="questions_sec_i"> 134  <span>Questions</span></i>
                                   </div>
                                   <div class="update_date" >
-                                    <i class="fas fa-sync-alt update_date_fst_i"></i> 
+                                    <i class="fas fa-sync-alt update_date_fst_i"></i>
                                     <i class="update_date_sec_i"> Aug 21 <span>Last Updated</span></i>
                                   </div>
                                 </div>
-                              </div> 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -379,11 +379,11 @@
                           <div>
                             <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                               <div class="card-header" >
-                                <a href="https://www.study4exam.com/microsoft/info/az-500">AZ-500 </a> <span><img width="25" height="25" alt="Desktop" src="https://www.study4exam.com/assets/site/img/Image_244.png"> <img width="25" height="25" alt="Web-Based" src="https://www.study4exam.com/assets/site/img/Image_245.png"> <img width="25" height="25" alt="PDF" src="https://www.study4exam.com/assets/site/img/Image_246.png"></span>
+                                <a href="https://www.certsidea.com/microsoft/info/az-500">AZ-500 </a> <span><img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png"> <img width="25" height="25" alt="Web-Based" src="https://www.certsidea.com/assets/site/img/Image_245.png"> <img width="25" height="25" alt="PDF" src="https://www.certsidea.com/assets/site/img/Image_246.png"></span>
                               </div>
                               <div class="card-body">
                                 <p>
-                                  Microsoft Azure Security Technologies                                        
+                                  Microsoft Azure Security Technologies
                                 </p>
                                 <div class="card-body-qd" style="">
                                   <div class="questions">
@@ -393,10 +393,10 @@
                                     <i class="fas fa-sync-alt update_date_fst_i"></i> <i class="update_date_sec_i"> Aug 23 <span>Last Updated</span></i>
                                   </div>
                                 </div>
-                              </div> 
+                              </div>
                             </div>
                           </div>
-                        </div>                        
+                        </div>
                       </div>
                     </div>
                     <div class="certification_sec_vendor_inner_1" style="">
@@ -414,18 +414,18 @@
                           <div>
                             <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                               <div class="card-header" >
-                                <a href="https://www.study4exam.com/microsoft/info/az-303">
-                                  AZ-303 
-                                </a> 
+                                <a href="https://www.certsidea.com/microsoft/info/az-303">
+                                  AZ-303
+                                </a>
                                 <span>
-                                  <img width="25" height="25" alt="Desktop" src="https://www.study4exam.com/assets/site/img/Image_244.png"> 
-                                  <img width="25" height="25" alt="Web-Based" src="https://www.study4exam.com/assets/site/img/Image_245.png"> 
-                                  <img width="25" height="25" alt="PDF" src="https://www.study4exam.com/assets/site/img/Image_246.png">
+                                  <img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png">
+                                  <img width="25" height="25" alt="Web-Based" src="https://www.certsidea.com/assets/site/img/Image_245.png">
+                                  <img width="25" height="25" alt="PDF" src="https://www.certsidea.com/assets/site/img/Image_246.png">
                                 </span>
                               </div>
                               <div class="card-body">
                                 <p>
-                                  Microsoft Azure Architect Technologies Exam                                        
+                                  Microsoft Azure Architect Technologies Exam
                                 </p>
                                 <div class="card-body-qd" style="">
                                   <div class="questions">
@@ -435,7 +435,7 @@
                                     <i class="fas fa-sync-alt update_date_fst_i"></i> <i class="update_date_sec_i"> Aug 22 <span>Last Updated</span></i>
                                   </div>
                                 </div>
-                              </div> 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -444,29 +444,29 @@
                           <div>
                             <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                               <div class="card-header" >
-                                <a href="https://www.study4exam.com/microsoft/info/az-304">
-                                  AZ-304 
-                                </a> 
+                                <a href="https://www.certsidea.com/microsoft/info/az-304">
+                                  AZ-304
+                                </a>
                                 <span>
-                                  <img width="25" height="25" alt="Desktop" src="https://www.study4exam.com/assets/site/img/Image_244.png"> 
-                                  <img width="25" height="25" alt="Web-Based" src="https://www.study4exam.com/assets/site/img/Image_245.png"> 
-                                  <img width="25" height="25" alt="PDF" src="https://www.study4exam.com/assets/site/img/Image_246.png">
+                                  <img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png">
+                                  <img width="25" height="25" alt="Web-Based" src="https://www.certsidea.com/assets/site/img/Image_245.png">
+                                  <img width="25" height="25" alt="PDF" src="https://www.certsidea.com/assets/site/img/Image_246.png">
                                 </span>
                               </div>
                               <div class="card-body">
                                 <p>
-                                  Microsoft Azure Architect Design Exam                                        
+                                  Microsoft Azure Architect Design Exam
                                 </p>
                                 <div class="card-body-qd" style="">
                                   <div class="questions">
                                     <i class="fas fa-clipboard-list questions_fst_i"></i> <i class="questions_sec_i"> 267  <span>Questions</span></i>
                                   </div>
                                   <div class="update_date" >
-                                    <i class="fas fa-sync-alt update_date_fst_i"></i> 
+                                    <i class="fas fa-sync-alt update_date_fst_i"></i>
                                     <i class="update_date_sec_i"> Aug 17 <span>Last Updated</span></i>
                                   </div>
                                 </div>
-                              </div> 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -478,11 +478,11 @@
                 </div>
               </div>
             </div>
-          </section>          
+          </section>
           {{-- END <!-------------Certification vendor----------------------------------------> --}}
 
 
-          {{-- <!------------- Vendor Testimonials --------------------------------------------> --}}  
+          {{-- <!------------- Vendor Testimonials --------------------------------------------> --}}
           <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
             <div class="section-title">
               {{-- <span class="new_testimonials_bg_heading">TESTIMONIALS</span> --}}
@@ -492,31 +492,31 @@
               <div id="parant_comment" class="container mt-3">
                 <div class="media p-3">
                   <div class="initalname">
-    		            V    		
+    		            V
                   </div>
                   <div class="media-body">
                     <p style="color: #22ad95;font-size: 20px;font-weight: 500;">
-                      Virginia	    				    				        
+                      Virginia
                       <!--<img src="https://flagcdn.com/w80/ca.png" alt="flag"  class="dicls">-->
                       <span style="float: right;font-size: 16px;color: #da0606;"><i>Aug 30, 2021</i></span>
                     </p>
                     <div class="rating">
                     </div>
                     <p>
-                      Choosing DP-100 mock test of study4exam.com for practice was a conscious decision. 
-                      I did not find anything better than these mock tests. 
-                      They are designed to give practice to people who seriously want to clear the DP-100 exam . 
+                      Choosing DP-100 mock test of certsidea.com for practice was a conscious decision.
+                      I did not find anything better than these mock tests.
+                      They are designed to give practice to people who seriously want to clear the DP-100 exam .
                       The tests are well within my budget and I am sure practicing on them will help me pass the exam in first attempt.
                     </p>
                   </div>
-                </div>                              
+                </div>
               </div>
             </div>
           </section>
-     
+
           {{-- END <!------------- Vendor Testimonials ----------------------------------------> --}}
 
-          {{-- <!------------- Comments Area --------------------------------------------> --}}  
+          {{-- <!------------- Comments Area --------------------------------------------> --}}
           <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;">
             <div class="container">
               <div class="topArea">
@@ -530,13 +530,13 @@
                 <div class="row">
                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div id="form-messages" style="background:none;">
-                      
+
                     </div>
                     <div class="text-center">
                       <div class="alert alert-success" style="display:none"></div>
                       <div class="alert alert-danger" style="display:none"></div>
                     </div>
-                    <!--<form method="post" name="contactusForm" id="contactusForm" action="https://www.study4exam.com/contact">-->
+                    <!--<form method="post" name="contactusForm" id="contactusForm" action="https://www.certsidea.com/contact">-->
                     <div name="contactusForm" id="contactusForm">
                       <div class="inputArea">
                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -579,12 +579,12 @@
 
           {{-- <script>
             $("#submitcontactdata").click(function(){
-                
-              name = $("#full_name").val(); 
-              email = $("#email").val(); 
-              subject = $("#subject").val(); 
-              message = $("#message").val(); 
-              captcha = $("#captcha").val(); 
+
+              name = $("#full_name").val();
+              email = $("#email").val();
+              subject = $("#subject").val();
+              message = $("#message").val();
+              captcha = $("#captcha").val();
                 if($("#full_name").val() == "" && $("#email").val() == "" && $("#subject").val() == "" && $("#message").val() == ""){
                     $(".mainformarea input").css("border-color","red");
                     $(".mainformarea textarea").css("border-color","red");
@@ -607,17 +607,17 @@
                     }, function(resp){
                       resp = $.parseJSON(resp); //data decoded
                       if(resp.msgStatus == "Success"){
-                        // alert(resp.msgText); 
+                        // alert(resp.msgText);
                         $(".alert-success").html(resp.msgText);
                         $(".mainformarea .alert-success").show();
-                        
+
                         $("#full_name").val("");
                         $("#email").val("");
                         $("#subject").val("");
                         $("#message").val("");
                         $("#contactusForm").hide();
                         $(".aftersumithide").hide();
-                        $("#contactusForm").before('<h4 class="text-center">Please refresh Page to submit another Comment <br> <a href="https://www.study4exam.com/microsoft-exams">Click this link to Submit New comment</a></h4>');
+                        $("#contactusForm").before('<h4 class="text-center">Please refresh Page to submit another Comment <br> <a href="https://www.certsidea.com/microsoft-exams">Click this link to Submit New comment</a></h4>');
                         // setTimeout(function() {
                         //     $(".innerLogincolm .alert-success").fadeOut();
                         // }, 5000);
@@ -636,9 +636,9 @@
           <script>
             function submitBundle(){$("#bundleInfoForm").submit()}
               $(document).ready(function(){
-                  
+
               })
-              
+
               function updateBundlePrice() {
               var e = $("#subscription").val(),
                   r = $("#subscription_plan").val(),
@@ -694,7 +694,7 @@
                                       <h1>Latest Discount Deals for All Vendor Exams </h1>
                                       <!--()-->
                                       <form role="form" id="listing_form" name="listing_form"
-                                          method="post" action="https://www.study4exam.com/vendors">
+                                          method="post" action="https://www.certsidea.com/vendors">
                                           <select id="sort_by" name="sort_by"
                                               onchange="submitForm('vendors.html');">
                                               <option value=''>All Vendors</option>
@@ -838,7 +838,7 @@
               </div>
           </div> --}}
           {{-- END <!-------------DiscountDeals----------------------------------------> --}}
-                    
+
         </section>
         <!-- /.content -->
       </div>
