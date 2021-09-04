@@ -1,8 +1,8 @@
 @extends('layouts.frontend.master')
 @section('content')
 <?php foreach ($vendor as $item)
-  $title = $item->title;
-  $description = $item->description;
+  // $title = $item->title;
+  // $description = $item->description;
 ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -44,7 +44,7 @@
                   <div class="content left-content" style="padding-right: 0px;">
                     <div class="left-content-fst">
                       <h1 style="font-size: 30px; color: #e2574c; font-family: 'Roboto'; font-weight: bold;">
-                        {{$title}} Certification Exams Discount Pack
+                        {{$title ?? ''}} Certification Exams Discount Pack
                       </h1>
                       <br>
                       <p style="color: #363636; font-size: 22px; font-weight: bold; font-family: 'Roboto'; margin: 0px;">
@@ -192,8 +192,8 @@
                 </div>
                 {{-- Right Portion --}}
                 <div class="overview-image">
-                  <div class="image">
-                    <img style="width: 80%" width="528" height="512" src="https://www.study4exam.com/assets/site/img/exam1 (2).webp" alt="image">
+                  <div class="image" style="width: 528px; height: 512px; background:#ccc">
+                    {{-- <img style="width: 80%" width="528" height="512" src="" alt="image"> --}}
                   </div>
                 </div>
               </div>
@@ -204,12 +204,12 @@
           {{-- <!-------------Features vendor--------------------------------------------> --}}
           <section class="exam_vendor pt-5 pb-5 bg-f7fafd">
             <div class="section-title"> 
-              <span class="heading_bg_heading_1">{{$title}} </span> 
-              <h2>Select {{$title}} Exam From the list Below</h2> 
+              <span class="heading_bg_heading_1">{{$title ?? ''}} </span> 
+              <h2>Select {{$title ?? ''}} Exam From the list Below</h2> 
             </div> 
             <div class="container-fluid"> 
               <p class="content">
-                <?php echo strip_tags($description,'<br>') ?>
+                <?php echo strip_tags($description ?? '','<br>') ?>
               </p> 
             </div>     		 
           </section>
@@ -223,7 +223,7 @@
 
                 </div>
                 <h2>
-                  {{$title}} Certifications Exams List
+                  {{$title ?? ''}} Certifications Exams List
                 </h2> 
               </div>
               <div class="certification_2col_vendor">
@@ -491,7 +491,7 @@
           <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
             <div class="section-title">
               {{-- <span class="new_testimonials_bg_heading">TESTIMONIALS</span> --}}
-              <h3>{{$title}} Certification Exam Testimonials</h3>
+              <h3>{{$title ?? ''}} Certification Exam Testimonials</h3>
             </div>
             <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
               <div id="parant_comment" class="container mt-3">

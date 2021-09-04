@@ -89,4 +89,13 @@ class VendorController extends Controller
         $vendors = Vendor::orderBY('id', 'DESC')->get();
         return view('admin.vendors.partials.vendor-listings', compact('vendors'));
     }
+
+    public function vendorCertifications(Request $request)
+    {
+        if ($request->vendor_id != '') {
+            $vendorCertifications = Vendor::find($request->vendor_id)->certifications;
+            return Response()->json($vendorCertifications);
+        }
+        return Response()->json('');
+    }
 }

@@ -91,24 +91,13 @@
                         </div>
                     </form>
 
-					<div class="nav-item dropdown">
-                        <a href="{{ route('vendors','microsoft') }}" class="nav-link hvr-underline-from-center">Microsoft</a>
-                    </div>
-
+                    @forelse (navbarVendors() as $vendor)
                     <div class="nav-item dropdown">
-                        <a href="{{ route('vendors','sap') }}" class="nav-link hvr-underline-from-center">SAP</a>
+                        <a href="{{ route('vendor', $vendor->slug) }}" class="nav-link hvr-underline-from-center">{{ $vendor->title ?? '' }}</a>
                     </div>
-
-                    <div class="nav-item dropdown">
-                        <!--<a href="https://www.study4exam.com/oracle-exams" class="nav-link dropdown-toggle" data-toggle="dropdown">Oracle</a>-->
-                        <a href="oracle-exams.html" class="nav-link hvr-underline-from-center" >Oracle</a>
-                    </div>
-
-
-                    <div class="nav-item dropdown">
-                        <!--<a href="https://www.study4exam.com/cisco-exams" class="nav-link dropdown-toggle" data-toggle="dropdown">Cisco</a>-->
-                        <a href="cisco-exams.html" class="nav-link hvr-underline-from-center" >Cisco</a>
-                    </div>
+                @empty
+                    
+                @endforelse
 
                     <div class="nav-item dropdown">
                         <a href="vendors.html" class="nav-link hvr-underline-from-center" data-toggle="">Discount Deals <img id="DiscountDeals_img" style="

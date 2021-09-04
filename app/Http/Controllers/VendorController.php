@@ -19,9 +19,12 @@ class VendorController extends Controller
     
     public function index($slug = null)
     {
-        $title = 'Vendors';
-        $vendor = Vendor::where('slug', $slug )->get();
-        // $vendor = Vendor::where('slug', 'like', '%' . $slug . '%')->get();
-        return view('vendor', compact('title','vendor'));
+        if ($slug != null && Vendor::where('slug', $slug)->exists()) {
+            $title = 'Vendors';
+            $vendor = Vendor::where('slug', $slug)->get();
+            return view('vendor', compact('title','vendor'));
+        }
+        return redirect()->route('home');
+
     }
 }
