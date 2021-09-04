@@ -63,8 +63,8 @@
 
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
             {{-- <a class="navbar-brand" href="/">
-                <img class="cartLogo" src="{{asset('frontend/assets/site/image/1619507533_study4examslogo.webp')}}" alt="Study4Exam"></a> --}}
-            <a class="navbar-brand" href="/home" style="background: #ccc; width: 145px; height: 60px;">
+                <img class="cartLogo" src="" alt=""></a> --}}
+            <a class="navbar-brand" href="/" style="background: #ccc; width: 145px; height: 60px;">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

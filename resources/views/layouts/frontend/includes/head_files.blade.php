@@ -2,11 +2,11 @@
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-        
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Favicon -->
-    
-<meta name="keywords" content="Study4Exam">	        
+
+<meta name="keywords" content="Certsidea">
 <link rel="shortcut icon" type="image/png" href="{{asset('frontend/assets/site/img/1617086695_pen.png')}}"/>
 
 <meta charset="utf-8">
@@ -23,7 +23,7 @@
 {{-- FontAwesome --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<title>Study4Exam - Study for Certification Exams</title>
+<title>Certs Idea - Study for Certification Exams</title>
 
 <style>
     .error {

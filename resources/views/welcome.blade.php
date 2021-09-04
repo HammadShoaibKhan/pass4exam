@@ -2,20 +2,20 @@
 @section('content')
 
 <section  class="home_banner_top ptb-70">
-    
+
       <div class="home_banner_content">
         <strong>BE A CERTIFIED PROFESSIONAL WITH US</strong>
         <h1>Certification Exam <br>
         Preparation Material </h1>
-               <form class="demo-from" id="demos_form" name="demos_form" action="javascript:;" method="post"> 
+               <form class="demo-from" id="demos_form" name="demos_form" action="javascript:;" method="post">
         <div class="row">
             <div class="col-lg-7 col-md-12 col-sm-12">
                <div class="row">
                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                       <div style="" >
             <div id="demo_vendor_idLabel" style="display:none;">Search</div>
-                                
-        						
+
+
         			<select style="height: 40px;
     border-radius: 5px;
     border: 2px solid #efefef;
@@ -28,10 +28,10 @@
                      <option>SAP</option>
                      <option>Cisco</option>
                       </select>
-                 
+
         						<input type="hidden" name="demo_product_type" value="1"  />
         						<input type="hidden" name="page_title" value="Home"  />
-        </div> 
+        </div>
                    </div>
                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                        <div style="">
@@ -52,14 +52,14 @@
                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                        <div id="home_banner_mail" style="">
                             <div class="form-group">
-                            
-                                             
+
+
                                     <input type="email" id="demo_email" name="demo_email" placeholder="Enter your E-mail..." required="">
-                                    	
+
                           </div>
                         </div>
                    </div>
-               </div> 
+               </div>
             </div>
 
         </div>
@@ -72,33 +72,33 @@
     </div>
 
  </section>
- 
- 
 
 
 
 
 
-	
-	
+
+
+
+
     	 <main id="main" role="main">
     		<div class="container-fluid">
     			<style>
     #commentwriteareahome{
-        
+
             background: rgb(224 239 236);
     color: #429482;
     padding: 50px 0px;
         margin-bottom: 0px;
     }
-    
+
      #commentwriteareahome .topArea .row .col-lg-12{
-         
+
          padding-left: 30px;
-         
+
      }
      .new_testimonials_bg_heading{
-         
+
          margin-bottom: -53px;
     margin-left: -4px;
     font-size: 98px;
@@ -111,35 +111,35 @@ display: block;
 margin-inline-start: 0px;
     margin-inline-end: 0px;
      }
-     
+
      @media(max-width: 767px){
          .new_testimonials_bg_heading{
              margin-bottom: -30px;
     font-size: 42px;
          }
      }
-     
+
      @media(max-width: 425px){
-        
-   
+
+
      }
-     
+
      @media(max-width: 991px){
-         
+
           .right_image_security_section{
-           
-         display: none;  
+
+         display: none;
        }
        .popular_certification_home .overview-image .image{
-           
+
            display: none;
-       } 
+       }
      }
 </style>
 
 
  <!--------------------------------------------------------- Popular Certifications --------------------------------------------------------->
- 
+
 <section class="popular_certification_home pt-5 bg-f7fafd">
   <div class="container-fluid p-0">
     <div class="overview-box">
@@ -154,34 +154,34 @@ margin-inline-start: 0px;
         <div class="content left-content">
           <div style=" margin-bottom: 55px; margin-top: -7%;">
 
-            <span class="light_heading">POPULAR</span> <h2>Popular Vendors</h2> <p>Study4exam is a trusted brand for IT students to get a comprehensive range of practice questions to prepare for all in-demand certifications. At Study4exam, we offer you accurate preparation material for exams conducted by Microsoft, Cisco, Oracle, CompTIA, and many other popular vendors. Study4exam guarantees that you will not need anything else after preparing from our actual practice questions. Save your time and download the free demo to get a fair idea about Study4exam practice questions.</p>  
-           
+            <span class="light_heading">POPULAR</span> <h2>Popular Vendors</h2> <p>Certs Idea is a trusted brand for IT students to get a comprehensive range of practice questions to prepare for all in-demand certifications. At Certs Idea, we offer you accurate preparation material for exams conducted by Microsoft, Cisco, Oracle, CompTIA, and many other popular vendors. Certs Idea guarantees that you will not need anything else after preparing from our actual practice questions. Save your time and download the free demo to get a fair idea about Certs Idea practice questions.</p>
+
           </div>
 
 
           <div style=" margin-top: -4%;">
 
             <div class="topnav1_home">
-                 <ul class="nav nav-tabs"> 
+                 <ul class="nav nav-tabs">
                                           <li class="nav-item" ><a class="nav-link active" data-toggle="pill" href="#hot_4">Microsoft</a></li>
                                                       <li class="nav-item" ><a class="nav-link " data-toggle="pill" href="#hot_11">SAP</a></li>
                                                       <li class="nav-item" ><a class="nav-link " data-toggle="pill" href="#hot_3">Oracle</a></li>
                                                       <li class="nav-item" ><a class="nav-link " data-toggle="pill" href="#hot_1">Cisco</a></li>
-                                  
+
               </ul>
 
             </div>
-            
+
               <div class="tab-content">
-                                   
-  
+
+
 
                 <!--<div id="popularsertification_tab" class="container tab-pane active"><br>-->
                 <div id="hot_4" class="tab-pane  active">
-                    
+
                  <div class="row" style="margin-top: 5%;">
-                    
-                                            
+
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -198,7 +198,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 59 
+"> Total Questions : 59
 <!--<span style="padding-left: 10px;">  Updated : 03-Aug-2021 </span>-->
 </h4>
 </b></span>
@@ -215,7 +215,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -232,7 +232,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 53 
+"> Total Questions : 53
 <!--<span style="padding-left: 10px;">  Updated : 26-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -249,7 +249,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -266,7 +266,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 47 
+"> Total Questions : 47
 <!--<span style="padding-left: 10px;">  Updated : 31-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -283,7 +283,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -300,7 +300,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 80 
+"> Total Questions : 80
 <!--<span style="padding-left: 10px;">  Updated : 25-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -317,7 +317,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -334,7 +334,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 45 
+"> Total Questions : 45
 <!--<span style="padding-left: 10px;">  Updated : 24-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -351,7 +351,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -368,7 +368,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 116 
+"> Total Questions : 116
 <!--<span style="padding-left: 10px;">  Updated : 27-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -385,7 +385,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -402,7 +402,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 75 
+"> Total Questions : 75
 <!--<span style="padding-left: 10px;">  Updated : 03-Aug-2021 </span>-->
 </h4>
 </b></span>
@@ -419,7 +419,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -436,7 +436,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 75 
+"> Total Questions : 75
 <!--<span style="padding-left: 10px;">  Updated : 27-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -453,18 +453,18 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-            
+
             </div>
                 </div>
-                                  
-  
+
+
 
                 <!--<div id="popularsertification_tab" class="container tab-pane active"><br>-->
                 <div id="hot_11" class="tab-pane ">
-                    
+
                  <div class="row" style="margin-top: 5%;">
-                    
-                                            
+
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -481,7 +481,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 106 
+"> Total Questions : 106
 <!--<span style="padding-left: 10px;">  Updated : 29-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -498,7 +498,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -515,7 +515,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 80 
+"> Total Questions : 80
 <!--<span style="padding-left: 10px;">  Updated : 28-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -532,7 +532,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -549,7 +549,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 129 
+"> Total Questions : 129
 <!--<span style="padding-left: 10px;">  Updated : 28-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -566,7 +566,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -583,7 +583,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 162 
+"> Total Questions : 162
 <!--<span style="padding-left: 10px;">  Updated : 28-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -600,7 +600,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -617,7 +617,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 96 
+"> Total Questions : 96
 <!--<span style="padding-left: 10px;">  Updated : 28-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -634,7 +634,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -651,7 +651,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 80 
+"> Total Questions : 80
 <!--<span style="padding-left: 10px;">  Updated : 28-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -668,7 +668,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -685,7 +685,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 107 
+"> Total Questions : 107
 <!--<span style="padding-left: 10px;">  Updated : 03-Aug-2021 </span>-->
 </h4>
 </b></span>
@@ -702,7 +702,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -719,7 +719,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 80 
+"> Total Questions : 80
 <!--<span style="padding-left: 10px;">  Updated : 24-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -736,18 +736,18 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-            
+
             </div>
                 </div>
-                                  
-  
+
+
 
                 <!--<div id="popularsertification_tab" class="container tab-pane active"><br>-->
                 <div id="hot_3" class="tab-pane ">
-                    
+
                  <div class="row" style="margin-top: 5%;">
-                    
-                                            
+
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -764,7 +764,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 55 
+"> Total Questions : 55
 <!--<span style="padding-left: 10px;">  Updated : 28-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -781,7 +781,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -798,7 +798,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 214 
+"> Total Questions : 214
 <!--<span style="padding-left: 10px;">  Updated : 26-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -815,7 +815,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -832,7 +832,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 137 
+"> Total Questions : 137
 <!--<span style="padding-left: 10px;">  Updated : 30-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -849,7 +849,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -866,7 +866,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 85 
+"> Total Questions : 85
 <!--<span style="padding-left: 10px;">  Updated : 29-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -883,7 +883,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -900,7 +900,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 70 
+"> Total Questions : 70
 <!--<span style="padding-left: 10px;">  Updated : 25-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -917,7 +917,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -934,7 +934,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 163 
+"> Total Questions : 163
 <!--<span style="padding-left: 10px;">  Updated : 31-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -951,7 +951,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -968,7 +968,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 96 
+"> Total Questions : 96
 <!--<span style="padding-left: 10px;">  Updated : 04-Aug-2021 </span>-->
 </h4>
 </b></span>
@@ -985,7 +985,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -1002,7 +1002,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 75 
+"> Total Questions : 75
 <!--<span style="padding-left: 10px;">  Updated : 29-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -1019,18 +1019,18 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-            
+
             </div>
                 </div>
-                                  
-  
+
+
 
                 <!--<div id="popularsertification_tab" class="container tab-pane active"><br>-->
                 <div id="hot_1" class="tab-pane ">
-                    
+
                  <div class="row" style="margin-top: 5%;">
-                    
-                                            
+
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -1047,7 +1047,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 50 
+"> Total Questions : 50
 <!--<span style="padding-left: 10px;">  Updated : 28-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -1064,7 +1064,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -1081,7 +1081,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 57 
+"> Total Questions : 57
 <!--<span style="padding-left: 10px;">  Updated : 26-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -1098,7 +1098,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -1115,7 +1115,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 76 
+"> Total Questions : 76
 <!--<span style="padding-left: 10px;">  Updated : 31-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -1132,7 +1132,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -1149,7 +1149,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 60 
+"> Total Questions : 60
 <!--<span style="padding-left: 10px;">  Updated : 31-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -1166,7 +1166,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -1183,7 +1183,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 59 
+"> Total Questions : 59
 <!--<span style="padding-left: 10px;">  Updated : 30-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -1200,7 +1200,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -1217,7 +1217,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 139 
+"> Total Questions : 139
 <!--<span style="padding-left: 10px;">  Updated : 25-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -1234,7 +1234,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -1251,7 +1251,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 70 
+"> Total Questions : 70
 <!--<span style="padding-left: 10px;">  Updated : 26-Jul-2021 </span>-->
 </h4>
 </b></span>
@@ -1268,7 +1268,7 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-                               
+
                   <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                 <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
                   <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
@@ -1285,7 +1285,7 @@ margin-inline-start: 0px;
     display: block;
     margin-bottom: 8px;
 
-"> Total Questions : 86 
+"> Total Questions : 86
 <!--<span style="padding-left: 10px;">  Updated : 06-Aug-2021 </span>-->
 </h4>
 </b></span>
@@ -1302,14 +1302,14 @@ margin-inline-start: 0px;
                     </div>
                    </div>
             </div>
-            
+
             </div>
                 </div>
-                                
-                
-                
+
+
+
               </div>
-  
+
 
           </div>
             </div>
@@ -1326,9 +1326,9 @@ margin-inline-start: 0px;
       <div class="overview-content">
         <div class="content left-content" style="padding-bottom: 0px; padding-right: 20px;">
 
-                             <div id="world-class-learning"> <h2>World-class learning for anyone, everywhere</h2> </div> <div id="world-class-learning2"> <p>Study4exam offers comprehensive preparation material that guarantees your first attempt success in the leading IT certification exams. We ensure that you will get state-of-the-art and new practice questions from Study4exam. It is our objective to help you prepare well for the most expected questions so that you can attempt these difficult questions of your desired IT certification exam on the first try. Study4exam has paved the way&nbsp;for multiple candidates towards success. You can also get IT career benefits like a job promotion or boost a new career by preparing for your dream certification from Study4exam.</p> </div> <div class="row" style="margin-left: 20px; margin-bottom: 15%;margin-top: 8%;"> <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> <div style="color: white; margin-left: 5%; text-align: center; "><img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_user.png')}}" width="75" /> <b class="bold_offer">24/7 Customer<br /> Support</b></div> </div> <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> <div style="color: white; margin-left: 5%; text-align: center;"><img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_ero.png')}}
-                             " width="52" /> <b class="bold_offer">Free 3 Months<br /> Updates</b></div> </div> <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> <div style="color: white; margin-left: 5%; text-align: center;"><img alt="image" height="59" src="{{asset('frontend/assets/site/img/image_tic.png')}}" width="51" /> <b class="bold_offer">Security and<br /> Privacy</b></div> </div> </div>  
-           
+                             <div id="world-class-learning"> <h2>World-class learning for anyone, everywhere</h2> </div> <div id="world-class-learning2"> <p>Certs Idea offers comprehensive preparation material that guarantees your first attempt success in the leading IT certification exams. We ensure that you will get state-of-the-art and new practice questions from Certs Idea. It is our objective to help you prepare well for the most expected questions so that you can attempt these difficult questions of your desired IT certification exam on the first try. Certs Idea has paved the way&nbsp;for multiple candidates towards success. You can also get IT career benefits like a job promotion or boost a new career by preparing for your dream certification from Certs Idea.</p> </div> <div class="row" style="margin-left: 20px; margin-bottom: 15%;margin-top: 8%;"> <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> <div style="color: white; margin-left: 5%; text-align: center; "><img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_user.png')}}" width="75" /> <b class="bold_offer">24/7 Customer<br /> Support</b></div> </div> <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> <div style="color: white; margin-left: 5%; text-align: center;"><img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_ero.png')}}
+                             " width="52" /> <b class="bold_offer">Free 3 Months<br /> Updates</b></div> </div> <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> <div style="color: white; margin-left: 5%; text-align: center;"><img alt="image" height="59" src="{{asset('frontend/assets/site/img/image_tic.png')}}" width="51" /> <b class="bold_offer">Security and<br /> Privacy</b></div> </div> </div>
+
         </div>
       </div>
       <div class="overview-image">
@@ -1343,23 +1343,23 @@ margin-inline-start: 0px;
 </section>
 
 <!--------------------------------------------------------- Popular Exams --------------------------------------------------------->
-                                    
+
   <section class="home_popular_exam_section pt-5 pb-5 bg-f7fafd" style="">
     <div class="home_popular_exam_section_inner" style="">
-       
-                   <span>POPULAR</span> <h3>Popular Exams</h3> <p>Thousands of candidates have successfully prepared from Study4exam high-quality preparation material. Our practice questions are enough for your success because of our experts&rsquo; continuous efforts to keep our preparation material updated and relevant. Get instant access to recently updated practice material and walk out on exam day as a successful candidate.</p>  
 
-      
-       
+                   <span>POPULAR</span> <h3>Popular Exams</h3> <p>Thousands of candidates have successfully prepared from Certs Idea high-quality preparation material. Our practice questions are enough for your success because of our experts&rsquo; continuous efforts to keep our preparation material updated and relevant. Get instant access to recently updated practice material and walk out on exam day as a successful candidate.</p>
+
+
+
      </div>
      <div class="container">
-         
-         
-            
-            
+
+
+
+
        <div class="row" style="margin-bottom: 3%;">
-           
-                                               
+
+
                                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                                        <div id="popular_exam_cards" class="card">
                                          <div class="card-body hvr-rectangle-out" style="display: inline-block;
@@ -1376,14 +1376,14 @@ margin-inline-start: 0px;
     ">
                                            <div id="popular_exam_cards_body_content">
                                              <strong ><a href="microsoft/md-101.html">MD-101</a></strong>
-                                             
-                                             <!--https://www.study4exam.com/n-a/-->
-                                             
+
+                                             <!--https://www.certsidea.com/n-a/-->
+
                                              <br>
 
                                              <!---->
                                              <!--<h3>2021-07-29 09:21:50</h3>-->
-                                            
+
 
                                              <span>29, Jul 2021</span>
                                              <br>
@@ -1393,7 +1393,7 @@ margin-inline-start: 0px;
                                          </div>
                                        </div>
 
-                                                                        
+
                                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                                        <div id="popular_exam_cards" class="card">
                                          <div class="card-body hvr-rectangle-out" style="display: inline-block;
@@ -1410,14 +1410,14 @@ margin-inline-start: 0px;
     ">
                                            <div id="popular_exam_cards_body_content">
                                              <strong ><a href="adobe/ad0-e202.html">AD0-E202</a></strong>
-                                             
-                                             <!--https://www.study4exam.com/n-a/-->
-                                             
+
+                                             <!--https://www.certsidea.com/n-a/-->
+
                                              <br>
 
                                              <!---->
                                              <!--<h3>2021-08-01 04:05:01</h3>-->
-                                            
+
 
                                              <span>01, Aug 2021</span>
                                              <br>
@@ -1427,7 +1427,7 @@ margin-inline-start: 0px;
                                          </div>
                                        </div>
 
-                                                                        
+
                                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                                        <div id="popular_exam_cards" class="card">
                                          <div class="card-body hvr-rectangle-out" style="display: inline-block;
@@ -1444,14 +1444,14 @@ margin-inline-start: 0px;
     ">
                                            <div id="popular_exam_cards_body_content">
                                              <strong ><a href="amazon/saa-c02.html">SAA-C02</a></strong>
-                                             
-                                             <!--https://www.study4exam.com/n-a/-->
-                                             
+
+                                             <!--https://www.certsidea.com/n-a/-->
+
                                              <br>
 
                                              <!---->
                                              <!--<h3>2021-07-31 10:43:53</h3>-->
-                                            
+
 
                                              <span>31, Jul 2021</span>
                                              <br>
@@ -1461,7 +1461,7 @@ margin-inline-start: 0px;
                                          </div>
                                        </div>
 
-                                                                        
+
                                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                                        <div id="popular_exam_cards" class="card">
                                          <div class="card-body hvr-rectangle-out" style="display: inline-block;
@@ -1478,14 +1478,14 @@ margin-inline-start: 0px;
     ">
                                            <div id="popular_exam_cards_body_content">
                                              <strong ><a href="mulesoft/mcd-level-1.html">MCD-Level-1</a></strong>
-                                             
-                                             <!--https://www.study4exam.com/n-a/-->
-                                             
+
+                                             <!--https://www.certsidea.com/n-a/-->
+
                                              <br>
 
                                              <!---->
                                              <!--<h3>2021-08-01 18:33:29</h3>-->
-                                            
+
 
                                              <span>01, Aug 2021</span>
                                              <br>
@@ -1495,7 +1495,7 @@ margin-inline-start: 0px;
                                          </div>
                                        </div>
 
-                                                                        
+
                                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                                        <div id="popular_exam_cards" class="card">
                                          <div class="card-body hvr-rectangle-out" style="display: inline-block;
@@ -1512,14 +1512,14 @@ margin-inline-start: 0px;
     ">
                                            <div id="popular_exam_cards_body_content">
                                              <strong ><a href="ibm/c1000-100.html">C1000-100</a></strong>
-                                             
-                                             <!--https://www.study4exam.com/n-a/-->
-                                             
+
+                                             <!--https://www.certsidea.com/n-a/-->
+
                                              <br>
 
                                              <!---->
                                              <!--<h3>2021-07-24 04:10:13</h3>-->
-                                            
+
 
                                              <span>24, Jul 2021</span>
                                              <br>
@@ -1529,7 +1529,7 @@ margin-inline-start: 0px;
                                          </div>
                                        </div>
 
-                                                                        
+
                                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                                        <div id="popular_exam_cards" class="card">
                                          <div class="card-body hvr-rectangle-out" style="display: inline-block;
@@ -1546,14 +1546,14 @@ margin-inline-start: 0px;
     ">
                                            <div id="popular_exam_cards_body_content">
                                              <strong ><a href="avaya/71300x.html">71300X</a></strong>
-                                             
-                                             <!--https://www.study4exam.com/n-a/-->
-                                             
+
+                                             <!--https://www.certsidea.com/n-a/-->
+
                                              <br>
 
                                              <!---->
                                              <!--<h3>2021-07-25 05:22:31</h3>-->
-                                            
+
 
                                              <span>25, Jul 2021</span>
                                              <br>
@@ -1563,7 +1563,7 @@ margin-inline-start: 0px;
                                          </div>
                                        </div>
 
-                                                                        
+
                                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                                        <div id="popular_exam_cards" class="card">
                                          <div class="card-body hvr-rectangle-out" style="display: inline-block;
@@ -1580,14 +1580,14 @@ margin-inline-start: 0px;
     ">
                                            <div id="popular_exam_cards_body_content">
                                              <strong ><a href="axis/anve.html">ANVE</a></strong>
-                                             
-                                             <!--https://www.study4exam.com/n-a/-->
-                                             
+
+                                             <!--https://www.certsidea.com/n-a/-->
+
                                              <br>
 
                                              <!---->
                                              <!--<h3>2021-08-01 23:51:52</h3>-->
-                                            
+
 
                                              <span>01, Aug 2021</span>
                                              <br>
@@ -1597,7 +1597,7 @@ margin-inline-start: 0px;
                                          </div>
                                        </div>
 
-                                                                        
+
                                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                                        <div id="popular_exam_cards" class="card">
                                          <div class="card-body hvr-rectangle-out" style="display: inline-block;
@@ -1614,14 +1614,14 @@ margin-inline-start: 0px;
     ">
                                            <div id="popular_exam_cards_body_content">
                                              <strong ><a href="nahq/cphq.html">CPHQ</a></strong>
-                                             
-                                             <!--https://www.study4exam.com/n-a/-->
-                                             
+
+                                             <!--https://www.certsidea.com/n-a/-->
+
                                              <br>
 
                                              <!---->
                                              <!--<h3>2021-08-01 09:18:11</h3>-->
-                                            
+
 
                                              <span>01, Aug 2021</span>
                                              <br>
@@ -1631,33 +1631,33 @@ margin-inline-start: 0px;
                                          </div>
                                        </div>
 
-                                    
+
          </div>
      </div>
    </div>
  </section>
- 
+
 
  <!--------------------------------------------------------- DIFFERENT --------------------------------------------------------->
 
 
 <section class="different_home_section pt-5 pb-5 bg-f7fafd" style=" ">
-    
-   <div class="different_home_section_inner_top" style=""><span>OUR STRENGTH</span> <h3>How Does Study4exam Serve You?</h3> <p>Our preparation material is the most reliable solution to quickly prepare for your dream IT certification exams. We are certain that our preparation material will guide you to get certified on the first try. Here is how we serve you to prepare successfully:</p> </div> <div class="different_home_section_inner_bottom" style=""> <div class="row"> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="pdf" height="80" src="{{asset('frontend/assets/site/img/image_pdf.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">Free Demo of Preparation Material</p> <p class="content">Try a free demo of our PDF and practice exam software before the purchase to get a closer look at practice questions and answers.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="updates" height="58" src="{{asset('frontend/assets/site/img/image_ero1.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">Up to 3 Months of Free Updates</p> <p class="content">Study4exam updates its preparation material according to changes in the exam syllabus. We provide up to 3 months of free updates so that you get practice questions of today and not yesterday.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Success" height="74" src="{{asset('frontend/assets/site/img/image_sun.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">Get Certified in First Attempt</p> <p class="content">We have a long list of satisfied customers from multiple countries. It does not matter which exam you are attempting. Our practice questions will certainly assist you to get passing marks on the first attempt.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Com" height="66" src="{{asset('frontend/assets/site/img/image_com.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">PDF Questions and Practice Test</p> <p class="content">We strive to make certain that preparation material for every certification exam is authentic. Study4exam offers PDF questions, web-based and desktop practice tests that are consistently updated.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Customer" height="70" src="{{asset('frontend/assets/site/img/image_user1.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">24/7 Customer Support</p> <p class="content">Study4exam has a dedicated support team to answer your queries 24/7. Contact us if you face the technical problems, login issues, payment and download issues. We will entertain you as soon as possible.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Guaranteed" height="62" src="{{asset('frontend/assets/site/img/image_guran.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">100% Guaranteed Customer Satisfaction</p> <p class="content">Study4exam offers accurate practice questions at an affordable price. Thousands of customers have met their learning needs by using our products. We ensure that upon using our exam products, you are satisfied.</p> </div> </div> </div> </div> </div>   
-                       
 
- 
+   <div class="different_home_section_inner_top" style=""><span>OUR STRENGTH</span> <h3>How Does Certs Idea Serve You?</h3> <p>Our preparation material is the most reliable solution to quickly prepare for your dream IT certification exams. We are certain that our preparation material will guide you to get certified on the first try. Here is how we serve you to prepare successfully:</p> </div> <div class="different_home_section_inner_bottom" style=""> <div class="row"> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="pdf" height="80" src="{{asset('frontend/assets/site/img/image_pdf.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">Free Demo of Preparation Material</p> <p class="content">Try a free demo of our PDF and practice exam software before the purchase to get a closer look at practice questions and answers.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="updates" height="58" src="{{asset('frontend/assets/site/img/image_ero1.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">Up to 3 Months of Free Updates</p> <p class="content">Certs Idea updates its preparation material according to changes in the exam syllabus. We provide up to 3 months of free updates so that you get practice questions of today and not yesterday.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Success" height="74" src="{{asset('frontend/assets/site/img/image_sun.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">Get Certified in First Attempt</p> <p class="content">We have a long list of satisfied customers from multiple countries. It does not matter which exam you are attempting. Our practice questions will certainly assist you to get passing marks on the first attempt.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Com" height="66" src="{{asset('frontend/assets/site/img/image_com.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">PDF Questions and Practice Test</p> <p class="content">We strive to make certain that preparation material for every certification exam is authentic. Certs Idea offers PDF questions, web-based and desktop practice tests that are consistently updated.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Customer" height="70" src="{{asset('frontend/assets/site/img/image_user1.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">24/7 Customer Support</p> <p class="content">Certs Idea has a dedicated support team to answer your queries 24/7. Contact us if you face the technical problems, login issues, payment and download issues. We will entertain you as soon as possible.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Guaranteed" height="62" src="{{asset('frontend/assets/site/img/image_guran.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">100% Guaranteed Customer Satisfaction</p> <p class="content">Certs Idea offers accurate practice questions at an affordable price. Thousands of customers have met their learning needs by using our products. We ensure that upon using our exam products, you are satisfied.</p> </div> </div> </div> </div> </div>
+
+
+
 </section>
 
 
 
 
   <!--------------------------------------------------------- Recent Updates exams --------------------------------------------------------->
-  
+
   <section class="recent_update_exam_home pt-5 pb-5 bg-f7fafd">
     <div class="recent_update_exam_top_home">
 
-         <span>RECENTS</span> <h3>Recent Updated Exams</h3>   
+         <span>RECENTS</span> <h3>Recent Updated Exams</h3>
     </div>
     <div class="recent_update_exam_bottom_home container">
       <div class="row">
@@ -1687,7 +1687,7 @@ margin-inline-start: 0px;
             </div>
           </div>
         </div>
-        
+
                 <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
           <div class="card " style="">
             <div class="card-body hvr-sweep-to-right">
@@ -1714,7 +1714,7 @@ margin-inline-start: 0px;
             </div>
           </div>
         </div>
-        
+
                 <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
           <div class="card " style="">
             <div class="card-body hvr-sweep-to-right">
@@ -1741,7 +1741,7 @@ margin-inline-start: 0px;
             </div>
           </div>
         </div>
-        
+
                 <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
           <div class="card " style="">
             <div class="card-body hvr-sweep-to-right">
@@ -1768,7 +1768,7 @@ margin-inline-start: 0px;
             </div>
           </div>
         </div>
-        
+
                 <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
           <div class="card " style="">
             <div class="card-body hvr-sweep-to-right">
@@ -1795,7 +1795,7 @@ margin-inline-start: 0px;
             </div>
           </div>
         </div>
-        
+
                 <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
           <div class="card " style="">
             <div class="card-body hvr-sweep-to-right">
@@ -1822,7 +1822,7 @@ margin-inline-start: 0px;
             </div>
           </div>
         </div>
-        
+
                 <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
           <div class="card " style="">
             <div class="card-body hvr-sweep-to-right">
@@ -1849,7 +1849,7 @@ margin-inline-start: 0px;
             </div>
           </div>
         </div>
-        
+
                 <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
           <div class="card " style="">
             <div class="card-body hvr-sweep-to-right">
@@ -1876,7 +1876,7 @@ margin-inline-start: 0px;
             </div>
           </div>
         </div>
-        
+
                 <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
           <div class="card " style="">
             <div class="card-body hvr-sweep-to-right">
@@ -1903,8 +1903,8 @@ margin-inline-start: 0px;
             </div>
           </div>
         </div>
-        
-        
+
+
 
       </div>
 
@@ -1912,44 +1912,44 @@ margin-inline-start: 0px;
     </div>
     </div>
   </section>
-    
+
 <!--------------------------------------------------------- Recent Updates exams END --------------------------------------------------------->
-      
-      
+
+
       <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
             <div class="section-title">
               <span class="new_testimonials_bg_heading">TESTIMONIALS</span>
               <h4 class="home_testimonials"> Certification Exam Testimonials</h4>
             </div>
-    
+
     <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
      <div id="parant_comment" class="container mt-3">
-          
-  
+
+
   <div class="media p-3">
-            
+
                 		<div class="initalname">
     		    M    		</div>
-            
-            
+
+
             <div class="media-body">
               <div class="home_test_name">Marcella	    				    				        <!--<img src="{{asset('frontend/https://flagcdn.com/w80/dz.png" alt="flag"  class="dicls">-->
-    				 
+
     		    <span><i>Aug 7, 2021</i></span></div>
                 <div class="rating">
     				        				</div>
     				<p>Some people are stuck in between certificates and are not able to clear in spite of studying the course several number of times. The thing they are missing is practice. With such a wonderful resource of premium questions available online, i took no second chance and enrolled. Successfully cleared 33820X Certification Exam with good results.</p>
-                              
+
     </div>
   </div>
-     
-  
+
+
   <div class="media p-3">
-            
+
                 		<div class="initalname">
     		    T    		</div>
-            
-            
+
+
             <div class="media-body">
               <div class="home_test_name">Tyler
     		    <span><i>Aug 5, 2021</i></span></div>
@@ -1960,70 +1960,70 @@ margin-inline-start: 0px;
     					    <span class="glyphicon glyphicon-star"></span>
     				        <span class="glyphicon glyphicon-star half"></span>
     				        				</div>
-    				<p>Cisco 350-501 premium questions helped me clear all the doubts and confusion related to the exam. The updated material made sure that I would get success on the first attempt. I highly recommend study4exam if you do not want to waste your time and money</p>
-                              
+    				<p>Cisco 350-501 premium questions helped me clear all the doubts and confusion related to the exam. The updated material made sure that I would get success on the first attempt. I highly recommend certsidea if you do not want to waste your time and money</p>
+
     </div>
   </div>
-     
-  
+
+
   <div class="media p-3">
-            
+
                 		<div class="initalname">
     		    T    		</div>
-            
-            
+
+
             <div class="media-body">
               <div class="home_test_name">Timothy
     		    <span><i>Aug 3, 2021</i></span></div>
                 <div class="rating">
     				        				</div>
-    				<p>I did not know how to go about practicing for CISSP certificate exam. So i opted for ISC2 Certified Information Systems Security Professional mock tests on study4exam. They come with the option where i can track the progress i made on an everyday basis. I could also compare my performance through the history given. The progress thus becomes streamlined and i am quite happy with the things that are going about.</p>
-                              
+    				<p>I did not know how to go about practicing for CISSP certificate exam. So i opted for ISC2 Certified Information Systems Security Professional mock tests on certsidea. They come with the option where i can track the progress i made on an everyday basis. I could also compare my performance through the history given. The progress thus becomes streamlined and i am quite happy with the things that are going about.</p>
+
     </div>
   </div>
-     
-  
+
+
   <div class="media p-3">
-            
+
                 		<div class="initalname">
     		    K    		</div>
-            
-            
+
+
             <div class="media-body">
               <div class="home_test_name">Kenney
     		    <span><i>Aug 1, 2021</i></span></div>
                 <div class="rating">
     				        				</div>
-    				<p>It is a new day today. My score in Certified Jenkins Engineer certification exam is all thanks to paid online simulated tests on study4exam. Thank you everyone associated to study4exam. It is the best!</p>
-                              
+    				<p>It is a new day today. My score in Certified Jenkins Engineer certification exam is all thanks to paid online simulated tests on certsidea. Thank you everyone associated to certsidea. It is the best!</p>
+
     </div>
   </div>
-     
-  
+
+
   <div class="media p-3">
-            
+
                 		<div class="initalname">
     		    J    		</div>
-            
-            
+
+
             <div class="media-body">
-              <div class="home_test_name">Joshua    
+              <div class="home_test_name">Joshua
     		    <span><i>Jul 30, 2021</i></span></div>
                 <div class="rating">
     				        				</div>
-    				<p>Thank God! I am happy that I could practice on study4exam mock tests for C_MDG_1909 certification exam before giving the actual exam. It helped to get rid of my fears and to get a score of 85% in the actual exam.</p>
-                              
+    				<p>Thank God! I am happy that I could practice on certsidea mock tests for C_MDG_1909 certification exam before giving the actual exam. It helped to get rid of my fears and to get a score of 85% in the actual exam.</p>
+
     </div>
   </div>
-    
+
 </div>
 </div>
 
 
 
     </section>
-    
-    
+
+
     <!-- comment area end -->
 <div id="commentwriteareahome" class="commentwritearea" style="display: none;">
     <div class="container">
@@ -2038,13 +2038,13 @@ margin-inline-start: 0px;
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div id="form-messages" style="background:none;">
-						 
+
 											</div>
     				<div class="text-center">
     					<div class="alert alert-success" style="display:none"></div>
     					<div class="alert alert-danger" style="display:none"></div>
     				</div>
-					<!--<form method="post" name="contactusForm" id="contactusForm" action="https://www.study4exam.com/contact">-->
+					<!--<form method="post" name="contactusForm" id="contactusForm" action="https://www.certsidea.com/contact">-->
 					<div name="contactusForm" id="contactusForm">
 					    <div class="inputArea">
 							<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -2084,8 +2084,8 @@ margin-inline-start: 0px;
             </div>
         </div>
     </div>
-</div>  
-		
+</div>
+
 </div>
 </main>
 
