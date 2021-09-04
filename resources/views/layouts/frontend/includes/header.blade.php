@@ -91,24 +91,13 @@
                         </div>
                     </form>
 
-					<div class="nav-item dropdown">
-                        <a href="{{ route('vendors','microsoft') }}" class="nav-link hvr-underline-from-center">Microsoft</a>
-                    </div>
-
+                    @forelse (navbarVendors() as $vendor)
                     <div class="nav-item dropdown">
-                        <a href="{{ route('vendors','sap') }}" class="nav-link hvr-underline-from-center">SAP</a>
+                        <a href="{{ route('vendor', $vendor->slug) }}" class="nav-link hvr-underline-from-center">{{ $vendor->title ?? '' }}</a>
                     </div>
+                @empty
 
-                    <div class="nav-item dropdown">
-                        <!--<a href="https://www.study4exam.com/oracle-exams" class="nav-link dropdown-toggle" data-toggle="dropdown">Oracle</a>-->
-                        <a href="{{ route('vendors','oracle') }}" class="nav-link hvr-underline-from-center" >Oracle</a>
-                    </div>
-
-
-                    <div class="nav-item dropdown">
-                        <!--<a href="https://www.study4exam.com/cisco-exams" class="nav-link dropdown-toggle" data-toggle="dropdown">Cisco</a>-->
-                        <a href="cisco-exams.html" class="nav-link hvr-underline-from-center" >Cisco</a>
-                    </div>
+                @endforelse
 
                     <div class="nav-item dropdown">
                         <a href="vendors.html" class="nav-link hvr-underline-from-center" data-toggle="">Discount Deals <img id="DiscountDeals_img" style="
@@ -129,17 +118,17 @@
                             border-radius: 50%;
                             color: #fff;
                             background-color: #22ad95;
-                            font-size: 16px;"> 
-                        
-                            0 
+                            font-size: 16px;">
+
+                            0
                         </span>
-                        <img src="{{asset('frontend/assets/site/img/cart.png')}}" alt=""> 
+                        <img src="{{asset('frontend/assets/site/img/cart.png')}}" alt="">
                     </a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <a id="nav_login_btn" rel="nofollow" href="{{ route('login') }}" class="btn"style="border-radius: 0px;">
                         <i class="fa fa-user"></i> LOGIN / REGISTER
                     </a>
-                </div>  
+                </div>
             </div>
         </nav>
         <input type="hidden" class="is-logged-in" value="0">

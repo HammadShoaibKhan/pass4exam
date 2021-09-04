@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\VendorController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\CertificationController;
+use App\Http\Controllers\Admin\ExamController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::group(['middleware' => 'customer'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/vendors/{title}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendors');
+    Route::get('vendor/{slug?}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
 
 
 });
@@ -42,13 +43,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('create', [VendorController::class, 'store'])->name('admin.vendor.create');
         Route::get('{id}/edit', [VendorController::class, 'edit'])->name('admin.vendors.edit');
         Route::post('update/{id}', [VendorController::class, 'update'])->name('admin.vendor.update');
-    
         Route::post('delete', [VendorController::class, 'delete'])->name('admin.vendor.delete');
-        Route::post('multiple_delete', [VendorController::class, 'multipleDelete'])->name('admin.vendors.delete');
-    
+        Route::post('multiple-delete', [VendorController::class, 'multipleDelete'])->name('admin.vendors.delete');
         Route::post('status-change', [VendorController::class, 'changeStatus'])->name('admin.vendors.change-status');
-    
         Route::post('name-exists', [VendorController::class, 'checkNameExists']);
+        Route::post('get-certifications', [VendorController::class, 'vendorCertifications'])->name('admin.vendor.certifications');
     });
 
 
@@ -62,8 +61,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::get('{id}/edit', [CertificationController::class, 'edit'])->name('admin.certifications.edit');
         Route::post('update/{id}', [CertificationController::class, 'update'])->name('admin.certification.update');
         Route::post('delete', [CertificationController::class, 'delete'])->name('admin.certification.delete');
-        Route::post('multiple_delete', [CertificationController::class, 'multipleDelete'])->name('admin.certifications.delete');
+        Route::post('multiple-delete', [CertificationController::class, 'multipleDelete'])->name('admin.certifications.delete');
         Route::post('status-change', [CertificationController::class, 'changeStatus'])->name('admin.certifications.change-status');
+    });
+
+
+    /** ADMIN EXAMS ROUTES */
+    Route::get('exams', [ExamController::class, 'index'])->name('admin.exams');
+    Route::prefix('exam')->group(function () {
+        Route::get('create', [ExamController::class, 'create'])->name('admin.exam.create');
+        Route::post('create', [ExamController::class, 'store'])->name('admin.exam.create');
+        Route::get('{id}/edit', [ExamController::class, 'edit'])->name('admin.exam.edit');
+        Route::post('update/{id}', [ExamController::class,'update'])->name('admin.exam.update');
+        Route::post('name-exists', [ExamController::class, 'checkNameExists'])->name('admin.exam.name-exists');
+        Route::post('code-exists', [ExamController::class, 'checkExamCodeExists'])->name('admin.exam.code-exists');
+        Route::post('mutiple-delete', [ExamController::class, 'multipleDelete'])->name('admin.exams.delete');
+        Route::post('delete', [ExamController::class, 'delete'])->name('admin.exam.delete');
+        Route::post('change-status', [ExamController::class, 'changeStatus'])->name('admin.exam.change-status');
     });
 
 

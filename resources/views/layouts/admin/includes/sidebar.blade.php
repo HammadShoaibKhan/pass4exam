@@ -42,6 +42,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.exams') }}" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Exams
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

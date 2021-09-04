@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Create Certification</h1>
+            <h1>Create Exam</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ route('admin.certifications') }}">Certifications</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.exams') }}">Exams</a></li>
               <li class="breadcrumb-item">Create</li>
             </ol>
           </div>
@@ -34,17 +34,17 @@
                         </ul>
                       </div>
                       <div class="card-body">
-                          
+
                       @include('layouts.admin.includes.messages')
                         <div class="tab-content" id="custom-tabs-four-tabContent">
                           <div class="tab-pane active show fade" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                  <h3 class="card-title">Create Certification</h3>
+                                  <h3 class="card-title">Create Exam</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                  <form action="{{ route('admin.certification.create') }}" method="POST" id="add-certification-form">
+                                  <form action="{{ route('admin.exam.create') }}" method="POST" id="add-exam-form">
                                     {{ csrf_field() }}
                                     <div class="row">
                                       <div class="col-sm-4">
@@ -59,20 +59,23 @@
                                             </p>
                                         </div>
                                       </div>
-                                      <input type="hidden" id="cert-name-exist" value="{{ route('admin.certification.name-exists') }}">
-                                    
+                                      <input type="hidden" id="exam-name-exist" value="{{ route('admin.exam.name-exists') }}">
+                                      <input type="hidden" id="exam-code-exist" value="{{ route('admin.exam.code-exists') }}">
+
                                       <div class="col-sm-4">
                                           <div class="form-group">
                                               <label>Vendor</label>
-                                              <select name="vender_id" class="form-control">
+                                              <select name="vendor_id" class="form-control select-vendor" data-route="{{ route('admin.vendor.certifications') }}">
                                                   <option value="">Select Vendor......</option>
                                                   @forelse ($vendors as $vendor)
-                                                      <option value="{{ $vendor->id }}">{{ $vendor->title }}</option>
+                                                    @if ($vendor->certifications->count() > 0)
+                                                        <option value="{{ $vendor->id }}">{{ $vendor->title }}</option>
+                                                    @endif
                                                   @empty
                                                   @endforelse
                                               </select>
                                               <p class="text-danger">
-                                                @error('vender_id')
+                                                @error('vendor_id')
                                                 {{ $message }}
                                                 @enderror
                                                 </p>
@@ -80,6 +83,33 @@
                                       </div>
 
                                       <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Certification</label>
+                                            <select name="certification_id" class="form-control certifications_dropdown">
+                                                <option value="">Select Certification......</option>
+                                            </select>
+                                            <p class="text-danger">
+                                              @error('certification_id')
+                                              {{ $message }}
+                                              @enderror
+                                              </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                          <label>Exam&nbspCode</label>
+                                          <input type="text" class="form-control" id="exam_code" name="exam_code" placeholder="Exam Code">
+                                            <p class="text-danger">
+                                            @error('exam_code')
+                                            {{ $message }}
+                                            @enderror
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Status</label>
                                             <select name="status" class="form-control">
@@ -91,7 +121,7 @@
 
                                     </div>
                                     <div class="row">
-                                        
+
                                       <div class="col-sm-12">
                                         <!-- text input -->
                                         <div class="form-group">
@@ -100,13 +130,13 @@
                                         </div>
                                       </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-2 offset-10">
                                             <button class="btn btn-md btn-block btn-primary" type="submit">Create</button>
                                         </div>
                                     </div>
-                                    
+
                                   </form>
                                 </div>
                                 <!-- /.card-body -->

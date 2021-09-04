@@ -113,3 +113,111 @@ $('#edit-certification-form').validate({
         }
     }
 })
+
+/**script to validate add exam form */
+$('#add-exam-form').validate({
+    rules : {
+        title : {
+            required : true,
+            remote : {
+                url : $('#exam-name-exist').val(),
+                type : "POST",
+                data : {
+                    _token : $('meta[name="csrf-token"]').attr('content'),
+                    title : function () {
+                        return $("#title").val();
+                    }
+                }
+            }
+        },
+        vendor_id : {
+            required : true
+        },
+        certification_id : {
+            required : true
+        },
+        exam_code : {
+            required : true,
+            remote : {
+                url : $('#exam-code-exist').val(),
+                type : "POST",
+                data : {
+                    _token : $('meta[name="csrf-token"]').attr('content'),
+                    exam_code : function () {
+                        return $("#exam_code").val();
+                    }
+                }
+            }
+        }
+    },
+    messages : {
+        title : {
+            required : "Name is required",
+            remote : "Exam name already exists"
+        },
+        vendor_id : {
+            required : "Select a vendor"
+        },
+        certification_id : {
+            required : "Select a certification"
+        },
+        exam_code : {
+            required : "Exam code is required",
+            remote : "Exam code already exists"
+        }
+    }
+})
+
+/**script to validate update exam form */
+$('#edit-exam-form').validate({
+    rules : {
+        title : {
+            required : true,
+            // remote : {
+            //     url : $('#exam-name-exist').val(),
+            //     type : "POST",
+            //     data : {
+            //         _token : $('meta[name="csrf-token"]').attr('content'),
+            //         title : function () {
+            //             return $("#title").val();
+            //         }
+            //     }
+            // }
+        },
+        vendor_id : {
+            required : true
+        },
+        certification_id : {
+            required : true
+        },
+        exam_code : {
+            required : true,
+            // remote : {
+            //     url : $('#exam-code-exist').val(),
+            //     type : "POST",
+            //     data : {
+            //         _token : $('meta[name="csrf-token"]').attr('content'),
+            //         exam_code : function () {
+            //             return $("#exam_code").val();
+            //         }
+            //     }
+            // }
+        }
+    },
+    messages : {
+        title : {
+            required : "Name is required",
+            // remote : "Exam name already exists"
+        },
+        vendor_id : {
+            required : "Select a vendor"
+        },
+        certification_id : {
+            required : "Select a certification"
+        },
+        exam_code : {
+            required : "Exam code is required",
+            // remote : "Exam code already exists"
+        }
+    }
+})
