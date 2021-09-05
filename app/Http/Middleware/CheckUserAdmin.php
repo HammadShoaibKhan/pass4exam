@@ -19,6 +19,6 @@ class CheckUserAdmin
         if (auth()->check() && auth()->user()->type === 1) {
             return $next($request);
         }
-        return redirect()->route('/');
+        return redirect()->route('/home');
     }
 }
