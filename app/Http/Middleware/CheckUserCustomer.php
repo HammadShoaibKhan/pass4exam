@@ -16,7 +16,7 @@ class CheckUserCustomer
      */
     public function handle(Request $request, Closure $next)
     {
-        if ((auth()->check() && auth()->user()->type === 2) || !auth()->check()) {
+        if ((auth()->check() && auth()->user()->type == 2)) {
             return $next($request);
         }
         return redirect()->route('admin.dashboard');

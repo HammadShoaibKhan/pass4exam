@@ -16,7 +16,7 @@ class CheckUserAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->type === 1) {
+        if (auth()->check() && auth()->user()->type == 1) {
             return $next($request);
         }
         return redirect()->route('home');
