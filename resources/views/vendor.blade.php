@@ -1,8 +1,8 @@
 @extends('layouts.frontend.master')
 @section('content')
-<?php foreach ($vendor as $item)
-  // $title = $item->title;
-  // $description = $item->description;
+<?php
+  $vendor_title = ($vendor->title)? $vendor->title:'';
+  $vendor_description = ($vendor->description)? $vendor->description:'';
 ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -44,7 +44,7 @@
                   <div class="content left-content" style="padding-right: 0px;">
                     <div class="left-content-fst">
                       <h1 style="font-size: 30px; color: #e2574c; font-family: 'Roboto'; font-weight: bold;">
-                        {{$title ?? ''}} Certification Exams Discount Pack
+                        {{$vendor_title ?? ''}} Certification Exams Discount Pack
                       </h1>
                       <br>
                       <p style="color: #363636; font-size: 22px; font-weight: bold; font-family: 'Roboto'; margin: 0px;">
@@ -204,12 +204,12 @@
           {{-- <!-------------Features vendor--------------------------------------------> --}}
           <section class="exam_vendor pt-5 pb-5 bg-f7fafd">
             <div class="section-title">
-              <span class="heading_bg_heading_1">{{$title ?? ''}} </span>
-              <h2>Select {{$title ?? ''}} Exam From the list Below</h2>
+              <span class="heading_bg_heading_1">{{$vendor_title ?? ''}} </span>
+              <h2>Select {{$vendor_title ?? ''}} Exam From the list Below</h2>
             </div>
             <div class="container-fluid">
               <p class="content">
-                <?php echo strip_tags($description ?? '','<br>') ?>
+                <?php echo strip_tags($vendor_description ?? '','<br>') ?>
               </p>
             </div>
           </section>
@@ -223,11 +223,12 @@
 
                 </div>
                 <h2>
-                  {{$title ?? ''}} Certifications Exams List
+                  {{$vendor_title ?? ''}} Certifications Exams List
                 </h2>
               </div>
               <div class="certification_2col_vendor">
                 <div class="row">
+                  @if($vendor->certifications)
                   @foreach ($vendor->certifications as $certificate)
                   {{-- LEFT SIDE --}}
                   <div class="col-md-6 col-sm-6 certification_fst_vendor">
@@ -240,7 +241,7 @@
                                   border-bottom: 0px solid;
                               }
                           </style>
-                          {{$certificate->title}}
+                          {{$certificate->title ?? ''}}
                         </div>
                       </div>
                       <div class="row certification_fst_vendor_inner_2_row">
@@ -475,6 +476,7 @@
                   </div> --}}
                   {{-- END RIGHT SIDE  --}}
                   @endforeach
+                  @endif
                 </div>
               </div>
             </div>
@@ -486,7 +488,7 @@
           <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
             <div class="section-title">
               {{-- <span class="new_testimonials_bg_heading">TESTIMONIALS</span> --}}
-              <h3>{{$title ?? ''}} Certification Exam Testimonials</h3>
+              <h3>{{$vendor_title ?? ''}} Certification Exam Testimonials</h3>
             </div>
             <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
               <div id="parant_comment" class="container mt-3">
