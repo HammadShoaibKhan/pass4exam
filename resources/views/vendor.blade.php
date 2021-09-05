@@ -61,7 +61,7 @@
                           <div class="versions hvr-grow-shadow">
                             <div class="row">
                               <div class="versions_inner_left " style="  background-color: rgba(244,244,244,1); padding: 8px 12px; padding-top: 22px;">
-                                <img width="38" height="38" alt="Desktop Practice Test software" src="https://www.certsidea.com/assets/site/img/Image_244.png">
+                                <img width="38" height="38" alt="Desktop Practice Test software" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
                               </div>
                               <div class="versions_inner_right">
                                 <span style="">Desktop Practice <br>Test software</span>
@@ -71,7 +71,7 @@
                           <div class="versions hvr-grow-shadow">
                             <div class="row">
                               <div class="versions_inner_left" style="background-color: rgba(244,244,244,1); padding: 8px 14px;padding-top: 22px;">
-                                <img width="32" height="32" alt="Web Based Practice Test" src="https://www.certsidea.com/assets/site/img/Image_2455.png">
+                                <img width="32" height="32" alt="Web Based Practice Test" src="{{ asset('frontend/assets/site/img/Image_2455.png') }}">
                               </div>
                               <div class="versions_inner_right">
                                 <span style="">Web Based <br>Practice Test</span>
@@ -82,7 +82,7 @@
                             <div class="row">
                               <div class="versions_inner_left" style="background-color: rgba(244,244,244,1); padding: 8px 12px; ">
                                 <br>
-                                <img width="32" height="32" alt="Questions & Answers (PDF)" src="https://www.certsidea.com/assets/site/img/Image_246.png">
+                                <img width="32" height="32" alt="Questions & Answers (PDF)" src="{{ asset('frontend/assets/site/img/Image_246.png') }}">
                               </div>
                               <div class="versions_inner_right" style="">
                                 <span style="">Questions & <br> Answers (PDF)</span>
@@ -253,9 +253,9 @@
                                   AZ-400
                                 </a>
                                 <span><span>
-                                <img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png">
-                                <img alt="Web-Based" width="25" height="25" src="https://www.certsidea.com/assets/site/img/Image_245.png">
-                                <img alt="PDF" width="25" height="25" src="https://www.certsidea.com/assets/site/img/Image_246.png"></span>
+                                <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
+                                <img alt="Web-Based" width="25" height="25" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
+                                <img alt="PDF" width="25" height="25" src="{{ asset('frontend/assets/site/img/Image_246.png') }}"></span>
                               </div>
                               <div class="card-body">
                                 <p>
@@ -286,9 +286,9 @@
                                   AZ-400
                                 </a>
                                 <span><span>
-                                <img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png">
-                                <img alt="Web-Based" width="25" height="25" src="https://www.certsidea.com/assets/site/img/Image_245.png">
-                                <img alt="PDF" width="25" height="25" src="https://www.certsidea.com/assets/site/img/Image_246.png"></span>
+                                <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
+                                <img alt="Web-Based" width="25" height="25" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
+                                <img alt="PDF" width="25" height="25" src="{{ asset('frontend/assets/site/img/Image_246.png') }}"></span>
                               </div>
                               <div class="card-body">
                                 <p>
@@ -338,9 +338,9 @@
                                   DA-100
                                 </a>
                                 <span>
-                                  <img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png">
-                                  <img width="25" height="25" alt="Web-Based" src="https://www.certsidea.com/assets/site/img/Image_245.png">
-                                  <img width="25" height="25" alt="PDF" src="https://www.certsidea.com/assets/site/img/Image_246.png">
+                                  <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
+                                  <img width="25" height="25" alt="Web-Based" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
+                                  <img width="25" height="25" alt="PDF" src="{{ asset('frontend/assets/site/img/Image_246.png') }}">
                                 </span>
                               </div>
                               <div class="card-body">
@@ -379,7 +379,7 @@
                           <div>
                             <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                               <div class="card-header" >
-                                <a href="https://www.certsidea.com/microsoft/info/az-500">AZ-500 </a> <span><img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png"> <img width="25" height="25" alt="Web-Based" src="https://www.certsidea.com/assets/site/img/Image_245.png"> <img width="25" height="25" alt="PDF" src="https://www.certsidea.com/assets/site/img/Image_246.png"></span>
+                                <a href="https://www.certsidea.com/microsoft/info/az-500">AZ-500 </a> <span><img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}"> <img width="25" height="25" alt="Web-Based" src="{{ asset('frontend/assets/site/img/Image_245.png') }}"> <img width="25" height="25" alt="PDF" src="{{ asset('frontend/assets/site/img/Image_246.png') }}"></span>
                               </div>
                               <div class="card-body">
                                 <p>
@@ -418,9 +418,9 @@
                                   AZ-303
                                 </a>
                                 <span>
-                                  <img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png">
-                                  <img width="25" height="25" alt="Web-Based" src="https://www.certsidea.com/assets/site/img/Image_245.png">
-                                  <img width="25" height="25" alt="PDF" src="https://www.certsidea.com/assets/site/img/Image_246.png">
+                                  <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
+                                  <img width="25" height="25" alt="Web-Based" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
+                                  <img width="25" height="25" alt="PDF" src="{{ asset('frontend/assets/site/img/Image_246.png') }}">
                                 </span>
                               </div>
                               <div class="card-body">
@@ -448,9 +448,9 @@
                                   AZ-304
                                 </a>
                                 <span>
-                                  <img width="25" height="25" alt="Desktop" src="https://www.certsidea.com/assets/site/img/Image_244.png">
-                                  <img width="25" height="25" alt="Web-Based" src="https://www.certsidea.com/assets/site/img/Image_245.png">
-                                  <img width="25" height="25" alt="PDF" src="https://www.certsidea.com/assets/site/img/Image_246.png">
+                                  <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
+                                  <img width="25" height="25" alt="Web-Based" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
+                                  <img width="25" height="25" alt="PDF" src="{{ asset('frontend/assets/site/img/Image_246.png') }}">
                                 </span>
                               </div>
                               <div class="card-body">
