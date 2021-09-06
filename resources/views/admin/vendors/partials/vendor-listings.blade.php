@@ -24,7 +24,7 @@
             
           </td>
           <td> 
-              <a href="{{ route('admin.vendors.edit', $vendor->id) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
+              <a href="{{ route('admin.vendor.edit', $vendor->id) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
               <a href="javascript:;" data-id="{{ $vendor->id }}" data-route="{{ route('admin.vendor.delete') }}" class="btn btn-sm btn-danger del-vendor"><i class="fas fa-trash-alt"></i></a>
           </td>
         </tr>
