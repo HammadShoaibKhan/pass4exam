@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\CertificationController;
 use App\Http\Controllers\Admin\ExamController;
+use App\Http\Controllers\Exam_Controller;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -19,7 +20,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+    /** Global / Front-end ROUTES */
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('vendor/{slug?}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
+Route::get('{slug?}/{exam?}', [Exam_Controller::class, 'index'])->name('exam');
 
 
 /**customer middleware check if user is a guest or user is logged in as a customer,

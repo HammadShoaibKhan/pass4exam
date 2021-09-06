@@ -21,7 +21,7 @@
                                   <li>
                                     <i class="fa fa-chevron-right "></i>
                                   </li>
-                                  <li>Vendors</li>
+                                  <li>{{$vendor_title ?? ''}}</li>
                               </ol>
                           </div>
                           <div class="right-bar breadcumbBar">
@@ -245,13 +245,18 @@
                         </div>
                       </div>
                       <div class="row certification_fst_vendor_inner_2_row">
+                        <?php
+                          if(!empty($exams)) 
+                          foreach ($exams as $exam) { 
+                            if($exam->certification_id == $certificate->id ){
+                        ?>
                         <div  class="col-xl-6 col-lg-12 mb-4 top_error">
                           <div>
                             <!--<div id="line-left"></div>-->
                             <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                               <div class="card-header" >
-                                <a href="https://www.certsidea.com/microsoft/info/az-400">
-                                  AZ-400
+                                <a href="{{route('exam',[$vendor->slug,$exam->exam_code])}}">
+                                  {{$exam->exam_code ?? ''}}
                                 </a>
                                 <span><span>
                                 <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
@@ -260,7 +265,9 @@
                               </div>
                               <div class="card-body">
                                 <p>
-                                  Designing and Implementing Microsoft DevOps Solutions
+                                  {{$exam->title ?? ''}}
+                                <BR>
+                                 {{ $vendor_title}}{{$vendor->slug}}{{$exam->exam_code}}
                                 </p>
                                 <div class="card-body-qd" style="">
                                   <div class="questions">
@@ -278,39 +285,7 @@
                             </div>
                           </div>
                         </div>
-                        <div  class="col-xl-6 col-lg-12 mb-4 top_error">
-                          <div>
-                            <!--<div id="line-left"></div>-->
-                            <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
-                              <div class="card-header" >
-                                <a href="https://www.certsidea.com/microsoft/info/az-400">
-                                  AZ-400
-                                </a>
-                                <span><span>
-                                <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
-                                <img alt="Web-Based" width="25" height="25" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
-                                <img alt="PDF" width="25" height="25" src="{{ asset('frontend/assets/site/img/Image_246.png') }}"></span>
-                              </div>
-                              <div class="card-body">
-                                <p>
-                                  Designing and Implementing Microsoft DevOps Solutions
-                                </p>
-                                <div class="card-body-qd" style="">
-                                  <div class="questions">
-                                    <i class="fas fa-clipboard-list questions_fst_i"></i>
-                                    <i class="questions_sec_i"> 285  <span>Questions</span></i>
-                                  </div>
-                                  <div class="update_date" >
-                                    <i class="fas fa-sync-alt update_date_fst_i"></i>
-                                    <i class="update_date_sec_i">
-                                      Aug 16 <span>Last Updated</span>
-                                    </i>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <?php } }?>
                       </div>
                     </div>
                   </div>
