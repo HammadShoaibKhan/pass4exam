@@ -81,6 +81,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('mutiple-delete', [ExamController::class, 'multipleDelete'])->name('admin.exams.delete');
         Route::post('delete', [ExamController::class, 'delete'])->name('admin.exam.delete');
         Route::post('change-status', [ExamController::class, 'changeStatus'])->name('admin.exam.change-status');
+        Route::post('demo-file', [ExamController::class, 'uploadDemoFile'])->name('admin.exam.demo-file');
+        Route::post('delete-file/{id}', [ExamController::class, 'deleteFile'])->name('admin.exam.delete-file');
     });
 
 
