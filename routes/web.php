@@ -20,11 +20,14 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('vendor/{slug?}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
 
+
+/**customer middleware check if user is a guest or user is logged in as a customer,
+ * Note: admin has no access to these routes while logged in.
+ */
 Route::group(['middleware' => 'customer'], function () {
-    // 
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('vendor/{slug?}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor'); 
 });
 
 
@@ -41,7 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
     Route::prefix('vendor')->group(function () {
         Route::get('create', [VendorController::class, 'create'])->name('admin.vendor.create');
         Route::post('create', [VendorController::class, 'store'])->name('admin.vendor.create');
-        Route::get('{id}/edit', [VendorController::class, 'edit'])->name('admin.vendors.edit');
+        Route::get('{id}/edit', [VendorController::class, 'edit'])->name('admin.vendor.edit');
         Route::post('update/{id}', [VendorController::class, 'update'])->name('admin.vendor.update');
         Route::post('delete', [VendorController::class, 'delete'])->name('admin.vendor.delete');
         Route::post('multiple-delete', [VendorController::class, 'multipleDelete'])->name('admin.vendors.delete');
@@ -58,7 +61,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::get('create', [CertificationController::class, 'create'])->name('admin.certification.create');
         Route::post('create', [CertificationController::class, 'store'])->name('admin.certification.create');
         Route::post('name-exists', [CertificationController::class, 'checkNameExists'])->name('admin.certification.name-exists');
-        Route::get('{id}/edit', [CertificationController::class, 'edit'])->name('admin.certifications.edit');
+        Route::get('{id}/edit', [CertificationController::class, 'edit'])->name('admin.certification.edit');
         Route::post('update/{id}', [CertificationController::class, 'update'])->name('admin.certification.update');
         Route::post('delete', [CertificationController::class, 'delete'])->name('admin.certification.delete');
         Route::post('multiple-delete', [CertificationController::class, 'multipleDelete'])->name('admin.certifications.delete');

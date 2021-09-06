@@ -24,7 +24,7 @@
             
           </td>
           <td> 
-              <a href="{{ route('admin.certifications.edit', $certification->id) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
+              <a href="{{ route('admin.certification.edit', $certification->id) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
               <a href="javascript:;" data-id="{{ $certification->id }}" data-route="{{ route('admin.certification.delete') }}" class="btn btn-sm btn-danger del-certification"><i class="fas fa-trash-alt"></i></a>
           </td>
         </tr>
