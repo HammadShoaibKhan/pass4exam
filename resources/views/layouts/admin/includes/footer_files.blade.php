@@ -12,6 +12,7 @@
 
 <!--jQuery Validation-->
 <script src="{{ asset('admin/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('admin/plugins/jquery-validation/additional-methods.min.js') }}"></script>
 <!-- DataTables  & Plugins -->
 <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
@@ -33,6 +34,9 @@
 <script src="{{asset('admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="{{asset('admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.js" integrity="sha512-llCHNP2CQS+o3EUK2QFehPlOngm8Oa7vkvdUpEFN71dVOf3yAj9yMoPdS5aYRTy8AEdVtqUBIsVThzUSggT0LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <!-- Summernote -->
 <script src="{{asset('admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
 
@@ -45,6 +49,7 @@
 <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>
+
 
 
 <!--Custom JS-->

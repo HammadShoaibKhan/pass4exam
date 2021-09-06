@@ -7,6 +7,7 @@ $(document).ready(function () {
         height: 300,
     });
 
+
 })
 
 /**delete single vendor script */
@@ -643,3 +644,21 @@ $(document).on('click', '.change-exam-status', function (e) {
           })
     }
 })
+
+$(document).on('click', '.del-exam-file', function () {
+    
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+        allowOutsideClick: false,
+      }).then((result) => {
+        if (result.isConfirmed) {
+            $(this).parent('td').siblings('.delete_file_form').submit();
+        }
+    });
+});
