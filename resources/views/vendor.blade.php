@@ -255,7 +255,7 @@
                             <!--<div id="line-left"></div>-->
                             <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                               <div class="card-header" >
-                                <a href="https://www.certsidea.com/microsoft/info/az-400">
+                                <a href="{{route('exam',[$vendor->slug,$exam->exam_code])}}">
                                   {{$exam->exam_code ?? ''}}
                                 </a>
                                 <span><span>
@@ -266,6 +266,8 @@
                               <div class="card-body">
                                 <p>
                                   {{$exam->title ?? ''}}
+                                <BR>
+                                 {{ $vendor_title}}{{$vendor->slug}}{{$exam->exam_code}}
                                 </p>
                                 <div class="card-body-qd" style="">
                                   <div class="questions">
