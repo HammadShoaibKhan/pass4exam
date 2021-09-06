@@ -18,16 +18,15 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.vendors') }}" class="nav-link">
+            <a href="{{ route('admin.vendors') }}" class="nav-link {{ request()->routeIs('admin.vendors', 'admin.vendor.create', 'admin.vendor.edit') ? 'active' : '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Vendors
@@ -35,7 +34,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.certifications') }}" class="nav-link">
+            <a href="{{ route('admin.certifications') }}" class="nav-link {{ request()->routeIs('admin.certifications', 'admin.certification.create', 'admin.certification.edit') ? 'active' : '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Certifications
@@ -43,7 +42,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.exams') }}" class="nav-link">
+            <a href="{{ route('admin.exams') }}" class="nav-link {{ request()->routeIs('admin.exams', 'admin.exam.create', 'admin.exam.edit') ? 'active' : '' }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Exams
