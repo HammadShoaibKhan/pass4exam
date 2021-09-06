@@ -221,3 +221,23 @@ $('#edit-exam-form').validate({
         }
     }
 })
+
+/**script to validate exam demo file */
+$('#demo_file_form').validate({
+    rules : {
+        demo_file : {
+            required : true,
+            extension : 'PDF|pdf'
+        }
+    },
+    messages : {
+        demo_file : {
+            required : 'Demo file is required',
+            extension : "The demo file must be a file of type: pdf."
+        }
+    },
+    errorPlacement: function ($error, $element) {
+        var name = $element.attr("name");
+        $(".error_" + name).append($error);
+    }
+});
