@@ -9,6 +9,8 @@ use App\Models\Vendor;
 use App\Models\Certification;
 use App\Http\Requests\ExamRequest;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Media;
 
 class ExamController extends Controller
 {
@@ -106,5 +108,49 @@ class ExamController extends Controller
         Exam::whereIn('id', $request->exam_ids)->update(['status' => $request->status]);
         $exams = Exam::orderBY('id', 'DESC')->get();
         return view('admin.exams.partials.exam-listings', compact('exams'));
+    }
+
+    /**upload exam demo file */
+    public function uploadDemoFile(Request $request)
+    {
+        $request->validate([
+            'demo_file' => 'required|mimes:pdf'
+        ], [
+            'demo_file.required' => 'Select a demo file'
+        ]);
+
+        if ($request->hasFile('demo_file')) {
+            $extension = $request->demo_file->extension();
+            $fileName = removeSpacesAndLowerCase(uniqid() . '_' . $request->demo_file->getClientOriginalName());
+            $request->demo_file->storeAS('demo_files/', $fileName, 'public');
+            Media::create([
+                'link_table' => 'exams',
+                'link_id' => $request->exam_id,
+                'link_type' => 'demo_file',
+                'file_name' => $fileName
+            ]);
+            return back()->with('success', 'Demo file uploaded successfully.');
+        }
+        return back()->with('error', 'Something went wrong!');
+    }
+
+    public function deleteFile(Request $request, $id)
+    {
+
+        try {
+            $file = Media::where([
+                'link_table' => 'exams',
+                'link_type' => 'demo_file',
+                'link_id' => $id
+            ])->first();
+
+            if (Storage::delete('public/demo_files/'. $file->file_name)) {
+                $file->delete();
+            }
+            
+            return back()->with('success', 'File is removed successfully');
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 }

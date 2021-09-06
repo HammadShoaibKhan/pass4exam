@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Certification;
 use Illuminate\Http\Request;
 use App\Models\Vendor;
+use App\Models\Exam;
+
+use function PHPUnit\Framework\isEmpty;
 
 class VendorController extends Controller
 {
@@ -23,7 +26,10 @@ class VendorController extends Controller
         if ($slug != null && Vendor::where('slug', $slug)->exists()) {
             $title = 'Vendors';
             $vendor = Vendor::where('slug', $slug)->first();
-            return view('vendor', compact('title','vendor'));
+            $exams='';
+            if(isEmpty($vendor))
+                $exams = Exam::where('vendor_id', $vendor->id)->get();
+            return view('vendor', compact('title','vendor','exams'));
         }
         return redirect()->route('home');
 

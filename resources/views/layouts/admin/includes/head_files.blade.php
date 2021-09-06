@@ -34,6 +34,8 @@
   <!--Sweet Alert 2-->
   <link href="{{ asset('admin/plugins/sweetalert2/sweetalert2.min.css') }}">
 
+  <!-- Dropzone -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 
@@ -41,6 +43,9 @@
     .error {
       color : red !important;
       font-weight: normal !important;
+    }
+    .cstm-border {
+      border: 1px solid #ccc;
     }
   </style>
 </head>
