@@ -1,6 +1,6 @@
 @extends('layouts.frontend.master')
 @section('content')
-@foreach ($exam_detail as $exam)
+@foreach ($exam_info as $exam)
     
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
