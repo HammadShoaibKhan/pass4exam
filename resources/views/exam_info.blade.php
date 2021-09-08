@@ -137,7 +137,7 @@
                                         </div>
                                         <div class="buyNowBtn mb-4 mb-4 m-auto text-center mt-3" >
                                             <div>
-                                                <a href="../{{$exam->exam_code}}.html" target="_blank" class="btn mt-3" style="text-transform: none;">
+                                                <a href="{{route('exam_detail',[$exam->vendor_slug,$exam->exam_code])}}" target="_blank" class="btn mt-3" style="text-transform: none;">
                                                     Get Premium Self-Assessment Practice Test
                                                 </a>
                                                 <div class="social-links">
