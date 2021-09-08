@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('vendor/{slug?}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
-Route::get('{slug?}/{exam?}', [Exam_Controller::class, 'index'])->name('exam');
+Route::get('{slug?}/info/{exam?}', [Exam_Controller::class, 'index'])->name('exam_info');
 
 Route::group(['middleware' => 'customer'], function () {
     // 
