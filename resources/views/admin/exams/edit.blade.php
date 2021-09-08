@@ -47,7 +47,7 @@
                                   <form action="{{ route('admin.exam.update', $exam->id) }}" method="POST" id="edit-exam-form">
                                     {{ csrf_field() }}
                                     <div class="row">
-                                    
+
                                       <input type="hidden" id="exam-name-exist" value="{{ route('admin.exam.name-exists') }}">
                                       <input type="hidden" id="exam-code-exist" value="{{ route('admin.exam.code-exists') }}">
 
@@ -89,7 +89,7 @@
                                         </div>
                                       </div>
 
-                                      
+
                                       <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Status</label>
@@ -148,7 +148,46 @@
                                 </div>
                                 <!-- /.card-body -->
                               </div>
-                          
+
+                              <div class="card card-primary cstm-border">
+                                  <div class="card-header">
+                                      <h3 class="card-title">Pricing</h3>
+                                  </div>
+
+                                  <div class="card-body">
+                                      <form action="{{route('admin.exam.pricing')}}" method="POST">
+                                          {{csrf_field()}}
+                                          <input type="hidden" value="{{$exam->id}}" name="exam_id">
+                                          <div class="row">
+                                              <div class="col-md-4">
+                                                  <div class="form-group">
+                                                      <label>Bundle&nbspPrice</label>
+                                                      <input type="number" min="1" value="{{ $exam->getPricing()->bundle ?? 1 }}" name="bundle_price" class="form-control">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-4">
+                                                  <div class="form-group">
+                                                      <label>Pdf&nbspFile&nbspPrice</label>
+                                                      <input type="number" min="1" value="{{ $exam->getPricing()->pdf ?? 1 }}" name="pdf_price" class="form-control">
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-4">
+                                                  <div class="form-group">
+                                                      <label>Desktop&nbspFile&nbspPrice</label>
+                                                      <input type="number" min="1" value="{{ $exam->getPricing()->desktop ?? 1 }}" name="desktop_price" class="form-control">
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-2 offset-10">
+                                                  <button type="submit" class="btn btn-md btn-block btn-primary">Save</button>
+                                              </div>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+
+                              <!--Demo File-->
                               <div class="card card-primary cstm-border">
                                 <div class="card-header">
                                   <h3 class="card-title">Demo File</h3>
@@ -195,7 +234,137 @@
                                 </table>
                                 @endif
                               </div>
-                            
+
+                              <!--PDF File-->
+                              <div class="card card-primary cstm-border">
+                                  <div class="card-header">
+                                      <h3 class="card-title">PDF File</h3>
+                                  </div>
+                                  @if(empty(getMediaFile('exams', 'pdf_file', $exam->id)))
+                                      <form id="pdf_file_form" action="{{ route('admin.exam.pdf-file') }}" enctype="multipart/form-data" method="POST">
+                                          {{ csrf_field() }}
+                                          <input type="hidden" name="exam_id" value="{{ $exam->id }}"><br>
+                                          <div class="row p-4">
+                                              <div class="col-md-4">
+                                                  <div class="form-group">
+                                                      <input type="file" name="pdf_file">
+                                                      <p class="text-danger error_pdf_file">
+                                                          @error('pdf_file')
+                                                          {{ $message }}
+                                                          @enderror
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-4">
+                                                  <input type="submit" value="Upload File">
+                                              </div>
+                                          </div>
+                                      </form>
+                                  @else
+                                      <table class="table table-stripped">
+                                          <thead>
+                                          <tr>
+                                              <th>File</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                          <tr>
+                                              <td><a href="{{ asset('storage/pdf_files/' . getMediaFile('exams', 'pdf_file', $exam->id)) }}" target="_blank">Pdf&nbspFile</a></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <form id="pdf_file_form" action="{{ route('admin.exam.pdf-file') }}" enctype="multipart/form-data" method="POST">
+                                                      {{ csrf_field() }}
+                                                      <input type="hidden" name="exam_id" value="{{ $exam->id }}"><br>
+                                                      <div class="row p-4">
+                                                          <div class="col-md-4">
+                                                              <div class="form-group">
+                                                                  <input type="file" name="pdf_file">
+                                                                  <p class="text-danger error_pdf_file">
+                                                                      @error('pdf_file')
+                                                                      {{ $message }}
+                                                                      @enderror
+                                                                  </p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="col-md-4">
+                                                              <input type="submit" value="Update Pdf File">
+                                                          </div>
+                                                      </div>
+                                                  </form>
+                                              </td>
+                                          </tr>
+                                          </tbody>
+
+                                      </table>
+                                  @endif
+                              </div>
+
+                              <!--Desktop File-->
+                              <div class="card card-primary cstm-border">
+                                  <div class="card-header">
+                                      <h3 class="card-title">Desktop File</h3>
+                                  </div>
+                                  @if(empty(getMediaFile('exams', 'desktop_file', $exam->id)))
+                                      <form id="desktop_file_form" action="{{ route('admin.exam.desktop-file') }}" enctype="multipart/form-data" method="POST">
+                                          {{ csrf_field() }}
+                                          <input type="hidden" name="exam_id" value="{{ $exam->id }}"><br>
+                                          <div class="row p-4">
+                                              <div class="col-md-4">
+                                                  <div class="form-group">
+                                                      <input type="file" name="desktop_file">
+                                                      <p class="text-danger error_desktop_file">
+                                                          @error('desktop_file')
+                                                          {{ $message }}
+                                                          @enderror
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                              <div class="col-md-4">
+                                                  <input type="submit" value="Upload File">
+                                              </div>
+                                          </div>
+                                      </form>
+                                  @else
+                                      <table class="table table-stripped">
+                                          <thead>
+                                          <tr>
+                                              <th>File</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                          <tr>
+                                              <td><a href="{{ asset('storage/desktop_files/' . getMediaFile('exams', 'desktop_file', $exam->id)) }}" target="_blank">Desktop&nbspFile</a></td>
+                                          </tr>
+                                          <tr>
+                                              <td>
+                                                  <form id="desktop_file_form" action="{{ route('admin.exam.desktop-file') }}" enctype="multipart/form-data" method="POST">
+                                                      {{ csrf_field() }}
+                                                      <input type="hidden" name="exam_id" value="{{ $exam->id }}"><br>
+                                                      <div class="row p-4">
+                                                          <div class="col-md-4">
+                                                              <div class="form-group">
+                                                                  <input type="file" name="desktop_file">
+                                                                  <p class="text-danger error_desktop_file">
+                                                                      @error('desktop_file')
+                                                                      {{ $message }}
+                                                                      @enderror
+                                                                  </p>
+                                                              </div>
+                                                          </div>
+                                                          <div class="col-md-4">
+                                                              <input type="submit" value="Update Desktop File">
+                                                          </div>
+                                                      </div>
+                                                  </form>
+                                              </td>
+                                          </tr>
+                                          </tbody>
+
+                                      </table>
+                                  @endif
+                              </div>
+
                           </div>
                         </div>
                       </div>

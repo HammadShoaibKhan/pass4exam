@@ -22,4 +22,9 @@ class Exam extends Model
     {
         return $this->belongsTo(certification::class, 'certification_id');
     }
+
+    public function getPricing()
+    {
+        return json_decode($this->pricing);
+    }
 }
