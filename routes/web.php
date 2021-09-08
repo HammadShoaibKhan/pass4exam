@@ -27,19 +27,19 @@ use Illuminate\Support\Facades\Auth;
  */
 Route::group(['middleware' => 'customer'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('vendor/{slug?}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor'); 
+    Route::get('vendor/{slug?}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
 });
 
 
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
-    
+
     Route::get('/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
 
 
     /** ADMIN VENDORS ROUTES */
-    
+
     Route::get('/vendors', [VendorController::class, 'index'])->name('admin.vendors');
     Route::prefix('vendor')->group(function () {
         Route::get('create', [VendorController::class, 'create'])->name('admin.vendor.create');
@@ -83,6 +83,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('change-status', [ExamController::class, 'changeStatus'])->name('admin.exam.change-status');
         Route::post('demo-file', [ExamController::class, 'uploadDemoFile'])->name('admin.exam.demo-file');
         Route::post('delete-file/{id}', [ExamController::class, 'deleteFile'])->name('admin.exam.delete-file');
+        Route::post('pdf-file', [ExamController::class, 'uploadPdfFile'])->name('admin.exam.pdf-file');
+        Route::post('desktop-file', [ExamController::class, 'uploadDesktopFile'])->name('admin.exam.desktop-file');
+        Route::post('pricing', [ExamController::class, 'pricing'])->name('admin.exam.pricing');
     });
 
 

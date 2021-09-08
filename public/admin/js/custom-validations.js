@@ -241,3 +241,43 @@ $('#demo_file_form').validate({
         $(".error_" + name).append($error);
     }
 });
+
+/**script to validate exam pdf file */
+$('#pdf_file_form').validate({
+    rules : {
+        pdf_file : {
+            required : true,
+            extension : 'PDF|pdf'
+        }
+    },
+    messages : {
+        pdf_file : {
+            required : 'Pdf file is required',
+            extension : "The pdf file must be a file of type: pdf."
+        }
+    },
+    errorPlacement: function ($error, $element) {
+        var name = $element.attr("name");
+        $(".error_" + name).append($error);
+    }
+});
+
+/**script to validate exam desktop file */
+$('#desktop_file_form').validate({
+    rules : {
+        desktop_file : {
+            required : true,
+            extension : 'exe|EXE'
+        }
+    },
+    messages : {
+        desktop_file : {
+            required : 'exe file is required',
+            extension : "The desktop file must be a file of type: .exe"
+        }
+    },
+    errorPlacement: function ($error, $element) {
+        var name = $element.attr("name");
+        $(".error_" + name).append($error);
+    }
+});
