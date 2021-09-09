@@ -1,7 +1,7 @@
 @extends('layouts.frontend.master')
 @section('content')
-@foreach ($exam_detail as $exam)
-    
+    {{-- @foreach ($exam_info as $exam) --}}
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -25,7 +25,7 @@
                                     <li>
                                         <i class="fa fa-chevron-right "></i>
                                     </li>
-                                    <li>{{$exam->exam_code}}</li>
+                                    <li>{{ '$exam->exam_code' }} Questions</li>
                                 </ol>
                             </div>
                             <div class="right-bar breadcumbBar">
@@ -35,305 +35,829 @@
                     </div>
                 </section>
             </div>
-          {{-- END <!-------------Breadcrumb----------------------------------------> --}}
+            {{-- END <!-------------Breadcrumb----------------------------------------> --}}
         </section>
         <!-- Main content -->
         <section class="content">
 
             {{-- <!-------------Exam Detailed Info--------------------------------------------> --}}
-            <section class="sample_page_2">
+
+            {{-- <!------------- Bundle Pack --------------------------------------------> --}}
+            <!--Array
+                (
+                    [name] => Microsoft Power Platform Solution Architect
+                    [p_type] => 0
+                    [price] => 98
+                    [ptype_id] => 3
+                    [exam_code] => PL-600
+                    [cert_names] => Microsoft Dynamics 365,Microsoft Power Apps + Dynamics 365 Solution Architect Expert,Microsoft Power Platform
+                    [vendor_name] => Microsoft
+                )
+                -->
+
+            <section class="bundle_pack_exam ">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div id="sample_page_2_top_heading" class="col-sm-12 mb-4">
-                            <h1> {{$exam->exam_code}} : {{$exam->title}} Exam</h1>
-                        </div>
-
-                        {{-- <!-------------LEFT SIDE PORTION 75% Area--------------------------------------------> --}}
-                        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-4">
-                            <div class="row">
-                                {{-- <!------------- Left Promo Card--------------------------------------------> --}}
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 mb-4">
-                                    <div class="card sample_page_card hvr-grow-shadow">
-                                        <div class="card-header" >
-                                            <!--<a href=""></a>-->
-                                            <strong style="cursor: auto; color: #fff;font-size: 18px;font-family: 'Roboto';text-align: center;font-weight: 600;">
-                                                {{$exam->vendor_title}} {{$exam->exam_code}} Exam 
-                                            </strong>
-                                        </div>
-                                        <div class="card-body text-center">
-                                            <p>
-                                                
-                                                {{$exam->certificate_title}} Fundamentals
-                                            </p>
-                                            <span>
-                                                <!--{{$exam->exam_code}} Certification Practice Exam-->
-                                                Total Questions: 254
+                    <div class="overview-box">
+                        <div class="overview-content pt-3">
+                            <div class="content left-content">
+                                <div class="left-content-fst">
+                                    <h1>Microsoft PL-600 Exam</h1>
+                                    <p>Prepare for Microsoft Power Platform Solution Architect PL-600 Exam</p>
+                                    <ul class="services-list">
+                                        <li>
+                                            <span class="hvr-wobble-skew">
+                                                <i class="far fa-calendar-check"></i> Last Updated : 31-07-2021
                                             </span>
-                                        </div>
-                                        <div class="card-footer">
-                                            <span style="font-size: 12px;font-weight: 700;color: #ffffff;font-family: 'Roboto';text-align: center;">
-                                                Last Updated : 24-07-2021
+                                        </li>
+                                        <li>
+                                            <span class="hvr-wobble-skew">
+                                                <i class="fa fa-question-circle"></i> Total Questions: 47
                                             </span>
-                                        </div>
-                                    </div>
+                                        </li>
+                                    </ul>
+                                    <br><br>
+                                    <strong>Bundle Pack includes</strong>
+                                    <br>
                                 </div>
-                                {{-- END <!------------- Left Promo Card----------------------------------------> --}}
-
-                                {{-- <!------------- Exam Description--------------------------------------------> --}}
-                                <div id="sample_page_2_top_content" class="col-xl-9 col-lg-9 col-md-8 col-sm-7 mb-4">
-                                    <h2>
-                                        <strong>{{$exam->vendor_title}} {{$exam->exam_code}} Exam</strong>
-                                    </h2>
-                                    <p>Certs Idea offers web-based and desktop practice tests for your easier preparation of the {{$exam->vendor_title}} {{$exam->exam_code}} certification exam.
-                                        Our desktop and web-based practice exams provide an actual exam environment.
-                                        We have experts and {{$exam->certificate_title}} Fundamentals professionals who have designed practice questions after getting
-                                        feedback from successful candidates. All {{$exam->vendor_title}} {{$exam->exam_code}} exam questions are syllabus-based and
-                                        thoroughly cover all topics of the actual exam.
-                                        Our {{$exam->vendor_title}} {{$exam->exam_code}} practice questions appear in the final Microsoft exam.
-                                        The web-based and desktop practice tests highlight weak portions of your preparation so that you put more effort and
-                                        remove all mistakes before the actual
-                                        <a class="internal_link" href="{{$exam->vendor_title}}/ {{$exam->exam_code}}"> {{$exam->vendor_title}} {{$exam->exam_code}} exam.</a>
-                                    </p>
-                                </div>
-                                {{-- END <!------------- Exam Description----------------------------------------> --}}
-
-                                {{-- <!------------- Free Test Trigger--------------------------------------------> --}}
-                                <div class="tryonlineBtn col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4 m-auto text-center" >
-                                    <div>
-                                        <form method="post" action="javascript:;" id="demos_form" name="demos_form" target="_blank">
-                                            <input type="hidden" name="exam_code" value="{{$exam->exam_code}}">
-                                            <input type="hidden" name="demo" value="1">
-                                            <input type="hidden" name="site" value="Certsidea">
-                                            <input type="hidden" name="siteurl" value="../../index.html">
-                                            <button class="demoLoginUserBtn btn demo"  type="submit" style="text-transform: none;">
-                                                Take a Free Self-Assessment Quiz
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                {{-- END <!------------- Free Test Trigger----------------------------------------> --}}
-
-                                {{-- <!------------- Premium Description--------------------------------------------> --}}
-                                <div id="sample_page_2_middle_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
-                                    <div id="sample_page_2_middle_content_inner0">
-                                        <div>
-                                            <p>
-                                                The free demo of our {{$exam->vendor_title}} {{$exam->exam_code}}
-                                                <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                                    exam practice tests is available to help you get familiar with our product. 
-                                                    Try the free demo and test features of desktop and web-based
-                                                </span>
-                                                {{$exam->certificate_title}} Fundamentals
-                                                <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                                    certification exam practice tests before the purchase.
-                                                    You can evaluate preparation in an actual exam like environment with the following self-assessment features
-                                                    of our web-based and desktop
-                                                </span>
-                                                {{$exam->vendor_title}} {{$exam->exam_code}}
-                                                <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                                    exam practice tests.
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <div class="buyNowBtn mb-4 mb-4 m-auto text-center mt-3" >
-                                            <div>
-                                                <a href="../{{$exam->exam_code}}.html" target="_blank" class="btn mt-3" style="text-transform: none;">
-                                                    Get Premium Self-Assessment Practice Test
-                                                </a>
-                                                <div class="social-links">
-                                                    <img style="width: 25%;;margin-top: 10px;" 
-                                                        src="../../assets/site/img/new_patment_method.webp" 
-                                                        alt="payment method">
+                                <div class="left-content-sec">
+                                    <div class="row">
+                                        <div class="versions hvr-grow-shadow">
+                                            <div class="row">
+                                                <div class="versions_inner_left"
+                                                    style="  background-color: rgba(244,244,244,1); padding: 8px 12px; padding-top: 22px;">
+                                                    <img alt="Desktop Practice Test software"
+                                                        src="{{ asset('frontend/assets/site/img/Image_244.png') }}" width="38" height="38">
+                                                </div>
+                                                <div class="versions_inner_right" style="">
+                                                    <span style="">Desktop Practice <br>Test software
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="sample_page_2_middle_content" class="mt-4 mb-4" >
-                                            <!---->
+                                        <div class="versions hvr-grow-shadow">
+                                            <div class="row">
+                                                <div class="versions_inner_left"
+                                                    style="background-color: rgba(244,244,244,1); padding: 8px 14px;padding-top: 22px;">
+                                                    <img alt="Web Based Practice Test"
+                                                        src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
+                                                </div>
+                                                <div class="versions_inner_right" style="">
+                                                    <span style="">Web Based <br>Practice Test</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="versions hvr-grow-shadow">
+                                            <div class="row">
+                                                <div class="versions_inner_left"
+                                                    style="background-color: rgba(244,244,244,1); padding: 8px 12px; ">
+                                                    <br>
+                                                    <img alt="PDF" src="{{ asset('frontend/assets/site/img/Image_246.png') }}" ;>
+                                                </div>
+                                                <div class="versions_inner_right" style="">
+                                                    <span style="">Questions & <br> Answers (PDF)</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                {{-- END <!------------- Premium Description----------------------------------------> --}}
+                                    <br><br>
 
-                                {{-- <!------------- Premium Check List--------------------------------------------> --}}
-                                <div id="sample_page_2_middle_content_ul" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
-                                    <div class="row">
-                                        <div class="col-md-2 col-sm-12">
-                                            &nbsp;
-                                        </div>
-                                        <div class="col-md-10 col-sm-12">
-                                            <ul>
-                                                <li>
-                                                    Syllabus-based Microsoft AZ-140 questions that appear in the final exam.
-                                                </li>
-                                                <li>
-                                                    Web-Based Microsoft AZ-140 Practice Test does not need software installation.
-                                                </li>
-                                                <li>
-                                                    Browser-Based Microsoft AZ-140 Works on Mac, Linux, IOS, Andriod and Windows.
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    <div class="Payment_opetion_bundle">
+                                        <strong>Payment Options</strong>
+                                        <form method="post" name="bundleInfoForm" id="bundleInfoForm"
+                                            action="https://www.study4exam.com/carts/" class="form-inline form">
+                                            <div class="Purchase_options row">
+                                                <div style="margin: 10px;">
+                                                    <div class="form-group">
+                                                        <select class="selectpicker form-control" id="subscription_plan"
+                                                            name="subscription_plan" onchange="updateBundlePriceExam();">
+                                                            <option value="individual" selected="selected">
+                                                                Individual 2 PCs
+                                                            </option>
+                                                            <option value="corporate">Corporate 10 PCs</option>
+                                                            <option value="trainer">Trainer 25 PCs</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div style="margin: 10px;">
+                                                    <div class="form-group">
+                                                        <select class="selectpicker sel1 form-control" id="subscription"
+                                                            name="subscription" onchange="updateBundlePriceExam();">
+                                                            <option value="3" selected="selected">3 Months Updates</option>
+                                                            <option value="6">6 Months Updates</option>
+                                                            <option value="12">12 Months Updates</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="btnPlusprice_exam" class="row">
+                                                <div class="">
+                                                    <div class=" bundle_price_exam">
+                                                        Price: $<span id="lbl_price">79</span> 
+                                                        <del>Before: $158</del> 
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class=" row">
+                                                        <div class="col-sm-12">
+                                                            <input type="hidden" id='bundle_name' name="bundle_name"
+                                                                value="Microsoft PL-600 Bundle Pack" />
+                                                            <input type="hidden" id="price" name="price" value="158" />
+                                                            <input type="hidden" id="checkout_price" name="checkout_price"
+                                                                value="158" />
+                                                            <input type="hidden" id="bundle_type" name="bundle_type"
+                                                                value="default" />
+                                                            <input type="hidden" id="bundle_id" name="bundle_id" value="4" />
+                                                            <input type="hidden" id="bundle_type_id" name="bundle_type_id"
+                                                                value="3923" />
+                                                            <input type="hidden" id="subscription_price_3_inc"
+                                                                name="subscription_price_3_inc" value="0" />
+                                                            <input type="hidden" id="subscription_price_6_inc"
+                                                                name="subscription_price_6_inc" value="30" />
+                                                            <input type="hidden" id="subscription_price_12_inc"
+                                                                name="subscription_price_12_inc" value="50" />
+                                                            <input type="hidden" id="individual_pcs" name="individual_pcs"
+                                                                value="2" />
+                                                            <input type="hidden" id="individual_price_inc"
+                                                                name="individual_price_inc" value="0" />
+                                                            <input type="hidden" id="corporate_pcs" name="corporate_pcs"
+                                                                value="10" />
+                                                            <input type="hidden" id="corporate_price_inc" name="corporate_price_inc"
+                                                                value="50" />
+                                                            <input type="hidden" id="trainer_pcs" name="trainer_pcs" value="25" />
+                                                            <input type="hidden" id="trainer_price_inc" name="trainer_price_inc"
+                                                                value="100" />
+                                                            <input type="hidden" id="shop_type" name="shop_type" value="bundle" />
+                                                            <input type="hidden" id="bundleType" name="bundleType" value="3" />
+                                                            <input type="hidden" id="bundleIcon" name="bundleIcon"
+                                                                value="img_4210801752032.html" />
+                                                            <div class="add_to_cart">
+                                                                <button class="btn" type="submit">
+                                                                    <i class="fa fa-shopping-cart"></i> Add to Cart
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
                                     </div>
-                                </div>
-                                {{-- END <!------------- Premium Check List----------------------------------------> --}}
-
-                                {{-- <!-------------Feature Banner--------------------------------------------> --}}
-                                <div id="sample_page_2_middle_content_inner" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
-                                    <h2>What Makes Our {{$exam->vendor_title}} {{$exam->exam_code}} Exam Material Better Than Others?</h2>
-                                    <p>
-                                        We take regular feedback from successful candidates of the {{$exam->certificate_title}} Fundamentals
-                                        exam to make necessary changes in our preparation material.
-                                        Our {{$exam->vendor_title}} {{$exam->exam_code}} exam study material is syllabus-based and we update it
-                                        immediately if Microsoft&nbsp;changes the content of the
-                                        <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;
-                                        background-color: rgb(252, 252, 252);">
-                                        {{$exam->exam_code}}&nbsp;
-                                        </span>
-                                        exam. These regular updates make our {{$exam->vendor_title}} {{$exam->exam_code}} practice questions more effective and result-oriented.
-                                        To meet the learning needs of every candidate, the Certs Idea more effective.
-                                    </p>
-                                </div>
-                                {{-- END <!-------------Feature Banner----------------------------------------> --}}
-
-                                {{-- <!-------------Feature List--------------------------------------------> --}}
-                                <div id="sample_page_2_middle_content_inner_2" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
-                                    <h3>
-                                        <strong>New {{$exam->vendor_title}} {{$exam->exam_code}}&nbsp;Questions According to Latest Syllabus</strong>
-                                    </h3>
-                                    <p>
-                                        We keep an eye on {{$exam->certificate_title}} Fundamentals certification exam content.
-                                        If there is any tweak in exam topics, we instantly update our {{$exam->vendor_title}} {{$exam->exam_code}} exam
-                                        questions. Continuous feedback of successful candidates also helps us to keep practice
-                                        questions bank updated. These latest changes help our customers to prepare for the
-                                        recently updated {{$exam->certificate_title}} Fundamentals questions and answers. This is the
-                                        strategy that makes our 3 formats of preparation material successful. Due to the
-                                        regular updates and relativity of our Microsoft
-                                        <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">
-                                            &nbsp;
-                                        </span>
-                                        AZ-140 practice questions, we provide a satisfaction guarantee.
-                                    </p>
-                                    <h3>
-                                        <strong>{{$exam->vendor_title}} {{$exam->exam_code}} Practice Questions with Free updates</strong>
-                                    </h3>
-                                    <p>
-                                        The portability of our Microsoft
-                                        <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">
-                                            &nbsp;
-                                        </span>
-                                        {{$exam->certificate_title}} Fundamentals certification exam PDF questions makes us a trusted brand in the
-                                        market. Without time and place restrictions, you can practice actual Microsoft
-                                        <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">&nbsp;</span>
-                                        {{$exam->exam_code}} questions via smartphones, computers, laptops, and tablets.
-                                    </p>
-                                    <h3>
-                                        <strong>Self-Assessment With {{$exam->vendor_title}} {{$exam->exam_code}} Exam Practice Test</strong>
-                                    </h3>
-                                    <p>
-                                        You can evaluate preparation before the final exam by trying the {{$exam->vendor_title}} {{$exam->exam_code}}
-                                        practice test in web-based and desktop versions. With our customizable mock exams,
-                                        you can track your progress, identify weaker areas of preparation and remove mistakes before
-                                        the actual {{$exam->certificate_title}} Fundamentals certification exam. These exam simulation tests
-                                        help you overcome anxiety about the actual exam by providing a real exam like scenario.
-                                    </p>
-                                </div>
-                                {{-- END <!-------------Feature List----------------------------------------> --}}
-
-                                {{-- <!-------------Frequent Links--------------------------------------------> --}}
-                                <div id="sample_page_note_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
-                                    <div class="terms">
-                                        <p class="taxonomy">
-                                            <a class="vocab-term" href="../azure.html">{{$exam->certificate_title}}</a>
-                                            | <a  class="vocab-term" href="../azure-administrators.html">{{$exam->certificate_title}} Administrators</a>
-                                            | <a  class="vocab-term" href="../business-user.html">Microsoft Business User</a>
-                                            | <a  class="vocab-term" href="../technology-manager.html">Microsoft Technology Manager</a>
-                                            | <a class="vocab-term" href="../beginner.html">Microsoft Beginner</a> |
-                                            <a class="vocab-term" href="../{{$exam->exam_code}}-exam-topics.html">{{$exam->exam_code}} Exam Topics</a>
-                                            | <a class="vocab-term" href="../{{$exam->exam_code}}-questions-answers.html">{{$exam->exam_code}} Questions Answers</a>
-                                            | <a class="vocab-term" href="../{{$exam->exam_code}}-real-questions.html">{{$exam->exam_code}} Real Questions</a>
-                                            | <a class="vocab-term" href="../microsoft-azure-fundamentals-course-details.html">{{$exam->certificate_title}} Fundamentals Course Details</a>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                {{-- END <!-------------Frequent Links----------------------------------------> --}}
-
-                            </div>
-                        </div>
-                        {{-- END <!-------------LEFT SIDE PORTION 75% Area ----------------------------------------> --}}
-
-                        {{-- <!-------------Right Side Promo Cards--------------------------------------------> --}}
-                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4 sample_page_2_right_bar">
-                            <div class="sample_page_2_right_bar_testimonials">
-                                <div class="card" style="margin-bottom: 6px;border-radius: 5px;">
-                                    <div class="card-header" style="background-color: #22ad95; border-radius: 5px 5px 0px 0px;" >
-                                        <!--<a href=""></a>-->
-                                        <h4 style="font-size: 20px;">Free {{$exam->exam_code}} Questions</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <a style="color: #22ad95;" href="../free-{{$exam->exam_code}}-questions.html">
-                                            Free {{$exam->vendor_title}} {{$exam->exam_code}} Exam  Questions
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- 2nd Card --}}
-                            <div class="sample_page_2_right_bar_testimonials">
-                                <div class="card" style="margin-bottom: 6px;border-radius: 5px;">
-                                    <div class="card-header" style="background-color: #22ad95; border-radius: 5px 5px 0px 0px;" >
-                                        <h4 style="font-size: 20px; cursor: auto; "> {{$exam->exam_code}} Exam Syllabus</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <a style="color: #22ad95;" href="../syllabus/{{$exam->exam_code}}.html">
-                                            {{$exam->vendor_title}} {{$exam->exam_code}} Exam Syllabus
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- Extra Card Down Part --}}
-                            <div class="sample_page_2_right_bar_testimonials">
-                                <h3 >
-                                    <a href="#">Related Exams</a>
-                                </h3>
-                            </div>
-                            {{-- Hot Exam --}}
-                            <div class="sample_page_2_right_bar_blog">
-                                <div class="sample_page_right_bar_blog_heading">
-                                    <h3>
-                                        HOT EXAMS
-                                    </h3>
-                                </div>
-                                {{-- Exam List --}}
-                                <div class="sample_page_2_right_bar_blog_links">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:;" class="btun margin-right">
-                                                <span>C100DBA </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;" class="btun margin-right">
-                                                <span>1Z0-343 </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;" class="btun margin-right">
-                                                <span>MB-700 </span>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        {{-- END <!-------------Right Side Promo Cards----------------------------------------> --}}
+                        {{-- Right Side Image --}}
+                        <div class="overview-image">
+                            <div class="image" style="width: 528px; height: 512px; background:#ccc">
+                                {{-- <img style="width: 80%" src="../assets/site/img/exam1%20(2).webp" alt="image"> --}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-            {{-- END <!-------------Exam Detailed Info--------------------------------------------> --}}
-        </section>
-        <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
-      @endforeach
+            {{-- END <!------------- Bundle Pack ----------------------------------------> --}}
 
-    @endsection
+            {{-- <!------------- WEB Pack --------------------------------------------> --}}
+            <section class="web_based_exam bg-f7fafd">
+                <div class="container-fluid">
+                    <div class="overview-box">
+                        {{-- Left Side Image --}}
+                        <div class="overview-image">
+                            <div class="image" style="width: 80%; height: 512px; background:#ccc">
+                                {{-- <img style="width: 80%" src="../assets/site/img/webbased.webp" alt="image"> --}}
+                            </div>
+                        </div>
+                        <div class="overview-content web_based_exam_content" style="padding-top: 60px;">
+                            <div class="content left-content pt-5">
+                                <div class="left-content-fst" style="">
+                                    <h2>Web-Based PL-600 Practice Test</h2>
+                                    <br>
+                                    <ul class="services-list">
+                                        <li>
+                                            <span class="hvr-wobble-skew">
+                                                <i class="far fa-calendar-check"></i> Last Updated : 31-07-2021
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="hvr-wobble-skew">
+                                                <i class="fa fa-question-circle"></i> 47 Total Questions
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    &nbsp; 
+                                    <p>
+                                        PL-600 Web-Based Practice Test Engine Features:
+                                    </p> 
+                                    <ul class="web_based_ul"> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span>
+                                            No Installation Required
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            Start your Prepartion Instantly
+                                        </li>
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            900+ Satisfied Customers
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            Based on Actual Exam Topics
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            Compatible with All Major Browsers &amp; Operating Systems
+                                        </li> 
+                                    </ul> 
+                                    <br /> 
+                                    &nbsp;
+                                    <div id="btnPlusprice_exam_webbased" class="row">
+                                        <div>
+                                            <div class="bundle_price_exam_webbased">
+                                                Price: $49 
+                                                <del>Before: $98</del> 
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="add_demo_btn">
+                                                <ul>
+                                                    <form action="https://www.study4exam.com/carts/" method="post" class="web_form">
+                                                        <input type="hidden" value="Online Practice Exam" name="product_name" />
+                                                        <input type="hidden" value="PL-600" name="exam_code" />
+                                                        <input type="hidden" value="3" name="ptype_id" />
+                                                        <input type="hidden" value="single" name="shop_type" />
+                                                        <button id="btn-cart" type="submit" class="btn">
+                                                            <i class="fa fa-shopping-cart"></i> Add To Cart
+                                                        </button>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </form> 
+                                                    <button id="btn-demo6"  class="try-5 btn pop_onloneDemo demo" data_val="1" demo>
+                                                        Demo
+                                                    </button>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {{-- END <!------------- WEB Pack ----------------------------------------> --}}
+
+            {{-- <!------------- PDF Pack --------------------------------------------> --}}
+            <section class="pdf_pack">
+                <div class="container-fluid p-0">
+                    <div class="overview-box">
+                        <div class="overview-content" style="padding-top: 60px;">
+                            <div class="content left-content pt-5">
+                                <div class="left-content-inner">
+                                    <h2>PL-600 Questions & Answers (PDF)</h2>
+                                    <br>
+                                    <ul class="services-list">
+                                        <li>
+                                            <span class="hvr-wobble-skew">
+                                                <i class="far fa-calendar-check"></i> Last Updated : 31-07-2021
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="hvr-wobble-skew">
+                                                <i class="fa fa-question-circle"></i> 47 Total Questions
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    &nbsp; 
+                                    <p style="margin-bottom: 2%;">
+                                        PL-600 PDF Format
+                                    </p> 
+                                    <ul class="pdf_ul"> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            Compatible with All Modern Devices including Smartphones
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            Easy to Use
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            1200+ Satisfied Customers
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            Based on Actual Microsoft PL-600 Syllabus
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            90 Days Free Updates
+                                        </li> 
+                                    </ul> 
+                                    <br /> 
+                                    &nbsp;              
+                                    <div id="btnPlusprice_exam_pdf" class="row">
+                                        <div class="">
+                                            <div class="bundle_price_exam_pdf">
+                                                Price: $59 
+                                                <del>Before: $118</del> 
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="add_demo_btn">
+                                                <ul>
+                                                    <form action="https://www.study4exam.com/carts/" method="post" class="pdf_form">
+                                                        <input type="hidden" value="PDF" name="product_name" />
+                                                        <input type="hidden" value="PL-600" name="exam_code" />
+                                                        <input type="hidden" value="1" name="ptype_id" />
+                                                        <input type="hidden" value="single" name="shop_type" />
+                                                        <button id="btn-cart1"  type="submit" class="btn">
+                                                            <i class="fa fa-shopping-cart"></i> 
+                                                            Add To Cart
+                                                        </button>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </form> 
+                                                    <button id="btn-demo8" class="try-5 btn pop_pdfDemo demo" data_val="1">
+                                                        Demo
+                                                    </button>
+                                                </ul>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- Right Side Image --}}
+                        <div class="overview-image">
+                            <div class="image" style="width: 528px; height: 512px; background:#ccc">
+                                {{-- <img style="width: 80%" src="../assets/site/img/pdf%20(2).webp" alt="image"> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {{-- END <!------------- PDF Pack ----------------------------------------> --}}
+
+            {{-- <!------------- Desktop Pack --------------------------------------------> --}}
+            <section class="desktop_version_exam bg-f7fafd">
+                <div class="container-fluid p-0">
+                    <div class="overview-box">
+                        {{-- Left Side Image --}}
+                        <div class="overview-image">
+                            <div class="image" style="width: 528px; height: 512px; background:#ccc">
+                                {{-- <img style="width: 80%" src="../assets/site/img/image_4.webp" alt="image"> --}}
+                            </div>
+                        </div>
+                        <div class="overview-content" style="padding-top: 60px;">
+                            <div class="content left-content pt-5">
+                                <div class="left-content-inner"style="">
+                                    <h2>PL-600 Desktop Practice Test Software</h2>
+                                    <br>
+                                    <ul class="services-list">
+                                        <li>
+                                            <span class="hvr-wobble-skew"><i class="far fa-calendar-check"></i> 
+                                                Last Updated : 31-07-2021 
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="hvr-wobble-skew"><i class="fa fa-question-circle"></i> 
+                                                47 Total Questions
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    &nbsp; 
+                                    <p style=" margin-bottom: 2%;">
+                                        PL-600 Desktop Practice Test
+                                    </p> 
+                                    <ul class="desktop_ul"> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            Best PL-600 Self-Assesment Software
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            Reduce your chances of failure in actual PL-600 exam
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            500+ Satisfied Customers
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            Compatible with Windows 8/8.1/10
+                                        </li> 
+                                        <li>
+                                            <span><i class="fas fa-check"></i></span> 
+                                            Customizable Test Sessions, Try Free
+                                        </li> 
+                                    </ul> 
+                                    <br /> 
+                                    &nbsp;                
+                                    <div id="btnPlusprice_exam_desktop" class="row">
+                                        <div class="">
+                                            <div class="bundle_price_exam_desktop">
+                                                Price: $39 
+                                                <del>Before: $78</del> 
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="add_demo_btn">
+                                                <ul>
+                                                    <form action="https://www.study4exam.com/carts/" method="post" class="soft_form">
+                                                        <input type="hidden" value="Practice Exam" name="product_name" />
+                                                        <input type="hidden" value="PL-600" name="exam_code" />
+                                                        <input type="hidden" value="2" name="ptype_id" />
+                                                        <input type="hidden" value="single" name="shop_type" />
+                                                        <button id="btn-cart2"  type="submit" class="btn">
+                                                            <i class="fa fa-shopping-cart"></i> Add To Cart
+                                                        </button>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </form> 
+                                                    <button id="btn-demo1" class="try-5 btn pop_softDemo demo" data_val="2">
+                                                        Demo
+                                                    </button>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {{-- END <!------------- Desktop Pack ----------------------------------------> --}}
+            
+            {{-- <!------------- Features of Exam --------------------------------------------> --}}
+            <section class="features_exam pt-5 pb-5 bg-f7fafd">
+
+                <section class="features_exam pt-5 pb-5 bg-f7fafd" style=" "> 
+                    <div class="section-title">
+                        <span class="heading_bg_heading_1">OUR STRENGTH</span>
+                        <h3>How Does Study4exam Serve You?</h3> 
+                    </div> 
+                    <div class="container"> 
+                        <div style="text-align: center; margin-bottom: 3%; margin-top: -2%;"> 
+                            <p>
+                                Our Microsoft PL-600 practice test is the most reliable solution to quickly prepare for your 
+                                Microsoft Power Platform Solution Architect. We are certain that our Microsoft PL-600 
+                                practice exam will guide you to get certified on the first try. 
+                                Here is how we serve you to prepare successfully:
+                            </p> 
+                        </div> 
+                        <div class="features_exam_inner"> 
+                            <div class="row"> 
+                                <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> 
+                                    <div class="row"> 
+                                        <div class="col-xs-2">
+                                            <img alt="Practice Test" src="../assets/site/img/Path_1096.png" />
+                                        </div> 
+                                        <div class="col-lg-10"> <p class="heading">Free Demo of Microsoft PL-600 Practice Test</p> <p class="content">Try a free demo of our Microsoft PL-600 PDF and practice exam software before the purchase to get a closer look at practice questions and answers.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> <div class="row"> <div class="col-xs-2"><img alt="Updates" src="../assets/site/img/Image_270.png" /></div> <div class="col-lg-10"> <p class="heading">Up to 3 Months of Free Updates</p> <p class="content">We provide up to 3 months of free after-purchase updates so that you get Microsoft PL-600 practice questions of today and not yesterday.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> <div class="row"> <div class="col-xs-2"><img alt="Certified" src="../assets/site/img/Image_271.png" /></div> <div class="col-lg-10"> <p class="heading">Get Certified in First Attempt</p> <p class="content">We have a long list of satisfied customers from multiple countries. Our Microsoft PL-600 practice questions will certainly assist you to get passing marks on the first attempt.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> <div class="row"> <div class="col-xs-2"><img alt="Questions" src="../assets/site/img/Image_272.png" /></div> <div class="col-lg-10"> <p class="heading">PDF Questions and Practice Test</p> <p class="content">Study4exam offers Microsoft PL-600 PDF questions, web-based and desktop practice tests that are consistently updated.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 "> <div class="row"> <div class="col-xs-2"><img alt="Customer" src="../assets/site/img/image_user1.png" /></div> <div class="col-lg-10"> <p class="heading">24/7 Customer Support</p> <p class="content">Study4exam has a support team to answer your queries 24/7. Contact us if you face login issues, payment and download issues. We will entertain you as soon as possible.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 "> <div class="row"> <div class="col-xs-2"><img alt="Guaranteed " src="../assets/site/img/guarantee.png" style="width: 80px;" /></div> <div class="col-lg-10"> <p class="heading">100% Guaranteed Customer Satisfaction</p> <p class="content">Thousands of customers passed the Microsoft Power Platform Solution Architect exam by using our product. We ensure that upon using our exam products, you are satisfied.</p> </div> </div> </div> </div> </div> </div> </section>     </div>
+            </section>
+            {{-- END <!------------- Features of Exam ----------------------------------------> --}}
+
+            {{-- <!------------- Recent Updated Exams --------------------------------------------> --}}
+            <section class="recent_update_exam_exam pt-5 pb-5 bg-f7fafd">
+                <div class="recent_update_exam_top_exam">
+            
+                              <div class="recent_update_exam_top_exam"><span class="heading_bg_heading_1">RECENT UPDATES</span> <h3>Recently Updated Exams</h3> </div>     </div>
+                    <div class="recent_update_exam_bottom_exam container">
+                  <div class="row">
+                              <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
+                      <div class="card" style="">
+                        <div class="card-body hvr-sweep-to-right">
+                          <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                              <div style="text-align: center;">
+                                <b><a href="az-204.html">AZ-204</a></b>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Developing Solutions for Microsoft Azure Exam</strong>
+                                <p><b>246 Total Questions </b></p>
+                              </div>
+                            </div>
+                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                              <div style="text-align: center;     padding-top: 10px;">
+                                  <!--05 August 2021-->
+                                <strong>05</strong>
+                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">August</b>
+                                <p>
+                                  <b>2021</b></p>
+                              </div>
+                            </div>
+            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                            <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
+                      <div class="card" style="">
+                        <div class="card-body hvr-sweep-to-right">
+                          <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                              <div style="text-align: center;">
+                                <b><a href="../cisco/300-410-enarsi.html">300-410</a></b>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Implementing Cisco Enterprise Advanced Routing and Services</strong>
+                                <p><b>216 Total Questions </b></p>
+                              </div>
+                            </div>
+                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                              <div style="text-align: center;     padding-top: 10px;">
+                                  <!--04 August 2021-->
+                                <strong>04</strong>
+                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">August</b>
+                                <p>
+                                  <b>2021</b></p>
+                              </div>
+                            </div>
+            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                            <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
+                      <div class="card" style="">
+                        <div class="card-body hvr-sweep-to-right">
+                          <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                              <div style="text-align: center;">
+                                <b><a href="../salesforce/adm-201.html">ADM-201</a></b>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Administration Essentials for New Admins</strong>
+                                <p><b>360 Total Questions </b></p>
+                              </div>
+                            </div>
+                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                              <div style="text-align: center;     padding-top: 10px;">
+                                  <!--04 August 2021-->
+                                <strong>04</strong>
+                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">August</b>
+                                <p>
+                                  <b>2021</b></p>
+                              </div>
+                            </div>
+            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                            <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
+                      <div class="card" style="">
+                        <div class="card-body hvr-sweep-to-right">
+                          <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                              <div style="text-align: center;">
+                                <b><a href="../amazon/ans-c00.html">ANS-C00</a></b>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">AWS Advanced Networking Specialty</strong>
+                                <p><b>153 Total Questions </b></p>
+                              </div>
+                            </div>
+                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                              <div style="text-align: center;     padding-top: 10px;">
+                                  <!--04 August 2021-->
+                                <strong>04</strong>
+                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">August</b>
+                                <p>
+                                  <b>2021</b></p>
+                              </div>
+                            </div>
+            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                            <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
+                      <div class="card" style="">
+                        <div class="card-body hvr-sweep-to-right">
+                          <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                              <div style="text-align: center;">
+                                <b><a href="../cisco/300-715-sise.html">300-715</a></b>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Implementing and Configuring Cisco Identity Services Engine</strong>
+                                <p><b>152 Total Questions </b></p>
+                              </div>
+                            </div>
+                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                              <div style="text-align: center;     padding-top: 10px;">
+                                  <!--04 August 2021-->
+                                <strong>04</strong>
+                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">August</b>
+                                <p>
+                                  <b>2021</b></p>
+                              </div>
+                            </div>
+            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                            <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
+                      <div class="card" style="">
+                        <div class="card-body hvr-sweep-to-right">
+                          <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                              <div style="text-align: center;">
+                                <b><a href="../servicenow/csa.html">CSA</a></b>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">ServiceNow Certified System Administrator</strong>
+                                <p><b>147 Total Questions </b></p>
+                              </div>
+                            </div>
+                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                              <div style="text-align: center;     padding-top: 10px;">
+                                  <!--03 August 2021-->
+                                <strong>03</strong>
+                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">August</b>
+                                <p>
+                                  <b>2021</b></p>
+                              </div>
+                            </div>
+            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                            <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
+                      <div class="card" style="">
+                        <div class="card-body hvr-sweep-to-right">
+                          <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                              <div style="text-align: center;">
+                                <b><a href="../cisco/350-801-clcor.html">350-801</a></b>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Implementing and Operating Cisco Collaboration Core Technologies</strong>
+                                <p><b>240 Total Questions </b></p>
+                              </div>
+                            </div>
+                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                              <div style="text-align: center;     padding-top: 10px;">
+                                  <!--03 August 2021-->
+                                <strong>03</strong>
+                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">August</b>
+                                <p>
+                                  <b>2021</b></p>
+                              </div>
+                            </div>
+            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                            <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
+                      <div class="card" style="">
+                        <div class="card-body hvr-sweep-to-right">
+                          <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                              <div style="text-align: center;">
+                                <b><a href="../apics/cscp.html">CSCP</a></b>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">APICS Certified Supply Chain Professional</strong>
+                                <p><b>360 Total Questions </b></p>
+                              </div>
+                            </div>
+                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                              <div style="text-align: center;     padding-top: 10px;">
+                                  <!--03 August 2021-->
+                                <strong>03</strong>
+                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">August</b>
+                                <p>
+                                  <b>2021</b></p>
+                              </div>
+                            </div>
+            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                            <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
+                      <div class="card" style="">
+                        <div class="card-body hvr-sweep-to-right">
+                          <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                              <div style="text-align: center;">
+                                <b><a href="dp-300.html">DP-300</a></b>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Administering Relational Databases on Microsoft Azure</strong>
+                                <p><b>176 Total Questions </b></p>
+                              </div>
+                            </div>
+                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                              <div style="text-align: center;     padding-top: 10px;">
+                                  <!--03 August 2021-->
+                                <strong>03</strong>
+                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">August</b>
+                                <p>
+                                  <b>2021</b></p>
+                              </div>
+                            </div>
+            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                          </div>
+                </div>
+                </div>
+              </section>
+            {{-- END <!------------- Recent Updated Exams ----------------------------------------> --}}
+
+    {{-- <!------------- Vendor Testimonials --------------------------------------------> --}}
+    <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
+        <div class="section-title">
+            {{-- <span class="new_testimonials_bg_heading">TESTIMONIALS</span> --}}
+            <h3>{{ $vendor_title ?? '' }} Certification Exam Testimonials</h3>
+        </div>
+        <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4">
+            <div id="parant_comment" class="container mt-3">
+                <div class="media p-3">
+                    <div class="initalname">
+                        V
+                    </div>
+                    <div class="media-body">
+                        <p style="color: #22ad95;font-size: 20px;font-weight: 500;">
+                            Virginia
+                            <!--<img src="https://flagcdn.com/w80/ca.png" alt="flag"  class="dicls">-->
+                            <span style="float: right;font-size: 16px;color: #da0606;"><i>Aug 30, 2021</i></span>
+                        </p>
+                        <div class="rating">
+                        </div>
+                        <p>
+                            Choosing DP-100 mock test of certsidea.com for practice was a conscious decision.
+                            I did not find anything better than these mock tests.
+                            They are designed to give practice to people who seriously want to clear the DP-100 exam .
+                            The tests are well within my budget and I am sure practicing on them will help me pass the exam
+                            in first attempt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- END <!------------- Vendor Testimonials ----------------------------------------> --}}
+
+    {{-- <!------------- Comments Area --------------------------------------------> --}}
+    <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;">
+        <div class="container">
+            <div class="topArea">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="h4"> Leave Your Comment</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainformarea">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div id="form-messages" style="background:none;">
+
+                        </div>
+                        <div class="text-center">
+                            <div class="alert alert-success" style="display:none"></div>
+                            <div class="alert alert-danger" style="display:none"></div>
+                        </div>
+                        <!--<form method="post" name="contactusForm" id="contactusForm" action="https://www.certsidea.com/contact">-->
+                        <div name="contactusForm" id="contactusForm">
+                            <div class="inputArea">
+                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label>Full Name</label>
+                                        <input type="text" class="NameSearch form-control" id="full_name" name="full_name"
+                                            value="" placeholder="Full Name" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="NameSearch form-control" id="email" name="email" value=""
+                                            placeholder="example@email.com" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Subject</label>
+                                        <input type="text" class="NameSearch form-control" id="subject" name="subject"
+                                            value="" placeholder="Subject" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label>Message</label>
+                                        <textarea class="LgSearch form-control" id="message" name="message" rows="8"
+                                            placeholder="Message" required="required"></textarea>
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <button class="btn btn-success" id="submitcontactdata">submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- END <!------------- Comments Area ----------------------------------------> --}}
+
+    {{-- END <!-------------Exam Detailed Info--------------------------------------------> --}}
+    </section>
+    <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    {{-- @endforeach --}}
+
+@endsection

@@ -24,7 +24,9 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('vendor/{slug?}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
-Route::get('{slug?}/{exam?}', [Exam_Controller::class, 'index'])->name('exam');
+Route::get('{slug?}/info/{exam?}', [Exam_Controller::class, 'index'])->name('exam_info');
+Route::get('{slug?}/{exam?}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
+Route::get('demo_exam/{slug?}/{exam?}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
 
 
 /**customer middleware check if user is a guest or user is logged in as a customer,
