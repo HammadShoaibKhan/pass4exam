@@ -100,15 +100,17 @@
                                 {{-- <!------------- Free Test Trigger--------------------------------------------> --}}
                                 <div class="tryonlineBtn col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4 m-auto text-center" >
                                     <div>
-                                        <form method="post" action="javascript:;" id="demos_form" name="demos_form" target="_blank">
-                                            <input type="hidden" name="exam_code" value="{{$exam->exam_code}}">
-                                            <input type="hidden" name="demo" value="1">
-                                            <input type="hidden" name="site" value="Certsidea">
-                                            <input type="hidden" name="siteurl" value="../../index.html">
-                                            <button class="demoLoginUserBtn btn demo"  type="submit" style="text-transform: none;">
-                                                Take a Free Self-Assessment Quiz
-                                            </button>
-                                        </form>
+                                        {{-- <form method="post" action="javascript:;" id="demos_form" name="demos_form" target="_blank"> --}}
+                                            {{-- <input type="hidden" name="exam_code" value="{{$exam->exam_code}}"> --}}
+                                            {{-- <input type="hidden" name="demo" value="1"> --}}
+                                            {{-- <input type="hidden" name="site" value="Certsidea"> --}}
+                                            {{-- <input type="hidden" name="siteurl" value="../../index.html"> --}}
+                                            {{-- <button class="demoLoginUserBtn btn demo"  type="submit" style="text-transform: none;"> --}}
+                                                <a href="{{route('exam_demo',[$exam->vendor_slug,$exam->exam_code])}}" target="_blank" class="btn mt-3" style="text-transform: none;">
+                                                    Take a Free Self-Assessment Quiz
+                                                </a>
+                                            {{-- </button> --}}
+                                        {{-- </form> --}}
                                     </div>
                                 </div>
                                 {{-- END <!------------- Free Test Trigger----------------------------------------> --}}
