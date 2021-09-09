@@ -26,6 +26,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('vendor/{slug?}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
 Route::get('{slug?}/info/{exam?}', [Exam_Controller::class, 'index'])->name('exam_info');
 Route::get('{slug?}/{exam?}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
+Route::get('demo_exam/{slug?}/{exam?}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
 
 Route::group(['middleware' => 'customer'], function () {
     // 
