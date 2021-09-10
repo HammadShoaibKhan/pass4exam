@@ -29,15 +29,18 @@
                       <div class="card-header p-0 border-bottom-0">
                         <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                           <li class="nav-item">
-                            <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="false">General</a>
+                              <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="false">General</a>
                           </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Case&nbspStudies</a>
+                            </li>
                         </ul>
                       </div>
                       <div class="card-body">
 
                       @include('layouts.admin.includes.messages')
                         <div class="tab-content" id="custom-tabs-four-tabContent">
-                          <div class="tab-pane active show fade" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+                            <div class="tab-pane active show fade" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
                             <div class="card card-primary cstm-border">
                                 <div class="card-header">
                                   <h3 class="card-title">Update Exam</h3>
@@ -366,6 +369,51 @@
                               </div>
 
                           </div>
+
+                            <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
+                                <section class="content">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-2 offset-10">
+                                                <a href="{{ route('admin.case-study.create', $exam->id) }}" class="btn btn-block btn-primary btn-md"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add Case Study</a>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <!-- /.card-header -->
+                                                    <div class="card-body" id="bind-exams">
+                                                        <table id="datatable" class="table table-bordered table-striped">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            @forelse($exam->caseStudies as $key => $caseStudy)
+                                                                <tr>
+                                                                    <td>{{ $key + 1 }}</td>
+                                                                    <td><a href="{{ route('admin.case-study.questions', $caseStudy->id) }}" target="_blank">{{ $caseStudy->name }}</a></td>
+                                                                </tr>
+                                                            @empty
+                                                            @endforelse
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!-- /.card-body -->
+                                                </div>
+                                                <!-- /.card -->
+                                            </div>
+                                            <!-- /.col -->
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                    <!-- /.container-fluid -->
+                                </section>
+                            </div>
                         </div>
                       </div>
                       <!-- /.card -->
