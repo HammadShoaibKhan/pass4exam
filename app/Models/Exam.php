@@ -27,4 +27,9 @@ class Exam extends Model
     {
         return json_decode($this->pricing);
     }
+
+    public function caseStudies()
+    {
+        return $this->hasMany(CaseStudy::class);
+    }
 }

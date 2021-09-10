@@ -68,7 +68,7 @@ class ExamController extends Controller
             $certifications = Certification::orderBy('title', 'ASC')->whereStatus(1)->select('id', 'title')->get();
             return view('admin.exams.edit', compact('title', 'exam', 'vendors', 'certifications'));
         }
-        return redirect()->route('admin.exams');
+        return redirect()->route('admin.exams')->with('error', 'Something went wrong');
     }
 
     public function update(Request $request, $id)
