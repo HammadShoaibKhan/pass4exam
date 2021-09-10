@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\CertificationController;
 use App\Http\Controllers\Admin\ExamController;
 use App\Http\Controllers\Exam_Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CaseStudyController;
+use \App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,9 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('vendor/{slug?}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
-Route::get('{slug?}/{exam?}', [Exam_Controller::class, 'index'])->name('exam');
+Route::get('{slug?}/info/{exam?}', [Exam_Controller::class, 'index'])->name('exam_info');
+Route::get('{slug?}/{exam?}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
+Route::get('demo_exam/{slug?}/{exam?}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
 
 
 /**customer middleware check if user is a guest or user is logged in as a customer,
@@ -91,6 +95,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('pdf-file', [ExamController::class, 'uploadPdfFile'])->name('admin.exam.pdf-file');
         Route::post('desktop-file', [ExamController::class, 'uploadDesktopFile'])->name('admin.exam.desktop-file');
         Route::post('pricing', [ExamController::class, 'pricing'])->name('admin.exam.pricing');
+    });
+
+    /** CASE STUDIES ROUTES */
+    Route::prefix('case-study')->group(function () {
+        Route::get('create/{exam_id}', [CaseStudyController::class, 'create'])->name('admin.case-study.create');
+        Route::get('{id}/questions', [CaseStudyController::class, 'showQuestions'])->name('admin.case-study.questions');
+    });
+
+    /** QUESTIONS ROUTES */
+    Route::prefix('question')->group(function () {
+        Route::get('{case_study_id}/create', [QuestionController::class, 'create'])->name('admin.question.create');
+        Route::post('create', [QuestionController::class, 'store'])->name('admin.question.store');
+        Route::get('{id}/edit', [QuestionController::class, 'edit'])->name('admin.question.edit');
+        Route::post('update/{id}', [QuestionController::class, 'update'])->name('admin.question.update');
+        Route::post('{question_id}/answer-save', [QuestionController::class, 'saveAnswers'])->name('admin.answer.save');
     });
 
 
