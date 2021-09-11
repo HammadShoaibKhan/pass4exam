@@ -293,19 +293,19 @@
                                 </div>
                             </div>
                             {{-- Extra Card Down Part --}}
-                            <div class="sample_page_2_right_bar_testimonials">
+                            {{-- <div class="sample_page_2_right_bar_testimonials">
                                 <h3 >
                                     <a href="#">Related Exams</a>
                                 </h3>
-                            </div>
+                            </div> --}}
                             {{-- Hot Exam --}}
-                            <div class="sample_page_2_right_bar_blog">
+                            {{-- <div class="sample_page_2_right_bar_blog">
                                 <div class="sample_page_right_bar_blog_heading">
                                     <h3>
                                         HOT EXAMS
                                     </h3>
                                 </div>
-                                {{-- Exam List --}}
+                                <!-- Exam List -->
                                 <div class="sample_page_2_right_bar_blog_links">
                                     <ul>
                                         <li>
@@ -325,7 +325,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         {{-- END <!-------------Right Side Promo Cards----------------------------------------> --}}
                     </div>
