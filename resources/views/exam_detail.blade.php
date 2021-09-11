@@ -1,6 +1,6 @@
 @extends('layouts.frontend.master')
 @section('content')
-    {{-- @foreach ($exam_info as $exam) --}}
+    @foreach ($exam_detail as $exam)
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -20,12 +20,12 @@
                                         <i class="fa fa-chevron-right "> </i>
                                     </li>
                                     <li>
-                                        <a href="{{ route('vendor') }}">{{ 'vender' }}</a>
+                                        <a href="{{ route('vendor') }}">{{ $exam->vendor_title }}</a>
                                     </li>
                                     <li>
                                         <i class="fa fa-chevron-right "></i>
                                     </li>
-                                    <li>{{ '$exam->exam_code' }} Questions</li>
+                                    <li>{{ $exam->exam_code }} Questions</li>
                                 </ol>
                             </div>
                             <div class="right-bar breadcumbBar">
@@ -43,17 +43,17 @@
             {{-- <!-------------Exam Detailed Info--------------------------------------------> --}}
 
             {{-- <!------------- Bundle Pack --------------------------------------------> --}}
-            <!--Array
+            {{-- <!--Array
                 (
-                    [name] => Microsoft Power Platform Solution Architect
+                    [name] => {{ $exam->vendor_title }} Power Platform Solution Architect
                     [p_type] => 0
                     [price] => 98
                     [ptype_id] => 3
-                    [exam_code] => PL-600
-                    [cert_names] => Microsoft Dynamics 365,Microsoft Power Apps + Dynamics 365 Solution Architect Expert,Microsoft Power Platform
-                    [vendor_name] => Microsoft
+                    [exam_code] => {{ $exam->exam_code }}
+                    [cert_names] => {{ $exam->vendor_title }} Dynamics 365,{{ $exam->vendor_title }} Power Apps + Dynamics 365 Solution Architect Expert,{{ $exam->vendor_title }} Power Platform
+                    [vendor_name] => {{ $exam->vendor_title }}
                 )
-                -->
+                --> --}}
 
             <section class="bundle_pack_exam ">
                 <div class="container-fluid">
@@ -61,8 +61,8 @@
                         <div class="overview-content pt-3">
                             <div class="content left-content">
                                 <div class="left-content-fst">
-                                    <h1>Microsoft PL-600 Exam</h1>
-                                    <p>Prepare for Microsoft Power Platform Solution Architect PL-600 Exam</p>
+                                    <h1>{{ $exam->vendor_title }} {{ $exam->exam_code }} Exam</h1>
+                                    <p>Prepare for {{ $exam->vendor_title }} Power Platform Solution Architect {{ $exam->exam_code }} Exam</p>
                                     <ul class="services-list">
                                         <li>
                                             <span class="hvr-wobble-skew">
@@ -160,7 +160,7 @@
                                                     <div class=" row">
                                                         <div class="col-sm-12">
                                                             <input type="hidden" id='bundle_name' name="bundle_name"
-                                                                value="Microsoft PL-600 Bundle Pack" />
+                                                                value="{{ $exam->vendor_title }} {{ $exam->exam_code }} Bundle Pack" />
                                                             <input type="hidden" id="price" name="price" value="158" />
                                                             <input type="hidden" id="checkout_price" name="checkout_price"
                                                                 value="158" />
@@ -229,7 +229,7 @@
                         <div class="overview-content web_based_exam_content" style="padding-top: 60px;">
                             <div class="content left-content pt-5">
                                 <div class="left-content-fst" style="">
-                                    <h2>Web-Based PL-600 Practice Test</h2>
+                                    <h2>Web-Based {{ $exam->exam_code }} Practice Test</h2>
                                     <br>
                                     <ul class="services-list">
                                         <li>
@@ -245,7 +245,7 @@
                                     </ul>
                                     &nbsp; 
                                     <p>
-                                        PL-600 Web-Based Practice Test Engine Features:
+                                        {{ $exam->exam_code }} Web-Based Practice Test Engine Features:
                                     </p> 
                                     <ul class="web_based_ul"> 
                                         <li>
@@ -283,7 +283,7 @@
                                                 <ul>
                                                     <form action="https://www.study4exam.com/carts/" method="post" class="web_form">
                                                         <input type="hidden" value="Online Practice Exam" name="product_name" />
-                                                        <input type="hidden" value="PL-600" name="exam_code" />
+                                                        <input type="hidden" value="{{ $exam->exam_code }}" name="exam_code" />
                                                         <input type="hidden" value="3" name="ptype_id" />
                                                         <input type="hidden" value="single" name="shop_type" />
                                                         <button id="btn-cart" type="submit" class="btn">
@@ -313,7 +313,7 @@
                         <div class="overview-content" style="padding-top: 60px;">
                             <div class="content left-content pt-5">
                                 <div class="left-content-inner">
-                                    <h2>PL-600 Questions & Answers (PDF)</h2>
+                                    <h2>{{ $exam->exam_code }} Questions & Answers (PDF)</h2>
                                     <br>
                                     <ul class="services-list">
                                         <li>
@@ -329,7 +329,7 @@
                                     </ul>
                                     &nbsp; 
                                     <p style="margin-bottom: 2%;">
-                                        PL-600 PDF Format
+                                        {{ $exam->exam_code }} PDF Format
                                     </p> 
                                     <ul class="pdf_ul"> 
                                         <li>
@@ -346,7 +346,7 @@
                                         </li> 
                                         <li>
                                             <span><i class="fas fa-check"></i></span> 
-                                            Based on Actual Microsoft PL-600 Syllabus
+                                            Based on Actual {{ $exam->vendor_title }} {{ $exam->exam_code }} Syllabus
                                         </li> 
                                         <li>
                                             <span><i class="fas fa-check"></i></span> 
@@ -367,7 +367,7 @@
                                                 <ul>
                                                     <form action="https://www.study4exam.com/carts/" method="post" class="pdf_form">
                                                         <input type="hidden" value="PDF" name="product_name" />
-                                                        <input type="hidden" value="PL-600" name="exam_code" />
+                                                        <input type="hidden" value="{{ $exam->exam_code }}" name="exam_code" />
                                                         <input type="hidden" value="1" name="ptype_id" />
                                                         <input type="hidden" value="single" name="shop_type" />
                                                         <button id="btn-cart1"  type="submit" class="btn">
@@ -410,7 +410,7 @@
                         <div class="overview-content" style="padding-top: 60px;">
                             <div class="content left-content pt-5">
                                 <div class="left-content-inner"style="">
-                                    <h2>PL-600 Desktop Practice Test Software</h2>
+                                    <h2>{{ $exam->exam_code }} Desktop Practice Test Software</h2>
                                     <br>
                                     <ul class="services-list">
                                         <li>
@@ -426,16 +426,16 @@
                                     </ul>
                                     &nbsp; 
                                     <p style=" margin-bottom: 2%;">
-                                        PL-600 Desktop Practice Test
+                                        {{ $exam->exam_code }} Desktop Practice Test
                                     </p> 
                                     <ul class="desktop_ul"> 
                                         <li>
                                             <span><i class="fas fa-check"></i></span> 
-                                            Best PL-600 Self-Assesment Software
+                                            Best {{ $exam->exam_code }} Self-Assesment Software
                                         </li> 
                                         <li>
                                             <span><i class="fas fa-check"></i></span> 
-                                            Reduce your chances of failure in actual PL-600 exam
+                                            Reduce your chances of failure in actual {{ $exam->exam_code }} exam
                                         </li> 
                                         <li>
                                             <span><i class="fas fa-check"></i></span> 
@@ -464,7 +464,7 @@
                                                 <ul>
                                                     <form action="https://www.study4exam.com/carts/" method="post" class="soft_form">
                                                         <input type="hidden" value="Practice Exam" name="product_name" />
-                                                        <input type="hidden" value="PL-600" name="exam_code" />
+                                                        <input type="hidden" value="{{ $exam->exam_code }}" name="exam_code" />
                                                         <input type="hidden" value="2" name="ptype_id" />
                                                         <input type="hidden" value="single" name="shop_type" />
                                                         <button id="btn-cart2"  type="submit" class="btn">
@@ -498,8 +498,8 @@
                     <div class="container"> 
                         <div style="text-align: center; margin-bottom: 3%; margin-top: -2%;"> 
                             <p>
-                                Our Microsoft PL-600 practice test is the most reliable solution to quickly prepare for your 
-                                Microsoft Power Platform Solution Architect. We are certain that our Microsoft PL-600 
+                                Our {{ $exam->vendor_title }} {{ $exam->exam_code }} practice test is the most reliable solution to quickly prepare for your 
+                                {{ $exam->vendor_title }} Power Platform Solution Architect. We are certain that our {{ $exam->vendor_title }} {{ $exam->exam_code }} 
                                 practice exam will guide you to get certified on the first try. 
                                 Here is how we serve you to prepare successfully:
                             </p> 
@@ -511,7 +511,7 @@
                                         <div class="col-xs-2">
                                             <img alt="Practice Test" src="../assets/site/img/Path_1096.png" />
                                         </div> 
-                                        <div class="col-lg-10"> <p class="heading">Free Demo of Microsoft PL-600 Practice Test</p> <p class="content">Try a free demo of our Microsoft PL-600 PDF and practice exam software before the purchase to get a closer look at practice questions and answers.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> <div class="row"> <div class="col-xs-2"><img alt="Updates" src="../assets/site/img/Image_270.png" /></div> <div class="col-lg-10"> <p class="heading">Up to 3 Months of Free Updates</p> <p class="content">We provide up to 3 months of free after-purchase updates so that you get Microsoft PL-600 practice questions of today and not yesterday.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> <div class="row"> <div class="col-xs-2"><img alt="Certified" src="../assets/site/img/Image_271.png" /></div> <div class="col-lg-10"> <p class="heading">Get Certified in First Attempt</p> <p class="content">We have a long list of satisfied customers from multiple countries. Our Microsoft PL-600 practice questions will certainly assist you to get passing marks on the first attempt.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> <div class="row"> <div class="col-xs-2"><img alt="Questions" src="../assets/site/img/Image_272.png" /></div> <div class="col-lg-10"> <p class="heading">PDF Questions and Practice Test</p> <p class="content">Study4exam offers Microsoft PL-600 PDF questions, web-based and desktop practice tests that are consistently updated.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 "> <div class="row"> <div class="col-xs-2"><img alt="Customer" src="../assets/site/img/image_user1.png" /></div> <div class="col-lg-10"> <p class="heading">24/7 Customer Support</p> <p class="content">Study4exam has a support team to answer your queries 24/7. Contact us if you face login issues, payment and download issues. We will entertain you as soon as possible.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 "> <div class="row"> <div class="col-xs-2"><img alt="Guaranteed " src="../assets/site/img/guarantee.png" style="width: 80px;" /></div> <div class="col-lg-10"> <p class="heading">100% Guaranteed Customer Satisfaction</p> <p class="content">Thousands of customers passed the Microsoft Power Platform Solution Architect exam by using our product. We ensure that upon using our exam products, you are satisfied.</p> </div> </div> </div> </div> </div> </div> </section>     </div>
+                                        <div class="col-lg-10"> <p class="heading">Free Demo of {{ $exam->vendor_title }} {{ $exam->exam_code }} Practice Test</p> <p class="content">Try a free demo of our {{ $exam->vendor_title }} {{ $exam->exam_code }} PDF and practice exam software before the purchase to get a closer look at practice questions and answers.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> <div class="row"> <div class="col-xs-2"><img alt="Updates" src="../assets/site/img/Image_270.png" /></div> <div class="col-lg-10"> <p class="heading">Up to 3 Months of Free Updates</p> <p class="content">We provide up to 3 months of free after-purchase updates so that you get {{ $exam->vendor_title }} {{ $exam->exam_code }} practice questions of today and not yesterday.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> <div class="row"> <div class="col-xs-2"><img alt="Certified" src="../assets/site/img/Image_271.png" /></div> <div class="col-lg-10"> <p class="heading">Get Certified in First Attempt</p> <p class="content">We have a long list of satisfied customers from multiple countries. Our {{ $exam->vendor_title }} {{ $exam->exam_code }} practice questions will certainly assist you to get passing marks on the first attempt.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> <div class="row"> <div class="col-xs-2"><img alt="Questions" src="../assets/site/img/Image_272.png" /></div> <div class="col-lg-10"> <p class="heading">PDF Questions and Practice Test</p> <p class="content">Study4exam offers {{ $exam->vendor_title }} {{ $exam->exam_code }} PDF questions, web-based and desktop practice tests that are consistently updated.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 "> <div class="row"> <div class="col-xs-2"><img alt="Customer" src="../assets/site/img/image_user1.png" /></div> <div class="col-lg-10"> <p class="heading">24/7 Customer Support</p> <p class="content">Study4exam has a support team to answer your queries 24/7. Contact us if you face login issues, payment and download issues. We will entertain you as soon as possible.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 "> <div class="row"> <div class="col-xs-2"><img alt="Guaranteed " src="../assets/site/img/guarantee.png" style="width: 80px;" /></div> <div class="col-lg-10"> <p class="heading">100% Guaranteed Customer Satisfaction</p> <p class="content">Thousands of customers passed the {{ $exam->vendor_title }} Power Platform Solution Architect exam by using our product. We ensure that upon using our exam products, you are satisfied.</p> </div> </div> </div> </div> </div> </div> </section>     </div>
             </section>
             {{-- END <!------------- Features of Exam ----------------------------------------> --}}
 
@@ -529,7 +529,7 @@
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
                               <div style="text-align: center;">
                                 <b><a href="az-204.html">AZ-204</a></b>
-                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Developing Solutions for Microsoft Azure Exam</strong>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Developing Solutions for {{ $exam->vendor_title }} Azure Exam</strong>
                                 <p><b>246 Total Questions </b></p>
                               </div>
                             </div>
@@ -729,7 +729,7 @@
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
                               <div style="text-align: center;">
                                 <b><a href="dp-300.html">DP-300</a></b>
-                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Administering Relational Databases on Microsoft Azure</strong>
+                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Administering Relational Databases on {{ $exam->vendor_title }} Azure</strong>
                                 <p><b>176 Total Questions </b></p>
                               </div>
                             </div>
@@ -858,6 +858,6 @@
     <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    {{-- @endforeach --}}
+    @endforeach
 
 @endsection
