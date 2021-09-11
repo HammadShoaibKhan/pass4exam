@@ -1,7 +1,8 @@
 @extends('layouts.frontend.master')
 @section('content')
-@foreach ($exam_info as $exam)
-    
+<?php if(!empty($exam_info)) {
+    $exam=$exam_info;
+?>       
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -336,6 +337,5 @@
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
-      @endforeach
-
+<?php } ?>
     @endsection

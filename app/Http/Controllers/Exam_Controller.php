@@ -23,7 +23,7 @@ class Exam_Controller extends Controller
             ->select('exams.*', 'venders.id as vendorId','venders.title as vendor_title','venders.slug as vendor_slug',
                 'certifications.title as certificate_title'
             )
-            ->get();
+            ->first();
             
             if(isEmpty($exam_info))
                 return view('exam_info', compact('title','exam_info'));
@@ -43,8 +43,7 @@ class Exam_Controller extends Controller
             ->select('exams.*', 'venders.id as vendorId','venders.title as vendor_title',
                 'certifications.title as certificate_title'
             )
-            ->get();
-            
+            ->first();
             if(isEmpty($exam_detail))
                 return view('exam_detail', compact('title','exam_detail'));
         }
