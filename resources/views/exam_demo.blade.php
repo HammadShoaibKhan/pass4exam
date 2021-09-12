@@ -4,7 +4,7 @@
 ?>       
   <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-      <title>Online Practice Test</title>
+      <title>{{$title ?? ''}}</title>
       <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
