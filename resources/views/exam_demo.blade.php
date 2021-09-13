@@ -329,7 +329,7 @@
                       {{--End Rollers  --}}
 
                       {{-- Practice Set  --}}
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="">
+                      {{-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="">
                         <div class="form-group Questype setsarea">
                           <!--<h4>Exam Sets:</h4>-->
                           <h4>
@@ -345,7 +345,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> --}}
                       {{--END Practice Set  --}}
 
                       {{-- Set Time Interval --}}
@@ -422,6 +422,7 @@
       {{--END  EXAM START --}}
 
     </div>
+    <br><br>
     <input type="hidden" id="site" value=" Certsidea" />  
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="{{ asset('frontend/js/exam_demo_functions.js') }}"></script>
