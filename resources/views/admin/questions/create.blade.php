@@ -61,6 +61,9 @@
                                                                 <label>Question</label>
                                                                 <textarea class="form-control" name="question" id="summernote" rows="10"></textarea>
                                                             </div>
+                                                            @error('question')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                            @enderror
                                                         </div>
                                                     </div>
 

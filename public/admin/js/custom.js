@@ -646,7 +646,7 @@ $(document).on('click', '.change-exam-status', function (e) {
 })
 
 $(document).on('click', '.del-exam-file', function () {
-    
+
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
