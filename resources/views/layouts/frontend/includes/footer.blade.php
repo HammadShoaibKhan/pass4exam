@@ -9,11 +9,11 @@
             <strong>ABOUT US</strong>
             <br>
             <ul class="list">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about-us.html">About us</a></li>
+              <li><a href="javascript:;">Home</a></li>
+              <li><a href="javascript:;">About us</a></li>
 
-              <li><a href="mega-packs.html">Mega Packs</a></li>
-             <li><a href="vendors.html">Discount Deals</a></li>
+              <li><a href="javascript:;">Mega Packs</a></li>
+             <li><a href="javascript:;">Discount Deals</a></li>
 
 
             </ul>
@@ -24,10 +24,10 @@
             <strong>CUSTOMER SERVICES</strong>
             <br>
             <ul class="footer-contact-info">
-              <li><a href="faqs.html">FAQ`s</a></li>
+              <li><a href="javascript:;">FAQ`s</a></li>
 
 
-              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="javascript:;">Contact Us</a></li>
               <li style="color: #fff;"> <span style="color: #fff; font-size: 16px;
     padding-right: 10px;"><i class="fa fa-envelope" aria-hidden="true"></i> </span> <a
                   style="color: #fff;     opacity: 1;
@@ -47,9 +47,9 @@
             <br>
 			<ul class="list">
 
-             <li><a href="terms-and-conditions.html">Terms And Conditions</a></li>
-             <li><a href="guarantee.html">Guarantee</a></li>
-             <li><a href="disclaimer.html">Disclaimer</a></li>
+             <li><a href="javascript:;">Terms And Conditions</a></li>
+             <li><a href="javascript:;">Guarantee</a></li>
+             <li><a href="javascript:;">Disclaimer</a></li>
              <li><a rel="noopener" target="_blank" href="javascript:;">Get Latest Promotions</a></li>
 
 

@@ -230,8 +230,9 @@
                 <div class="row">
                   @if($vendor->certifications)
                   @foreach ($vendor->certifications as $certificate)
+                  @if ($certificate->exams->count() > 0)
                   {{-- LEFT SIDE --}}
-                  <div class="col-md-6 col-sm-6 certification_fst_vendor">
+                    <div class="col-md-6 col-sm-6 certification_fst_vendor">
                     <div class="certification_fst_vendor_inner_1" style="">
                       <div class="certification_fst_vendor_inner_2" style="">
                         <div style="font-weight: 500; text-align: center;margin-bottom: 0px; padding: 5px; font-family: 'Roboto'; font-size: 22px;">
@@ -245,211 +246,49 @@
                         </div>
                       </div>
                       <div class="row certification_fst_vendor_inner_2_row">
-                        <?php
-                          if(!empty($exams)) 
-                          foreach ($exams as $exam) { 
-                            if($exam->certification_id == $certificate->id ){
-                        ?>
-                        <div  class="col-xl-6 col-lg-12 mb-4 top_error">
-                          <div>
-                            <!--<div id="line-left"></div>-->
-                            <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
-                              <div class="card-header" >
-                                <a href="{{route('exam_info',[$vendor->slug,$exam->exam_code])}}">
-                                  {{$exam->exam_code ?? ''}}
-                                </a>
-                                <span><span>
-                                <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
-                                <img alt="Web-Based" width="25" height="25" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
-                                <img alt="PDF" width="25" height="25" src="{{ asset('frontend/assets/site/img/Image_246.png') }}"></span>
-                              </div>
-                              <div class="card-body">
-                                <p>
-                                  {{$exam->title ?? ''}}
-                                <BR>
-                                 {{ $vendor_title}}{{$vendor->slug}}{{$exam->exam_code}}
-                                </p>
-                                <div class="card-body-qd" style="">
-                                  <div class="questions">
-                                    <i class="fas fa-clipboard-list questions_fst_i"></i>
-                                    <i class="questions_sec_i"> 285  <span>Questions</span></i>
+                          @forelse($certificate->exams as $exam)
+                            <div  class="col-xl-6 col-lg-12 mb-4 top_error">
+                              <div>
+                                <!--<div id="line-left"></div>-->
+                                <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
+                                  <div class="card-header" >
+                                    <a href="{{route('exam_info',[$vendor->slug,$exam->exam_code])}}">
+                                      {{$exam->exam_code ?? ''}}
+                                    </a>
+                                    <span><span>
+                                    <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
+                                    <img alt="Web-Based" width="25" height="25" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
+                                    <img alt="PDF" width="25" height="25" src="{{ asset('frontend/assets/site/img/Image_246.png') }}"></span>
                                   </div>
-                                  <div class="update_date" >
-                                    <i class="fas fa-sync-alt update_date_fst_i"></i>
-                                    <i class="update_date_sec_i">
-                                      Aug 16 <span>Last Updated</span>
-                                    </i>
+                                  <div class="card-body">
+                                    <p>
+                                      {{$exam->title ?? ''}}
+                                    <BR>
+                                     {{ $vendor_title}}{{$vendor->slug}}{{$exam->exam_code}}
+                                    </p>
+                                    <div class="card-body-qd" style="">
+                                      <div class="questions">
+                                        <i class="fas fa-clipboard-list questions_fst_i"></i>
+                                        <i class="questions_sec_i"> 285  <span>Questions</span></i>
+                                      </div>
+                                      <div class="update_date" >
+                                        <i class="fas fa-sync-alt update_date_fst_i"></i>
+                                        <i class="update_date_sec_i">
+                                          Aug 16 <span>Last Updated</span>
+                                        </i>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                        <?php } }?>
+                          @empty
+                          @endforelse
                       </div>
                     </div>
                   </div>
                   {{-- END LEFT SIDE --}}
-                  {{-- RIGHT SIDE  --}}
-                  {{-- <div  class="col-md-6 col-sm-6 certification_sec_vendor">
-                    <div class="certification_sec_vendor_inner_1" style="">
-                      <!--<div id="heading-line-right"></div>-->
-                      <div id="circle1">
-                      </div>
-                      <div class="certification_sec_vendor_inner_2" style="">
-                        <!--<h3 style="text-align: center;">
-                          <a href=""> Exams (Available)</a>
-                        </h3>-->
-                        <div style="font-weight: 500; text-align: center;margin-bottom: 0px;padding: 5px; font-family: 'Roboto';font-size: 22px;">
-                          Data Analyst Associate Certifications
-                        </div>
-                      </div>
-                      <div class="row certification_sec_vendor_inner_2_row">
-                        <div class="col-xl-6 col-lg-12 mb-4 top_error2">
-                          <!--<div id="line"></div>-->
-                          <div>
-                            <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
-                              <div class="card-header" >
-                                <a href="https://www.certsidea.com/microsoft/info/da-100">
-                                  DA-100
-                                </a>
-                                <span>
-                                  <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
-                                  <img width="25" height="25" alt="Web-Based" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
-                                  <img width="25" height="25" alt="PDF" src="{{ asset('frontend/assets/site/img/Image_246.png') }}">
-                                </span>
-                              </div>
-                              <div class="card-body">
-                                <p>
-                                  Analyzing Data with Microsoft Power BI
-                                </p>
-                                <div class="card-body-qd" style="">
-                                  <div class="questions">
-                                    <i class="fas fa-clipboard-list questions_fst_i"></i>
-                                    <i class="questions_sec_i"> 134  <span>Questions</span></i>
-                                  </div>
-                                  <div class="update_date" >
-                                    <i class="fas fa-sync-alt update_date_fst_i"></i>
-                                    <i class="update_date_sec_i"> Aug 21 <span>Last Updated</span></i>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="certification_sec_vendor_inner_1" style="">
-                      <!--<div id="heading-line-right"></div>-->
-                      <div id="circle1">
-                      </div>
-                      <div class="certification_sec_vendor_inner_2" >
-                        <!--<h3 style="text-align: center;"><a href=""> Exams (Available)</a></h3>-->
-                        <div style="font-weight: 500; text-align: center;margin-bottom: 0px;padding: 5px; font-family: 'Roboto';font-size: 22px;">
-                          Azure Security Engineer Associate Certifications
-                        </div>
-                      </div>
-                      <div class="row certification_sec_vendor_inner_2_row">
-                        <div class="col-xl-6 col-lg-12 mb-4 top_error2">
-                          <!--<div id="line"></div>-->
-                          <div>
-                            <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
-                              <div class="card-header" >
-                                <a href="https://www.certsidea.com/microsoft/info/az-500">AZ-500 </a> <span><img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}"> <img width="25" height="25" alt="Web-Based" src="{{ asset('frontend/assets/site/img/Image_245.png') }}"> <img width="25" height="25" alt="PDF" src="{{ asset('frontend/assets/site/img/Image_246.png') }}"></span>
-                              </div>
-                              <div class="card-body">
-                                <p>
-                                  Microsoft Azure Security Technologies
-                                </p>
-                                <div class="card-body-qd" style="">
-                                  <div class="questions">
-                                    <i class="fas fa-clipboard-list questions_fst_i"></i> <i class="questions_sec_i"> 278  <span>Questions</span></i>
-                                  </div>
-                                  <div class="update_date" >
-                                    <i class="fas fa-sync-alt update_date_fst_i"></i> <i class="update_date_sec_i"> Aug 23 <span>Last Updated</span></i>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="certification_sec_vendor_inner_1" style="">
-                      <!--<div id="heading-line-right"></div>-->
-                      <div id="circle1"></div>
-                      <div class="certification_sec_vendor_inner_2">
-                        <!--<h3 style="text-align: center;"><a href=""> Exams (Available)</a></h3>-->
-                        <div style="font-weight: 500; text-align: center;margin-bottom: 0px;padding: 5px; font-family: 'Roboto';font-size: 22px;">
-                          Azure Solutions Architect Certifications
-                        </div>
-                      </div>
-                      <div class="row certification_sec_vendor_inner_2_row">
-                        <div class="col-xl-6 col-lg-12 mb-4 top_error2">
-                          <!--<div id="line"></div>-->
-                          <div>
-                            <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
-                              <div class="card-header" >
-                                <a href="https://www.certsidea.com/microsoft/info/az-303">
-                                  AZ-303
-                                </a>
-                                <span>
-                                  <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
-                                  <img width="25" height="25" alt="Web-Based" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
-                                  <img width="25" height="25" alt="PDF" src="{{ asset('frontend/assets/site/img/Image_246.png') }}">
-                                </span>
-                              </div>
-                              <div class="card-body">
-                                <p>
-                                  Microsoft Azure Architect Technologies Exam
-                                </p>
-                                <div class="card-body-qd" style="">
-                                  <div class="questions">
-                                    <i class="fas fa-clipboard-list questions_fst_i"></i> <i class="questions_sec_i"> 208  <span>Questions</span></i>
-                                  </div>
-                                  <div class="update_date" >
-                                    <i class="fas fa-sync-alt update_date_fst_i"></i> <i class="update_date_sec_i"> Aug 22 <span>Last Updated</span></i>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-12 mb-4 top_error2">
-                          <!--<div id="line"></div>-->
-                          <div>
-                            <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
-                              <div class="card-header" >
-                                <a href="https://www.certsidea.com/microsoft/info/az-304">
-                                  AZ-304
-                                </a>
-                                <span>
-                                  <img width="25" height="25" alt="Desktop" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
-                                  <img width="25" height="25" alt="Web-Based" src="{{ asset('frontend/assets/site/img/Image_245.png') }}">
-                                  <img width="25" height="25" alt="PDF" src="{{ asset('frontend/assets/site/img/Image_246.png') }}">
-                                </span>
-                              </div>
-                              <div class="card-body">
-                                <p>
-                                  Microsoft Azure Architect Design Exam
-                                </p>
-                                <div class="card-body-qd" style="">
-                                  <div class="questions">
-                                    <i class="fas fa-clipboard-list questions_fst_i"></i> <i class="questions_sec_i"> 267  <span>Questions</span></i>
-                                  </div>
-                                  <div class="update_date" >
-                                    <i class="fas fa-sync-alt update_date_fst_i"></i>
-                                    <i class="update_date_sec_i"> Aug 17 <span>Last Updated</span></i>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> --}}
-                  {{-- END RIGHT SIDE  --}}
+                    @endif
                   @endforeach
                   @endif
                 </div>

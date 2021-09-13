@@ -11,4 +11,9 @@ class Certification extends Model
 
     protected $table = "certifications";
     protected $guarded = [];
+
+    public function exams()
+    {
+        return $this->hasMany(Exam::class, 'certification_id');
+    }
 }
