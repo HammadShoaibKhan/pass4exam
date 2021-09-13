@@ -23,7 +23,7 @@ class Exam_Controller extends Controller
             ->select('exams.*', 'venders.id as vendorId','venders.title as vendor_title','venders.slug as vendor_slug',
                 'certifications.title as certificate_title'
             )
-            ->get();
+            ->first();
             
             if(isEmpty($exam_info))
                 return view('exam_info', compact('title','exam_info'));
@@ -43,8 +43,7 @@ class Exam_Controller extends Controller
             ->select('exams.*', 'venders.id as vendorId','venders.title as vendor_title',
                 'certifications.title as certificate_title'
             )
-            ->get();
-            
+            ->first();
             if(isEmpty($exam_detail))
                 return view('exam_detail', compact('title','exam_detail'));
         }
@@ -56,16 +55,15 @@ class Exam_Controller extends Controller
         if ( ( $slug != null && Vendor::where('slug', $slug)->exists() ) &&
             ( $exam != null && Exam::where('exam_code', $exam)->exists() ) ) {
             $title = 'Online Practice Test';
-            $exam_detail = Exam::where('exam_code', $exam)
+            $exam_demo = Exam::where('exam_code', $exam)
             ->join('venders', 'exams.vendor_id','venders.id')
             ->join('certifications', 'exams.certification_id','certifications.id')
             ->select('exams.*', 'venders.id as vendorId','venders.title as vendor_title',
                 'certifications.title as certificate_title'
             )
-            ->get();
-            
-            if(isEmpty($exam_detail))
-                return view('exam_demo', compact('title','exam_detail'));
+            ->first();
+            if(isEmpty($exam_demo))
+                return view('exam_demo', compact('title','exam_demo'));
         }
         return redirect()->route('home');
     }
