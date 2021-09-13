@@ -26,12 +26,8 @@ class VendorController extends Controller
         if ($slug != null && Vendor::where('slug', $slug)->exists()) {
             $title = 'Vendors';
             $vendor = Vendor::where('slug', $slug)->first();
-            $exams='';
-            if(isEmpty($vendor))
-                $exams = Exam::where('vendor_id', $vendor->id)->get();
-            return view('vendor', compact('title','vendor','exams'));
+            return view('vendor', compact('title','vendor'));
         }
         return redirect()->route('home');
-
     }
 }
