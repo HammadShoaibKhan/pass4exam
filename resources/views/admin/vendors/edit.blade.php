@@ -53,7 +53,7 @@
                                           <input type="text" class="form-control" name="title" placeholder="Name" value="{{ $vendor->title ?? '' }}">
                                         </div>
                                       </div>
-                                    
+
                                       <div class="col-sm-6">
                                           <div class="form-group">
                                               <label>Status</label>
@@ -66,7 +66,7 @@
 
                                     </div>
                                     <div class="row">
-                                        
+
                                       <div class="col-sm-12">
                                         <!-- text input -->
                                         <div class="form-group">
@@ -75,13 +75,29 @@
                                         </div>
                                       </div>
                                     </div>
-                                    
+
+                                      <div class="row">
+
+                                          <div class="col-sm-3">
+                                              <!-- text input -->
+                                              <div class="form-group">
+                                                  <input {{ $vendor->top_navbar_vendor == 1 ? 'checked' : '' }} type="checkbox" id="top_navbar_vendor" name="top_navbar_vendor" value="1">&nbsp;&nbsp;<label style="font-weight: normal" for="top_navbar_vendor">Show&nbspvendor&nbspin&nbsptop&nbspnavbar</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-3">
+                                              <!-- text input -->
+                                              <div class="form-group">
+                                                  <input {{ $vendor->popular_tab_vendor == 1 ? 'checked' : '' }} type="checkbox" id="popular_tab_vendor" name="popular_tab_vendor" value="1">&nbsp;&nbsp;<label for="popular_tab_vendor" style="font-weight: normal">Show&nbspvendor&nbspin&nbsppopular&nbsptabs</label>
+                                              </div>
+                                          </div>
+                                      </div>
+
                                     <div class="row">
                                         <div class="col-md-2 offset-10">
                                             <button class="btn btn-md btn-block btn-primary" type="submit">Save</button>
                                         </div>
                                     </div>
-                                    
+
                                   </form>
                                 </div>
                                 <!-- /.card-body -->

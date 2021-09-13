@@ -375,7 +375,7 @@
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-2 offset-10">
-                                                <a href="{{ route('admin.case-study.create', $exam->id) }}" class="btn btn-block btn-primary btn-md"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add Case Study</a>
+                                                <a href="{{ route('admin.case-study.create', $exam->id) }}" class="btn btn-block btn-primary btn-md"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add&nbspCase&nbspStudy</a>
                                             </div>
                                         </div>
                                         <br>

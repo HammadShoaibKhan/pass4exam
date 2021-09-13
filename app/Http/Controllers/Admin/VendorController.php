@@ -28,7 +28,7 @@ class VendorController extends Controller
     {
         $slug = Str::slug($request->title);
         $request->request->add(['slug' => $slug]);
-        Vendor::create($request->only('title', 'status', 'description', 'slug'));
+        Vendor::create($request->only('title', 'status', 'description', 'slug', 'top_navbar_vendor', 'popular_tab_vendor'));
         return back()->with('success', 'Vendor Added Successfully');
     }
 
@@ -49,7 +49,9 @@ class VendorController extends Controller
             'title' => $request->title,
             'slug' => $slug,
             'status' => $request->status,
-            'description' => $request->description
+            'description' => $request->description,
+            'popular_tab_vendor' => $request->popular_tab_vendor ? $request->popular_tab_vendor : 0,
+            'top_navbar_vendor' => $request->top_navbar_vendor ? $request->top_navbar_vendor : 0
         ];
         Vendor::find($id)->update($data);
         return back()->with('success', 'Vendor Updated Successfully');
@@ -67,7 +69,7 @@ class VendorController extends Controller
         return "true";
     }
 
-    public function delete(Request $request) 
+    public function delete(Request $request)
     {
         Vendor::find($request->vendor_id)->delete();
         $vendors = Vendor::orderBY('id', 'DESC')->get();
