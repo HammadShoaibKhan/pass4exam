@@ -61,6 +61,10 @@
                                                                 <label>Question</label>
                                                                 <textarea class="form-control" name="question" id="summernote" rows="10">{{ $question->question }}</textarea>
                                                             </div>
+
+                                                            @error('question')
+                                                            <p class="text-danger">{{ $message }}</p>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -85,14 +89,14 @@
                                                 $answers = json_decode($question->answer);
                                             @endphp
                                             <div class="card-body">
-                                                <form action="{{ route('admin.answer.save', $question->id) }}" method="POST">
+                                                <form action="{{ route('admin.answer.save', $question->id) }}" method="POST" id="answers-form">
                                                     {{ csrf_field() }}
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <input class="form-control" value="{{$answers->answer_1->text ?? '' }}" type="text" placeholder="Answer 1" name="answer_1">
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <input class="form-control" {{($answers != null) && $answers->answer_1->status == 1 ? 'checked' : ''}} type="radio" name="true" value="answer_1">
+                                                            <input class="form-control" {{($answers != null) && $answers->answer_1->status == 1 ? 'checked' : ''}} {{($answers == null) ? 'checked' : ''  }} type="radio" name="true" value="answer_1">
                                                         </div>
                                                     </div><br>
                                                     <div class="row">
