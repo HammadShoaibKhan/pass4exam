@@ -32,4 +32,9 @@ class Exam extends Model
     {
         return $this->hasMany(CaseStudy::class);
     }
+
+    public function questions()
+    {
+        return $this->hasManyThrough(Question::class, CaseStudy::class);
+    }
 }

@@ -34,7 +34,7 @@
                         </ul>
                       </div>
                       <div class="card-body">
-                          
+
                       @include('layouts.admin.includes.messages')
                         <div class="tab-content" id="custom-tabs-four-tabContent">
                           <div class="tab-pane active show fade" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
@@ -59,7 +59,7 @@
                                             </p>
                                         </div>
                                       </div>
-                                    
+
                                       <div class="col-sm-6">
                                           <div class="form-group">
                                               <label>Status</label>
@@ -72,7 +72,7 @@
 
                                     </div>
                                     <div class="row">
-                                        
+
                                       <div class="col-sm-12">
                                         <!-- text input -->
                                         <div class="form-group">
@@ -81,13 +81,29 @@
                                         </div>
                                       </div>
                                     </div>
-                                    
+
+                                      <div class="row">
+
+                                          <div class="col-sm-3">
+                                              <!-- text input -->
+                                              <div class="form-group">
+                                                  <input type="checkbox" id="top_navbar_vendor" name="top_navbar_vendor" value="1">&nbsp;&nbsp;<label style="font-weight: normal" for="top_navbar_vendor">Show&nbspvendor&nbspin&nbsptop&nbspnavbar</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-3">
+                                              <!-- text input -->
+                                              <div class="form-group">
+                                                  <input type="checkbox" id="popular_tab_vendor" name="popular_tab_vendor" value="1">&nbsp;&nbsp;<label for="popular_tab_vendor" style="font-weight: normal">Show&nbspvendor&nbspin&nbsppopular&nbsptabs</label>
+                                              </div>
+                                          </div>
+                                      </div>
+
                                     <div class="row">
                                         <div class="col-md-2 offset-10">
                                             <button class="btn btn-md btn-block btn-primary" type="submit">Create</button>
                                         </div>
                                     </div>
-                                    
+
                                   </form>
                                 </div>
                                 <!-- /.card-body -->
