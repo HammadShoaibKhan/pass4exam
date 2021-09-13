@@ -20,6 +20,9 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'question' => 'required'
+        ], [ 'question.required' => 'Please enter a question']);
         $question = Question::create($request->only('question', 'case_study_id'));
         return redirect()->route('admin.question.edit', $question->id);
     }
@@ -36,6 +39,9 @@ class QuestionController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'question' => 'required'
+        ], [ 'question.required' => 'Please enter a question']);
         Question::find($id)->update(['question' => $request->question]);
         return back()->with('success', 'Question updated successfully.');
     }

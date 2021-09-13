@@ -281,3 +281,35 @@ $('#desktop_file_form').validate({
         $(".error_" + name).append($error);
     }
 });
+
+/** script to validate add question form*/
+$('#add-question-form').validate({
+    rules : {
+        question : {
+            required : true
+        },
+        messages : {
+            question : {
+                required : 'Please enter a question'
+            }
+        }
+    }
+});
+
+/** script to validate answers form*/
+$('#answers-form').validate({
+    rules : {
+        answer_1 : {
+            required : true
+        },
+        answer_2 : {
+            required : true
+        },
+        answer_3 : {
+            required : true
+        },
+        answer_4 : {
+            required : true
+        }
+    }
+});
