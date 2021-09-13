@@ -239,301 +239,46 @@ margin-inline-start: 0px;
       </div>
     </div>
   </div>
-  </div>
-  </div>
 </section>
 
 <!--------------------------------------------------------- Popular Exams --------------------------------------------------------->
 
   <section class="home_popular_exam_section pt-5 pb-5 bg-f7fafd" style="">
     <div class="home_popular_exam_section_inner" style="">
-
-                   <h3>Popular Exams</h3> <p>Thousands of candidates have successfully prepared from Certs Idea high-quality preparation material. Our practice questions are enough for your success because of our experts&rsquo; continuous efforts to keep our preparation material updated and relevant. Get instant access to recently updated practice material and walk out on exam day as a successful candidate.</p>
-
-
-
-     </div>
-     <div class="container">
-
-
-
-
+           <h3>Popular Exams</h3> <p>Thousands of candidates have successfully prepared from Certs Idea high-quality preparation material. Our practice questions are enough for your success because of our experts&rsquo; continuous efforts to keep our preparation material updated and relevant. Get instant access to recently updated practice material and walk out on exam day as a successful candidate.</p>
+    </div>
+      <div class="container">
        <div class="row" style="margin-bottom: 3%;">
-
-
-                                       <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                       <div id="popular_exam_cards" class="card">
-                                         <div class="card-body hvr-rectangle-out" style="display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
-    position: inherit !important;
-    background: #fff !important;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
-    ">
-                                           <div id="popular_exam_cards_body_content">
-                                             <strong ><a href="microsoft/md-101.html">MD-101</a></strong>
-
-                                             <!--https://www.certsidea.com/n-a/-->
-
-                                             <br>
-
-                                             <!---->
-                                             <!--<h3>2021-07-29 09:21:50</h3>-->
-
-
-                                             <span>29, Jul 2021</span>
-                                             <br>
-                                             <p> 233 Total Questions </p>
-                                           </div>
-                                          </div>
-                                         </div>
-                                       </div>
-
-
-                                       <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                       <div id="popular_exam_cards" class="card">
-                                         <div class="card-body hvr-rectangle-out" style="display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
-    position: inherit !important;
-    background: #fff !important;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
-    ">
-                                           <div id="popular_exam_cards_body_content">
-                                             <strong ><a href="adobe/ad0-e202.html">AD0-E202</a></strong>
-
-                                             <!--https://www.certsidea.com/n-a/-->
-
-                                             <br>
-
-                                             <!---->
-                                             <!--<h3>2021-08-01 04:05:01</h3>-->
-
-
-                                             <span>01, Aug 2021</span>
-                                             <br>
-                                             <p> 69 Total Questions </p>
-                                           </div>
-                                          </div>
-                                         </div>
-                                       </div>
-
-
-                                       <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                       <div id="popular_exam_cards" class="card">
-                                         <div class="card-body hvr-rectangle-out" style="display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
-    position: inherit !important;
-    background: #fff !important;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
-    ">
-                                           <div id="popular_exam_cards_body_content">
-                                             <strong ><a href="amazon/saa-c02.html">SAA-C02</a></strong>
-
-                                             <!--https://www.certsidea.com/n-a/-->
-
-                                             <br>
-
-                                             <!---->
-                                             <!--<h3>2021-07-31 10:43:53</h3>-->
-
-
-                                             <span>31, Jul 2021</span>
-                                             <br>
-                                             <p> 166 Total Questions </p>
-                                           </div>
-                                          </div>
-                                         </div>
-                                       </div>
-
-
-                                       <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                       <div id="popular_exam_cards" class="card">
-                                         <div class="card-body hvr-rectangle-out" style="display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
-    position: inherit !important;
-    background: #fff !important;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
-    ">
-                                           <div id="popular_exam_cards_body_content">
-                                             <strong ><a href="mulesoft/mcd-level-1.html">MCD-Level-1</a></strong>
-
-                                             <!--https://www.certsidea.com/n-a/-->
-
-                                             <br>
-
-                                             <!---->
-                                             <!--<h3>2021-08-01 18:33:29</h3>-->
-
-
-                                             <span>01, Aug 2021</span>
-                                             <br>
-                                             <p> 99 Total Questions </p>
-                                           </div>
-                                          </div>
-                                         </div>
-                                       </div>
-
-
-                                       <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                       <div id="popular_exam_cards" class="card">
-                                         <div class="card-body hvr-rectangle-out" style="display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
-    position: inherit !important;
-    background: #fff !important;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
-    ">
-                                           <div id="popular_exam_cards_body_content">
-                                             <strong ><a href="ibm/c1000-100.html">C1000-100</a></strong>
-
-                                             <!--https://www.certsidea.com/n-a/-->
-
-                                             <br>
-
-                                             <!---->
-                                             <!--<h3>2021-07-24 04:10:13</h3>-->
-
-
-                                             <span>24, Jul 2021</span>
-                                             <br>
-                                             <p> 122 Total Questions </p>
-                                           </div>
-                                          </div>
-                                         </div>
-                                       </div>
-
-
-                                       <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                       <div id="popular_exam_cards" class="card">
-                                         <div class="card-body hvr-rectangle-out" style="display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
-    position: inherit !important;
-    background: #fff !important;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
-    ">
-                                           <div id="popular_exam_cards_body_content">
-                                             <strong ><a href="avaya/71300x.html">71300X</a></strong>
-
-                                             <!--https://www.certsidea.com/n-a/-->
-
-                                             <br>
-
-                                             <!---->
-                                             <!--<h3>2021-07-25 05:22:31</h3>-->
-
-
-                                             <span>25, Jul 2021</span>
-                                             <br>
-                                             <p> 64 Total Questions </p>
-                                           </div>
-                                          </div>
-                                         </div>
-                                       </div>
-
-
-                                       <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                       <div id="popular_exam_cards" class="card">
-                                         <div class="card-body hvr-rectangle-out" style="display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
-    position: inherit !important;
-    background: #fff !important;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
-    ">
-                                           <div id="popular_exam_cards_body_content">
-                                             <strong ><a href="axis/anve.html">ANVE</a></strong>
-
-                                             <!--https://www.certsidea.com/n-a/-->
-
-                                             <br>
-
-                                             <!---->
-                                             <!--<h3>2021-08-01 23:51:52</h3>-->
-
-
-                                             <span>01, Aug 2021</span>
-                                             <br>
-                                             <p> 145 Total Questions </p>
-                                           </div>
-                                          </div>
-                                         </div>
-                                       </div>
-
-
-                                       <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                       <div id="popular_exam_cards" class="card">
-                                         <div class="card-body hvr-rectangle-out" style="display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
-    position: inherit !important;
-    background: #fff !important;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
-    ">
-                                           <div id="popular_exam_cards_body_content">
-                                             <strong ><a href="nahq/cphq.html">CPHQ</a></strong>
-
-                                             <!--https://www.certsidea.com/n-a/-->
-
-                                             <br>
-
-                                             <!---->
-                                             <!--<h3>2021-08-01 09:18:11</h3>-->
-
-
-                                             <span>01, Aug 2021</span>
-                                             <br>
-                                             <p> 201 Total Questions </p>
-                                           </div>
-                                          </div>
-                                         </div>
-                                       </div>
-
-
-         </div>
+           @forelse(popularVendors() as $vendor)
+               @forelse($vendor->exams->where('status', 1)->take(2) as $exam)
+                   <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                       <div id="popular_exam_cards" class="card">
+                         <div class="card-body hvr-rectangle-out" style="display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px rgb(0 0 0 / 0%);
+            position: inherit !important;
+            background: #fff !important;
+            -webkit-transition-property: color;
+            transition-property: color;
+            -webkit-transition-duration: .3s;
+            transition-duration: .3s;
+            ">
+                           <div id="popular_exam_cards_body_content">
+                             <strong ><a href="javascript:;">{{ $exam->exam_code }}</a></strong><br>
+                             <span>{{ date('d, M Y', strtotime($exam->updated_at)) }}</span>
+                             <br>
+                             <p> {{ $exam->questions->count() }} Total Questions </p>
+                           </div>
+                         </div>
+                       </div>
+                   </div>
+               @empty
+               @endforelse
+           @empty
+           @endforelse
+       </div>
      </div>
    </div>
  </section>
@@ -562,253 +307,33 @@ margin-inline-start: 0px;
     </div>
     <div class="recent_update_exam_bottom_home container">
       <div class="row">
-                   <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-          <div class="card " style="">
-            <div class="card-body hvr-sweep-to-right">
-              <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                  <div style="text-align: center;">
-                    <b><a href="microsoft/az-204.html">AZ-204</a></b>
-                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Developing Solutions for Microsoft Azure Exam</strong>
-                    <p>246 Total Questions </p>
+          @forelse(recentUpdatedExams() as $exam)
+            <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
+              <div class="card " style="">
+                <div class="card-body hvr-sweep-to-right">
+                  <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                      <div style="text-align: center;">
+                        <b><a href="javascript:;">{{ $exam->exam_code }}</a></b>
+                        <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">{{ $exam->title }}</strong>
+                        <p>{{ $exam->questions->count() }} Total Questions </p>
+                      </div>
+                    </div>
+                    <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                      <div style="text-align: center;     padding-top: 10px;">
+                        <strong>{{ date('d', strtotime($exam->updated_at)) }}</strong>
+                        <b >{{ date('F', strtotime($exam->updated_at)) }}</b>
+                        <p style=""><b>{{ date('Y', strtotime($exam->updated_at)) }}</b></p>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
-                <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                  <div style="text-align: center;     padding-top: 10px;">
-                    <strong>05</strong>
-                    <b >August</b>
-
-                    <p
-                      style="">
-                      <b>2021</b></p>
-                  </div>
-                </div>
-
               </div>
             </div>
-          </div>
-        </div>
-
-                <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-          <div class="card " style="">
-            <div class="card-body hvr-sweep-to-right">
-              <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                  <div style="text-align: center;">
-                    <b><a href="cisco/300-410-enarsi.html">300-410</a></b>
-                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Implementing Cisco Enterprise Advanced Routing and Services</strong>
-                    <p>216 Total Questions </p>
-                  </div>
-                </div>
-                <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                  <div style="text-align: center;     padding-top: 10px;">
-                    <strong>04</strong>
-                    <b >August</b>
-
-                    <p
-                      style="">
-                      <b>2021</b></p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-                <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-          <div class="card " style="">
-            <div class="card-body hvr-sweep-to-right">
-              <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                  <div style="text-align: center;">
-                    <b><a href="salesforce/adm-201.html">ADM-201</a></b>
-                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Administration Essentials for New Admins</strong>
-                    <p>360 Total Questions </p>
-                  </div>
-                </div>
-                <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                  <div style="text-align: center;     padding-top: 10px;">
-                    <strong>04</strong>
-                    <b >August</b>
-
-                    <p
-                      style="">
-                      <b>2021</b></p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-                <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-          <div class="card " style="">
-            <div class="card-body hvr-sweep-to-right">
-              <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                  <div style="text-align: center;">
-                    <b><a href="amazon/ans-c00.html">ANS-C00</a></b>
-                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">AWS Advanced Networking Specialty</strong>
-                    <p>153 Total Questions </p>
-                  </div>
-                </div>
-                <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                  <div style="text-align: center;     padding-top: 10px;">
-                    <strong>04</strong>
-                    <b >August</b>
-
-                    <p
-                      style="">
-                      <b>2021</b></p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-                <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-          <div class="card " style="">
-            <div class="card-body hvr-sweep-to-right">
-              <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                  <div style="text-align: center;">
-                    <b><a href="cisco/300-715-sise.html">300-715</a></b>
-                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Implementing and Configuring Cisco Identity Services Engine</strong>
-                    <p>152 Total Questions </p>
-                  </div>
-                </div>
-                <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                  <div style="text-align: center;     padding-top: 10px;">
-                    <strong>04</strong>
-                    <b >August</b>
-
-                    <p
-                      style="">
-                      <b>2021</b></p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-                <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-          <div class="card " style="">
-            <div class="card-body hvr-sweep-to-right">
-              <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                  <div style="text-align: center;">
-                    <b><a href="servicenow/csa.html">CSA</a></b>
-                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">ServiceNow Certified System Administrator</strong>
-                    <p>147 Total Questions </p>
-                  </div>
-                </div>
-                <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                  <div style="text-align: center;     padding-top: 10px;">
-                    <strong>03</strong>
-                    <b >August</b>
-
-                    <p
-                      style="">
-                      <b>2021</b></p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-                <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-          <div class="card " style="">
-            <div class="card-body hvr-sweep-to-right">
-              <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                  <div style="text-align: center;">
-                    <b><a href="cisco/350-801-clcor.html">350-801</a></b>
-                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Implementing and Operating Cisco Collaboration Core Technologies</strong>
-                    <p>240 Total Questions </p>
-                  </div>
-                </div>
-                <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                  <div style="text-align: center;     padding-top: 10px;">
-                    <strong>03</strong>
-                    <b >August</b>
-
-                    <p
-                      style="">
-                      <b>2021</b></p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-                <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-          <div class="card " style="">
-            <div class="card-body hvr-sweep-to-right">
-              <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                  <div style="text-align: center;">
-                    <b><a href="apics/cscp.html">CSCP</a></b>
-                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">APICS Certified Supply Chain Professional</strong>
-                    <p>360 Total Questions </p>
-                  </div>
-                </div>
-                <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                  <div style="text-align: center;     padding-top: 10px;">
-                    <strong>03</strong>
-                    <b >August</b>
-
-                    <p
-                      style="">
-                      <b>2021</b></p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-                <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-          <div class="card " style="">
-            <div class="card-body hvr-sweep-to-right">
-              <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                  <div style="text-align: center;">
-                    <b><a href="microsoft/dp-300.html">DP-300</a></b>
-                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">Administering Relational Databases on Microsoft Azure</strong>
-                    <p>176 Total Questions </p>
-                  </div>
-                </div>
-                <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                  <div style="text-align: center;     padding-top: 10px;">
-                    <strong>03</strong>
-                    <b >August</b>
-
-                    <p
-                      style="">
-                      <b>2021</b></p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
+          @empty
+          @endforelse
       </div>
-
 
     </div>
     </div>
