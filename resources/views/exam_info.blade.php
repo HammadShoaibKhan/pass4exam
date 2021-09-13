@@ -54,6 +54,7 @@
                             <div class="row">
                                 {{-- <!------------- Left Promo Card--------------------------------------------> --}}
                                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 mb-4">
+                                    {{-- @TODO --}}
                                     <div class="card sample_page_card hvr-grow-shadow">
                                         <div class="card-header" >
                                             <!--<a href=""></a>-->
@@ -93,7 +94,9 @@
                                         Our {{$exam->vendor_title}} {{$exam->exam_code}} practice questions appear in the final Microsoft exam.
                                         The web-based and desktop practice tests highlight weak portions of your preparation so that you put more effort and
                                         remove all mistakes before the actual
-                                        <a class="internal_link" href="{{$exam->vendor_title}}/ {{$exam->exam_code}}"> {{$exam->vendor_title}} {{$exam->exam_code}} exam.</a>
+                                        <a class="internal_link" href="{{ route('exam_info',[$exam->vendor_title,$exam->exam_code])}}"> 
+                                            {{$exam->vendor_title}} {{$exam->exam_code}} exam.
+                                        </a>
                                     </p>
                                 </div>
                                 {{-- END <!------------- Exam Description----------------------------------------> --}}
@@ -164,6 +167,7 @@
                                             &nbsp;
                                         </div>
                                         <div class="col-md-10 col-sm-12">
+                                            {{-- @TODO --}}
                                             <ul>
                                                 <li>
                                                     Syllabus-based Microsoft AZ-140 questions that appear in the final exam.
@@ -273,6 +277,7 @@
                                         <!--<a href=""></a>-->
                                         <h4 style="font-size: 20px;">Free {{$exam->exam_code}} Questions</h4>
                                     </div>
+                                    {{-- @TODO --}}
                                     <div class="card-body">
                                         <a style="color: #22ad95;" href="../free-{{$exam->exam_code}}-questions.html">
                                             Free {{$exam->vendor_title}} {{$exam->exam_code}} Exam  Questions
@@ -286,6 +291,7 @@
                                     <div class="card-header" style="background-color: #22ad95; border-radius: 5px 5px 0px 0px;" >
                                         <h4 style="font-size: 20px; cursor: auto; "> {{$exam->exam_code}} Exam Syllabus</h4>
                                     </div>
+                                    {{-- @TODO --}}
                                     <div class="card-body">
                                         <a style="color: #22ad95;" href="../syllabus/{{$exam->exam_code}}.html">
                                             {{$exam->vendor_title}} {{$exam->exam_code}} Exam Syllabus
