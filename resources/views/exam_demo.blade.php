@@ -64,8 +64,8 @@
               </div>
               <div class="col-lg-5 col-md-5 col-sm-5">
                 <div class="textdivtopnav">
-                  <h2>{{$exam->vendor->title ?? ''}} {{$exam->exam_code ?? ''}} Web-Based Practice Exam Demo</h2>
-                  <p>Designing and Implementing {{$exam->vendor->title ?? ''}} {{$exam->title ?? ''}}</p>
+                  <h2>{{$exam->vendor_title ?? ''}} {{$exam->exam_code ?? ''}} Web-Based Practice Exam Demo</h2>
+                  <p>{{$exam->title ?? ''}}</p>
                 </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-4">
