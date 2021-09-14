@@ -246,7 +246,7 @@
                         </div>
                       </div>
                       <div class="row certification_fst_vendor_inner_2_row">
-                          @forelse($certificate->exams as $exam)
+                          @forelse($certificate->exams->where('status', 1) as $exam)
                             <div  class="col-xl-6 col-lg-12 mb-4 top_error">
                               <div>
                                 <!--<div id="line-left"></div>-->
