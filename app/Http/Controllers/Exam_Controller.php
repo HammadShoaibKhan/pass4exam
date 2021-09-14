@@ -11,59 +11,35 @@ use function PHPUnit\Framework\isEmpty;
 
 class Exam_Controller extends Controller
 {
-    public function index($slug = null, $exam = null)
+    public function index($vendorSlug = null, $examSlug = null)
     {
-
-        if ( ( $slug != null && Vendor::where('slug', $slug)->exists() ) &&
-             ( $exam != null && Exam::where('exam_code', $exam)->exists() ) ) {
-            $title = ucfirst($slug).' '.$exam.' - All You Need to Know';
-            $exam_info = Exam::where('exam_code', $exam)
-            ->join('venders', 'exams.vendor_id','venders.id')
-            ->join('certifications', 'exams.certification_id','certifications.id')
-            ->select('exams.*', 'venders.id as vendorId','venders.title as vendor_title','venders.slug as vendor_slug',
-                'certifications.title as certificate_title'
-            )
-            ->first();
-            
-            if(isEmpty($exam_info))
-                return view('exam_info', compact('title','exam_info'));
+        if ( ( $vendorSlug != null && Vendor::where('slug', $vendorSlug)->exists() ) &&
+             ( $examSlug != null && Exam::where('slug', $examSlug)->exists() ) ) {
+            $title = ucfirst($vendorSlug).' '.$examSlug.' - All You Need to Know';
+            $exam = Exam::where('slug', $examSlug)->first();
+            return view('exam_info', compact('title','exam'));
         }
         return redirect()->route('home');
     }
 
-    public function examDetail($slug = null, $exam = null)
+    public function examDetail($vendorSlug = null, $examSlug = null)
     {
-
-        if ( ( $slug != null && Vendor::where('slug', $slug)->exists() ) &&
-             ( $exam != null && Exam::where('exam_code', $exam)->exists() ) ) {
-            $title = ucfirst($slug).' '.$exam.' Actual Questions Instant Download';
-            $exam_detail = Exam::where('exam_code', $exam)
-            ->join('venders', 'exams.vendor_id','venders.id')
-            ->join('certifications', 'exams.certification_id','certifications.id')
-            ->select('exams.*', 'venders.id as vendorId','venders.title as vendor_title',
-                'certifications.title as certificate_title'
-            )
-            ->first();
-            if(isEmpty($exam_detail))
-                return view('exam_detail', compact('title','exam_detail'));
+        if ( ( $vendorSlug != null && Vendor::where('slug', $vendorSlug)->exists() ) &&
+             ( $examSlug != null && Exam::where('slug', $examSlug)->exists() ) ) {
+            $title = ucfirst($vendorSlug).' '.$examSlug.' Actual Questions Instant Download';
+            $exam = Exam::where('slug', $examSlug)->first();
+            return view('exam_detail', compact('title','exam'));
         }
         return redirect()->route('home');
     }
-    
-    public function examDemo($slug = null, $exam = null)
+
+    public function examDemo($vendorSlug = null, $examSlug = null)
     {
-        if ( ( $slug != null && Vendor::where('slug', $slug)->exists() ) &&
-            ( $exam != null && Exam::where('exam_code', $exam)->exists() ) ) {
+        if ( ( $vendorSlug != null && Vendor::where('slug', $vendorSlug)->exists() ) &&
+            ( $examSlug != null && Exam::where('slug', $examSlug)->exists() ) ) {
             $title = 'Online Practice Test';
-            $exam_demo = Exam::where('exam_code', $exam)
-            ->join('venders', 'exams.vendor_id','venders.id')
-            ->join('certifications', 'exams.certification_id','certifications.id')
-            ->select('exams.*', 'venders.id as vendorId','venders.title as vendor_title',
-                'certifications.title as certificate_title'
-            )
-            ->first();
-            if(isEmpty($exam_demo))
-                return view('exam_demo', compact('title','exam_demo'));
+            $exam = Exam::where('slug', $examSlug)->first();
+            return view('exam_demo', compact('title','exam'));
         }
         return redirect()->route('home');
     }
