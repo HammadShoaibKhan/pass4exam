@@ -1,9 +1,6 @@
 @include('layouts.frontend.includes.head_files')
-<?php if(!empty($exam_demo)) {
-  $exam=$exam_demo;
-?>       
   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <title>{{$title ?? ''}}</title>
       <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
@@ -12,7 +9,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/jquery.js" ></script>
-      <meta name="robots" content="noindex, nofollow">  
+      <meta name="robots" content="noindex, nofollow">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
       <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
       <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -36,9 +33,9 @@
       <script src="js/jquery.mCustomScrollbar.js"></script>
       <link rel="stylesheet" href="css/jquery.fancybox.css">
       <script src="js/jquery.fancybox.js"></script>
-      
+
       <link rel="stylesheet" href="{{asset('frontend/assets/site/css/exam_demo.css')}}">
-      
+
   </head>
   <body class="practice-test">
     <div class="wrapper">
@@ -57,7 +54,7 @@
                       <input type="hidden" name="siteurl" value="https://www. certsidea.com/">
                       <button type="submit">
                         <div class="image" style="width: 200px; height: 120px; background:#ccc">
-                          {{-- <img src="https://www. certsidea.com/assets/site/image/1619507533_ Certsideaslogo.webp" 
+                          {{-- <img src="https://www. certsidea.com/assets/site/image/1619507533_ Certsideaslogo.webp"
                             class="img-responsive" alt="" > --}}
                         </div>
                       </button>
@@ -80,7 +77,7 @@
                   <input type="hidden" value="" id="cartsub" name="subscription" />
                   <input type="hidden" value="3" name="ptype_id" />
                   <input type="hidden" value="single" name="shop_type" />
-                  <button type="submit" class="btn btn-red pull-right btn-danger maintopmarginbtn" class="background:#FD0000"> 
+                  <button type="submit" class="btn btn-red pull-right btn-danger maintopmarginbtn" class="background:#FD0000">
                     Get Full Access
                   </button>
                 </form>
@@ -120,11 +117,11 @@
 
             </div>
           </div>
-            
+
           <div class="tab-content margtop100">
             <div id="menu1" class="tab-pane fade in active">
               <!--<h3 class="text-center">
-                <span>Step 2 -</span> 
+                <span>Step 2 -</span>
                 What exam options that you want?
               </h3>-->
               <h3 class="text-center">
@@ -147,7 +144,7 @@
                           <div class="qCSTypes">
                             <div class="col-lg-3 col-md-4 col-sm-4">
                               <label  class="checkbox-inline">
-                                <input type="checkbox" checked="checked"  
+                                <input type="checkbox" checked="checked"
                                 data-val="14" value="1" name="case_studies[]" id="cs1" disabled/>
                                 Case Study 1                                       (14)
                                 <span class="checkmark"></span>
@@ -155,11 +152,11 @@
                             </div>
                             <style>
                               .Allquestiontab {
-                                position: relative; 
-                                top: 0px; 
+                                position: relative;
+                                top: 0px;
                                 /*z-index: 1; */
-                                left: 0; 
-                                transform: none; 
+                                left: 0;
+                                transform: none;
                               }
                               .Allquestiontab .columnstylings{
                                 border-top:0px;
@@ -169,10 +166,10 @@
                                 border:0px;
                                 position:relative;
                                 left: 0;
-                                z-index: 90 
-                                height: 0px; 
-                                top: 0; 
-                                border-bottom-left-radius: 0px; 
+                                z-index: 90
+                                height: 0px;
+                                top: 0;
+                                border-bottom-left-radius: 0px;
                               }
                               @media (min-width: 1200px){
                                 .casestudycss {
@@ -192,7 +189,7 @@
                             </style>
                             <div class="col-lg-3 col-md-4 col-sm-4">
                               <label  class="checkbox-inline">
-                                <input type="checkbox"  disabled="disabled" 
+                                <input type="checkbox"  disabled="disabled"
                                 data-val="10" value="2" name="case_studies[]" id="cs2" disabled/>
                                 Case Study 2                                       (10)
                                 <span class="checkmark"></span>
@@ -200,11 +197,11 @@
                             </div>
                             <style>
                                       .Allquestiontab {
-                                            position: relative; 
-                                            top: 0px; 
+                                            position: relative;
+                                            top: 0px;
                                             /*z-index: 1; */
-                                            left: 0; 
-                                            transform: none; 
+                                            left: 0;
+                                            transform: none;
                                       }
                                       .Allquestiontab .columnstylings{
                                           border-top:0px;
@@ -214,10 +211,10 @@
                                           border:0px;
                                           position:relative;
                                           left: 0;
-                                          z-index: 90 
-                                          height: 0px; 
-                                          top: 0; 
-                                          border-bottom-left-radius: 0px; 
+                                          z-index: 90
+                                          height: 0px;
+                                          top: 0;
+                                          border-bottom-left-radius: 0px;
                                       }
                                       @media (min-width: 1200px){
                                           .casestudycss {
@@ -237,7 +234,7 @@
                             </style>
                             <div class="col-lg-3 col-md-4 col-sm-4">
                                   <label  class="checkbox-inline">
-                                        <input type="checkbox"  disabled="disabled" 
+                                        <input type="checkbox"  disabled="disabled"
                                         data-val="4" value="3" name="case_studies[]" id="cs3" disabled/>
                                     Case Study 3                                       (4)
                                     <span class="checkmark"></span>
@@ -245,11 +242,11 @@
                             </div>
                             <style>
                                 .Allquestiontab {
-                                      position: relative; 
-                                      top: 0px; 
+                                      position: relative;
+                                      top: 0px;
                                       /*z-index: 1; */
-                                      left: 0; 
-                                      transform: none; 
+                                      left: 0;
+                                      transform: none;
                                 }
                                 .Allquestiontab .columnstylings{
                                     border-top:0px;
@@ -259,10 +256,10 @@
                                     border:0px;
                                     position:relative;
                                     left: 0;
-                                    z-index: 90 
-                                    height: 0px; 
-                                    top: 0; 
-                                    border-bottom-left-radius: 0px; 
+                                    z-index: 90
+                                    height: 0px;
+                                    top: 0;
+                                    border-bottom-left-radius: 0px;
                                 }
                                 @media (min-width: 1200px){
                                     .casestudycss {
@@ -288,21 +285,21 @@
                         <div class="form-group hideifSpecific columnstylings">
                           <!--<h4>No. of Questions: (per Exam)</h4>-->
                           <h4>
-                            Based on Selection above, you can practice with All 
-                            <span id="showss">320</span> Questions 
+                            Based on Selection above, you can practice with All
+                            <span id="showss">320</span> Questions
                           </h4>
                           <!--<h4 class="text-center">OR</h4>-->
                           <h4>
-                            or Create Multiple Practice tests with Limited Questions 
+                            or Create Multiple Practice tests with Limited Questions
                           </h4>
-                          <input type="range" min="1" max="5" 
-                            onchange="return updateExamSets(this.value);" 
-                            oninput="QuestionNoRangevalue.value = QuestionNoRange.valueAsNumber" 
+                          <input type="range" min="1" max="5"
+                            onchange="return updateExamSets(this.value);"
+                            oninput="QuestionNoRangevalue.value = QuestionNoRange.valueAsNumber"
                             value="5" class="slider" name="QuestionNoRange" id="QuestionNoRange">
                           <div  id="show" class="qRangeOutput">
                             <output name="QuestionNoRangevalue" for="QuestionNoRange" >
-                              5 
-                            </output> 
+                              5
+                            </output>
                             / 320
                           </div>
                           <!--<h4 class="h4lastchild">Total Questions: 320</h4>-->
@@ -315,8 +312,8 @@
                           <h4>
                             Set your Desired Pass Percentage:
                           </h4>
-                          <input type="range" min="10" max="100" 
-                            oninput="PassRangevalue.value = PassRange.valueAsNumber" 
+                          <input type="range" min="10" max="100"
+                            oninput="PassRangevalue.value = PassRange.valueAsNumber"
                             value="70" class="slider" name="PassRange" id="PassRange">
                           <div class="pRangeOutput">
                             <output name="PassRangevalue" for="PassRange">
@@ -338,8 +335,8 @@
                           <div class="examSetsTypes">
                             <div class="col-lg-3 col-md-3 col-sm-4">
                               <label class="checkbox-inlines    newdisabled">
-                                <input type="radio" checked="checked" value="1" name="exam_set" id="es1 " disabled> 
-                                Practice Set 1                                                
+                                <input type="radio" checked="checked" value="1" name="exam_set" id="es1 " disabled>
+                                Practice Set 1
                                 <span class="checkmark"></span>
                               </label>
                             </div>
@@ -351,7 +348,7 @@
                       {{-- Set Time Interval --}}
                       <div class="col-lg-8 col-lg-offset-2 col-md-12 col-sm-12 col-xs-12  doThisOnCheck">
                         <div class="form-group timeallowedarea" style="    margin: 0px">
-                          <div class="shoehidediconexams">    
+                          <div class="shoehidediconexams">
                             <label>
                               Allocate Time (Hours : Minutes)
                             </label>
@@ -363,11 +360,11 @@
                             <select  class="form-control" name="tMinutes" id="tMinutes">
                               <option value="00">00</option>
                               @for ($i=1; $i<60; $i++)
-                                <option value="{{$i}}">{{$i}}</option>  
+                                <option value="{{$i}}">{{$i}}</option>
                               @endfor
                             </select>
                           </div>
-                          <div class="Questype withouttime"> 
+                          <div class="Questype withouttime">
                             <label class="checkbox-inline">
                               <input type="checkbox"  id="withouttimer" name="without_timer" value="1">
                               Practice without Timer
@@ -393,7 +390,7 @@
               </div>
               {{--END Central Content --}}
             </div>
-  
+
             {{--  --}}
             <div id="menu2" class="tab-pane fade">
               <h3>
@@ -423,10 +420,9 @@
 
     </div>
     <br><br>
-    <input type="hidden" id="site" value=" Certsidea" />  
+    <input type="hidden" id="site" value=" Certsidea" />
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="{{ asset('frontend/js/exam_demo_functions.js') }}"></script>
 
-<?php }?>
 @include('layouts.frontend.includes.footer')
 @include('layouts.frontend.includes.footer_files')

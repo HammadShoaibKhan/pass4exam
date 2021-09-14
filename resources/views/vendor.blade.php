@@ -246,13 +246,13 @@
                         </div>
                       </div>
                       <div class="row certification_fst_vendor_inner_2_row">
-                          @forelse($certificate->exams as $exam)
+                          @forelse($certificate->exams->where('status', 1) as $exam)
                             <div  class="col-xl-6 col-lg-12 mb-4 top_error">
                               <div>
                                 <!--<div id="line-left"></div>-->
                                 <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                                   <div class="card-header" >
-                                    <a href="{{route('exam_info',[$vendor->slug,$exam->exam_code])}}">
+                                    <a href="{{route('exam_info',[$vendor->slug,$exam->slug])}}">
                                       {{$exam->exam_code ?? ''}}
                                     </a>
                                     <span><span>

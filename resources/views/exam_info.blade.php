@@ -1,8 +1,5 @@
 @extends('layouts.frontend.master')
 @section('content')
-<?php if(!empty($exam_info)) {
-    $exam=$exam_info;
-?>       
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -21,7 +18,7 @@
                                         <i class="fa fa-chevron-right "> </i>
                                     </li>
                                     <li>
-                                        <a href="{{ route('vendor') }}">{{ 'vender' }}</a>
+                                        <a href="{{ route('vendor', $exam->vendor->slug) }}">vendor</a>
                                     </li>
                                     <li>
                                         <i class="fa fa-chevron-right "></i>
@@ -59,13 +56,13 @@
                                         <div class="card-header" >
                                             <!--<a href=""></a>-->
                                             <strong style="cursor: auto; color: #fff;font-size: 18px;font-family: 'Roboto';text-align: center;font-weight: 600;">
-                                                {{$exam->vendor_title}} {{$exam->exam_code}} Exam 
+                                                {{$exam->vendor->title}} {{$exam->exam_code}} Exam
                                             </strong>
                                         </div>
                                         <div class="card-body text-center">
                                             <p>
-                                                
-                                                {{$exam->certificate_title}} Fundamentals
+
+                                                {{$exam->certification->title}} Fundamentals
                                             </p>
                                             <span>
                                                 <!--{{$exam->exam_code}} Certification Practice Exam-->
@@ -84,14 +81,14 @@
                                 {{-- <!------------- Exam Description--------------------------------------------> --}}
                                 <div id="sample_page_2_top_content" class="col-xl-9 col-lg-9 col-md-8 col-sm-7 mb-4">
                                     <h2>
-                                        <strong>{{$exam->vendor_title}} {{$exam->exam_code}} Exam</strong>
+                                        <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Exam</strong>
                                     </h2>
-                                    <p>Certs Idea offers web-based and desktop practice tests for your easier preparation of the {{$exam->vendor_title}} {{$exam->exam_code}} certification exam.
+                                    <p>Certs Idea offers web-based and desktop practice tests for your easier preparation of the {{$exam->vendor->title}} {{$exam->exam_code}} certification exam.
                                         Our desktop and web-based practice exams provide an actual exam environment.
-                                        We have experts and {{$exam->certificate_title}} Fundamentals professionals who have designed practice questions after getting
-                                        feedback from successful candidates. All {{$exam->vendor_title}} {{$exam->exam_code}} exam questions are syllabus-based and
+                                        We have experts and {{$exam->certification->title}} Fundamentals professionals who have designed practice questions after getting
+                                        feedback from successful candidates. All {{$exam->vendor->title}} {{$exam->exam_code}} exam questions are syllabus-based and
                                         thoroughly cover all topics of the actual exam.
-                                        Our {{$exam->vendor_title}} {{$exam->exam_code}} practice questions appear in the final Microsoft exam.
+                                        Our {{$exam->vendor->title}} {{$exam->exam_code}} practice questions appear in the final Microsoft exam.
                                         The web-based and desktop practice tests highlight weak portions of your preparation so that you put more effort and
                                         remove all mistakes before the actual
                                         <a class="internal_link" href="{{ route('exam_info',[$exam->vendor_title,$exam->exam_code])}}"> 
@@ -110,7 +107,7 @@
                                             {{-- <input type="hidden" name="site" value="Certsidea"> --}}
                                             {{-- <input type="hidden" name="siteurl" value="../../index.html"> --}}
                                             {{-- <button class="demoLoginUserBtn btn demo"  type="submit" style="text-transform: none;"> --}}
-                                                <a href="{{route('exam_demo',[$exam->vendor_slug,$exam->exam_code])}}" target="_blank" class="btn mt-3" style="text-transform: none;">
+                                                <a href="{{route('exam_demo',[$exam->vendor->slug,$exam->slug])}}" target="_blank" class="btn mt-3" style="text-transform: none;">
                                                     Take a Free Self-Assessment Quiz
                                                 </a>
                                             {{-- </button> --}}
@@ -124,18 +121,18 @@
                                     <div id="sample_page_2_middle_content_inner0">
                                         <div>
                                             <p>
-                                                The free demo of our {{$exam->vendor_title}} {{$exam->exam_code}}
+                                                The free demo of our {{$exam->vendor->title}} {{$exam->exam_code}}
                                                 <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                                    exam practice tests is available to help you get familiar with our product. 
+                                                    exam practice tests is available to help you get familiar with our product.
                                                     Try the free demo and test features of desktop and web-based
                                                 </span>
-                                                {{$exam->certificate_title}} Fundamentals
+                                                {{$exam->certification->title}} Fundamentals
                                                 <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
                                                     certification exam practice tests before the purchase.
                                                     You can evaluate preparation in an actual exam like environment with the following self-assessment features
                                                     of our web-based and desktop
                                                 </span>
-                                                {{$exam->vendor_title}} {{$exam->exam_code}}
+                                                {{$exam->vendor->title}} {{$exam->exam_code}}
                                                 <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
                                                     exam practice tests.
                                                 </span>
@@ -143,12 +140,12 @@
                                         </div>
                                         <div class="buyNowBtn mb-4 mb-4 m-auto text-center mt-3" >
                                             <div>
-                                                <a href="{{route('exam_detail',[$exam->vendor_slug,$exam->exam_code])}}" target="_blank" class="btn mt-3" style="text-transform: none;">
+                                                <a href="{{route('exam_detail',[$exam->vendor->slug,$exam->slug])}}" target="_blank" class="btn mt-3" style="text-transform: none;">
                                                     Get Premium Self-Assessment Practice Test
                                                 </a>
                                                 <div class="social-links">
-                                                    <img style="width: 25%;;margin-top: 10px;" 
-                                                        src="../../assets/site/img/new_patment_method.webp" 
+                                                    <img style="width: 25%;;margin-top: 10px;"
+                                                        src="../../assets/site/img/new_patment_method.webp"
                                                         alt="payment method">
                                                 </div>
                                             </div>
@@ -186,17 +183,17 @@
 
                                 {{-- <!-------------Feature Banner--------------------------------------------> --}}
                                 <div id="sample_page_2_middle_content_inner" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
-                                    <h2>What Makes Our {{$exam->vendor_title}} {{$exam->exam_code}} Exam Material Better Than Others?</h2>
+                                    <h2>What Makes Our {{$exam->vendor->title}} {{$exam->exam_code}} Exam Material Better Than Others?</h2>
                                     <p>
-                                        We take regular feedback from successful candidates of the {{$exam->certificate_title}} Fundamentals
+                                        We take regular feedback from successful candidates of the {{$exam->certification->title}} Fundamentals
                                         exam to make necessary changes in our preparation material.
-                                        Our {{$exam->vendor_title}} {{$exam->exam_code}} exam study material is syllabus-based and we update it
+                                        Our {{$exam->vendor->title}} {{$exam->exam_code}} exam study material is syllabus-based and we update it
                                         immediately if Microsoft&nbsp;changes the content of the
                                         <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;
                                         background-color: rgb(252, 252, 252);">
                                         {{$exam->exam_code}}&nbsp;
                                         </span>
-                                        exam. These regular updates make our {{$exam->vendor_title}} {{$exam->exam_code}} practice questions more effective and result-oriented.
+                                        exam. These regular updates make our {{$exam->vendor->title}} {{$exam->exam_code}} practice questions more effective and result-oriented.
                                         To meet the learning needs of every candidate, the Certs Idea more effective.
                                     </p>
                                 </div>
@@ -205,14 +202,14 @@
                                 {{-- <!-------------Feature List--------------------------------------------> --}}
                                 <div id="sample_page_2_middle_content_inner_2" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
                                     <h3>
-                                        <strong>New {{$exam->vendor_title}} {{$exam->exam_code}}&nbsp;Questions According to Latest Syllabus</strong>
+                                        <strong>New {{$exam->vendor->title}} {{$exam->exam_code}}&nbsp;Questions According to Latest Syllabus</strong>
                                     </h3>
                                     <p>
-                                        We keep an eye on {{$exam->certificate_title}} Fundamentals certification exam content.
-                                        If there is any tweak in exam topics, we instantly update our {{$exam->vendor_title}} {{$exam->exam_code}} exam
+                                        We keep an eye on {{$exam->certification->title}} Fundamentals certification exam content.
+                                        If there is any tweak in exam topics, we instantly update our {{$exam->vendor->title}} {{$exam->exam_code}} exam
                                         questions. Continuous feedback of successful candidates also helps us to keep practice
                                         questions bank updated. These latest changes help our customers to prepare for the
-                                        recently updated {{$exam->certificate_title}} Fundamentals questions and answers. This is the
+                                        recently updated {{$exam->certification->title}} Fundamentals questions and answers. This is the
                                         strategy that makes our 3 formats of preparation material successful. Due to the
                                         regular updates and relativity of our Microsoft
                                         <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">
@@ -221,26 +218,26 @@
                                         AZ-140 practice questions, we provide a satisfaction guarantee.
                                     </p>
                                     <h3>
-                                        <strong>{{$exam->vendor_title}} {{$exam->exam_code}} Practice Questions with Free updates</strong>
+                                        <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Practice Questions with Free updates</strong>
                                     </h3>
                                     <p>
                                         The portability of our Microsoft
                                         <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">
                                             &nbsp;
                                         </span>
-                                        {{$exam->certificate_title}} Fundamentals certification exam PDF questions makes us a trusted brand in the
+                                        {{$exam->certification->title}} Fundamentals certification exam PDF questions makes us a trusted brand in the
                                         market. Without time and place restrictions, you can practice actual Microsoft
                                         <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">&nbsp;</span>
                                         {{$exam->exam_code}} questions via smartphones, computers, laptops, and tablets.
                                     </p>
                                     <h3>
-                                        <strong>Self-Assessment With {{$exam->vendor_title}} {{$exam->exam_code}} Exam Practice Test</strong>
+                                        <strong>Self-Assessment With {{$exam->vendor->title}} {{$exam->exam_code}} Exam Practice Test</strong>
                                     </h3>
                                     <p>
-                                        You can evaluate preparation before the final exam by trying the {{$exam->vendor_title}} {{$exam->exam_code}}
+                                        You can evaluate preparation before the final exam by trying the {{$exam->vendor->title}} {{$exam->exam_code}}
                                         practice test in web-based and desktop versions. With our customizable mock exams,
                                         you can track your progress, identify weaker areas of preparation and remove mistakes before
-                                        the actual {{$exam->certificate_title}} Fundamentals certification exam. These exam simulation tests
+                                        the actual {{$exam->certification->title}} Fundamentals certification exam. These exam simulation tests
                                         help you overcome anxiety about the actual exam by providing a real exam like scenario.
                                     </p>
                                 </div>
@@ -250,15 +247,15 @@
                                 <div id="sample_page_note_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
                                     <div class="terms">
                                         <p class="taxonomy">
-                                            <a class="vocab-term" href="../azure.html">{{$exam->certificate_title}}</a>
-                                            | <a  class="vocab-term" href="../azure-administrators.html">{{$exam->certificate_title}} Administrators</a>
-                                            | <a  class="vocab-term" href="../business-user.html">Microsoft Business User</a>
-                                            | <a  class="vocab-term" href="../technology-manager.html">Microsoft Technology Manager</a>
-                                            | <a class="vocab-term" href="../beginner.html">Microsoft Beginner</a> |
-                                            <a class="vocab-term" href="../{{$exam->exam_code}}-exam-topics.html">{{$exam->exam_code}} Exam Topics</a>
-                                            | <a class="vocab-term" href="../{{$exam->exam_code}}-questions-answers.html">{{$exam->exam_code}} Questions Answers</a>
-                                            | <a class="vocab-term" href="../{{$exam->exam_code}}-real-questions.html">{{$exam->exam_code}} Real Questions</a>
-                                            | <a class="vocab-term" href="../microsoft-azure-fundamentals-course-details.html">{{$exam->certificate_title}} Fundamentals Course Details</a>
+                                            <a class="vocab-term" href="javascript:;">{{$exam->certification->title}}</a>
+                                            | <a  class="vocab-term" href="javascript:;">{{$exam->certification->title}} Administrators</a>
+                                            | <a  class="vocab-term" href="javascript:;">Microsoft Business User</a>
+                                            | <a  class="vocab-term" href="javascript:;">Microsoft Technology Manager</a>
+                                            | <a class="vocab-term" href="javascript:;">Microsoft Beginner</a> |
+                                            <a class="vocab-term" href="javascript:;">{{$exam->exam_code}} Exam Topics</a>
+                                            | <a class="vocab-term" href="javascript:;">{{$exam->exam_code}} Questions Answers</a>
+                                            | <a class="vocab-term" href="javascript:;">{{$exam->exam_code}} Real Questions</a>
+                                            | <a class="vocab-term" href="javascript:;">{{$exam->certification->title}} Fundamentals Course Details</a>
                                         </p>
 
                                     </div>
@@ -279,8 +276,8 @@
                                     </div>
                                     {{-- @TODO --}}
                                     <div class="card-body">
-                                        <a style="color: #22ad95;" href="../free-{{$exam->exam_code}}-questions.html">
-                                            Free {{$exam->vendor_title}} {{$exam->exam_code}} Exam  Questions
+                                        <a style="color: #22ad95;" href="javascript:;">
+                                            Free {{$exam->vendor->title}} {{$exam->exam_code}} Exam  Questions
                                         </a>
                                     </div>
                                 </div>
@@ -293,8 +290,8 @@
                                     </div>
                                     {{-- @TODO --}}
                                     <div class="card-body">
-                                        <a style="color: #22ad95;" href="../syllabus/{{$exam->exam_code}}.html">
-                                            {{$exam->vendor_title}} {{$exam->exam_code}} Exam Syllabus
+                                        <a style="color: #22ad95;" href="javascript:;">
+                                            {{$exam->vendor->title}} {{$exam->exam_code}} Exam Syllabus
                                         </a>
                                     </div>
                                 </div>
@@ -343,5 +340,4 @@
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
-<?php } ?>
     @endsection
