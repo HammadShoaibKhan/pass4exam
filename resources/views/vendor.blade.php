@@ -252,7 +252,7 @@
                                 <!--<div id="line-left"></div>-->
                                 <div class="card certification_vendor_card hvr-grow-shadow" style="display: block;">
                                   <div class="card-header" >
-                                    <a href="{{route('exam_info',[$vendor->slug,$exam->exam_code])}}">
+                                    <a href="{{route('exam_info',[$vendor->slug,$exam->slug])}}">
                                       {{$exam->exam_code ?? ''}}
                                     </a>
                                     <span><span>

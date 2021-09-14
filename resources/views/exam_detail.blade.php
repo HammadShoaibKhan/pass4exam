@@ -1,8 +1,6 @@
 @extends('layouts.frontend.master')
 @section('content')
-<?php if(!empty($exam_detail)) {
-    $exam=$exam_detail;
-?>   
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -21,7 +19,7 @@
                                         <i class="fa fa-chevron-right "> </i>
                                     </li>
                                     <li>
-                                        <a href="{{ route('vendor') }}">{{ $exam->vendor_title ?? ''  }}</a>
+                                        <a href="{{ route('vendor', $exam->vendor->slug) }}">{{ $exam->vendor->title ?? ''  }}</a>
                                     </li>
                                     <li>
                                         <i class="fa fa-chevron-right "></i>
@@ -46,13 +44,13 @@
             {{-- <!------------- Bundle Pack --------------------------------------------> --}}
             {{-- <!--Array
                 (
-                    [name] => {{ $exam->vendor_title ?? ''  }} Power Platform Solution Architect
+                    [name] => {{ $exam->vendor->title ?? ''  }} Power Platform Solution Architect
                     [p_type] => 0
                     [price] => 98
                     [ptype_id] => 3
                     [exam_code] => {{ $exam->exam_code ?? ''  }}
-                    [cert_names] => {{ $exam->vendor_title ?? ''  }} Dynamics 365,{{ $exam->vendor_title ?? ''  }} Power Apps + Dynamics 365 Solution Architect Expert,{{ $exam->vendor_title ?? ''  }} Power Platform
-                    [vendor_name] => {{ $exam->vendor_title ?? ''  }}
+                    [cert_names] => {{ $exam->vendor->title ?? ''  }} Dynamics 365,{{ $exam->vendor->title ?? ''  }} Power Apps + Dynamics 365 Solution Architect Expert,{{ $exam->vendor->title ?? ''  }} Power Platform
+                    [vendor_name] => {{ $exam->vendor->title ?? ''  }}
                 )
                 --> --}}
 
@@ -62,9 +60,9 @@
                         <div class="overview-content pt-3">
                             <div class="content left-content">
                                 <div class="left-content-fst">
-                                    <h1>{{ $exam->vendor_title ?? ''  }} {{ $exam->exam_code ?? ''  }} Exam</h1>
+                                    <h1>{{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }} Exam</h1>
                                     <p>
-                                        Prepare for {{ $exam->vendor_title ?? ''  }} {{ $exam->title ?? '' }} {{ $exam->exam_code ?? '' }} Exam
+                                        Prepare for {{ $exam->vendor->title ?? ''  }} {{ $exam->title ?? '' }} {{ $exam->exam_code ?? '' }} Exam
                                     </p>
                                     <ul class="services-list">
                                         <li>
@@ -155,15 +153,15 @@
                                             <div id="btnPlusprice_exam" class="row">
                                                 <div class="">
                                                     <div class=" bundle_price_exam">
-                                                        Price: $<span id="lbl_price">79</span> 
-                                                        <del>Before: $158</del> 
+                                                        Price: $<span id="lbl_price">79</span>
+                                                        <del>Before: $158</del>
                                                     </div>
                                                 </div>
                                                 <div class="">
                                                     <div class=" row">
                                                         <div class="col-sm-12">
                                                             <input type="hidden" id='bundle_name' name="bundle_name"
-                                                                value="{{ $exam->vendor_title ?? ''  }} {{ $exam->exam_code ?? ''  }} Bundle Pack" />
+                                                                value="{{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }} Bundle Pack" />
                                                             <input type="hidden" id="price" name="price" value="158" />
                                                             <input type="hidden" id="checkout_price" name="checkout_price"
                                                                 value="158" />
@@ -246,39 +244,39 @@
                                             </span>
                                         </li>
                                     </ul>
-                                    &nbsp; 
+                                    &nbsp;
                                     <p>
                                         {{ $exam->exam_code ?? ''  }} Web-Based Practice Test Engine Features:
-                                    </p> 
-                                    <ul class="web_based_ul"> 
+                                    </p>
+                                    <ul class="web_based_ul">
                                         <li>
                                             <span><i class="fas fa-check"></i></span>
                                             No Installation Required
-                                        </li> 
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             Start your Prepartion Instantly
                                         </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             900+ Satisfied Customers
-                                        </li> 
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             Based on Actual Exam Topics
-                                        </li> 
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             Compatible with All Major Browsers &amp; Operating Systems
-                                        </li> 
-                                    </ul> 
-                                    <br /> 
+                                        </li>
+                                    </ul>
+                                    <br />
                                     &nbsp;
                                     <div id="btnPlusprice_exam_webbased" class="row">
                                         <div>
                                             <div class="bundle_price_exam_webbased">
-                                                Price: $49 
-                                                <del>Before: $98</del> 
+                                                Price: $49
+                                                <del>Before: $98</del>
                                             </div>
                                         </div>
                                         <div class="">
@@ -293,7 +291,7 @@
                                                             <i class="fa fa-shopping-cart"></i> Add To Cart
                                                         </button>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                    </form> 
+                                                    </form>
                                                     <button id="btn-demo6"  class="try-5 btn pop_onloneDemo demo" data_val="1" demo>
                                                         Demo
                                                     </button>
@@ -330,39 +328,39 @@
                                             </span>
                                         </li>
                                     </ul>
-                                    &nbsp; 
+                                    &nbsp;
                                     <p style="margin-bottom: 2%;">
                                         {{ $exam->exam_code ?? ''  }} PDF Format
-                                    </p> 
-                                    <ul class="pdf_ul"> 
+                                    </p>
+                                    <ul class="pdf_ul">
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             Compatible with All Modern Devices including Smartphones
-                                        </li> 
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             Easy to Use
-                                        </li> 
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             1200+ Satisfied Customers
-                                        </li> 
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
-                                            Based on Actual {{ $exam->vendor_title ?? ''  }} {{ $exam->exam_code ?? ''  }} Syllabus
-                                        </li> 
+                                            <span><i class="fas fa-check"></i></span>
+                                            Based on Actual {{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }} Syllabus
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             90 Days Free Updates
-                                        </li> 
-                                    </ul> 
-                                    <br /> 
-                                    &nbsp;              
+                                        </li>
+                                    </ul>
+                                    <br />
+                                    &nbsp;
                                     <div id="btnPlusprice_exam_pdf" class="row">
                                         <div class="">
                                             <div class="bundle_price_exam_pdf">
-                                                Price: $59 
-                                                <del>Before: $118</del> 
+                                                Price: $59
+                                                <del>Before: $118</del>
                                             </div>
                                         </div>
                                         <div class="">
@@ -374,16 +372,16 @@
                                                         <input type="hidden" value="1" name="ptype_id" />
                                                         <input type="hidden" value="single" name="shop_type" />
                                                         <button id="btn-cart1"  type="submit" class="btn">
-                                                            <i class="fa fa-shopping-cart"></i> 
+                                                            <i class="fa fa-shopping-cart"></i>
                                                             Add To Cart
                                                         </button>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                    </form> 
+                                                    </form>
                                                     <button id="btn-demo8" class="try-5 btn pop_pdfDemo demo" data_val="1">
                                                         Demo
                                                     </button>
                                                 </ul>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -417,49 +415,49 @@
                                     <br>
                                     <ul class="services-list">
                                         <li>
-                                            <span class="hvr-wobble-skew"><i class="far fa-calendar-check"></i> 
-                                                Last Updated : 31-07-2021 
+                                            <span class="hvr-wobble-skew"><i class="far fa-calendar-check"></i>
+                                                Last Updated : 31-07-2021
                                             </span>
                                         </li>
                                         <li>
-                                            <span class="hvr-wobble-skew"><i class="fa fa-question-circle"></i> 
+                                            <span class="hvr-wobble-skew"><i class="fa fa-question-circle"></i>
                                                 47 Total Questions
                                             </span>
                                         </li>
                                     </ul>
-                                    &nbsp; 
+                                    &nbsp;
                                     <p style=" margin-bottom: 2%;">
                                         {{ $exam->exam_code ?? ''  }} Desktop Practice Test
-                                    </p> 
-                                    <ul class="desktop_ul"> 
+                                    </p>
+                                    <ul class="desktop_ul">
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             Best {{ $exam->exam_code ?? ''  }} Self-Assesment Software
-                                        </li> 
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             Reduce your chances of failure in actual {{ $exam->exam_code ?? ''  }} exam
-                                        </li> 
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             500+ Satisfied Customers
-                                        </li> 
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             Compatible with Windows 8/8.1/10
-                                        </li> 
+                                        </li>
                                         <li>
-                                            <span><i class="fas fa-check"></i></span> 
+                                            <span><i class="fas fa-check"></i></span>
                                             Customizable Test Sessions, Try Free
-                                        </li> 
-                                    </ul> 
-                                    <br /> 
-                                    &nbsp;                
+                                        </li>
+                                    </ul>
+                                    <br />
+                                    &nbsp;
                                     <div id="btnPlusprice_exam_desktop" class="row">
                                         <div class="">
                                             <div class="bundle_price_exam_desktop">
-                                                Price: $39 
-                                                <del>Before: $78</del> 
+                                                Price: $39
+                                                <del>Before: $78</del>
                                             </div>
                                         </div>
                                         <div class="">
@@ -474,7 +472,7 @@
                                                             <i class="fa fa-shopping-cart"></i> Add To Cart
                                                         </button>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                    </form> 
+                                                    </form>
                                                     <button id="btn-demo1" class="try-5 btn pop_softDemo demo" data_val="2">
                                                         Demo
                                                     </button>
@@ -489,143 +487,143 @@
                 </div>
             </section>
             {{-- END <!------------- Desktop Pack ----------------------------------------> --}}
-            
+
             {{-- <!------------- Features of Exam --------------------------------------------> --}}
             <section class="features_exam pt-5 pb-5 bg-f7fafd">
 
-                <section class="features_exam pt-5 pb-5 bg-f7fafd" style=" "> 
+                <section class="features_exam pt-5 pb-5 bg-f7fafd" style=" ">
                     <div class="section-title">
                         {{-- <span class="heading_bg_heading_1">OUR STRENGTH</span> --}}
-                        <h3>How Does Certsidea Serve You?</h3> 
-                    </div> 
-                    <div class="container"> 
-                        <div style="text-align: center; margin-bottom: 3%; margin-top: -2%;"> 
+                        <h3>How Does Certsidea Serve You?</h3>
+                    </div>
+                    <div class="container">
+                        <div style="text-align: center; margin-bottom: 3%; margin-top: -2%;">
                             <p>
-                                Our {{ $exam->vendor_title ?? ''  }} {{ $exam->exam_code ?? ''  }} practice test is the most reliable solution to quickly prepare for your 
-                                {{ $exam->vendor_title ?? ''  }} Power Platform Solution Architect. We are certain that our {{ $exam->vendor_title ?? ''  }} {{ $exam->exam_code ?? ''  }} 
-                                practice exam will guide you to get certified on the first try. 
+                                Our {{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }} practice test is the most reliable solution to quickly prepare for your
+                                {{ $exam->vendor->title ?? ''  }} Power Platform Solution Architect. We are certain that our {{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }}
+                                practice exam will guide you to get certified on the first try.
                                 Here is how we serve you to prepare successfully:
-                            </p> 
-                        </div> 
-                        <div class="features_exam_inner"> 
-                            <div class="row"> 
-                                <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> 
-                                    <div class="row"> 
+                            </p>
+                        </div>
+                        <div class="features_exam_inner">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 pb-4">
+                                    <div class="row">
                                         <div class="col-xs-2">
                                             {{-- <img alt="Practice Test" src="../assets/site/img/Path_1096.png" /> --}}
                                             <div class="image" style="width: 90px; height: 40px; background:#ccc">
                                             </div>
-                                        </div> 
-                                        <div class="col-lg-10"> 
+                                        </div>
+                                        <div class="col-lg-10">
                                             <p class="heading">
-                                                Free Demo of {{ $exam->vendor_title ?? ''  }} {{ $exam->exam_code ?? ''  }} Practice Test
-                                            </p> 
+                                                Free Demo of {{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }} Practice Test
+                                            </p>
                                             <p class="content">
-                                                Try a free demo of our {{ $exam->vendor_title ?? ''  }} {{ $exam->exam_code ?? ''  }} PDF and practice exam software before 
+                                                Try a free demo of our {{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }} PDF and practice exam software before
                                                 the purchase to get a closer look at practice questions and answers.
-                                            </p> 
-                                        </div> 
-                                    </div> 
-                                </div> 
-                                <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> 
-                                    <div class="row"> 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 pb-4">
+                                    <div class="row">
                                         <div class="col-xs-2">
                                             <div class="image" style="width: 90px; height: 40px; background:#ccc">
                                             </div>
                                             {{-- <img alt="Updates" src="../assets/site/img/Image_270.png" /> --}}
-                                        </div> 
-                                        <div class="col-lg-10"> 
+                                        </div>
+                                        <div class="col-lg-10">
                                             <p class="heading">
                                                 Up to 3 Months of Free Updates
-                                            </p> 
+                                            </p>
                                             <p class="content">
-                                                We provide up to 3 months of free after-purchase updates so that you get 
-                                                {{ $exam->vendor_title ?? ''  }} {{ $exam->exam_code ?? ''  }} practice questions of today and 
+                                                We provide up to 3 months of free after-purchase updates so that you get
+                                                {{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }} practice questions of today and
                                                 not yesterday.
-                                            </p> 
-                                        </div> 
-                                    </div> 
-                                </div> 
-                                <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> 
-                                    <div class="row"> 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 pb-4">
+                                    <div class="row">
                                         <div class="col-xs-2">
                                             <div class="image" style="width: 90px; height: 40px; background:#ccc">
                                             </div>
                                             {{-- <img alt="Certified" src="../assets/site/img/Image_271.png" /> --}}
-                                        </div> 
-                                        <div class="col-lg-10"> 
+                                        </div>
+                                        <div class="col-lg-10">
                                             <p class="heading">
                                                 Get Certified in First Attempt
-                                            </p> 
+                                            </p>
                                             <p class="content">
-                                                We have a long list of satisfied customers from multiple countries. 
-                                                Our {{ $exam->vendor_title ?? ''  }} {{ $exam->exam_code ?? ''  }} practice questions will 
+                                                We have a long list of satisfied customers from multiple countries.
+                                                Our {{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }} practice questions will
                                                 certainly assist you to get passing marks on the first attempt.
-                                            </p> 
-                                        </div> 
-                                    </div> 
-                                </div> 
-                                <div class="col-lg-6 col-md-6 col-sm-12 pb-4"> 
-                                    <div class="row"> 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 pb-4">
+                                    <div class="row">
                                         <div class="col-xs-2">
                                             <div class="image" style="width: 90px; height: 40px; background:#ccc">
                                             </div>
                                             {{-- <img alt="Questions" src="../assets/site/img/Image_272.png" /> --}}
-                                        </div> 
-                                        <div class="col-lg-10"> 
+                                        </div>
+                                        <div class="col-lg-10">
                                             <p class="heading">
                                                 PDF Questions and Practice Test
-                                            </p> 
+                                            </p>
                                             <p class="content">
-                                                Certsidea offers {{ $exam->vendor_title ?? ''  }} {{ $exam->exam_code ?? ''  }} 
+                                                Certsidea offers {{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }}
                                                 PDF questions, web-based and desktop practice tests that are consistently
                                                  updated.
-                                                </p> 
-                                            </div> 
-                                        </div> 
-                                    </div> 
-                                    <div class="col-lg-6 col-md-6 col-sm-12 pb-4 "> 
-                                        <div class="row"> 
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 pb-4 ">
+                                        <div class="row">
                                             <div class="col-xs-2">
                                                 <div class="image" style="width: 90px; height: 40px; background:#ccc">
                                                 </div>
                                                 {{-- <img alt="Customer" src="../assets/site/img/image_user1.png" /> --}}
-                                            </div> 
-                                            <div class="col-lg-10"> 
+                                            </div>
+                                            <div class="col-lg-10">
                                                 <p class="heading">
                                                     24/7 Customer Support
-                                                </p> 
+                                                </p>
                                                 <p class="content">
-                                                    Certsidea has a support team to answer your queries 24/7. Contact us 
-                                                    if you face login issues, payment and download issues. We will 
+                                                    Certsidea has a support team to answer your queries 24/7. Contact us
+                                                    if you face login issues, payment and download issues. We will
                                                     entertain you as soon as possible.
-                                                </p> 
-                                            </div> 
-                                        </div> 
-                                    </div> 
-                                    <div class="col-lg-6 col-md-6 col-sm-12 pb-4 "> 
-                                        <div class="row"> 
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 pb-4 ">
+                                        <div class="row">
                                             <div class="col-xs-2">
                                                 <div class="image" style="width: 90px; height: 40px; background:#ccc">
                                                 </div>
                                                 {{-- <img alt="Guaranteed " src="../assets/site/img/guarantee.png" style="width: 80px;" /> --}}
-                                            </div> 
-                                            <div class="col-lg-10"> 
+                                            </div>
+                                            <div class="col-lg-10">
                                                 <p class="heading">
                                                     100% Guaranteed Customer Satisfaction
-                                                </p> 
+                                                </p>
                                                 <p class="content">
-                                                    Thousands of customers passed the {{ $exam->vendor_title ?? ''  }} Power Platform 
-                                                    Solution Architect exam by using our product. We ensure that upon using our 
+                                                    Thousands of customers passed the {{ $exam->vendor->title ?? ''  }} Power Platform
+                                                    Solution Architect exam by using our product. We ensure that upon using our
                                                     exam products, you are satisfied.
-                                                </p> 
-                                            </div> 
-                                        </div> 
-                                    </div> 
-                                </div> 
-                            </div> 
-                        </div> 
-                    </section>     
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </section>
             {{-- END <!------------- Features of Exam ----------------------------------------> --}}
@@ -637,8 +635,8 @@
                         {{-- <span class="heading_bg_heading_1">
                             RECENT UPDATES
                         </span>  --}}
-                        <h3>Recently Updated Exams</h3> 
-                    </div>     
+                        <h3>Recently Updated Exams</h3>
+                    </div>
                 </div>
                 <div class="recent_update_exam_bottom_exam container">
                     <div class="row">
@@ -650,7 +648,7 @@
                                             <div style="text-align: center;">
                                                 <b><a href="az-204.html">AZ-204</a></b>
                                                 <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
-                                                    Developing Solutions for {{ $exam->vendor_title ?? ''  }} Azure Exam
+                                                    Developing Solutions for {{ $exam->vendor->title ?? ''  }} Azure Exam
                                                 </strong>
                                                 <p>
                                                     <b>246 Total Questions </b>
@@ -740,7 +738,7 @@
             <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
                 <div class="section-title">
                     {{-- <span class="new_testimonials_bg_heading">TESTIMONIALS</span> --}}
-                    <h3>{{ $exam->vendor_title ?? '' }} {{$exam->exam_code ?? ''}} Exam Testimonials</h3>
+                    <h3>{{ $exam->vendor->title ?? '' }} {{$exam->exam_code ?? ''}} Exam Testimonials</h3>
                 </div>
                 <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4">
                     <div id="parant_comment" class="container mt-3">
@@ -841,5 +839,4 @@
     <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-<?php } ?>
 @endsection
