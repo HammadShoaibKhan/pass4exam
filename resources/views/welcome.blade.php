@@ -311,238 +311,262 @@
     </section>
     {{-- END <!------------- Popular Exams--------------------------------------------> --}}
   
-  </div>
+    <!--------------------------------------------------------- DIFFERENT --------------------------------------------------------->
+  
+    {{-- <!------------- Serving Portion--------------------------------------------> --}}
+    <section class="different_home_section pt-5 pb-5 bg-f7fafd" style=" ">
+      <div class="different_home_section_inner_top" style="">
+        <h3>How Does Certs Idea Serve You?</h3> 
+        <p>
+          Our preparation material is the most reliable solution to quickly prepare for your dream IT certification exams. 
+          We are certain that our preparation material will guide you to get certified on the first try. 
+          Here is how we serve you to prepare successfully:
+        </p> 
+      </div> 
+      <div class="different_home_section_inner_bottom" style=""> 
+        <div class="row"> 
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
+            <div class="row"> 
+              <div class="col-xs-2">
+                <strong>
+                  <img alt="pdf" height="80" src="{{asset('frontend/assets/site/img/image_pdf.png')}}" width="70" />
+                </strong>
+              </div> 
+              <div class="col-lg-10"> 
+                <p class="heading">
+                  Free Demo of Preparation Material
+                </p> 
+                <p class="content">
+                  Try a free demo of our PDF and practice exam software before the purchase to get a closer look at practice 
+                  questions and answers.
+                </p> 
+              </div> 
+            </div> 
+          </div> 
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
+            <div class="row"> 
+              <div class="col-xs-2">
+                <strong>
+                  <img alt="updates" height="58" src="{{asset('frontend/assets/site/img/image_ero1.png')}}" width="70" />
+                </strong>
+              </div> 
+              <div class="col-lg-10"> 
+                <p class="heading">Up to 3 Months of Free Updates</p> 
+                <p class="content">
+                  Certs Idea updates its preparation material according to changes in the exam syllabus. 
+                  We provide up to 3 months of free updates so that you get practice questions of today and not yesterday.
+                </p> 
+              </div> 
+            </div> 
+          </div> 
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
+            <div class="row"> 
+              <div class="col-xs-2">
+                <strong>
+                  <img alt="Success" height="74" src="{{asset('frontend/assets/site/img/image_sun.png')}}" width="70" />
+                </strong>
+              </div> 
+              <div class="col-lg-10"> 
+                <p class="heading">Get Certified in First Attempt</p> 
+                <p class="content">
+                  We have a long list of satisfied customers from multiple countries. It does not matter which exam you are 
+                  attempting. Our practice questions will certainly assist you to get passing marks on the first attempt.
+                </p> 
+              </div> 
+            </div> 
+          </div> 
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
+            <div class="row"> 
+              <div class="col-xs-2">
+                <strong>
+                  <img alt="Com" height="66" src="{{asset('frontend/assets/site/img/image_com.png')}}" width="70" />
+                </strong>
+              </div> 
+              <div class="col-lg-10"> 
+                <p class="heading">PDF Questions and Practice Test</p> 
+                <p class="content">
+                  We strive to make certain that preparation material for every certification exam is authentic. 
+                  Certs Idea offers PDF questions, web-based and desktop practice tests that are consistently updated.
+                </p> 
+              </div> 
+            </div> 
+          </div> 
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
+            <div class="row"> 
+              <div class="col-xs-2">
+                <strong>
+                  <img alt="Customer" height="70" src="{{asset('frontend/assets/site/img/image_user1.png')}}" width="70" />
+                </strong>
+              </div> 
+              <div class="col-lg-10"> 
+                <p class="heading">24/7 Customer Support</p> 
+                <p class="content">
+                  Certs Idea has a dedicated support team to answer your queries 24/7. Contact us if you face the technical 
+                  problems, login issues, payment and download issues. We will entertain you as soon as possible.
+                </p> 
+              </div> 
+            </div> 
+          </div> 
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
+            <div class="row"> 
+              <div class="col-xs-2">
+                <strong>
+                  <img alt="Guaranteed" height="62" src="{{asset('frontend/assets/site/img/image_guran.png')}}" width="70" />
+                </strong>
+              </div> 
+              <div class="col-lg-10"> 
+                <p class="heading">100% Guaranteed Customer Satisfaction</p> 
+                <p class="content">
+                  Certs Idea offers accurate practice questions at an affordable price. Thousands of customers have met 
+                  their learning needs by using our products. We ensure that upon using our exam products, you are satisfied.
+                </p> 
+              </div> 
+            </div> 
+          </div> 
+        </div> 
+      </div>
+    </section>
+    {{-- END <!------------- Serving Portion --------------------------------------------> --}}
 
- <!--------------------------------------------------------- DIFFERENT --------------------------------------------------------->
-
-<section class="different_home_section pt-5 pb-5 bg-f7fafd" style=" ">
-
-   <div class="different_home_section_inner_top" style=""><h3>How Does Certs Idea Serve You?</h3> <p>Our preparation material is the most reliable solution to quickly prepare for your dream IT certification exams. We are certain that our preparation material will guide you to get certified on the first try. Here is how we serve you to prepare successfully:</p> </div> <div class="different_home_section_inner_bottom" style=""> <div class="row"> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="pdf" height="80" src="{{asset('frontend/assets/site/img/image_pdf.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">Free Demo of Preparation Material</p> <p class="content">Try a free demo of our PDF and practice exam software before the purchase to get a closer look at practice questions and answers.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="updates" height="58" src="{{asset('frontend/assets/site/img/image_ero1.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">Up to 3 Months of Free Updates</p> <p class="content">Certs Idea updates its preparation material according to changes in the exam syllabus. We provide up to 3 months of free updates so that you get practice questions of today and not yesterday.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Success" height="74" src="{{asset('frontend/assets/site/img/image_sun.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">Get Certified in First Attempt</p> <p class="content">We have a long list of satisfied customers from multiple countries. It does not matter which exam you are attempting. Our practice questions will certainly assist you to get passing marks on the first attempt.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Com" height="66" src="{{asset('frontend/assets/site/img/image_com.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">PDF Questions and Practice Test</p> <p class="content">We strive to make certain that preparation material for every certification exam is authentic. Certs Idea offers PDF questions, web-based and desktop practice tests that are consistently updated.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Customer" height="70" src="{{asset('frontend/assets/site/img/image_user1.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">24/7 Customer Support</p> <p class="content">Certs Idea has a dedicated support team to answer your queries 24/7. Contact us if you face the technical problems, login issues, payment and download issues. We will entertain you as soon as possible.</p> </div> </div> </div> <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> <div class="row"> <div class="col-xs-2"><strong><img alt="Guaranteed" height="62" src="{{asset('frontend/assets/site/img/image_guran.png')}}" width="70" /></strong></div> <div class="col-lg-10"> <p class="heading">100% Guaranteed Customer Satisfaction</p> <p class="content">Certs Idea offers accurate practice questions at an affordable price. Thousands of customers have met their learning needs by using our products. We ensure that upon using our exam products, you are satisfied.</p> </div> </div> </div> </div> </div>
-
-
-
-</section>
-
-
-
-
-  <!--------------------------------------------------------- Recent Updates exams --------------------------------------------------------->
-
-  <section class="recent_update_exam_home pt-5 pb-5 bg-f7fafd">
-    <div class="recent_update_exam_top_home">
-
-         <h3>Recent Updated Exams</h3>
-    </div>
-    <div class="recent_update_exam_bottom_home container">
-      <div class="row">
-          @forelse(recentUpdatedExams() as $exam)
-            <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-              <div class="card " style="">
-                <div class="card-body hvr-sweep-to-right">
-                  <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                      <div style="text-align: center;">
-                        <b><a href="javascript:;">{{ $exam->exam_code }}</a></b>
-                        <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">{{ $exam->title }}</strong>
-                        <p>{{ $exam->questions->count() }} Total Questions </p>
+    {{-- <!------------- Recent Updated Exams --------------------------------------------> --}}
+    <section class="recent_update_exam_home pt-5 pb-5 bg-f7fafd">
+      <div class="recent_update_exam_top_home">
+        <h3>Recent Updated Exams</h3>
+      </div>
+      <div class="recent_update_exam_bottom_home container">
+        <div class="row">
+            @forelse(recentUpdatedExams() as $exam)
+              <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
+                <div class="card " style="">
+                  <div class="card-body hvr-sweep-to-right">
+                    <div class="row">
+                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                        <div style="text-align: center;">
+                          <b><a href="javascript:;">{{ $exam->exam_code }}</a></b>
+                          <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
+                            {{ $exam->title }}
+                          </strong>
+                          <p>{{ $exam->questions->count() }} Total Questions </p>
+                        </div>
+                      </div>
+                      <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                        <div style="text-align: center;     padding-top: 10px;">
+                          <strong>{{ date('d', strtotime($exam->updated_at)) }}</strong>
+                          <b >{{ date('F', strtotime($exam->updated_at)) }}</b>
+                          <p style=""><b>{{ date('Y', strtotime($exam->updated_at)) }}</b></p>
+                        </div>
                       </div>
                     </div>
-                    <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                      <div style="text-align: center;     padding-top: 10px;">
-                        <strong>{{ date('d', strtotime($exam->updated_at)) }}</strong>
-                        <b >{{ date('F', strtotime($exam->updated_at)) }}</b>
-                        <p style=""><b>{{ date('Y', strtotime($exam->updated_at)) }}</b></p>
-                      </div>
-                    </div>
-
                   </div>
                 </div>
               </div>
-            </div>
-          @empty
-          @endforelse
+            @empty
+            @endforelse
+        </div>
       </div>
-
-    </div>
-    </div>
-  </section>
-
-<!--------------------------------------------------------- Recent Updates exams END --------------------------------------------------------->
-
-
-      <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
-            <div class="section-title">
-              <h4 class="home_testimonials"> Certification Exam Testimonials</h4>
-            </div>
-
-    <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
-     <div id="parant_comment" class="container mt-3">
-
-
-  <div class="media p-3">
-
-                		<div class="initalname">
-    		    M    		</div>
-
-
-            <div class="media-body">
-              <div class="home_test_name">Marcella	    				    				        <!--<img src="{{asset('frontend/https://flagcdn.com/w80/dz.png" alt="flag"  class="dicls">-->
-
-    		    <span><i>Aug 7, 2021</i></span></div>
-                <div class="rating">
-    				        				</div>
-    				<p>Some people are stuck in between certificates and are not able to clear in spite of studying the course several number of times. The thing they are missing is practice. With such a wonderful resource of premium questions available online, i took no second chance and enrolled. Successfully cleared 33820X Certification Exam with good results.</p>
-
-    </div>
-  </div>
-
-
-  <div class="media p-3">
-
-                		<div class="initalname">
-    		    T    		</div>
-
-
-            <div class="media-body">
-              <div class="home_test_name">Tyler
-    		    <span><i>Aug 5, 2021</i></span></div>
-                <div class="rating">
-    				        				        <span class="glyphicon glyphicon-star"></span>
-    					    <span class="glyphicon glyphicon-star"></span>
-    					    <span class="glyphicon glyphicon-star"></span>
-    					    <span class="glyphicon glyphicon-star"></span>
-    				        <span class="glyphicon glyphicon-star half"></span>
-    				        				</div>
-    				<p>Cisco 350-501 premium questions helped me clear all the doubts and confusion related to the exam. The updated material made sure that I would get success on the first attempt. I highly recommend certsidea if you do not want to waste your time and money</p>
-
-    </div>
-  </div>
-
-
-  <div class="media p-3">
-
-                		<div class="initalname">
-    		    T    		</div>
-
-
-            <div class="media-body">
-              <div class="home_test_name">Timothy
-    		    <span><i>Aug 3, 2021</i></span></div>
-                <div class="rating">
-    				        				</div>
-    				<p>I did not know how to go about practicing for CISSP certificate exam. So i opted for ISC2 Certified Information Systems Security Professional mock tests on certsidea. They come with the option where i can track the progress i made on an everyday basis. I could also compare my performance through the history given. The progress thus becomes streamlined and i am quite happy with the things that are going about.</p>
-
-    </div>
-  </div>
-
-
-  <div class="media p-3">
-
-                		<div class="initalname">
-    		    K    		</div>
-
-
-            <div class="media-body">
-              <div class="home_test_name">Kenney
-    		    <span><i>Aug 1, 2021</i></span></div>
-                <div class="rating">
-    				        				</div>
-    				<p>It is a new day today. My score in Certified Jenkins Engineer certification exam is all thanks to paid online simulated tests on certsidea. Thank you everyone associated to certsidea. It is the best!</p>
-
-    </div>
-  </div>
-
-
-  <div class="media p-3">
-
-                		<div class="initalname">
-    		    J    		</div>
-
-
-            <div class="media-body">
-              <div class="home_test_name">Joshua
-    		    <span><i>Jul 30, 2021</i></span></div>
-                <div class="rating">
-    				        				</div>
-    				<p>Thank God! I am happy that I could practice on certsidea mock tests for C_MDG_1909 certification exam before giving the actual exam. It helped to get rid of my fears and to get a score of 85% in the actual exam.</p>
-
-    </div>
-  </div>
-
-</div>
-</div>
-
-
-
     </section>
+    {{-- END <!------------- Recent Updated Exams ----------------------------------------> --}}
 
-
-    <!-- comment area end -->
-<div id="commentwriteareahome" class="commentwritearea" style="display: none;">
-    <div class="container">
-        <div class="topArea">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="h4" > Leave Your Comment</div>
+  
+    {{-- <!------------- Certifications Testimonials --------------------------------------------> --}}
+    <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
+        <div class="section-title">
+            {{-- <span class="new_testimonials_bg_heading">TESTIMONIALS</span> --}}
+            <h3> Certification Exam Testimonials</h3>
+        </div>
+        <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4">
+            <div id="parant_comment" class="container mt-3">
+                <div class="media p-3">
+                    <div class="initalname">
+                        V
+                    </div>
+                    <div class="media-body">
+                        <p style="color: #22ad95;font-size: 20px;font-weight: 500;">
+                            Virginia
+                            <!--<img src="https://flagcdn.com/w80/ca.png" alt="flag"  class="dicls">-->
+                            <span style="float: right;font-size: 16px;color: #da0606;"><i>Aug 30, 2021</i></span>
+                        </p>
+                        <div class="rating">
+                        </div>
+                        <p>
+                            Choosing {{ $exam->exam_code ?? '' }}  mock test of certsidea.com for practice was a conscious decision.
+                            I did not find anything better than these mock tests.
+                            They are designed to give practice to people who seriously want to clear the {{ $exam->exam_code ?? '' }} exam .
+                            The tests are well within my budget and I am sure practicing on them will help me pass the exam
+                            in first attempt.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="mainformarea">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div id="form-messages" style="background:none;">
+    </section>
+    {{-- END <!------------- Certifications Testimonials ----------------------------------------> --}}
 
-											</div>
-    				<div class="text-center">
-    					<div class="alert alert-success" style="display:none"></div>
-    					<div class="alert alert-danger" style="display:none"></div>
-    				</div>
-					<!--<form method="post" name="contactusForm" id="contactusForm" action="https://www.certsidea.com/contact">-->
-					<div name="contactusForm" id="contactusForm">
-					    <div class="inputArea">
-							<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-								<div class="form-group">
-									<label>Full Name</label>
-									<input type="text" class="NameSearch form-control" id="full_name" name="full_name" value="" placeholder="Full Name" required="required">
-									<span class="help-block"></span>
-								</div>
-								<div class="form-group">
-									<label>Email</label>
-									<input type="email" class="NameSearch form-control" id="email" name="email" value="" placeholder="example@email.com" required="required">
-									<span class="help-block"></span>
-								</div>
-								<div class="form-group">
-									<label>Subject</label>
-									<input type="text" class="NameSearch form-control" id="subject" name="subject" value="" placeholder="Subject" required="required">
-									<span class="help-block"></span>
-								</div>
-							</div>
-							<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-								<div class="form-group">
-									<label>Message</label>
-									<textarea class="LgSearch form-control" id="message" name="message" rows="8" placeholder="Message" required="required"></textarea>
-									<span class="help-block"></span>
-								</div>
-								<div class="row">
-									<div class="col-sm-6 col-xs-12">
-										<button class="btn btn-success" id="submitcontactdata">submit</button>
+    {{-- <!------------- Comments Area --------------------------------------------> --}}
+    <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;display:none;">
+        <div class="container">
+            <div class="topArea">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="h4"> Leave Your Comment</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainformarea">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div id="form-messages" style="background:none;">
 
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="alert alert-success" style="display:none"></div>
+                            <div class="alert alert-danger" style="display:none"></div>
+                        </div>
+                        <!--<form method="post" name="contactusForm" id="contactusForm" action="https://www.certsidea.com/contact">-->
+                        <div name="contactusForm" id="contactusForm">
+                            <div class="inputArea">
+                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label>Full Name</label>
+                                        <input type="text" class="NameSearch form-control" id="full_name" name="full_name"
+                                            value="" placeholder="Full Name" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="NameSearch form-control" id="email" name="email" value=""
+                                            placeholder="example@email.com" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Subject</label>
+                                        <input type="text" class="NameSearch form-control" id="subject" name="subject"
+                                            value="" placeholder="Subject" required="required">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label>Message</label>
+                                        <textarea class="LgSearch form-control" id="message" name="message" rows="8"
+                                            placeholder="Message" required="required"></textarea>
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <button class="btn btn-success" id="submitcontactdata">submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+    {{-- END <!------------- Comments Area ----------------------------------------> --}}
 
-</div>
+  </div>
 </main>
-
-
-
-
 @endsection
