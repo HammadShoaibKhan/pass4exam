@@ -204,7 +204,7 @@
           {{-- <!-------------Features vendor--------------------------------------------> --}}
           <section class="exam_vendor pt-5 pb-5 bg-f7fafd">
             <div class="section-title">
-              <span class="heading_bg_heading_1">{{$vendor_title ?? ''}} </span>
+              {{-- <span class="heading_bg_heading_1">{{$vendor_title ?? ''}} </span> --}}
               <h2>Select {{$vendor_title ?? ''}} Exam From the list Below</h2>
             </div>
             <div class="container-fluid">

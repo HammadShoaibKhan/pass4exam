@@ -91,8 +91,8 @@
                                         Our {{$exam->vendor->title}} {{$exam->exam_code}} practice questions appear in the final Microsoft exam.
                                         The web-based and desktop practice tests highlight weak portions of your preparation so that you put more effort and
                                         remove all mistakes before the actual
-                                        <a class="internal_link" href="{{ route('exam_info',[$exam->vendor_title,$exam->exam_code])}}"> 
-                                            {{$exam->vendor_title}} {{$exam->exam_code}} exam.
+                                        <a class="internal_link" href="{{ route('exam_info',[$exam->vendor->slug,$exam->slug])}}"> 
+                                            {{$exam->vendor->title}} {{$exam->exam_code}} exam.
                                         </a>
                                     </p>
                                 </div>

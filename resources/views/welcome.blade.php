@@ -1,291 +1,319 @@
 @extends('layouts.frontend.master')
 @section('content')
 
+{{-- <!------------- HOME Banner--------------------------------------------> --}}
 <section  class="home_banner_top ptb-70">
-
-      <div class="home_banner_content">
-        <strong>BE A CERTIFIED PROFESSIONAL WITH US</strong>
-        <h1>Certification Exam <br>
-        Preparation Material </h1>
-               <form class="demo-from" id="demos_form" name="demos_form" action="javascript:;" method="post">
-        <div class="row">
-            <div class="col-lg-7 col-md-12 col-sm-12">
-               <div class="row">
-                   <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                      <div style="" >
-            <div id="demo_vendor_idLabel" style="display:none;">Search</div>
-
-
-        			<select style="height: 40px;
-    border-radius: 5px;
-    border: 2px solid #efefef;
-    padding-left: 10px;
-    width: 100%;
-    font-size: 13px;
-    font-weight: 400;margin-bottom: 10px;" class="option1" name="demo_vendor_id" onchange="ajaxLoadVendorExams2(this.value);">
-                     <option value="">Select Vendor</option>
-                     <option>Microsoft</option>
-                     <option>SAP</option>
-                     <option>Cisco</option>
-                      </select>
-
-        						<input type="hidden" name="demo_product_type" value="1"  />
-        						<input type="hidden" name="page_title" value="Home"  />
-        </div>
-                   </div>
-                   <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                       <div style="">
-
-                                    <div id="demo_exam_idLabel" style="display:none;">Search</div>
-                                    <select style="height: 40px;
-    border-radius: 5px;
-    border: 2px solid #efefef;
-    padding-left: 10px;
-    width: 100%;
-    font-size: 13px;
-    font-weight: 400; margin-bottom: 10px;" class="option1" aria-labelledBy="demo_exam_idLabel" id="demo_exam_id" name="demo_exam_id">
-            						  <option value="">Select Exam</option>
-            						</select>
-
-         </div>
-                   </div>
-                   <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                       <div id="home_banner_mail" style="">
-                            <div class="form-group">
-
-
-                                    <input type="email" id="demo_email" name="demo_email" placeholder="Enter your E-mail..." required="">
-
-                          </div>
-                        </div>
-                   </div>
-               </div>
+  <div class="home_banner_content">
+    <strong>
+      BE A CERTIFIED PROFESSIONAL WITH US
+    </strong>
+    <h1>
+      Certification Exam <br>
+      Preparation Material 
+    </h1>
+    <form class="demo-from" id="demos_form" name="demos_form" action="javascript:;" method="post">
+      <div class="row">
+        <div class="col-lg-7 col-md-12 col-sm-12">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+              <div style="" >
+                <div id="demo_vendor_idLabel" style="display:none;">
+                  Search
+                </div>
+          			<select style="height: 40px;
+                  border-radius: 5px;
+                  border: 2px solid #efefef;
+                  padding-left: 10px;
+                  width: 100%;
+                  font-size: 13px;
+                  font-weight: 400;margin-bottom: 10px;"
+                  class="option1" name="demo_vendor_id" 
+                  onchange="ajaxLoadVendorExams2(this.value);">
+                  <option value="">Select Vendor</option>
+                  @forelse ($vendors as $vendor)
+                    <option value="{{$vendor->id}}">{{ $vendor->title ?? '' }}</option>
+                  @empty
+                  @endforelse
+                </select>
+                {{-- @TODO --}}
+                {{-- <input type="hidden" name="demo_product_type" value="1"  />
+                <input type="hidden" name="page_title" value="Home"  /> --}}
+              </div>
             </div>
-
-        </div>
-
-        <div style="">
-          <!--<a href="#" class="btn"></i>DOWNLOAD DEMO</a>-->
-          <button type="submit" class="btn btn-default btnDemo" >DOWNLOAD DEMO</button>
-        </div>
-        </form>
-    </div>
-
- </section>
-
-
-
-
-
-
-
-
-
-    	 <main id="main" role="main">
-    		<div class="container-fluid">
-    			<style>
-    #commentwriteareahome{
-
-            background: rgb(224 239 236);
-    color: #429482;
-    padding: 50px 0px;
-        margin-bottom: 0px;
-    }
-
-     #commentwriteareahome .topArea .row .col-lg-12{
-
-         padding-left: 30px;
-
-     }
-     .new_testimonials_bg_heading{
-
-         margin-bottom: -53px;
-    margin-left: -4px;
-    font-size: 98px;
-    color: rgba(34, 173, 149, 7%);
-    font-weight: 500;
-font-family: Roboto;
-line-height: 1.2;
-    margin-top: 0;
-display: block;
-margin-inline-start: 0px;
-    margin-inline-end: 0px;
-     }
-
-     @media(max-width: 767px){
-         .new_testimonials_bg_heading{
-             margin-bottom: -30px;
-    font-size: 42px;
-         }
-     }
-
-     @media(max-width: 425px){
-
-
-     }
-
-     @media(max-width: 991px){
-
-          .right_image_security_section{
-
-         display: none;
-       }
-       .popular_certification_home .overview-image .image{
-
-           display: none;
-       }
-     }
-</style>
-
-
- <!--------------------------------------------------------- Popular Certifications --------------------------------------------------------->
-
-<section class="popular_certification_home pt-5 bg-f7fafd">
-  <div class="container-fluid p-0">
-    <div class="overview-box">
-      <div class="overview-image">
-        <div class="image">
-          <img  width="561" height="657"  src="{{asset('frontend/assets/site/img/image_2.webp')}}" alt="image">
-
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+              <div style="">
+                <div id="demo_exam_idLabel" style="display:none;">
+                  Search
+                </div>
+                <select style="height: 40px;
+                  border-radius: 5px;
+                  border: 2px solid #efefef;
+                  padding-left: 10px;
+                  width: 100%;
+                  font-size: 13px;
+                  font-weight: 400; margin-bottom: 10px;" class="option1" 
+                  aria-labelledBy="demo_exam_idLabel" 
+                  id="demo_exam_id" name="demo_exam_id">
+                  {{-- @TODO --}}
+                  @TODO
+                  <option value="">Select Exam</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <div id="home_banner_mail" style="">
+                <div class="form-group">
+                  <input type="email" id="demo_email" name="demo_email" placeholder="Enter your E-mail..." required="">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <div style="">
+        <!--<a href="#" class="btn"></i>DOWNLOAD DEMO</a>-->
+        <button type="submit" class="btn btn-default btnDemo" >DOWNLOAD DEMO</button>
+      </div>
+    </form>
+  </div>
+ </section>
+{{-- END <!------------- HOME Banner--------------------------------------------> --}}
 
-      <div class="overview-content">
-        <div class="content left-content">
-          <div style=" margin-bottom: 55px; margin-top: 7%;">
+<main id="main" role="main">
+  <div class="container-fluid">
+    <style>
+      #commentwriteareahome{
+        background: rgb(224 239 236);
+        color: #429482;
+        padding: 50px 0px;
+        margin-bottom: 0px;
+      }
+      #commentwriteareahome .topArea .row .col-lg-12{
+        padding-left: 30px;
+      }
+      .new_testimonials_bg_heading{
+        margin-bottom: -53px;
+        margin-left: -4px;
+        font-size: 98px;
+        color: rgba(34, 173, 149, 7%);
+        font-weight: 500;
+        font-family: Roboto;
+        line-height: 1.2;
+        margin-top: 0;
+        display: block;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+      }
+      @media(max-width: 767px){
+        .new_testimonials_bg_heading{
+          margin-bottom: -30px;
+          font-size: 42px;
+        }
+      }
+      @media(max-width: 425px){
+      }
+      @media(max-width: 991px){
+        .right_image_security_section{
+          display: none;
+        }
+        .popular_certification_home .overview-image .image{
+          display: none;
+        }
+      }
+    </style>
 
-           <h2>Popular Vendors</h2> <p>Certs Idea is a trusted brand for IT students to get a comprehensive range of practice questions to prepare for all in-demand certifications. At Certs Idea, we offer you accurate preparation material for exams conducted by Microsoft, Cisco, Oracle, CompTIA, and many other popular vendors. Certs Idea guarantees that you will not need anything else after preparing from our actual practice questions. Save your time and download the free demo to get a fair idea about Certs Idea practice questions.</p>
-
-          </div>
-
-
-          <div style=" margin-top: -4%;">
-
-            <div class="topnav1_home">
-                <nav>
-                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                        @forelse(popularVendors() as $key => $vendor)
-                            <a class="nav-item nav-link {{$key == 0 ? 'active' : ''}}" id="nav-{{$vendor->slug}}-tab" data-toggle="tab" href="#nav-{{$vendor->slug}}" role="tab" aria-controls="nav-{{$vendor->slug}}" aria-selected="true">{{$vendor->title}}</a>
-                        @empty
-                        @endforelse
-                    </div>
-                </nav>
+    {{-- <!------------- Popular Certifications--------------------------------------------> --}}
+    <section class="popular_certification_home pt-5 bg-f7fafd">
+      <div class="container-fluid p-0">
+        <div class="overview-box">
+          <div class="overview-image">
+            <div class="image">
+              <img  width="561" height="657"  src="{{asset('frontend/assets/site/img/image_2.webp')}}" alt="image">
             </div>
+          </div>
+          <div class="overview-content">
+            <div class="content left-content">
+              <div style=" margin-bottom: 55px; margin-top: 7%;">
+              <h2>Popular Vendors</h2> 
+              <p>
+                Certs Idea is a trusted brand for IT students to get a comprehensive range of practice questions to 
+                prepare for all in-demand certifications. At Certs Idea, we offer you accurate preparation material for exams 
+                conducted by Microsoft, Cisco, Oracle, CompTIA, and many other popular vendors. 
+                Certs Idea guarantees that you will not need anything else after preparing from our actual practice questions. 
+                Save your time and download the free demo to get a fair idea about Certs Idea practice questions.
+                </p>
+              </div>
+              <div style=" margin-top: -4%;">
+                <div class="topnav1_home">
+                  <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                      @forelse(popularVendors() as $key => $vendor)
+                        <a class="nav-item nav-link {{$key == 0 ? 'active' : ''}}" id="nav-{{$vendor->slug}}-tab" data-toggle="tab" href="#nav-{{$vendor->slug}}" role="tab" aria-controls="nav-{{$vendor->slug}}" aria-selected="true">{{$vendor->title}}</a>
+                      @empty
+                      @endforelse
+                    </div>
+                  </nav>
+                </div>
 
-              <div class="tab-content">
+                <div class="tab-content">
                   @forelse(popularVendors() as $key => $vendor)
                     <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}" id="nav-{{$vendor->slug}}" role="tabpanel" aria-labelledby="nav-{{$vendor->slug}}-tab">
-                     <div class="row" style="margin-top: 5%;">
-                         @forelse($vendor->exams->where('status', 1) as $exam)
+                      <div class="row" style="margin-top: 5%;">
+                        @forelse($vendor->exams->where('status', 1) as $exam)
                           <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                             <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
-                              <div class="card-body hvr-curl-bottom-right" style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
-                                  <strong style="font-size: 100%; font-weight: bold;display: block;margin-bottom: 8px;"><a style="
-                font-size: 14px;
-                font-weight: 600;
-                font-family: 'Poppins';
-                color: #fff;
-                " href="microsoft/az-700.html" class="white">{{ $exam->exam_code }}</a></strong>
-                                    <span style="
-                font-size: 13px;
-                font-weight: 500;
-                font-family: 'Poppins';
-                display: block;
-                margin-bottom: 8px;
-
-                "> Total Questions : {{ $exam->questions->count() }}</span>
-                                    <span style="
-                font-size: 13px;
-                font-weight: 500;
-                font-family: 'Poppins';
-                    margin-bottom: 0px;
-                     display: block;
-
-                ">Updated : {{date('d-M-Y', strtotime($exam->updated_at))}}</span>
+                              <div class="card-body hvr-curl-bottom-right" 
+                                style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
+                                <strong style="font-size: 100%; font-weight: bold;display: block;margin-bottom: 8px;">
+                                <a style="font-size: 14px;
+                                  font-weight: 600;
+                                  font-family: 'Poppins';
+                                  color: #fff;" 
+                                  href="microsoft/az-700.html" class="white">
+                                  {{ $exam->exam_code }}
+                                </a>
+                                </strong>
+                                  <span style="font-size: 13px;
+                                  font-weight: 500;
+                                  font-family: 'Poppins';
+                                  display: block;
+                                  margin-bottom: 8px;"> 
+                                  Total Questions : {{ $exam->questions->count() }}
+                                </span>
+                                <span style="font-size: 13px;
+                                  font-weight: 500;
+                                  font-family: 'Poppins';
+                                  margin-bottom: 0px;
+                                  display: block;">
+                                  Updated : {{date('d-M-Y', strtotime($exam->updated_at))}}
+                                </span>
                               </div>
                             </div>
                           </div>
-                         @empty
-                         @endforelse
-                     </div>
+                        @empty
+                        @endforelse
+                      </div>
                     </div>
                   @empty
                   @endforelse
+                </div>
               </div>
-
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+    {{-- END <!------------- Popular Certifications--------------------------------------------> --}}
 
-<!--------------------------------------------------------- World-class learning --------------------------------------------------------->
-<section class="pic-list">
-  <div id="security_section" class="container-fluid" style="background-color: #429482;">
-    <div class="overview-box">
-      <div class="overview-content">
-        <div class="content left-content" style="padding-bottom: 0px; padding-right: 20px;">
-
-                             <div id="world-class-learning"> <h2>World-class learning for anyone, everywhere</h2> </div> <div id="world-class-learning2"> <p>Certs Idea offers comprehensive preparation material that guarantees your first attempt success in the leading IT certification exams. We ensure that you will get state-of-the-art and new practice questions from Certs Idea. It is our objective to help you prepare well for the most expected questions so that you can attempt these difficult questions of your desired IT certification exam on the first try. Certs Idea has paved the way&nbsp;for multiple candidates towards success. You can also get IT career benefits like a job promotion or boost a new career by preparing for your dream certification from Certs Idea.</p> </div> <div class="row" style="margin-left: 20px; margin-bottom: 15%;margin-top: 8%;"> <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> <div style="color: white; margin-left: 5%; text-align: center; "><img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_user.png')}}" width="75" /> <b class="bold_offer">24/7 Customer<br /> Support</b></div> </div> <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> <div style="color: white; margin-left: 5%; text-align: center;"><img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_ero.png')}}
-                             " width="52" /> <b class="bold_offer">Free 3 Months<br /> Updates</b></div> </div> <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> <div style="color: white; margin-left: 5%; text-align: center;"><img alt="image" height="59" src="{{asset('frontend/assets/site/img/image_tic.png')}}" width="51" /> <b class="bold_offer">Security and<br /> Privacy</b></div> </div> </div>
-
+    {{-- <!------------- World-class learning--------------------------------------------> --}}
+    <section class="pic-list">
+      <div id="security_section" class="container-fluid" style="background-color: #429482;">
+        <div class="overview-box">
+          <div class="overview-content">
+            <div class="content left-content" style="padding-bottom: 0px; padding-right: 20px;">
+              <div id="world-class-learning"> 
+                <h2>
+                  World-class learning for anyone, everywhere
+                </h2> 
+              </div> 
+              <div id="world-class-learning2"> 
+                <p>
+                  Certs Idea offers comprehensive preparation 
+                  material that guarantees your first attempt success in the leading IT certification exams. We ensure that you will get 
+                  state-of-the-art and new practice questions from Certs Idea. It is our objective to help you prepare well for the most 
+                  expected questions so that you can attempt these difficult questions of your desired IT certification exam on the first try. 
+                  Certs Idea has paved the way&nbsp;for multiple candidates towards success. You can also get IT career 
+                  benefits like a job promotion or boost a new career by preparing for your dream certification from Certs Idea.
+                </p> 
+              </div> 
+              <div class="row" style="margin-left: 20px; margin-bottom: 15%;margin-top: 8%;"> 
+                <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> 
+                  <div style="color: white; margin-left: 5%; text-align: center; ">
+                    <img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_user.png')}}" width="75" /> 
+                    <b class="bold_offer">24/7 Customer<br /> Support</b>
+                  </div> 
+                </div> 
+                <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> 
+                  <div style="color: white; margin-left: 5%; text-align: center;">
+                    <img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_ero.png')}}" width="52" /> 
+                    <b class="bold_offer">Free 3 Months<br /> Updates</b>
+                  </div> 
+                </div> 
+                <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> 
+                  <div style="color: white; margin-left: 5%; text-align: center;">
+                    <img alt="image" height="59" src="{{asset('frontend/assets/site/img/image_tic.png')}}" width="51" /> 
+                    <b class="bold_offer">Security and<br /> Privacy</b>
+                  </div> 
+                </div> 
+              </div>
+            </div>
+          </div>
+          <div class="overview-image">
+            <div class="right_image_security_section" style="text-align:center;">
+              <img class="hvr-grow-rotate" width="500" height="331" src="{{asset('frontend/assets/site/img/image_10.webp')}}" alt="image" >
+            </div>
+          </div>
         </div>
       </div>
-      <div class="overview-image">
-        <div class="right_image_security_section" style="text-align:center;">
-          <img class="hvr-grow-rotate" width="500" height="331" src="{{asset('frontend/assets/site/img/image_10.webp')}}" alt="image" >
-        </div>
+    </section>
+    {{-- END <!------------- World-class learning--------------------------------------------> --}}
+
+    {{-- <!------------- Popular Exams--------------------------------------------> --}}
+    <section class="home_popular_exam_section pt-5 pb-5 bg-f7fafd" style="">
+      <div class="home_popular_exam_section_inner" style="">
+        <h3>Popular Exams</h3> 
+        <p>
+          Thousands of candidates have successfully prepared from Certs Idea high-quality preparation material. 
+          Our practice questions are enough for your success because of our experts&rsquo; continuous 
+          efforts to keep our preparation material updated and relevant. 
+          Get instant access to recently updated practice material and walk out on exam day as a successful candidate.
+        </p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!--------------------------------------------------------- Popular Exams --------------------------------------------------------->
-
-  <section class="home_popular_exam_section pt-5 pb-5 bg-f7fafd" style="">
-    <div class="home_popular_exam_section_inner" style="">
-           <h3>Popular Exams</h3> <p>Thousands of candidates have successfully prepared from Certs Idea high-quality preparation material. Our practice questions are enough for your success because of our experts&rsquo; continuous efforts to keep our preparation material updated and relevant. Get instant access to recently updated practice material and walk out on exam day as a successful candidate.</p>
-    </div>
       <div class="container">
-       <div class="row" style="margin-bottom: 3%;">
-           @forelse(popularVendors() as $vendor)
-               @forelse($vendor->exams->where('status', 1)->take(2) as $exam)
-                   <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                       <div id="popular_exam_cards" class="card">
-                         <div class="card-body hvr-rectangle-out" style="display: inline-block;
-            vertical-align: middle;
-            -webkit-transform: perspective(1px) translateZ(0);
-            transform: perspective(1px) translateZ(0);
-            box-shadow: 0 0 1px rgb(0 0 0 / 0%);
-            position: inherit !important;
-            background: #fff !important;
-            -webkit-transition-property: color;
-            transition-property: color;
-            -webkit-transition-duration: .3s;
-            transition-duration: .3s;
-            ">
-                           <div id="popular_exam_cards_body_content">
-                             <strong ><a href="javascript:;">{{ $exam->exam_code }}</a></strong><br>
-                             <span>{{ date('d, M Y', strtotime($exam->updated_at)) }}</span>
-                             <br>
-                             <p> {{ $exam->questions->count() }} Total Questions </p>
-                           </div>
-                         </div>
-                       </div>
-                   </div>
-               @empty
-               @endforelse
-           @empty
-           @endforelse
-       </div>
-     </div>
-   </div>
- </section>
-
+        <div class="row" style="margin-bottom: 3%;">
+          @forelse(popularVendors() as $vendor)
+            @forelse($vendor->exams->where('status', 1)->take(2) as $exam)
+              <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div id="popular_exam_cards" class="card">
+                  <div class="card-body hvr-rectangle-out" style="display: inline-block;
+                    vertical-align: middle;
+                    -webkit-transform: perspective(1px) translateZ(0);
+                    transform: perspective(1px) translateZ(0);
+                    box-shadow: 0 0 1px rgb(0 0 0 / 0%);
+                    position: inherit !important;
+                    background: #fff !important;
+                    -webkit-transition-property: color;
+                    transition-property: color;
+                    -webkit-transition-duration: .3s;
+                    transition-duration: .3s;">
+                    <div id="popular_exam_cards_body_content">
+                      <strong >
+                        <a href="javascript:;">
+                          {{ $exam->exam_code }}
+                        </a>
+                      </strong>
+                      <br>
+                      <span>
+                        {{ date('d, M Y', strtotime($exam->updated_at)) }}
+                      </span>
+                      <br>
+                      <p> {{ $exam->questions->count() }} Total Questions </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            @empty
+            @endforelse
+          @empty
+          @endforelse
+        </div>
+      </div>
+    </section>
+    {{-- END <!------------- Popular Exams--------------------------------------------> --}}
+  
+  </div>
 
  <!--------------------------------------------------------- DIFFERENT --------------------------------------------------------->
-
 
 <section class="different_home_section pt-5 pb-5 bg-f7fafd" style=" ">
 
