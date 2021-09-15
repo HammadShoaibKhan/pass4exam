@@ -1,6 +1,6 @@
 @extends('layouts.frontend.master')
 @section('content')
-
+<?php $prices = json_decode($exam->pricing);?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -153,8 +153,11 @@
                                             <div id="btnPlusprice_exam" class="row">
                                                 <div class="">
                                                     <div class=" bundle_price_exam">
-                                                        Price: $<span id="lbl_price">79</span>
-                                                        <del>Before: $158</del>
+                                                        Price: $<span id="lbl_price">
+                                                            {{$prices->bundle ?? ''}}
+                                                        </span>
+                                                        {{-- @TODO --}}
+                                                        {{-- <del>Before: $158</del> --}}
                                                     </div>
                                                 </div>
                                                 <div class="">
@@ -276,7 +279,8 @@
                                         <div>
                                             <div class="bundle_price_exam_webbased">
                                                 Price: $49
-                                                <del>Before: $98</del>
+                                                {{-- @TODO --}}
+                                                {{-- <del>Before: $98</del> --}}
                                             </div>
                                         </div>
                                         <div class="">
@@ -359,8 +363,9 @@
                                     <div id="btnPlusprice_exam_pdf" class="row">
                                         <div class="">
                                             <div class="bundle_price_exam_pdf">
-                                                Price: $59
-                                                <del>Before: $118</del>
+                                                Price: ${{$prices->pdf ?? ''}}
+                                                {{-- @TODO --}}
+                                                {{-- <del>Before: $118</del> --}}
                                             </div>
                                         </div>
                                         <div class="">
@@ -456,8 +461,9 @@
                                     <div id="btnPlusprice_exam_desktop" class="row">
                                         <div class="">
                                             <div class="bundle_price_exam_desktop">
-                                                Price: $39
-                                                <del>Before: $78</del>
+                                                Price: ${{$prices->desktop ?? ''}}
+                                                {{-- @TODO --}}
+                                                {{-- <del>Before: $78</del> --}}
                                             </div>
                                         </div>
                                         <div class="">
@@ -625,38 +631,38 @@
             {{-- <!------------- Recent Updated Exams --------------------------------------------> --}}
             <section class="recent_update_exam_home pt-5 pb-5 bg-f7fafd">
                 <div class="recent_update_exam_top_home">
-                <h3>Recent Updated Exams</h3>
+                    <h3>Recent Updated Exams</h3>
                 </div>
                 <div class="recent_update_exam_bottom_home container">
-                <div class="row">
-                    @forelse(recentUpdatedExams() as $exam)
-                        <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-                        <div class="card " style="">
-                            <div class="card-body hvr-sweep-to-right">
-                            <div class="row">
-                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                                <div style="text-align: center;">
-                                    <b><a href="javascript:;">{{ $exam->exam_code }}</a></b>
-                                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
-                                    {{ $exam->title }}
-                                    </strong>
-                                    <p>{{ $exam->questions->count() }} Total Questions </p>
-                                </div>
-                                </div>
-                                <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                                <div style="text-align: center;     padding-top: 10px;">
-                                    <strong>{{ date('d', strtotime($exam->updated_at)) }}</strong>
-                                    <b >{{ date('F', strtotime($exam->updated_at)) }}</b>
-                                    <p style=""><b>{{ date('Y', strtotime($exam->updated_at)) }}</b></p>
-                                </div>
+                    <div class="row">
+                        @forelse(recentUpdatedExams() as $recent_exam)
+                            <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
+                                <div class="card " style="">
+                                    <div class="card-body hvr-sweep-to-right">
+                                        <div class="row">
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                                                <div style="text-align: center;">
+                                                    <b><a href="javascript:;">{{ $recent_exam->exam_code }}</a></b>
+                                                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
+                                                    {{ $recent_exam->title }}
+                                                    </strong>
+                                                    <p>{{ $recent_exam->questions->count() }} Total Questions </p>
+                                                </div>
+                                            </div>
+                                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                                                <div style="text-align: center;     padding-top: 10px;">
+                                                    <strong>{{ date('d', strtotime($recent_exam->updated_at)) }}</strong>
+                                                    <b >{{ date('F', strtotime($recent_exam->updated_at)) }}</b>
+                                                    <p style=""><b>{{ date('Y', strtotime($recent_exam->updated_at)) }}</b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
-                        </div>
-                    @empty
-                    @endforelse
-                </div>
+                        @empty
+                        @endforelse
+                    </div>
                 </div>
             </section>
             {{-- END <!------------- Recent Updated Exams ----------------------------------------> --}}

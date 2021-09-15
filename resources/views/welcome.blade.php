@@ -435,33 +435,33 @@
       </div>
       <div class="recent_update_exam_bottom_home container">
         <div class="row">
-            @forelse(recentUpdatedExams() as $exam)
-              <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
-                <div class="card " style="">
-                  <div class="card-body hvr-sweep-to-right">
-                    <div class="row">
-                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                        <div style="text-align: center;">
-                          <b><a href="javascript:;">{{ $exam->exam_code }}</a></b>
-                          <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
-                            {{ $exam->title }}
-                          </strong>
-                          <p>{{ $exam->questions->count() }} Total Questions </p>
-                        </div>
+          @forelse(recentUpdatedExams() as $recent_exam)
+            <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
+              <div class="card " style="">
+                <div class="card-body hvr-sweep-to-right">
+                  <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                      <div style="text-align: center;">
+                        <b><a href="javascript:;">{{ $recent_exam->exam_code }}</a></b>
+                        <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
+                        {{ $recent_exam->title }}
+                        </strong>
+                        <p>{{ $recent_exam->questions->count() }} Total Questions </p>
                       </div>
-                      <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                        <div style="text-align: center;     padding-top: 10px;">
-                          <strong>{{ date('d', strtotime($exam->updated_at)) }}</strong>
-                          <b >{{ date('F', strtotime($exam->updated_at)) }}</b>
-                          <p style=""><b>{{ date('Y', strtotime($exam->updated_at)) }}</b></p>
-                        </div>
+                    </div>
+                    <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                      <div style="text-align: center;     padding-top: 10px;">
+                        <strong>{{ date('d', strtotime($recent_exam->updated_at)) }}</strong>
+                        <b >{{ date('F', strtotime($recent_exam->updated_at)) }}</b>
+                        <p style=""><b>{{ date('Y', strtotime($recent_exam->updated_at)) }}</b></p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            @empty
-            @endforelse
+            </div>
+          @empty
+          @endforelse
         </div>
       </div>
     </section>
