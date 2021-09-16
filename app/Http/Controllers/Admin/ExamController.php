@@ -240,9 +240,22 @@ class ExamController extends Controller
     public function pricing(Request $request)
     {
         $pricing = [
-            'bundle' => $request->bundle_price,
-            'pdf' => $request->pdf_price,
-            'desktop' => $request->desktop_price
+            'bundle' => [
+                'orignal'=> $request->bundle_price,
+                'discounted' => $request->discounted_bundle_price,
+            ],
+            'web' => [
+                'orignal'=> $request->web_price,
+                'discounted' => $request->discounted_web_price,
+            ],
+            'pdf' => [
+                'orignal'=> $request->pdf_price,
+                'discounted' => $request->discounted_pdf_price,
+            ],
+            'desktop' => [
+                'orignal'=> $request->desktop_price,
+                'discounted' => $request->discounted_desktop_price,
+            ]
         ];
         $pricing = json_encode($pricing);
         $pricing = Exam::where('id', $request->exam_id)->update(['pricing' => $pricing]);

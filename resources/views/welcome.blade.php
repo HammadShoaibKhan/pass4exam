@@ -55,7 +55,6 @@
                   aria-labelledBy="demo_exam_idLabel" 
                   id="demo_exam_id" name="demo_exam_id">
                   {{-- @TODO --}}
-                  @TODO
                   <option value="">Select Exam</option>
                 </select>
               </div>
