@@ -1,6 +1,5 @@
 @extends('layouts.frontend.master')
 @section('content')
-<?php $prices = json_decode($exam->pricing);?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -67,12 +66,12 @@
                                     <ul class="services-list">
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="far fa-calendar-check"></i> Last Updated : 31-07-2021
+                                                <i class="far fa-calendar-check"></i> Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
                                             </span>
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="fa fa-question-circle"></i> Total Questions: 47
+                                                <i class="fa fa-question-circle"></i> Total Questions: {{ $exam->getTotalQuestions() ?? '' }}
                                             </span>
                                         </li>
                                     </ul>
@@ -154,10 +153,9 @@
                                                 <div class="">
                                                     <div class=" bundle_price_exam">
                                                         Price: $<span id="lbl_price">
-                                                            {{$prices->bundle ?? ''}}
+                                                            {{ $exam->getPricing()->bundle->discounted ?? 1 }}
                                                         </span>
-                                                        {{-- @TODO --}}
-                                                        {{-- <del>Before: $158</del> --}}
+                                                        <del>Before: ${{ $exam->getPricing()->bundle->orignal ?? '' }}</del>
                                                     </div>
                                                 </div>
                                                 <div class="">
@@ -238,12 +236,12 @@
                                     <ul class="services-list">
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="far fa-calendar-check"></i> Last Updated : 31-07-2021
+                                                <i class="far fa-calendar-check"></i> Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
                                             </span>
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="fa fa-question-circle"></i> 47 Total Questions
+                                                <i class="fa fa-question-circle"></i> {{ $exam->getTotalQuestions() ?? '' }} Total Questions
                                             </span>
                                         </li>
                                     </ul>
@@ -278,9 +276,8 @@
                                     <div id="btnPlusprice_exam_webbased" class="row">
                                         <div>
                                             <div class="bundle_price_exam_webbased">
-                                                Price: $49
-                                                {{-- @TODO --}}
-                                                {{-- <del>Before: $98</del> --}}
+                                                Price: ${{ $exam->getPricing()->web->discounted ?? 1 }}
+                                                <del>Before: ${{ $exam->getPricing()->web->orignal ?? '' }}</del>
                                             </div>
                                         </div>
                                         <div class="">
@@ -323,12 +320,12 @@
                                     <ul class="services-list">
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="far fa-calendar-check"></i> Last Updated : 31-07-2021
+                                                <i class="far fa-calendar-check"></i> Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
                                             </span>
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="fa fa-question-circle"></i> 47 Total Questions
+                                                <i class="fa fa-question-circle"></i> {{ $exam->getTotalQuestions() ?? '' }} Total Questions
                                             </span>
                                         </li>
                                     </ul>
@@ -363,9 +360,8 @@
                                     <div id="btnPlusprice_exam_pdf" class="row">
                                         <div class="">
                                             <div class="bundle_price_exam_pdf">
-                                                Price: ${{$prices->pdf ?? ''}}
-                                                {{-- @TODO --}}
-                                                {{-- <del>Before: $118</del> --}}
+                                                Price: ${{ $exam->getPricing()->pdf->discounted ?? 1 }}
+                                                <del>Before: ${{ $exam->getPricing()->pdf->orignal ?? '' }}</del>
                                             </div>
                                         </div>
                                         <div class="">
@@ -421,12 +417,12 @@
                                     <ul class="services-list">
                                         <li>
                                             <span class="hvr-wobble-skew"><i class="far fa-calendar-check"></i>
-                                                Last Updated : 31-07-2021
+                                                Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
                                             </span>
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew"><i class="fa fa-question-circle"></i>
-                                                47 Total Questions
+                                                {{ $exam->getTotalQuestions() ?? '' }} Total Questions
                                             </span>
                                         </li>
                                     </ul>
@@ -461,9 +457,8 @@
                                     <div id="btnPlusprice_exam_desktop" class="row">
                                         <div class="">
                                             <div class="bundle_price_exam_desktop">
-                                                Price: ${{$prices->desktop ?? ''}}
-                                                {{-- @TODO --}}
-                                                {{-- <del>Before: $78</del> --}}
+                                                Price: ${{ $exam->getPricing()->desktop->discounted ?? 1 }}
+                                                <del>Before: ${{ $exam->getPricing()->desktop->orignal ?? '' }}</del>
                                             </div>
                                         </div>
                                         <div class="">
