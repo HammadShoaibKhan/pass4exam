@@ -28,6 +28,16 @@ class Exam extends Model
         return json_decode($this->pricing);
     }
 
+    public function getUpdatedAt()
+    {
+        return (date('d-m-Y', strtotime($this->updated_at)));
+    }
+
+    public function getTotalQuestions()
+    {
+        return $this->questions->count();   
+    }
+
     public function caseStudies()
     {
         return $this->hasMany(CaseStudy::class);

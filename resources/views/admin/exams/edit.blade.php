@@ -162,25 +162,58 @@
                                           {{csrf_field()}}
                                           <input type="hidden" value="{{$exam->id}}" name="exam_id">
                                           <div class="row">
-                                              <div class="col-md-4">
+                                              <div class="col-md-3">
                                                   <div class="form-group">
                                                       <label>Bundle&nbspPrice</label>
-                                                      <input type="number" min="1" value="{{ $exam->getPricing()->bundle ?? 1 }}" name="bundle_price" class="form-control">
+                                                      <input type="number" min="1" value="{{ $exam->getPricing()->bundle->orignal ?? 1 }}" name="bundle_price" class="form-control">
                                                   </div>
                                               </div>
-                                              <div class="col-md-4">
+                                              <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Web&nbspPrice</label>
+                                                    <input type="number" min="1" value="{{ $exam->getPricing()->web->orignal ?? 1 }}" name="web_price" class="form-control">
+                                                </div>
+                                              </div>
+                                              <div class="col-md-3">
                                                   <div class="form-group">
                                                       <label>Pdf&nbspFile&nbspPrice</label>
-                                                      <input type="number" min="1" value="{{ $exam->getPricing()->pdf ?? 1 }}" name="pdf_price" class="form-control">
+                                                      <input type="number" min="1" value="{{ $exam->getPricing()->pdf->orignal ?? 1 }}" name="pdf_price" class="form-control">
                                                   </div>
                                               </div>
-                                              <div class="col-md-4">
+                                              <div class="col-md-3">
                                                   <div class="form-group">
                                                       <label>Desktop&nbspFile&nbspPrice</label>
-                                                      <input type="number" min="1" value="{{ $exam->getPricing()->desktop ?? 1 }}" name="desktop_price" class="form-control">
+                                                      <input type="number" min="1" value="{{ $exam->getPricing()->desktop->orignal ?? 1 }}" name="desktop_price" class="form-control">
                                                   </div>
                                               </div>
                                           </div>
+                                          {{-- Discount Prices --}}
+                                          <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label><span style="color:red;">Discounted</span> Bundle&nbspPrice</label>
+                                                    <input type="number" min="1" value="{{ $exam->getPricing()->bundle->discounted ?? 1 }}" name="discounted_bundle_price" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                              <div class="form-group">
+                                                  <label><span style="color:red;">Discounted</span> Web&nbspPrice</label>
+                                                  <input type="number" min="1" value="{{ $exam->getPricing()->web->discounted ?? 1 }}" name="discounted_web_price" class="form-control">
+                                              </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label><span style="color:red;">Discounted</span> Pdf&nbspFile&nbspPrice</label>
+                                                    <input type="number" min="1" value="{{ $exam->getPricing()->pdf->discounted ?? 1 }}" name="discounted_pdf_price" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label><span style="color:red;">Discounted</span> DesktopFilePrice</label>
+                                                    <input type="number" min="1" value="{{ $exam->getPricing()->desktop->discounted ?? 1 }}" name="discounted_desktop_price" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
                                           <div class="row">
                                               <div class="col-md-2 offset-10">
                                                   <button type="submit" class="btn btn-md btn-block btn-primary">Save</button>
