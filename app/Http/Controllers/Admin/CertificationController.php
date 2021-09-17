@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Exam;
 use Illuminate\Http\Request;
 use App\Models\Certification;
 use App\Models\Vendor;
@@ -46,7 +47,7 @@ class CertificationController extends Controller
         return "true";
     }
 
-    public function edit($id = null) 
+    public function edit($id = null)
     {
         if ($id != null && Certification::where('id', $id)->exists()) {
             $title = "Update Certification";
@@ -71,15 +72,25 @@ class CertificationController extends Controller
         return back()->with('success', 'Certification Updated Successfully');
     }
 
-    public function delete(Request $request) 
+    public function delete(Request $request)
     {
-        Certification::find($request->certification_id)->delete();
-        $certifications = Certification::orderBY('id', 'DESC')->get();
+        $certification = Certification::find($request->certification_id);
+        if (count($certification->exams) > 0) {
+            return 'relation-exists';
+        }
+        $certification->delete();
+        $certifications = $certification->orderBY('id', 'DESC')->get();
         return view('admin.certifications.partials.certification-listings', compact('certifications'));
     }
 
     public function multipleDelete(Request $request)
     {
+        $certifications = Certification::whereIn('id', $request->certification_ids)->get();
+        foreach ($certifications as $certification) {
+            if (count($certification->exams) > 0) {
+                return 'relation-exists';
+            }
+        }
         Certification::whereIn('id', $request->certification_ids)->delete();
         $certifications = certification::orderBY('id', 'DESC')->get();
         return view('admin.certifications.partials.certification-listings', compact('certifications'));
@@ -88,6 +99,7 @@ class CertificationController extends Controller
     public function changeStatus(Request $request)
     {
         Certification::whereIn('id', $request->certification_ids)->update(['status' => $request->status]);
+        Exam::whereIn('certification_id', $request->certification_ids)->update(['status' => $request->status]);
         $certifications = certification::orderBY('id', 'DESC')->get();
         return view('admin.certifications.partials.certification-listings', compact('certifications'));
     }
