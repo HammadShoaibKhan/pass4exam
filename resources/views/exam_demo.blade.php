@@ -8,7 +8,6 @@
       <!--<link rel="stylesheet" href="css/style.css">-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="js/jquery.js" ></script>
       <meta name="robots" content="noindex, nofollow">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
       <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
@@ -20,19 +19,6 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
-      <script type="text/javascript" src="js/jquery.magnific-popup.js" ></script>
-      <link rel="stylesheet" href="css/magnific-popup.css">
-      <link rel="stylesheet" href="css/jquery.multiselect2side.css" type="text/css" media="screen" />
-      <script type="text/javascript" src="js/jquery.multiselect2side.js" ></script>
-      <script type="text/javascript" src="js/common.js" ></script>
-      <script type="text/javascript" src="js/jquery.countdownTimer.js"></script>
-      <link rel="stylesheet" type="text/css" href="css/jquery.countdownTimer.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-      <script src="js/jquery.mCustomScrollbar.js"></script>
-      <link rel="stylesheet" href="css/jquery.fancybox.css">
-      <script src="js/jquery.fancybox.js"></script>
 
       <link rel="stylesheet" href="{{asset('frontend/assets/site/css/exam_demo.css')}}">
 
@@ -69,15 +55,14 @@
                 </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-4">
-                <!--<a class="btn btn-red pull-right btn-danger maintopmarginbtn" class="background:#FD0000" href="https://www. certsidea.com/{{$exam->exam_code ?? ''}}-exam-questions.html" target="_blank">Get Full Access</a>-->
-                <form action="https://www. certsidea.com/carts" method="post" class="pdf_form" style="float:right">
+                <form action="javascript:;" method="post" class="pdf_form" style="float:right">
                   <input type="hidden" value="Online Practice Exam" name="product_name" />
                   <input type="hidden" value="{{$exam->exam_code ?? ''}}" name="exam_code" />
                   <input type="hidden" value="" id="cartqry" name="cart_qty" />
                   <input type="hidden" value="" id="cartsub" name="subscription" />
                   <input type="hidden" value="3" name="ptype_id" />
                   <input type="hidden" value="single" name="shop_type" />
-                  <button type="submit" class="btn btn-red pull-right btn-danger maintopmarginbtn" class="background:#FD0000">
+                  <button type="submit" class="btn btn-red pull-right btn-danger maintopmarginbtn">
                     Get Full Access
                   </button>
                 </form>
@@ -132,7 +117,8 @@
               {{-- Central Content --}}
               <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
-                  <form method="post" action="practice_test.php">
+                  <form method="post" action="{{route('exam.demo.practice')}}">
+                      {{ csrf_field() }}
                     <div class="row">
                       {{-- Case Study --}}
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -142,144 +128,21 @@
                             Available Case Studies:
                           </h4>
                           <div class="qCSTypes">
-                            <div class="col-lg-3 col-md-4 col-sm-4">
-                              <label  class="checkbox-inline">
-                                <input type="checkbox" checked="checked"
-                                data-val="14" value="1" name="case_studies[]" id="cs1" disabled/>
-                                Case Study 1                                       (14)
-                                <span class="checkmark"></span>
-                              </label>
-                            </div>
-                            <style>
-                              .Allquestiontab {
-                                position: relative;
-                                top: 0px;
-                                /*z-index: 1; */
-                                left: 0;
-                                transform: none;
-                              }
-                              .Allquestiontab .columnstylings{
-                                border-top:0px;
-                                border-right:0px;
-                              }
-                              .Allquestiontab .columnstylings:before,.Allquestiontab .columnstylings:after{
-                                border:0px;
-                                position:relative;
-                                left: 0;
-                                z-index: 90
-                                height: 0px;
-                                top: 0;
-                                border-bottom-left-radius: 0px;
-                              }
-                              @media (min-width: 1200px){
-                                .casestudycss {
-                                  /* margin-top: 24px; */
-                                  /*margin-left: 25%;*/
-                                }
-                              }
-                              .casestudypercentage{
-                                /*margin-bottom:21px;*/
-                              }
-                              .casestudycss .columnstylings {
-                                /*margin-top: 0px;*/
-                              }
-                              .HotImage:nth-last-child(3):before {
-                                width: 16%;
-                              }
-                            </style>
-                            <div class="col-lg-3 col-md-4 col-sm-4">
-                              <label  class="checkbox-inline">
-                                <input type="checkbox"  disabled="disabled"
-                                data-val="10" value="2" name="case_studies[]" id="cs2" disabled/>
-                                Case Study 2                                       (10)
-                                <span class="checkmark"></span>
-                              </label>
-                            </div>
-                            <style>
-                                      .Allquestiontab {
-                                            position: relative;
-                                            top: 0px;
-                                            /*z-index: 1; */
-                                            left: 0;
-                                            transform: none;
-                                      }
-                                      .Allquestiontab .columnstylings{
-                                          border-top:0px;
-                                          border-right:0px;
-                                      }
-                                      .Allquestiontab .columnstylings:before,.Allquestiontab .columnstylings:after{
-                                          border:0px;
-                                          position:relative;
-                                          left: 0;
-                                          z-index: 90
-                                          height: 0px;
-                                          top: 0;
-                                          border-bottom-left-radius: 0px;
-                                      }
-                                      @media (min-width: 1200px){
-                                          .casestudycss {
-                                              /* margin-top: 24px; */
-                                              /*margin-left: 25%;*/
-                                          }
-                                      }
-                                      .casestudypercentage{
-                                          /*margin-bottom:21px;*/
-                                      }
-                                      .casestudycss .columnstylings {
-                                          /*margin-top: 0px;*/
-                                      }
-                                      .HotImage:nth-last-child(3):before {
-                                          width: 16%;
-                                      }
-                            </style>
-                            <div class="col-lg-3 col-md-4 col-sm-4">
+                              @forelse($exam->caseStudies as $key => $caseStudy)
+                                <div class="col-lg-3 col-md-4 col-sm-4">
                                   <label  class="checkbox-inline">
-                                        <input type="checkbox"  disabled="disabled"
-                                        data-val="4" value="3" name="case_studies[]" id="cs3" disabled/>
-                                    Case Study 3                                       (4)
+                                    <input type="checkbox" {{$key == 0 ? 'checked' : ''}}
+                                    data-val="14" value="1" name="case_studies[]" id="cs1" disabled/>
+                                    {{ $caseStudy->name }}                                       ({{ $caseStudy->questions->count() }})
                                     <span class="checkmark"></span>
-                                    </label>
-                            </div>
-                            <style>
-                                .Allquestiontab {
-                                      position: relative;
-                                      top: 0px;
-                                      /*z-index: 1; */
-                                      left: 0;
-                                      transform: none;
-                                }
-                                .Allquestiontab .columnstylings{
-                                    border-top:0px;
-                                    border-right:0px;
-                                }
-                                .Allquestiontab .columnstylings:before,.Allquestiontab .columnstylings:after{
-                                    border:0px;
-                                    position:relative;
-                                    left: 0;
-                                    z-index: 90
-                                    height: 0px;
-                                    top: 0;
-                                    border-bottom-left-radius: 0px;
-                                }
-                                @media (min-width: 1200px){
-                                    .casestudycss {
-                                        /* margin-top: 24px; */
-                                        /*margin-left: 25%;*/
-                                    }
-                                }
-                                .casestudypercentage{
-                                    /*margin-bottom:21px;*/
-                                }
-                                .casestudycss .columnstylings {
-                                    /*margin-top: 0px;*/
-                                }
-                                .HotImage:nth-last-child(3):before {
-                                    width: 16%;
-                                }
-                            </style>
+                                  </label>
+                                </div>
+                              @empty
+                              @endforelse
                           </div>
                         </div>
                       </div>
+                        <input type="hidden" value="{{ $exam->id }}" name="exam_id">
                       {{-- END Case Study --}}
                       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 Allquestiontab">
                         <div class="form-group hideifSpecific columnstylings">
@@ -352,12 +215,12 @@
                             <label>
                               Allocate Time (Hours : Minutes)
                             </label>
-                            <select  class="form-control" name="tHour" id="tHour">
+                            <select  class="form-control" name="hours" id="tHour">
                               <option value="00">00</option>
                               <option value="01" selected="selected">01</option>
                               <option value="02">02</option>
                             </select>
-                            <select  class="form-control" name="tMinutes" id="tMinutes">
+                            <select  class="form-control" name="mins" id="tMinutes">
                               <option value="00">00</option>
                               @for ($i=1; $i<60; $i++)
                                 <option value="{{$i}}">{{$i}}</option>
@@ -421,7 +284,6 @@
     </div>
     <br><br>
     <input type="hidden" id="site" value=" Certsidea" />
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="{{ asset('frontend/js/exam_demo_functions.js') }}"></script>
 
 @include('layouts.frontend.includes.footer')

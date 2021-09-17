@@ -43,4 +43,20 @@ class Exam_Controller extends Controller
         }
         return redirect()->route('home');
     }
+
+    /** to start demo practice exam*/
+    public function startDemoExamPractice(Request $request)
+    {
+        $examID = $request->exam_id;
+        $caseStudy = $request->case_studies;
+        $questionRange = $request->QuestionNoRange;
+        $passingRange = $request->PassRange;
+        $hours = $request->hours;
+        $minutes = $request->mins;
+        $withoutTimer = $request->without_timer == 1 ? $request->without_timer : 0;
+
+        $title = 'Exam';
+        return view('questions.index', compact('title'));
+
+    }
 }
