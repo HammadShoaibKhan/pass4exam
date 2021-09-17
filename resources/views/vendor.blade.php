@@ -270,7 +270,7 @@
                                     <div class="card-body-qd" style="">
                                       <div class="questions">
                                         <i class="fas fa-clipboard-list questions_fst_i"></i>
-                                        <i class="questions_sec_i"> {{ $exam->getTotalQuestions() ?? '' }}  <span>Questions</span></i>
+                                        <i class="questions_sec_i"> {{ $exam->getTotalQuestions() ?? 0 }}  <span>Questions</span></i>
                                       </div>
                                       <div class="update_date" >
                                         <i class="fas fa-sync-alt update_date_fst_i"></i>

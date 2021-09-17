@@ -61,17 +61,16 @@
                                         </div>
                                         <div class="card-body text-center">
                                             <p>
-
                                                 {{$exam->certification->title}} Fundamentals
                                             </p>
                                             <span>
                                                 <!--{{$exam->exam_code}} Certification Practice Exam-->
-                                                Total Questions: 254
+                                                Total Questions: {{ $exam->getTotalQuestions() ?? 0 }}
                                             </span>
                                         </div>
                                         <div class="card-footer">
                                             <span style="font-size: 12px;font-weight: 700;color: #ffffff;font-family: 'Roboto';text-align: center;">
-                                                Last Updated : 24-07-2021
+                                                Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
                                             </span>
                                         </div>
                                     </div>

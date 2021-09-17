@@ -71,7 +71,7 @@
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="fa fa-question-circle"></i> Total Questions: {{ $exam->getTotalQuestions() ?? '' }}
+                                                <i class="fa fa-question-circle"></i> Total Questions: {{ $exam->getTotalQuestions() ?? 0 }}
                                             </span>
                                         </li>
                                     </ul>
@@ -241,7 +241,7 @@
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="fa fa-question-circle"></i> {{ $exam->getTotalQuestions() ?? '' }} Total Questions
+                                                <i class="fa fa-question-circle"></i> {{ $exam->getTotalQuestions() ?? 0 }} Total Questions
                                             </span>
                                         </li>
                                     </ul>
@@ -325,7 +325,7 @@
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="fa fa-question-circle"></i> {{ $exam->getTotalQuestions() ?? '' }} Total Questions
+                                                <i class="fa fa-question-circle"></i> {{ $exam->getTotalQuestions() ?? 0 }} Total Questions
                                             </span>
                                         </li>
                                     </ul>
@@ -422,7 +422,7 @@
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew"><i class="fa fa-question-circle"></i>
-                                                {{ $exam->getTotalQuestions() ?? '' }} Total Questions
+                                                {{ $exam->getTotalQuestions() ?? 0 }} Total Questions
                                             </span>
                                         </li>
                                     </ul>
