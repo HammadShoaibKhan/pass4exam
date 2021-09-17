@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\VendorRequest;
+use App\Models\Certification;
+use App\Models\Exam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Vendor;
@@ -71,14 +73,24 @@ class VendorController extends Controller
 
     public function delete(Request $request)
     {
-        Vendor::find($request->vendor_id)->delete();
-        $vendors = Vendor::orderBY('id', 'DESC')->get();
+        $vendor = Vendor::find($request->vendor_id);
+        if (count($vendor->certifications) > 0) {
+            return 'relation-exists';
+        }
+        $vendor->delete();
+        $vendors = $vendor->orderBY('id', 'DESC')->get();
         return view('admin.vendors.partials.vendor-listings', compact('vendors'));
 
     }
 
     public function multipleDelete(Request $request)
     {
+        $vendors = Vendor::whereIn('id', $request->vendor_ids)->get();
+        foreach ($vendors as $vendor) {
+            if (count($vendor->certifications) > 0) {
+                return 'relation-exists';
+            }
+        }
         Vendor::whereIn('id', $request->vendor_ids)->delete();
         $vendors = Vendor::orderBY('id', 'DESC')->get();
         return view('admin.vendors.partials.vendor-listings', compact('vendors'));
@@ -88,6 +100,8 @@ class VendorController extends Controller
     public function changeStatus(Request $request)
     {
         Vendor::whereIn('id', $request->vendor_ids)->update(['status' => $request->status]);
+        Certification::whereIn('vender_id', $request->vendor_ids)->update(['status' => $request->status]);
+        Exam::whereIn('vendor_id', $request->vendor_ids)->update(['status' => $request->status]);
         $vendors = Vendor::orderBY('id', 'DESC')->get();
         return view('admin.vendors.partials.vendor-listings', compact('vendors'));
     }

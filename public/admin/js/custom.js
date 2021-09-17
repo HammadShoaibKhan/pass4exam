@@ -44,13 +44,21 @@ $(document).on('click', '.del-vendor', function (e) {
                     },
                     success:function (response) {
 
-                        $('#bind-vendors').html(response);
+                        if (response == 'relation-exists') {
+                            Swal.fire(
+                                'Action Revoke!',
+                                'Vendor connected with certifications,<br> please delete certifications first.',
+                                'warning'
+                            )
+                        } else {
+                            $('#bind-vendors').html(response);
 
-                        Swal.fire(
-                            'Deleted!',
-                            'Vendor has been deleted.',
-                            'success'
-                        )
+                            Swal.fire(
+                                'Deleted!',
+                                'Vendor has been deleted.',
+                                'success'
+                            )
+                        }
                     }
                 });
             }
@@ -119,13 +127,21 @@ $(document).on('click', '.delete-selected-vendors', function (e) {
                     },
                     success:function (response) {
 
-                        $('#bind-vendors').html(response);
+                        if (response == 'relation-exists') {
+                            Swal.fire(
+                                'Action Revoke!',
+                                'Some selected vendors are connected with certifications,<br> Please delete certifications first.',
+                                'warning'
+                            )
+                        } else {
+                            $('#bind-vendors').html(response);
 
-                        Swal.fire(
-                            'Deleted!',
-                            'Vendors has been deleted.',
-                            'success'
-                        )
+                            Swal.fire(
+                                'Deleted!',
+                                'Vendors has been deleted.',
+                                'success'
+                            )
+                        }
                     }
                 });
             }
@@ -159,7 +175,7 @@ $(document).on('click', '.change-vendor-status', function (e) {
     if (vendor_ids.length > 0) {
         Swal.fire({
             title: 'Choose?',
-            text: "You want to active or disable vendors!",
+            html: "You want to active or disable vendors!<br><b>Note:</b> connected certifications and exams also affects.",
             icon: 'question',
             showCancelButton: true,
             showDenyButton: true,
@@ -252,13 +268,21 @@ $(document).on('click', '.del-certification', function (e) {
                     },
                     success:function (response) {
 
-                        $('#bind-certifications').html(response);
+                        if (response == 'relation-exists') {
+                            Swal.fire(
+                                'Action Revoke!',
+                                'Certification connected with exams,<br> please delete exams first.',
+                                'warning'
+                            )
+                        } else {
+                            $('#bind-certifications').html(response);
 
-                        Swal.fire(
-                            'Deleted!',
-                            'Certification has been deleted.',
-                            'success'
-                        )
+                            Swal.fire(
+                                'Deleted!',
+                                'Certification has been deleted.',
+                                'success'
+                            )
+                        }
                     }
                 });
             }
@@ -317,13 +341,21 @@ $(document).on('click', '.delete-selected-certifications', function (e) {
                     },
                     success:function (response) {
 
-                        $('#bind-certifications').html(response);
+                        if (response == 'relation-exists') {
+                            Swal.fire(
+                                'Action Revoke!',
+                                'Some selected certifications are connected with exams,<br> please delete exams first.',
+                                'warning'
+                            )
+                        } else {
+                            $('#bind-certifications').html(response);
 
-                        Swal.fire(
-                            'Deleted!',
-                            'Certifications has been deleted.',
-                            'success'
-                        )
+                            Swal.fire(
+                                'Deleted!',
+                                'Certifications has been deleted.',
+                                'success'
+                            )
+                        }
                     }
                 });
             }
@@ -346,7 +378,7 @@ $(document).on('click', '.change-certification-status', function (e) {
     var certification_ids = [];
     var url = $(this).attr('data-route');
 
-    /**fetch selected vendors ids */
+    /**fetch selected certifications ids */
     $('.checkboxes').each(function (i, el) {
         var checkbox = $(el);
         if (checkbox.is(':checked')) {
@@ -357,7 +389,7 @@ $(document).on('click', '.change-certification-status', function (e) {
     if (certification_ids.length > 0) {
         Swal.fire({
             title: 'Choose?',
-            text: "You want to active or disable certifications!",
+            html: "You want to active or disable certifications!<br><b>Note:</b> connected exams also affects.",
             icon: 'question',
             showCancelButton: true,
             showDenyButton: true,
@@ -586,7 +618,7 @@ $(document).on('click', '.change-exam-status', function (e) {
     if (exam_ids.length > 0) {
         Swal.fire({
             title: 'Choose?',
-            text: "You want to active or disable certifications!",
+            text: "You want to active or disable exams!",
             icon: 'question',
             showCancelButton: true,
             showDenyButton: true,
