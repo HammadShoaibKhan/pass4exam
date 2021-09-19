@@ -1,6 +1,5 @@
 @extends('layouts.frontend.master')
 @section('content')
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -67,12 +66,12 @@
                                     <ul class="services-list">
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="far fa-calendar-check"></i> Last Updated : 31-07-2021
+                                                <i class="far fa-calendar-check"></i> Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
                                             </span>
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="fa fa-question-circle"></i> Total Questions: 47
+                                                <i class="fa fa-question-circle"></i> Total Questions: {{ $exam->getTotalQuestions() ?? 0 }}
                                             </span>
                                         </li>
                                     </ul>
@@ -153,8 +152,10 @@
                                             <div id="btnPlusprice_exam" class="row">
                                                 <div class="">
                                                     <div class=" bundle_price_exam">
-                                                        Price: $<span id="lbl_price">79</span>
-                                                        <del>Before: $158</del>
+                                                        Price: $<span id="lbl_price">
+                                                            {{ $exam->getPricing()->bundle->discounted ?? 1 }}
+                                                        </span>
+                                                        <del>Before: ${{ $exam->getPricing()->bundle->orignal ?? '' }}</del>
                                                     </div>
                                                 </div>
                                                 <div class="">
@@ -235,12 +236,12 @@
                                     <ul class="services-list">
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="far fa-calendar-check"></i> Last Updated : 31-07-2021
+                                                <i class="far fa-calendar-check"></i> Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
                                             </span>
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="fa fa-question-circle"></i> 47 Total Questions
+                                                <i class="fa fa-question-circle"></i> {{ $exam->getTotalQuestions() ?? 0 }} Total Questions
                                             </span>
                                         </li>
                                     </ul>
@@ -275,8 +276,8 @@
                                     <div id="btnPlusprice_exam_webbased" class="row">
                                         <div>
                                             <div class="bundle_price_exam_webbased">
-                                                Price: $49
-                                                <del>Before: $98</del>
+                                                Price: ${{ $exam->getPricing()->web->discounted ?? 1 }}
+                                                <del>Before: ${{ $exam->getPricing()->web->orignal ?? '' }}</del>
                                             </div>
                                         </div>
                                         <div class="">
@@ -319,12 +320,12 @@
                                     <ul class="services-list">
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="far fa-calendar-check"></i> Last Updated : 31-07-2021
+                                                <i class="far fa-calendar-check"></i> Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
                                             </span>
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew">
-                                                <i class="fa fa-question-circle"></i> 47 Total Questions
+                                                <i class="fa fa-question-circle"></i> {{ $exam->getTotalQuestions() ?? 0 }} Total Questions
                                             </span>
                                         </li>
                                     </ul>
@@ -359,8 +360,8 @@
                                     <div id="btnPlusprice_exam_pdf" class="row">
                                         <div class="">
                                             <div class="bundle_price_exam_pdf">
-                                                Price: $59
-                                                <del>Before: $118</del>
+                                                Price: ${{ $exam->getPricing()->pdf->discounted ?? 1 }}
+                                                <del>Before: ${{ $exam->getPricing()->pdf->orignal ?? '' }}</del>
                                             </div>
                                         </div>
                                         <div class="">
@@ -416,12 +417,12 @@
                                     <ul class="services-list">
                                         <li>
                                             <span class="hvr-wobble-skew"><i class="far fa-calendar-check"></i>
-                                                Last Updated : 31-07-2021
+                                                Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
                                             </span>
                                         </li>
                                         <li>
                                             <span class="hvr-wobble-skew"><i class="fa fa-question-circle"></i>
-                                                47 Total Questions
+                                                {{ $exam->getTotalQuestions() ?? 0 }} Total Questions
                                             </span>
                                         </li>
                                     </ul>
@@ -456,8 +457,8 @@
                                     <div id="btnPlusprice_exam_desktop" class="row">
                                         <div class="">
                                             <div class="bundle_price_exam_desktop">
-                                                Price: $39
-                                                <del>Before: $78</del>
+                                                Price: ${{ $exam->getPricing()->desktop->discounted ?? 1 }}
+                                                <del>Before: ${{ $exam->getPricing()->desktop->orignal ?? '' }}</del>
                                             </div>
                                         </div>
                                         <div class="">
@@ -511,8 +512,7 @@
                                     <div class="row">
                                         <div class="col-xs-2">
                                             {{-- <img alt="Practice Test" src="../assets/site/img/Path_1096.png" /> --}}
-                                            <div class="image" style="width: 90px; height: 40px; background:#ccc">
-                                            </div>
+                                            <img alt="pdf" height="80" src="{{asset('frontend/assets/site/img/image_pdf.png')}}" width="70" />
                                         </div>
                                         <div class="col-lg-10">
                                             <p class="heading">
@@ -528,8 +528,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12 pb-4">
                                     <div class="row">
                                         <div class="col-xs-2">
-                                            <div class="image" style="width: 90px; height: 40px; background:#ccc">
-                                            </div>
+                                            <img alt="updates" height="58" src="{{asset('frontend/assets/site/img/image_ero1.png')}}" width="70" />
                                             {{-- <img alt="Updates" src="../assets/site/img/Image_270.png" /> --}}
                                         </div>
                                         <div class="col-lg-10">
@@ -547,8 +546,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12 pb-4">
                                     <div class="row">
                                         <div class="col-xs-2">
-                                            <div class="image" style="width: 90px; height: 40px; background:#ccc">
-                                            </div>
+                                            <img alt="Success" height="74" src="{{asset('frontend/assets/site/img/image_sun.png')}}" width="70" />
                                             {{-- <img alt="Certified" src="../assets/site/img/Image_271.png" /> --}}
                                         </div>
                                         <div class="col-lg-10">
@@ -566,8 +564,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12 pb-4">
                                     <div class="row">
                                         <div class="col-xs-2">
-                                            <div class="image" style="width: 90px; height: 40px; background:#ccc">
-                                            </div>
+                                            <img alt="Com" height="66" src="{{asset('frontend/assets/site/img/image_com.png')}}" width="70" />
                                             {{-- <img alt="Questions" src="../assets/site/img/Image_272.png" /> --}}
                                         </div>
                                         <div class="col-lg-10">
@@ -585,8 +582,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12 pb-4 ">
                                         <div class="row">
                                             <div class="col-xs-2">
-                                                <div class="image" style="width: 90px; height: 40px; background:#ccc">
-                                                </div>
+                                                <img alt="Customer" height="70" src="{{asset('frontend/assets/site/img/image_user1.png')}}" width="70" />
                                                 {{-- <img alt="Customer" src="../assets/site/img/image_user1.png" /> --}}
                                             </div>
                                             <div class="col-lg-10">
@@ -604,8 +600,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12 pb-4 ">
                                         <div class="row">
                                             <div class="col-xs-2">
-                                                <div class="image" style="width: 90px; height: 40px; background:#ccc">
-                                                </div>
+                                                <img alt="Guaranteed" height="62" src="{{asset('frontend/assets/site/img/image_guran.png')}}" width="70" />
                                                 {{-- <img alt="Guaranteed " src="../assets/site/img/guarantee.png" style="width: 80px;" /> --}}
                                             </div>
                                             <div class="col-lg-10">
@@ -629,106 +624,39 @@
             {{-- END <!------------- Features of Exam ----------------------------------------> --}}
 
             {{-- <!------------- Recent Updated Exams --------------------------------------------> --}}
-            <section class="recent_update_exam_exam pt-5 pb-5 bg-f7fafd">
-                <div class="recent_update_exam_top_exam">
-                    <div class="recent_update_exam_top_exam">
-                        {{-- <span class="heading_bg_heading_1">
-                            RECENT UPDATES
-                        </span>  --}}
-                        <h3>Recently Updated Exams</h3>
-                    </div>
+            <section class="recent_update_exam_home pt-5 pb-5 bg-f7fafd">
+                <div class="recent_update_exam_top_home">
+                    <h3>Recent Updated Exams</h3>
                 </div>
-                <div class="recent_update_exam_bottom_exam container">
+                <div class="recent_update_exam_bottom_home container">
                     <div class="row">
-                        <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
-                            <div class="card" style="">
-                                <div class="card-body hvr-sweep-to-right">
-                                    <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                                            <div style="text-align: center;">
-                                                <b><a href="az-204.html">AZ-204</a></b>
-                                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
-                                                    Developing Solutions for {{ $exam->vendor->title ?? ''  }} Azure Exam
-                                                </strong>
-                                                <p>
-                                                    <b>246 Total Questions </b>
-                                                </p>
+                        @forelse(recentUpdatedExams() as $recent_exam)
+                            <div class="recent_update_exam_bottom_card_home col-lg-4 col-md-12 col-sm-12 mb-4">
+                                <div class="card " style="">
+                                    <div class="card-body hvr-sweep-to-right">
+                                        <div class="row">
+                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
+                                                <div style="text-align: center;">
+                                                    <b><a href="javascript:;">{{ $recent_exam->exam_code }}</a></b>
+                                                    <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
+                                                    {{ $recent_exam->title }}
+                                                    </strong>
+                                                    <p>{{ $recent_exam->questions->count() }} Total Questions </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                                            <div style="text-align: center;padding-top: 10px;">
-                                                <!--05 August 2021-->
-                                                <strong>05</strong>
-                                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">
-                                                    August
-                                                </b>
-                                                <p>
-                                                    <b>2021</b>
-                                                </p>
+                                            <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                                                <div style="text-align: center;     padding-top: 10px;">
+                                                    <strong>{{ date('d', strtotime($recent_exam->updated_at)) }}</strong>
+                                                    <b >{{ date('F', strtotime($recent_exam->updated_at)) }}</b>
+                                                    <p style=""><b>{{ date('Y', strtotime($recent_exam->updated_at)) }}</b></p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
-                            <div class="card" style="">
-                                <div class="card-body hvr-sweep-to-right">
-                                    <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                                            <div style="text-align: center;">
-                                                <b><a href="../cisco/300-410-enarsi.html">300-410</a></b>
-                                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
-                                                    Implementing Cisco Enterprise Advanced Routing and Services
-                                                </strong>
-                                                <p><b>216 Total Questions </b></p>
-                                            </div>
-                                        </div>
-                                        <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                                            <div style="text-align: center;     padding-top: 10px;">
-                                                <!--04 August 2021-->
-                                                <strong>04</strong>
-                                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">
-                                                    August
-                                                </b>
-                                                <p>
-                                                    <b>2021</b>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recent_update_exam_bottom_card_exam col-lg-4 col-md-12 col-sm-12 mb-4">
-                            <div class="card" style="">
-                                <div class="card-body hvr-sweep-to-right">
-                                    <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
-                                            <div style="text-align: center;">
-                                                <b><a href="../cisco/300-410-enarsi.html">300-410</a></b>
-                                                <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
-                                                    Implementing Cisco Enterprise Advanced Routing and Services
-                                                </strong>
-                                                <p><b>216 Total Questions </b></p>
-                                            </div>
-                                        </div>
-                                        <div class="date_section col-lg-4 col-md-4 col-sm-4 col-xs-4" >
-                                            <div style="text-align: center;     padding-top: 10px;">
-                                                <!--04 August 2021-->
-                                                <strong>04</strong>
-                                                <b style="display: block;margin-bottom: 8px;font-size: 15px;font-family: 'Roboto';">
-                                                    August
-                                                </b>
-                                                <p>
-                                                    <b>2021</b>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                        @endforelse
                     </div>
                 </div>
             </section>
@@ -770,7 +698,7 @@
             {{-- END <!------------- Certifications Testimonials ----------------------------------------> --}}
 
             {{-- <!------------- Comments Area --------------------------------------------> --}}
-            <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;">
+            <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;display:none;">
                 <div class="container">
                     <div class="topArea">
                         <div class="row">

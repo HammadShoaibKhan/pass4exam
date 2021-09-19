@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vendor;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'Certs Idea - Study for Certification Exams';
-        return view('welcome',compact('title'));
+        $vendors = Vendor::get();
+        return view('welcome',compact('title','vendors'));
     }
 }

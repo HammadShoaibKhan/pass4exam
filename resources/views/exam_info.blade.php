@@ -61,17 +61,16 @@
                                         </div>
                                         <div class="card-body text-center">
                                             <p>
-
                                                 {{$exam->certification->title}} Fundamentals
                                             </p>
                                             <span>
                                                 <!--{{$exam->exam_code}} Certification Practice Exam-->
-                                                Total Questions: 254
+                                                Total Questions: {{ $exam->getTotalQuestions() ?? 0 }}
                                             </span>
                                         </div>
                                         <div class="card-footer">
                                             <span style="font-size: 12px;font-weight: 700;color: #ffffff;font-family: 'Roboto';text-align: center;">
-                                                Last Updated : 24-07-2021
+                                                Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
                                             </span>
                                         </div>
                                     </div>
@@ -91,8 +90,8 @@
                                         Our {{$exam->vendor->title}} {{$exam->exam_code}} practice questions appear in the final Microsoft exam.
                                         The web-based and desktop practice tests highlight weak portions of your preparation so that you put more effort and
                                         remove all mistakes before the actual
-                                        <a class="internal_link" href="{{ route('exam_info',[$exam->vendor_title,$exam->exam_code])}}"> 
-                                            {{$exam->vendor_title}} {{$exam->exam_code}} exam.
+                                        <a class="internal_link" href="{{ route('exam_info',[$exam->vendor->slug,$exam->slug])}}"> 
+                                            {{$exam->vendor->title}} {{$exam->exam_code}} exam.
                                         </a>
                                     </p>
                                 </div>

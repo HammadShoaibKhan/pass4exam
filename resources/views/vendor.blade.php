@@ -93,7 +93,7 @@
                         <div class="row">
                           <div class="qualitys hvr-float-shadow">
                             <div class="qualitys_inner">
-                              <div>89<span><i class="fas fa-clipboard-list"></i></span></div>
+                              <div>{{$vendor->getTotalExams() ?? '' }}<span><i class="fas fa-clipboard-list"></i></span></div>
                                 <p>Total Active Exams </p>
                             </div>
                           </div>
@@ -161,6 +161,7 @@
 
                           <div id="btnPlusprice" class="row">
                             <div class="___class_+?50___">
+                              {{-- @TODO --}}
                               <div class="bundle_price">Price: $
                                 <span id="lbl_price">450</span>
                                 <del> Before: $900 </del>
@@ -204,7 +205,7 @@
           {{-- <!-------------Features vendor--------------------------------------------> --}}
           <section class="exam_vendor pt-5 pb-5 bg-f7fafd">
             <div class="section-title">
-              <span class="heading_bg_heading_1">{{$vendor_title ?? ''}} </span>
+              {{-- <span class="heading_bg_heading_1">{{$vendor_title ?? ''}} </span> --}}
               <h2>Select {{$vendor_title ?? ''}} Exam From the list Below</h2>
             </div>
             <div class="container-fluid">
@@ -264,17 +265,17 @@
                                     <p>
                                       {{$exam->title ?? ''}}
                                     <BR>
-                                     {{ $vendor_title}}{{$vendor->slug}}{{$exam->exam_code}}
+                                     {{ $vendor_title}}  {{$exam->exam_code}}
                                     </p>
                                     <div class="card-body-qd" style="">
                                       <div class="questions">
                                         <i class="fas fa-clipboard-list questions_fst_i"></i>
-                                        <i class="questions_sec_i"> 285  <span>Questions</span></i>
+                                        <i class="questions_sec_i"> {{ $exam->getTotalQuestions() ?? 0 }}  <span>Questions</span></i>
                                       </div>
                                       <div class="update_date" >
                                         <i class="fas fa-sync-alt update_date_fst_i"></i>
                                         <i class="update_date_sec_i">
-                                          Aug 16 <span>Last Updated</span>
+                                          <?php echo (date('d M', strtotime($exam->getUpdatedAt()))) ?><span>Last Updated</span>
                                         </i>
                                       </div>
                                     </div>

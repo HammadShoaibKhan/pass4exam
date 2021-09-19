@@ -21,4 +21,9 @@ class Vendor extends Model
     {
         return $this->hasMany(Exam::class, 'vendor_id');
     }
+
+    public function getTotalExams()
+    {  
+        return $this->exams->where('status',1)->count();
+    }
 }
