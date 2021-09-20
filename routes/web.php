@@ -10,6 +10,7 @@ use App\Http\Controllers\Exam_Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CaseStudyController;
 use \App\Http\Controllers\QuestionController;
+use \App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,6 +112,7 @@ Route::group(['middleware' => 'customer'], function () {
     Route::get('vendor/{slug}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
     Route::get('{vendor_slug}/info/{exam_slug}', [Exam_Controller::class, 'index'])->name('exam_info');
     Route::get('demo_exam/{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
+    Route::get('/cart', [CartController::class, 'index'])->name('add_cart');
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 });
 
