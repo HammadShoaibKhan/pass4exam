@@ -17,7 +17,7 @@
 <script src="{{ asset('admin/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 
 <!-- CUSTOM JS -->
-<script src="{{ asset('frontend/js/custom.js') }}"></script>
-<script src="{{ asset('frontend/js/custom-validations.js') }}"></script>
+<script src="{{ asset('frontend/js/custom.js?' . Rand()) }}"></script>
+<script src="{{ asset('frontend/js/custom-validations.js?' . Rand()) }}"></script>
 </body>
 </html>
