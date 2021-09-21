@@ -70,7 +70,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('update/{id}', [ExamController::class,'update'])->name('admin.exam.update');
         Route::post('name-exists', [ExamController::class, 'checkNameExists'])->name('admin.exam.name-exists');
         Route::post('code-exists', [ExamController::class, 'checkExamCodeExists'])->name('admin.exam.code-exists');
-        Route::post('multiple-delete', [ExamController::class, 'multipleDelete'])->name('admin.exams.delete');
+        Route::post('mutiple-delete', [ExamController::class, 'multipleDelete'])->name('admin.exams.delete');
         Route::post('delete', [ExamController::class, 'delete'])->name('admin.exam.delete');
         Route::post('change-status', [ExamController::class, 'changeStatus'])->name('admin.exam.change-status');
         Route::post('demo-file', [ExamController::class, 'uploadDemoFile'])->name('admin.exam.demo-file');

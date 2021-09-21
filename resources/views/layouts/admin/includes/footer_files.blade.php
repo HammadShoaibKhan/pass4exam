@@ -53,7 +53,7 @@
 
 
 <!--Custom JS-->
-<script src="{{ asset('admin/js/custom.js?' . Rand()) }}"></script>
-<script src="{{ asset('admin/js/custom-validations.js?' . Rand()) }}"></script>
+<script src="{{ asset('admin/js/custom.js') }}"></script>
+<script src="{{ asset('admin/js/custom-validations.js') }}"></script>
 </body>
 </html>

@@ -24,14 +24,14 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-            <div class="col-8">
+            <div class="col-6">
             </div>
             <div class="col-2">
               <a href="javascript:;" class="btn btn-block btn-info btn-md change-exam-status" data-route="{{ route('admin.exam.change-status') }}"><i class="fa fa-exchange-alt"></i>&nbsp;&nbsp; Change Status</a>
             </div>
-{{--            <div class="col-2">--}}
-{{--              <a href="javascript:;" class="btn btn-block btn-danger btn-md delete-selected-exams" data-route="{{ route('admin.exams.delete') }}"><i class="fa fa-trash-alt"></i>&nbsp;&nbsp; Delete Selected</a>--}}
-{{--            </div>--}}
+            <div class="col-2">
+              <a href="javascript:;" class="btn btn-block btn-danger btn-md delete-selected-exams" data-route="{{ route('admin.exams.delete') }}"><i class="fa fa-trash-alt"></i>&nbsp;&nbsp; Delete Selected</a>
+            </div>
             <div class="col-2">
                 <a href="{{ route('admin.exam.create') }}" class="btn btn-block btn-primary btn-md"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add Exam</a>
             </div>
@@ -76,7 +76,7 @@
                         </td>
                         <td>
                             <a href="{{ route('admin.exam.edit', $exam->id) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
-{{--                            <a href="javascript:;" data-id="{{ $exam->id }}" data-route="{{ route('admin.exam.delete') }}" class="btn btn-sm btn-danger del-exam"><i class="fas fa-trash-alt"></i></a>--}}
+                            <a href="javascript:;" data-id="{{ $exam->id }}" data-route="{{ route('admin.exam.delete') }}" class="btn btn-sm btn-danger del-exam"><i class="fas fa-trash-alt"></i></a>
                         </td>
                       </tr>
                     @empty
