@@ -27,11 +27,11 @@
             @if ($exam->status == 0)
               <span class="badge badge-danger">Disabled</span>
             @endif
-            
+
           </td>
-          <td> 
+          <td>
               <a href="{{ route('admin.exam.edit', $exam->id) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
-              <a href="javascript:;" data-id="{{ $exam->id }}" data-route="{{ route('admin.exam.delete') }}" class="btn btn-sm btn-danger del-exam"><i class="fas fa-trash-alt"></i></a>
+{{--              <a href="javascript:;" data-id="{{ $exam->id }}" data-route="{{ route('admin.exam.delete') }}" class="btn btn-sm btn-danger del-exam"><i class="fas fa-trash-alt"></i></a>--}}
           </td>
         </tr>
       @empty
