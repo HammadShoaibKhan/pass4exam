@@ -307,11 +307,14 @@
                 </div>
                 <div class="col-sm-3 col-xs-4">
                     <div class="cartLogo">
-                        <img class="cartLogo" src="https://www.study4exam.com/assets/site/image/1619507533_study4examslogo.webp" alt="Study4Exam"></div>
-                        <img class="mcafeeLogo" src="https://www.study4exam.com/assets/site/image/McAfee.png">
+                        <div class="cartLogo" style="width:130px;height:70px; background:#888">
+                            {{-- <img class="cartLogo" src="https://www.study4exam.com/assets/site/image/1619507533_study4examslogo.webp" alt="Study4Exam"> --}}
+                        </div>
                     </div>
+                        {{-- <img class="mcafeeLogo" src="https://www.study4exam.com/assets/site/image/McAfee.png"> --}}
                 </div>
             </div>
+        </div>
        {{-- END Header --}}
 
         {{-- <!-------------Breadcrumb--------------------------------------------> --}}
@@ -334,65 +337,73 @@
 		 
 		 
 
-         <div class="container billing_form">
+        <div class="container billing_form">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12 Shopping_cart_section padding-left-33">
-                  <div class="Shopping_cart">SHOPPING CART (2)</div>
-					                	<form id="cartForm" name="cartForm" method="post">
-            				                                        				                            							
-						<div class="shopping_cart_box">
-						  <div class="row">
-							 <div class="col-sm-3 padding-right-11 width-27">
-								<img style="width: 65%;" src="https://www.study4exam.com/uploads/product_images/1617190010_exam1 (2).png" class="pull-right">
-							 </div>
-							 
-							 <div class="col-sm-6 width-45 padding-right-0">
-								<div class="bundle_pack_heading">
-								   Microsoft MB-340 Bundle Pack								</div>
-								<div class="Product_included">Product included</div>
-								<div class="item">
-									<img src="https://www.study4exam.com/assets/site/image/cart_pdf.png">
-									<span class="product_name">Questions & Answers (PDF) </span>
-								</div> 
-								<div class="item">
-									<img src="https://www.study4exam.com/assets/site/image/cart_desktop.png">
-									<span class="product_name">Desktop Practice Test Software </span>
-								</div>
-																<div class="item">
-									<img src="https://www.study4exam.com/assets/site/image/cart_online_engin.png">
-									<span class="product_name">Web-Based Practice Test</span>
-								</div>
-															 </div>
-							 
-							 <div class="col-sm-3 padding-left-0 text-right">
-								 <a href="https://www.study4exam.com/carts/remove_item/1e7bd7121704624f24d0f514e57559d2" onclick="return confirm('Are you sure! You want to remove?');"><img src="https://www.study4exam.com/assets/site/image/cart_cancel.png" class="cancel-img"></a>
-								    <div class="bundle_price">
-								    
-								        										    <del>$158.00</del><span class="cartsinglesubtotal sub-total-amount">$79.00</span>
-    										    								    
-								    </div>
-									<div class="form-group margin-bottom-10">
-										         
-                                        <select class="2 sffasf bselect form-control margin-bottom-10" id="subscription_plan_1e7bd7121704624f24d0f514e57559d2" name="subscription_plan[]" onchange="return updateCartLisenceQty();">
-                                			<option value="individual" selected="selected" > Individual 2 PCs</option>
-                                			<option value="corporate" > Corporate 10 PCs</option>
-                                			<option value="trainer" > Trainer 25 PCs</option>
-                                		</select>
-                                		                                		<select class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" onchange="return updateCartLisenceQty();">
-                                    		<option selected="selected" value="3" selected="selected">3 months (Free Updates)</option>
-                                            <option  value="6">6 months (Free Updates)</option>
-											<option  value="12">12 months (Free Updates)</option>
-                                    	</select>
-                                											
-                                		<input type="hidden" name="exam_code[]" id="exam_code" value="Bundle">
-                                																					
-										<input type="hidden" name="cart_qty[]" id="cart_qty" data="158" value="1" maxlength="5" class="cartQty" />
-										<input type="hidden" name="cartRowId[]" id="cartRowId" value="1e7bd7121704624f24d0f514e57559d2">
-										<input type="hidden" name="productTypeId[]" id="productTypeId" value="0">
-									</div>
-							 </div>
-						  </div>
-						</div>
+                    <div class="Shopping_cart">SHOPPING CART (2)</div>
+                        <form id="cartForm" name="cartForm" method="post">
+                            {{-- Bundle Pack Design --}}
+                            <div class="shopping_cart_box">
+                                <div class="row">
+                                    {{-- Image Section --}}
+                                    <div class="col-sm-3 padding-right-11 width-27">
+                                        <div class="pull-right" style="width:65%;height:100px; background:#888">
+                                        </div>
+                                        {{-- <img style="width: 65%;" src="https://www.study4exam.com/uploads/product_images/1617190010_exam1 (2).png" class="pull-right"> --}}
+                                    </div>
+                                    {{-- Description Section --}}
+                                    <div class="col-sm-6 width-45 padding-right-0">
+		        						<div class="bundle_pack_heading">
+                                            Microsoft MB-340 Bundle Pack								
+                                        </div>
+        								<div class="Product_included">
+                                            Product included
+                                        </div>
+                                        <div class="item">
+                                            <img src="https://www.study4exam.com/assets/site/image/cart_pdf.png">
+						        			<span class="product_name">Questions & Answers (PDF) </span>
+								        </div> 
+							        	<div class="item">
+                                            <img src="https://www.study4exam.com/assets/site/image/cart_desktop.png">
+									        <span class="product_name">Desktop Practice Test Software </span>
+								        </div>
+                                        <div class="item">
+                                            <img src="https://www.study4exam.com/assets/site/image/cart_online_engin.png">
+                                            <span class="product_name">Web-Based Practice Test</span>
+                                        </div>
+                                    </div>
+							        {{-- Payment Section --}}
+                                    <div class="col-sm-3 padding-left-0 text-right">
+                                        <a href="https://www.study4exam.com/carts/remove_item/1e7bd7121704624f24d0f514e57559d2" 
+                                            onclick="return confirm('Are you sure! You want to remove?');">
+                                            <img src="https://www.study4exam.com/assets/site/image/cart_cancel.png" class="cancel-img">
+                                        </a>
+                                        <div class="bundle_price">
+                                            <del>$158.00</del>
+                                            <span class="cartsinglesubtotal sub-total-amount">
+                                                $79.00
+                                            </span>
+    								    </div>
+                                        <div class="form-group margin-bottom-10">
+                                            <select class="2 sffasf bselect form-control margin-bottom-10" id="subscription_plan_1e7bd7121704624f24d0f514e57559d2" name="subscription_plan[]" onchange="return updateCartLisenceQty();">
+                                                <option value="individual" selected="selected" > Individual 2 PCs</option>
+                                                <option value="corporate" > Corporate 10 PCs</option>
+                                                <option value="trainer" > Trainer 25 PCs</option>
+                                            </select>
+                                            <select class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" onchange="return updateCartLisenceQty();">
+                                                <option selected="selected" value="3" selected="selected">3 months (Free Updates)</option>
+                                                <option  value="6">6 months (Free Updates)</option>
+                                                <option  value="12">12 months (Free Updates)</option>
+                                            </select>
+                                		    <input type="hidden" name="exam_code[]" id="exam_code" value="Bundle">
+                                            <input type="hidden" name="cart_qty[]" id="cart_qty" data="158" value="1" maxlength="5" class="cartQty" />
+                                            <input type="hidden" name="cartRowId[]" id="cartRowId" value="1e7bd7121704624f24d0f514e57559d2">
+                                            <input type="hidden" name="productTypeId[]" id="productTypeId" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+			    			</div>
+                            {{-- END Bundle Pack Design --}}
             		            	                                        													
 							<div class="shopping_cart_box shopping_cart_box_online">
 								<div class="row">
@@ -408,8 +419,8 @@
 											<span class="product_name">Web-Based Practice Test</span>
 										</div>
 										<div class="online_engin_price">
-										    										    <del>$98.00</del><span class="cartsinglesubtotal sub-total-amount">$49.00</span>
-										    										</div>
+                                            <del>$98.00</del><span class="cartsinglesubtotal sub-total-amount">$49.00</span>
+                                        </div>
 									</div>
 									 <div class="col-sm-5 text-right padding-top-7">
 										 <a href="https://www.study4exam.com/carts/remove_item/3956c7b8e1b9412c17b932da965aa596" onclick="return confirm('Are you sure! You want to remove?');"><img src="https://www.study4exam.com/assets/site/image/cart_cancel.png" class="cancel-img cancel-img-right"></a>
