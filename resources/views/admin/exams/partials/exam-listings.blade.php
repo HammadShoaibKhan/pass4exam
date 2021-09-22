@@ -2,7 +2,6 @@
     <thead>
     <tr>
       <th><input type="checkbox" class="select-all-checkbox"></th>
-      <th>#</th>
       <th>Exam&nbspCode</th>
       <th>Name</th>
       <th>Vendor</th>
@@ -15,7 +14,6 @@
       @forelse($exams as $key => $exam)
         <tr>
           <td><input type="checkbox" class="checkboxes" data-id="{{ $exam->id }}"></td>
-          <td>{{ $key + 1 }}</td>
           <td>{{ $exam->exam_code ?? '' }}</td>
           <td>{{ $exam->title ?? '' }}</td>
           <td>{{ $exam->vendor->title ?? '' }}</td>

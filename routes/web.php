@@ -10,6 +10,7 @@ use App\Http\Controllers\Exam_Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CaseStudyController;
 use \App\Http\Controllers\QuestionController;
+use \App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +94,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::get('{id}/edit', [QuestionController::class, 'edit'])->name('admin.question.edit');
         Route::post('update/{id}', [QuestionController::class, 'update'])->name('admin.question.update');
         Route::post('{question_id}/answer-save', [QuestionController::class, 'saveAnswers'])->name('admin.answer.save');
+    });
+
+    Route::get('users', [UserController::class, 'index'])->name('admin.users');
+    Route::prefix('user')->group(function () {
+        Route::get('create', [UserController::class, 'create'])->name('admin.user.create');
+        Route::post('create', [UserController::class, 'store'])->name('admin.user.create');
+        Route::get('{id}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
+        Route::post('update/{id}', [UserController::class, 'update'])->name('admin.user.update');
+        Route::post('change-status', [UserController::class, 'changeStatus'])->name('admin.users.change-status');
+        Route::post('delete', [UserController::class, 'delete'])->name('admin.user.delete');
+        Route::post('multiple-delete', [UserController::class, 'multipleDelete'])->name('admin.users.delete');
     });
 
 
