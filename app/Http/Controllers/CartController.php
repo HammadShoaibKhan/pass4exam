@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     public function index(){
-        $title = "Cart";
+        $title = "Shoping Cart";
         // $exams = ::orderBy('id', 'DESC')->get();
         return view('cart', compact('title'));
 
