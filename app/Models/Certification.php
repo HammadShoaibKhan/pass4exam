@@ -16,4 +16,9 @@ class Certification extends Model
     {
         return $this->hasMany(Exam::class, 'certification_id');
     }
+
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class, 'vender_id');
+    }
 }
