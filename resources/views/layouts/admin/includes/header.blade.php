@@ -18,7 +18,7 @@
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
 
-   
+
     <li class="nav-item">
       <a class="nav-link" data-widget="fullscreen" href="#" role="button">
         <i class="fas fa-expand-arrows-alt"></i>
@@ -26,7 +26,7 @@
     </li>
     <li class="nav-item">
       <div class="btn-group">
-        <button type="button" class="btn btn-info">Hello, {{ (auth()->check()) ? auth()->user()->username : '' }}</button>
+        <button type="button" class="btn btn-info">Hello, {{ (auth()->check()) ? auth()->user()->name : '' }}</button>
         <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
           <span class="sr-only">Toggle Dropdown</span>
         </button>

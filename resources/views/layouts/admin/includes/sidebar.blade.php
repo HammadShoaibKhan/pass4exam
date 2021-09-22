@@ -10,7 +10,7 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
- 
+
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -49,6 +49,14 @@
               </p>
             </a>
           </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.users') }}" class="nav-link {{ request()->routeIs('admin.users', 'admin.user.create', 'admin.user.edit') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                        Users
+                    </p>
+                </a>
+            </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
