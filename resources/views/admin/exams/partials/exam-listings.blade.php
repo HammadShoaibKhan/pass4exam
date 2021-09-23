@@ -2,7 +2,6 @@
     <thead>
     <tr>
       <th><input type="checkbox" class="select-all-checkbox"></th>
-      <th>#</th>
       <th>Exam&nbspCode</th>
       <th>Name</th>
       <th>Vendor</th>
@@ -15,7 +14,6 @@
       @forelse($exams as $key => $exam)
         <tr>
           <td><input type="checkbox" class="checkboxes" data-id="{{ $exam->id }}"></td>
-          <td>{{ $key + 1 }}</td>
           <td>{{ $exam->exam_code ?? '' }}</td>
           <td>{{ $exam->title ?? '' }}</td>
           <td>{{ $exam->vendor->title ?? '' }}</td>
@@ -27,11 +25,11 @@
             @if ($exam->status == 0)
               <span class="badge badge-danger">Disabled</span>
             @endif
-            
+
           </td>
-          <td> 
+          <td>
               <a href="{{ route('admin.exam.edit', $exam->id) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
-              <a href="javascript:;" data-id="{{ $exam->id }}" data-route="{{ route('admin.exam.delete') }}" class="btn btn-sm btn-danger del-exam"><i class="fas fa-trash-alt"></i></a>
+{{--              <a href="javascript:;" data-id="{{ $exam->id }}" data-route="{{ route('admin.exam.delete') }}" class="btn btn-sm btn-danger del-exam"><i class="fas fa-trash-alt"></i></a>--}}
           </td>
         </tr>
       @empty

@@ -313,3 +313,51 @@ $('#answers-form').validate({
         }
     }
 });
+
+/** script to validate add user form*/
+$('#add-user-form').validate({
+    rules : {
+        name : {
+            required : true
+        },
+        email : {
+            required : true,
+            email : true
+        },
+        password : {
+            required : true
+        }
+    },
+    messages : {
+        name : {
+            required : 'Name is required'
+        },
+        email : {
+            required : 'Email is required',
+            email : 'Enter valid email address'
+        },
+        password : {
+            required : 'Password is required'
+        }
+    }
+});
+
+/** script to validate edit user form*/
+$('#edit-user-form').validate({
+    rules : {
+        name : {
+            required : true
+        },
+        password : {
+            required : true
+        }
+    },
+    messages : {
+        name : {
+            required : 'Name is required'
+        },
+        password : {
+            required : 'Password is required'
+        }
+    }
+});

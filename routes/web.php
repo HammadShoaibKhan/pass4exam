@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CaseStudyController;
 use \App\Http\Controllers\QuestionController;
 use \App\Http\Controllers\CartController;
+use \App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,7 +72,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('update/{id}', [ExamController::class,'update'])->name('admin.exam.update');
         Route::post('name-exists', [ExamController::class, 'checkNameExists'])->name('admin.exam.name-exists');
         Route::post('code-exists', [ExamController::class, 'checkExamCodeExists'])->name('admin.exam.code-exists');
-        Route::post('mutiple-delete', [ExamController::class, 'multipleDelete'])->name('admin.exams.delete');
+        Route::post('multiple-delete', [ExamController::class, 'multipleDelete'])->name('admin.exams.delete');
         Route::post('delete', [ExamController::class, 'delete'])->name('admin.exam.delete');
         Route::post('change-status', [ExamController::class, 'changeStatus'])->name('admin.exam.change-status');
         Route::post('demo-file', [ExamController::class, 'uploadDemoFile'])->name('admin.exam.demo-file');
@@ -94,6 +95,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::get('{id}/edit', [QuestionController::class, 'edit'])->name('admin.question.edit');
         Route::post('update/{id}', [QuestionController::class, 'update'])->name('admin.question.update');
         Route::post('{question_id}/answer-save', [QuestionController::class, 'saveAnswers'])->name('admin.answer.save');
+    });
+
+    Route::get('users', [UserController::class, 'index'])->name('admin.users');
+    Route::prefix('user')->group(function () {
+        Route::get('create', [UserController::class, 'create'])->name('admin.user.create');
+        Route::post('create', [UserController::class, 'store'])->name('admin.user.create');
+        Route::get('{id}/edit', [UserController::class, 'edit'])->name('admin.user.edit');
+        Route::post('update/{id}', [UserController::class, 'update'])->name('admin.user.update');
+        Route::post('change-status', [UserController::class, 'changeStatus'])->name('admin.users.change-status');
+        Route::post('delete', [UserController::class, 'delete'])->name('admin.user.delete');
+        Route::post('multiple-delete', [UserController::class, 'multipleDelete'])->name('admin.users.delete');
     });
 
 
