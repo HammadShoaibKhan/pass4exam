@@ -124,7 +124,10 @@ Route::group(['middleware' => 'customer'], function () {
     Route::get('vendor/{slug}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
     Route::get('{vendor_slug}/info/{exam_slug}', [Exam_Controller::class, 'index'])->name('exam_info');
     Route::get('demo_exam/{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
-    Route::get('/cart', [CartController::class, 'index'])->name('add_cart');
+    
+    Route::get('carts', [CartController::class, 'index'])->name('cart_view');
+    Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
+    
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 });
 

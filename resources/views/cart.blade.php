@@ -59,7 +59,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <!-- Bootstrap -->
 	  {{-- <link rel="shortcut icon" type="image/png" href="https://www.study4exam.com/assets/site/img/1617086695_pen.png"/> --}}
-      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+      {{-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> --}}
       <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
       <link rel="stylesheet" href="{{asset('frontend/assets/site/css/cart.css')}}">
 
@@ -334,23 +334,27 @@
             <div class="row">
                 {{-- SHOPING Carts --}}
                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12 Shopping_cart_section padding-left-33">
+                    
                     <div class="Shopping_cart">
-                        SHOPPING CART (2)
+                        SHOPPING CART ({{count($carts)}})
                     </div>
                     <form id="cartForm" name="cartForm" method="post">
                         {{-- Bundle Pack Design --}}
+                        
+                    @forelse ($carts as $cart)
+                        @if ($cart['bundleType'] == 1)
                         <div class="shopping_cart_box">
                             <div class="row">
                                 {{-- Image Section --}}
                                 <div class="col-sm-3 padding-right-11 width-27">
                                     <div class="pull-right" style="width:65%;height:100px; background:#888">
                                     </div>
-                                    {{-- <img style="width: 65%;" src="https://www.study4exam.com/uploads/product_images/1617190010_exam1 (2).png" class="pull-right"> --}}
+                                    {{-- <img style="width: 65%;" src="{{ asset('frontend/assets/site/img/'.$cart['bundleIcon'])}}" class="pull-right"> --}}
                                 </div>
                                 {{-- Description Section --}}
                                 <div class="col-sm-6 width-45 padding-right-0">
                                     <div class="bundle_pack_heading">
-                                        Microsoft MB-340 Bundle Pack								
+                                        {{$cart['bundle_name'] ?? ''}}								
                                     </div>
                                     <div class="Product_included">
                                         Product included
@@ -375,9 +379,9 @@
                                         <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
                                     </a>
                                     <div class="bundle_price">
-                                        <del>$158.00</del>
+                                        <del>${{$cart['orignalPrice'] ?? ''}}</del>
                                         <span class="cartsinglesubtotal sub-total-amount">
-                                            $79.00
+                                            {{$cart['discountedPrice'] ?? ''}}
                                         </span>
                                     </div>
                                     <div class="form-group margin-bottom-10">
@@ -391,16 +395,15 @@
                                             <option  value="6">6 months (Free Updates)</option>
                                             <option  value="12">12 months (Free Updates)</option>
                                         </select>
-                                        <input type="hidden" name="exam_code[]" id="exam_code" value="Bundle">
-                                        <input type="hidden" name="cart_qty[]" id="cart_qty" data="158" value="1" maxlength="5" class="cartQty" />
-                                        <input type="hidden" name="cartRowId[]" id="cartRowId" value="1e7bd7121704624f24d0f514e57559d2">
-                                        <input type="hidden" name="productTypeId[]" id="productTypeId" value="0">
+                                        {{-- <input type="hidden" name="exam_code[]" id="exam_code" value="Bundle"> --}}
+                                        {{-- <input type="hidden" name="cart_qty[]" id="cart_qty" data="158" value="1" maxlength="5" class="cartQty" /> --}}
+                                        {{-- <input type="hidden" name="cartRowId[]" id="cartRowId" value="1e7bd7121704624f24d0f514e57559d2"> --}}
+                                        {{-- <input type="hidden" name="productTypeId[]" id="productTypeId" value="0"> --}}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {{-- END Bundle Pack Design --}}
-                                                                                                                            
+                        @else
                         <div class="shopping_cart_box shopping_cart_box_online">
                             <div class="row">
                                 <div class="col-sm-2 padding-left-36">
@@ -454,6 +457,12 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
+                    @empty
+                        
+                    @endforelse                                                                                                    
+                        {{-- END Bundle Pack Design --}}
+                        
                     </form>
                     {{-- Coupen Area --}}
                     {{-- <div class="coupon-area">
