@@ -58,10 +58,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <!-- Bootstrap -->
-	  <link rel="shortcut icon" type="image/png" href="https://www.study4exam.com/assets/site/img/1617086695_pen.png"/>
+	  {{-- <link rel="shortcut icon" type="image/png" href="https://www.study4exam.com/assets/site/img/1617086695_pen.png"/> --}}
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
       <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-      <link href="https://www.study4exam.com/assets/site/css/cart.css" rel="stylesheet">
+      <link rel="stylesheet" href="{{asset('frontend/assets/site/css/cart.css')}}">
+
 	  <style>header, footer,.afterfooterarea, .justcertnav{ display: none; }</style>
 	  <script>
 	    var BASE_URL = "https://www.study4exam.com/";
@@ -797,14 +798,16 @@
         </div>
         {{-- END Loader --}}
     
-    <script src="https://www.study4exam.com/assets/site/js/jquery-3.4.1.min.js"></script>
+    {{-- <script src="https://www.study4exam.com/assets/site/js/jquery-3.4.1.min.js"></script> --}}
     <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="https://www.study4exam.com/assets/site/js/stripe_client.js"></script>
+    <script src="{{ asset('frontend/assets/site/js/custom/stripe_client.js?' . Rand()) }}"></script>
+    {{-- ChatBox --}}
     {{-- <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=19954888"></script> --}}
-    <script src="https://www.study4exam.com/assets/site/js/custom/functions.js" ></script>
-    
+
+    <script src="{{ asset('frontend/assets/site/js/custom/functions.js?' . Rand()) }}"></script>
+
 <script>
     function processPayment(){
     
