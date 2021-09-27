@@ -52,7 +52,7 @@
                       </p>
                       <br>
                     </div>
-                    <form method="post" name="bundleInfoForm" id="bundleInfoForm" action="https://www.certsidea.com/carts/" class="form-inline form">
+                    <form method="GET"  action="{{route('add_cart') }}" class="form-inline form">
                       <input type="hidden" id="shop_type" name="shop_type" value="bundle" />
                       <input type="hidden" id="bundleType" name="bundleType" value="1" />
                       <input type="hidden" id="bundleIcon" name="bundleIcon" value="IMG_4210801752032.png" />
@@ -170,10 +170,10 @@
 
                             <div class="___class_+?53___">
                               <input type="hidden" id='bundle_name' name="bundle_name"
-                                value="Microsoft Certification Exams Dumps" />
-                              <input type="hidden" id="price" name="price" value="450" />
-                              <input type="hidden" id="checkout_price" name="checkout_price"
-                                value="450" />
+                                value="{{$vendor_title ?? ''}} Certification Exams Dumps" />
+                              <input type="hidden" id="orignalPrice" name="orignalPrice" value="900" />
+                              <input type="hidden" id="discountedPrice" name="discountedPrice" value="450" />
+                              <input type="hidden" id="checkout_price" name="checkout_price"   value="450" />
                               <input type="hidden" id="bundle_type" name="bundle_type"
                                 value="custom" />
                               <input type="hidden" id="bundle_id" name="bundle_id"
@@ -181,8 +181,9 @@
                               <input type="hidden" id="individual_price_inc"
                                 name="individual_price_inc" value="0" />
                               <div class="___class_+?54___">
-                                <a class="btn" href="javascript:submitBundle();">
-                                  <i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                <button type="submit"  class="btn" href="">
+                                  <i class="fa fa-shopping-cart"></i> Add to Cart
+                                </button>
                               </div>
                             </div>
                           </div>
