@@ -123,8 +123,8 @@
 
                                     <div class="Payment_opetion_bundle">
                                         <strong>Payment Options</strong>
-                                        <form method="post" name="bundleInfoForm" id="bundleInfoForm"
-                                            action="https://certsidea.com/carts/" class="form-inline form">
+                                        <form method="GET" name="bundleInfoForm" id="bundleInfoForm"
+                                            action="{{route('add_cart') }}" class="form-inline form">
                                             <div class="Purchase_options row">
                                                 <div style="margin: 10px;">
                                                     <div class="form-group">
@@ -155,7 +155,7 @@
                                                         Price: $<span id="lbl_price">
                                                             {{ $exam->getPricing()->bundle->discounted ?? 1 }}
                                                         </span>
-                                                        <del>Before: ${{ $exam->getPricing()->bundle->orignal ?? '' }}</del>
+                                                        <del>Before: ${{ $exam->getPricing()->bundle->orignal ?? 0 }}</del>
                                                     </div>
                                                 </div>
                                                 <div class="">
@@ -163,35 +163,24 @@
                                                         <div class="col-sm-12">
                                                             <input type="hidden" id='bundle_name' name="bundle_name"
                                                                 value="{{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }} Bundle Pack" />
-                                                            <input type="hidden" id="price" name="price" value="158" />
-                                                            <input type="hidden" id="checkout_price" name="checkout_price"
-                                                                value="158" />
-                                                            <input type="hidden" id="bundle_type" name="bundle_type"
-                                                                value="default" />
+                                                            <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->bundle->orignal ?? '' }}" />
+                                                            <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->bundle->discounted ?? 1 }}" />
+                                                            <input type="hidden" id="checkout_price" name="checkout_price" value="{{ $exam->getPricing()->bundle->discounted ?? 1 }}" />
+                                                            <input type="hidden" id="bundle_type" name="bundle_type" value="default" />
                                                             <input type="hidden" id="bundle_id" name="bundle_id" value="4" />
-                                                            <input type="hidden" id="bundle_type_id" name="bundle_type_id"
-                                                                value="3923" />
-                                                            <input type="hidden" id="subscription_price_3_inc"
-                                                                name="subscription_price_3_inc" value="0" />
-                                                            <input type="hidden" id="subscription_price_6_inc"
-                                                                name="subscription_price_6_inc" value="30" />
-                                                            <input type="hidden" id="subscription_price_12_inc"
-                                                                name="subscription_price_12_inc" value="50" />
-                                                            <input type="hidden" id="individual_pcs" name="individual_pcs"
-                                                                value="2" />
-                                                            <input type="hidden" id="individual_price_inc"
-                                                                name="individual_price_inc" value="0" />
-                                                            <input type="hidden" id="corporate_pcs" name="corporate_pcs"
-                                                                value="10" />
-                                                            <input type="hidden" id="corporate_price_inc" name="corporate_price_inc"
-                                                                value="50" />
+                                                            <input type="hidden" id="bundle_type_id" name="bundle_type_id" value="3923" />
+                                                            <input type="hidden" id="subscription_price_3_inc" name="subscription_price_3_inc" value="0" />
+                                                            <input type="hidden" id="subscription_price_6_inc" name="subscription_price_6_inc" value="30" />
+                                                            <input type="hidden" id="subscription_price_12_inc" name="subscription_price_12_inc" value="50" />
+                                                            <input type="hidden" id="individual_pcs" name="individual_pcs" value="2" />
+                                                            <input type="hidden" id="individual_price_inc" name="individual_price_inc" value="0" />
+                                                            <input type="hidden" id="corporate_pcs" name="corporate_pcs" value="10" />
+                                                            <input type="hidden" id="corporate_price_inc" name="corporate_price_inc" value="50" />
                                                             <input type="hidden" id="trainer_pcs" name="trainer_pcs" value="25" />
-                                                            <input type="hidden" id="trainer_price_inc" name="trainer_price_inc"
-                                                                value="100" />
+                                                            <input type="hidden" id="trainer_price_inc" name="trainer_price_inc" value="100" />
                                                             <input type="hidden" id="shop_type" name="shop_type" value="bundle" />
                                                             <input type="hidden" id="bundleType" name="bundleType" value="3" />
-                                                            <input type="hidden" id="bundleIcon" name="bundleIcon"
-                                                                value="img_4210801752032.html" />
+                                                            <input type="hidden" id="bundleIcon" name="bundleIcon" value="img_4210801752032.html" />
                                                             <div class="add_to_cart">
                                                                 <button class="btn" type="submit">
                                                                     <i class="fa fa-shopping-cart"></i> Add to Cart
