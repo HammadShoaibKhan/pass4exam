@@ -45,6 +45,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('status-change', [VendorController::class, 'changeStatus'])->name('admin.vendors.change-status');
         Route::post('name-exists', [VendorController::class, 'checkNameExists']);
         Route::post('get-certifications', [VendorController::class, 'vendorCertifications'])->name('admin.vendor.certifications');
+        Route::post('pricing', [VendorController::class, 'pricing'])->name('admin.vendor.pricing');
     });
 
 

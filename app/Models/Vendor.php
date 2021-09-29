@@ -26,4 +26,10 @@ class Vendor extends Model
     {  
         return $this->exams->where('status',1)->count();
     }
+
+    public function getPricing()
+    {
+        return json_decode($this->pricing);
+    }
+
 }
