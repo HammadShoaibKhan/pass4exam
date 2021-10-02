@@ -1,7 +1,7 @@
 @include('layouts.frontend.includes.head_files')
 
 <!--Navbar Start -->
-<div class="container-fluid no-padding" style="background: #22ad95;">
+<div class="container-fluid no-padding member" style="background: #22ad95;">
     <div class="container">
         <nav class="navbar navbar-expand-md cstm-bg-blue">
             <a class="navbar-brand" href="#" style="color: #fff">MEMBER AREA</a>
