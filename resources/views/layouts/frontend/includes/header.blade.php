@@ -125,9 +125,19 @@
                         <img src="{{asset('frontend/assets/site/img/cart.png')}}" alt="">
                     </a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a id="nav_login_btn" rel="nofollow" href="{{ route('login') }}" class="btn"style="border-radius: 0px;">
-                        <i class="fa fa-user"></i> LOGIN / REGISTER
-                    </a>
+                    @if (auth()->check())
+                        <a id="nav_login_btn" class="btn" style="border-radius: 0px; padding: 12px 5px;font-size: 12px;    margin-top: 2px;" href="{{route('user.dashboard')}}">
+                            <i style="font-size: 16px;" class="fa fa-user"></i> My Dashboard
+                        </a>
+                        <a id="nav_login_btn" class="btn" style="margin-left: 2px; border-radius: 0px; padding: 12px 5px;font-size: 12px;margin-top: 2px;" rel="nofollow" href="javascript:;" onclick="$('#logout').submit()">
+                            <i style="font-size: 16px;" class="fa fa-user"></i> Sign Out
+                        </a>
+                        <form action="{{route('logout')}}" method="post" id="logout">{{csrf_field()}}</form>
+                    @else
+                        <a id="nav_login_btn" rel="nofollow" href="{{ route('login') }}" class="btn"style="border-radius: 0px;">
+                            <i class="fa fa-user"></i> LOGIN / REGISTER
+                        </a>
+                    @endif
                 </div>
             </div>
         </nav>

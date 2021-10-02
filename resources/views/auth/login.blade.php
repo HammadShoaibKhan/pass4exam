@@ -57,16 +57,16 @@
     .input-holder.mainloginpageholder {
         width: 100% !important;
     }
-    
+
     .input-holder.mainloginpageholder h4 {
         font-size: 18px;
     }
-    
-    
+
+
     .input-holder.mainloginpageholder p a b {
         float: none;
     }
-    
+
     .input-holder.mainloginpageholder p a i {
         font-size: 17px;
     }
@@ -79,34 +79,38 @@
     font-family: 'Roboto';
     font-weight: 400;
 
-        
-        
+
+
     }
 </style>
 			<div class="login-register-form">
 				<h1>LOGIN / REGISTER</h1>
 				<div class="col">
-                    <form method="post" name="userLoginForm" id="userLoginForm" class="login-form" action="{{ route('login') }}">
+                    @if(session('error'))
+                        <div id="form-messages"><span class="alert alert-danger">{{ session('error') }}</span></div>
+                    @endif
+                    <form method="post" class="login-form" action="{{ route('user.login') }}">
                         {{ csrf_field() }}
 						<div class="form-block">
+
 							<strong class="login-heading">LOGIN</strong>
 							<div class="row">
     							<div class="loginFirst">
                                    <div class="input-holder" style="width: 100%;" >
     									<label>Email Address</label>
-    									<input type="email" required="required" value="" name="loginEmail" id="loginEmail">
+    									<input type="email" required="required" value="" name="email" id="loginEmail">
     								</div>
-                                    
+
                                     <div class="input-holder" style="width: 100%; float: left">
-    									<button class="btn SingBtn" id="loginFirstBtn" type="button" onclick="return loginFirstCheck();">Next</button>
+    									<button class="btn SingBtn" id="loginFirstBtn" data-route="{{route('user.email.verify')}}" type="button">Next</button>
     								</div>
                                 </div>
                                 <div class="loginSecond" style="display:none;">
                                     <div class="input-holder" style="width: 100%;" >
     									<label>Password</label>
-    									<input type="password" required="required" value="" name="loginPassword" id="loginPassword">
+    									<input type="password" required="required" value="" name="password" id="loginPassword">
     								</div>
-                                    
+
                                     <div class="input-holder" style="width: 100%; float: left">
             							<button class="btn SingBtn"  style="float: left; margin-right: 15px;" type="submit">Login</button>
     									<button class="btn SingBtn" type="button" onclick="return loginBackStep();" style="margin-left: 15px;">Back</button>
@@ -121,7 +125,7 @@
             							</p>
 								</div>
 							</div>
-							
+
 						</div>
 					</form>
 				</div>
@@ -148,6 +152,68 @@
 
 		</div>
 	</main>
+
+    <script>
+
+        $(document).on('click', '#loginFirstBtn', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('data-route');
+            var loginEmail = $('#loginEmail').val();
+            if (loginEmail) {
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {
+                        email: loginEmail
+                    },
+                    dataType: 'json',
+                    beforeSend: function() {
+                        $('#loginFirstBtn').before(function() {
+                            // return getLoadingImg();
+                        });
+                    },
+                    success: function(response) {
+                        console.log(response);
+
+                        if (response == 'exists-active') {
+                            $('.loginFirst').hide();
+                            $('.loginSecond').show();
+                        } else if (response == 'exists-disabled') {
+                            $('#form-message').remove();
+                            var msgHTML = '<div id="form-message"><span class="alert alert-danger">Your account is disabled.</span></div>';
+                            $('.loginFirst').prepend(msgHTML);
+                        } else {
+                            $('#form-message').remove();
+                            var msgHTML = '<div id="form-message"><span class="alert alert-danger">You have not registered with us, Please get register with us before Login!</span></div>';
+                            $('.loginFirst').prepend(msgHTML);
+                        }
+                    },
+                    error: function() {
+                        console.log('something went wrong please try again');
+                    }
+                })
+            }
+        });
+
+        function loginBackStep(){
+
+            $('.loginSecond').hide();
+            $('.loginFirst').show();
+        }
+
+        $(document).on('click', '#loginEmail', function(){
+            $(".alert-danger, #form-messages").hide();
+        })
+
+
+    </script>
 
 
 

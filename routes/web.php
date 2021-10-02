@@ -10,6 +10,7 @@ use App\Http\Controllers\Exam_Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CaseStudyController;
 use \App\Http\Controllers\QuestionController;
+use \App\Http\Controllers\CartController;
 use \App\Http\Controllers\Admin\UserController;
 
 /*
@@ -118,12 +119,24 @@ Auth::routes();
 /**customer middleware check if user is a guest or user is logged in as a customer,
  * Note: admin has no access to these routes while logged in.
  */
-Route::group(['middleware' => 'customer'], function () {
+Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('vendor/{slug}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
     Route::get('{vendor_slug}/info/{exam_slug}', [Exam_Controller::class, 'index'])->name('exam_info');
     Route::get('demo_exam/{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
+    
+    Route::get('carts', [CartController::class, 'index'])->name('cart_view');
+    Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
+    
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
+
+    Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
+    Route::post('user-login', [\App\Http\Controllers\UserController::class, 'userLogin'])->name('user.login');
+});
+
+
+Route::group(['middleware' => 'customer'], function () {
+    Route::get('dashboard', [\App\Http\Controllers\UserController::class, 'dashboard'])->name('user.dashboard');
 });
 
 
