@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckUserCustomer
+class Guest
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,9 @@ class CheckUserCustomer
      */
     public function handle(Request $request, Closure $next)
     {
-        if ((auth()->check() && auth()->user()->type == 2)) {
+        if ((auth()->check() && auth()->user()->type == 2) || !auth()->check()) {
             return $next($request);
         }
-        return redirect()->route('login');
+        return redirect()->route('admin.dashboard');
     }
 }
