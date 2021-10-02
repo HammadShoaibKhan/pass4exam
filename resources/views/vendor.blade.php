@@ -169,16 +169,11 @@
                             </div>
 
                             <div class="___class_+?53___">
-                              <input type="hidden" id='bundle_name' name="bundle_name"
-                                value="{{$vendor_title ?? ''}} Certification Exams Dumps" />
+                              <input type="hidden" id="bundle_type" name="bundle_type" value="vendor" />
+                              <input type="hidden" id='bundle_title' name="bundle_title" value="{{$vendor_title ?? ''}} Certification Exams Bundle" />
                               <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $vendor->getPricing()->bundle->orignal ?? 1 }}" />
                               <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $vendor->getPricing()->bundle->discounted ?? 1 }}" />
-                              <input type="hidden" id="bundle_type" name="bundle_type"
-                                value="custom" />
-                              {{-- <input type="hidden" id="bundle_id" name="bundle_id"
-                                value="70451074" /> --}}
-                              {{-- <input type="hidden" id="individual_price_inc"
-                                name="individual_price_inc" value="0" /> --}}
+                              <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
                               <div class="___class_+?54___">
                                 <button type="submit"  class="btn" href="">
                                   <i class="fa fa-shopping-cart"></i> Add to Cart
@@ -663,28 +658,25 @@
         function updateBundlePrice() {
           let orignalPrice=0;
           let discountedPrice=0;
-          var e = $("#subscription").val();
-          if(e==3){
+          let subscribed_for = $("#subscription").val();
+          if(subscribed_for==3){
             orignalPrice = '{{ $vendor->getPricing()->bundle->orignal ?? 1 }}';
             discountedPrice = '{{ $vendor->getPricing()->bundle->discounted ?? 1 }}';
-            $(".bundle_price #lbl_price").text(discountedPrice);
-            $(".bundle_price del").text(' Before: $'+orignalPrice);
           }
-          if(e==6){
+          if(subscribed_for==6){
             orignalPrice = '{{ $vendor->getPricing()->bundle->orignal_price_2 ?? 1 }}';
             discountedPrice = '{{ $vendor->getPricing()->bundle->discounted_price_2 ?? 1 }}';
-            $(".bundle_price #lbl_price").text(discountedPrice);
-            $(".bundle_price del").text(' Before: $'+orignalPrice);
           }
-          if(e==12){
+          if(subscribed_for==12){
             orignalPrice = '{{ $vendor->getPricing()->bundle->orignal_price_3 ?? 1 }}';
             discountedPrice = '{{ $vendor->getPricing()->bundle->discounted_price_3 ?? 1 }}';
-            $(".bundle_price #lbl_price").text(discountedPrice);
-            $(".bundle_price del").text(' Before: $'+orignalPrice);
           }
+          $(".bundle_price #lbl_price").text(discountedPrice);
+          $(".bundle_price del").text(' Before: $'+orignalPrice);
           $("#orignalPrice").val(orignalPrice);
           $("#discountedPrice").val(discountedPrice);
-      }
-    </script>
+          $("#subcribed_for").val(subscribed_for);
+        }
+      </script>
 
     @endsection
