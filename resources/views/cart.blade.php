@@ -342,7 +342,7 @@
                         {{-- Bundle Pack Design --}}
                         
                     @forelse ($carts as $cart)
-                        @if ($cart['bundleType'] == 1)
+                        @if ($cart['bundle_type'] == 'vendor')
                         <div class="shopping_cart_box">
                             <div class="row">
                                 {{-- Image Section --}}
@@ -374,7 +374,7 @@
                                 </div>
                                 {{-- Payment Section --}}
                                 <div class="col-sm-3 padding-left-0 text-right">
-                                    <a href="https://www.study4exam.com/carts/remove_item/1e7bd7121704624f24d0f514e57559d2" 
+                                    <a href="{route('')}}/carts/remove_item/1e7bd7121704624f24d0f514e57559d2" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
                                         <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
                                     </a>
@@ -385,15 +385,15 @@
                                         </span>
                                     </div>
                                     <div class="form-group margin-bottom-10">
-                                        <select class="2 sffasf bselect form-control margin-bottom-10" id="subscription_plan_1e7bd7121704624f24d0f514e57559d2" name="subscription_plan[]" onchange="return updateCartLisenceQty();">
+                                        {{-- <select class="2 sffasf bselect form-control margin-bottom-10" id="subscription_plan_1e7bd7121704624f24d0f514e57559d2" name="subscription_plan[]" onchange="return updateCartLisenceQty();">
                                             <option value="individual" selected="selected" > Individual 2 PCs</option>
                                             <option value="corporate" > Corporate 10 PCs</option>
                                             <option value="trainer" > Trainer 25 PCs</option>
-                                        </select>
+                                        </select> --}}
                                         <select class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" onchange="return updateCartLisenceQty();">
-                                            <option selected="selected" value="3" selected="selected">3 months (Free Updates)</option>
-                                            <option  value="6">6 months (Free Updates)</option>
-                                            <option  value="12">12 months (Free Updates)</option>
+                                            <option value="{{($cart['subcribed_for']=='3') ? $cart['subcribed_for'] :'3'}}" {{($cart['subcribed_for']=='3') ? "selected" :''}}>3 months (Free Updates)</option>                                            
+                                            <option value="{{($cart['subcribed_for']=='6') ? $cart['subcribed_for'] :'6'}}" {{($cart['subcribed_for']=='6') ? "selected" :''}}>6 months (Free Updates)</option>
+                                            <option value="{{($cart['subcribed_for']=='12')? $cart['subcribed_for'] :'12'}}" {{($cart['subcribed_for']=='12') ? "selected" :''}}>12 months (Free Updates)</option>
                                         </select>
                                         {{-- <input type="hidden" name="exam_code[]" id="exam_code" value="Bundle"> --}}
                                         {{-- <input type="hidden" name="cart_qty[]" id="cart_qty" data="158" value="1" maxlength="5" class="cartQty" /> --}}
@@ -403,7 +403,68 @@
                                 </div>
                             </div>
                         </div>
-                        @else
+                        @elseif ($cart['bundle_type'] == 'exam-bundle')
+                        <div class="shopping_cart_box">
+                            <div class="row">
+                                {{-- Image Section --}}
+                                <div class="col-sm-3 padding-right-11 width-27">
+                                    <div class="pull-right" style="width:65%;height:100px; background:#888">
+                                    </div>
+                                    {{-- <img style="width: 65%;" src="{{ asset('frontend/assets/site/img/'.$cart['bundleIcon'])}}" class="pull-right"> --}}
+                                </div>
+                                {{-- Description Section --}}
+                                <div class="col-sm-6 width-45 padding-right-0">
+                                    <div class="bundle_pack_heading">
+                                        {{$cart['bundle_name'] ?? ''}}								
+                                    </div>
+                                    <div class="Product_included">
+                                        Product included
+                                    </div>
+                                    <div class="item">
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_pdf.png">
+                                        <span class="product_name">Questions & Answers (PDF) </span>
+                                    </div> 
+                                    <div class="item">
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_desktop.png">
+                                        <span class="product_name">Desktop Practice Test Software </span>
+                                    </div>
+                                    <div class="item">
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_online_engin.png">
+                                        <span class="product_name">Web-Based Practice Test</span>
+                                    </div>
+                                </div>
+                                {{-- Payment Section --}}
+                                <div class="col-sm-3 padding-left-0 text-right">
+                                    <a href="{route('')}}/carts/remove_item/1e7bd7121704624f24d0f514e57559d2" 
+                                        onclick="return confirm('Are you sure! You want to remove?');">
+                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
+                                    </a>
+                                    <div class="bundle_price">
+                                        <del>${{$cart['orignalPrice'] ?? ''}}</del>
+                                        <span class="cartsinglesubtotal sub-total-amount">
+                                            {{$cart['discountedPrice'] ?? ''}}
+                                        </span>
+                                    </div>
+                                    <div class="form-group margin-bottom-10">
+                                        {{-- <select class="2 sffasf bselect form-control margin-bottom-10" id="subscription_plan_1e7bd7121704624f24d0f514e57559d2" name="subscription_plan[]" onchange="return updateCartLisenceQty();">
+                                            <option value="individual" selected="selected" > Individual 2 PCs</option>
+                                            <option value="corporate" > Corporate 10 PCs</option>
+                                            <option value="trainer" > Trainer 25 PCs</option>
+                                        </select> --}}
+                                        <select class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" onchange="return updateCartLisenceQty();">
+                                            <option value="{{($cart['subcribed_for']=='3') ? $cart['subcribed_for'] :'3'}}" {{($cart['subcribed_for']=='3') ? "selected" :''}}>3 months (Free Updates)</option>                                            
+                                            <option value="{{($cart['subcribed_for']=='6') ? $cart['subcribed_for'] :'6'}}" {{($cart['subcribed_for']=='6') ? "selected" :''}}>6 months (Free Updates)</option>
+                                            <option value="{{($cart['subcribed_for']=='12')? $cart['subcribed_for'] :'12'}}" {{($cart['subcribed_for']=='12') ? "selected" :''}}>12 months (Free Updates)</option>
+                                        </select>
+                                        {{-- <input type="hidden" name="exam_code[]" id="exam_code" value="Bundle"> --}}
+                                        {{-- <input type="hidden" name="cart_qty[]" id="cart_qty" data="158" value="1" maxlength="5" class="cartQty" /> --}}
+                                        {{-- <input type="hidden" name="cartRowId[]" id="cartRowId" value="1e7bd7121704624f24d0f514e57559d2"> --}}
+                                        {{-- <input type="hidden" name="productTypeId[]" id="productTypeId" value="0"> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @elseif ($cart['bundle_type'] == 'exam-web')
                         <div class="shopping_cart_box shopping_cart_box_online">
                             <div class="row">
                                 <div class="col-sm-2 padding-left-36">
@@ -457,6 +518,115 @@
                                 </div>
                             </div>
                         </div>
+                        @elseif ($cart['bundle_type'] == 'exam-pdf')
+                        <div class="shopping_cart_box shopping_cart_box_online">
+                            <div class="row">
+                                <div class="col-sm-2 padding-left-36">
+                                    <img src="https://www.study4exam.com/uploads/product_images/1619688098_webbased.webp" class="img-center">
+                                </div>
+                                <div class="col-sm-5 text-center_online">
+                                    <div class="online-engin_heading">
+                                        Microsoft MB-340 Exam
+                                    </div>
+                                    <div class="item">
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_online_engin.png">
+                                        <span class="product_name">Web-Based Practice Test</span>
+                                    </div>
+                                    <div class="online_engin_price">
+                                        <del>$98.00</del><span class="cartsinglesubtotal sub-total-amount">$49.00</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 text-right padding-top-7">
+                                    <a href="https://www.study4exam.com/carts/remove_item/3956c7b8e1b9412c17b932da965aa596" 
+                                        onclick="return confirm('Are you sure! You want to remove?');">
+                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
+                                    </a>
+                                    <div class="form-group margin-bottom-10">
+                                        <input type="hidden"  id="subscription_plan_3956c7b8e1b9412c17b932da965aa596" name="subscription_plan[]" value="">
+                                        <select name="cart_qty[]" id="cart_qty_3956c7b8e1b9412c17b932da965aa596"
+                                            class="lisenceQty form-control center_box" 
+                                            onchange="return updateCartLisenceQty();">
+                                            <option value="1" selected="selected">3 IP Address</option>
+                                            <option value="4" >4 IP Address</option>
+                                            <option value="5" >5 IP Address</option>
+                                            <option value="6" >6 IP Address</option>
+                                            <option value="7" >7 IP Address</option>
+                                            <option value="8" >8 IP Address</option>
+                                            <option value="9" >9 IP Address</option>
+                                            <option value="10" >10 IP Address</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group margin-bottom-0">
+                                        <select class="software-updates form-control center_box" 
+                                            id="subscription_3956c7b8e1b9412c17b932da965aa596" 
+                                            name="subscription[]" 
+                                            onchange="return updateCartLisenceQty();">
+                                            <option selected="selected" value="3" selected="selected">3 months (Free Updates)</option>
+                                            <option  value="6">6 months (Free Updates)</option>
+                                            <option  value="12">12 months (Free Updates)</option>
+                                        </select>
+                                        <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
+                                        <input type="hidden" name="productTypeId[]" id="productTypeId" value="3">
+                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @elseif ($cart['bundle_type'] == 'exam-desktop')
+                        <div class="shopping_cart_box shopping_cart_box_online">
+                            <div class="row">
+                                <div class="col-sm-2 padding-left-36">
+                                    <img src="https://www.study4exam.com/uploads/product_images/1619688098_webbased.webp" class="img-center">
+                                </div>
+                                <div class="col-sm-5 text-center_online">
+                                    <div class="online-engin_heading">
+                                        Microsoft MB-340 Exam
+                                    </div>
+                                    <div class="item">
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_online_engin.png">
+                                        <span class="product_name">Web-Based Practice Test</span>
+                                    </div>
+                                    <div class="online_engin_price">
+                                        <del>$98.00</del><span class="cartsinglesubtotal sub-total-amount">$49.00</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 text-right padding-top-7">
+                                    <a href="https://www.study4exam.com/carts/remove_item/3956c7b8e1b9412c17b932da965aa596" 
+                                        onclick="return confirm('Are you sure! You want to remove?');">
+                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
+                                    </a>
+                                    <div class="form-group margin-bottom-10">
+                                        <input type="hidden"  id="subscription_plan_3956c7b8e1b9412c17b932da965aa596" name="subscription_plan[]" value="">
+                                        <select name="cart_qty[]" id="cart_qty_3956c7b8e1b9412c17b932da965aa596"
+                                            class="lisenceQty form-control center_box" 
+                                            onchange="return updateCartLisenceQty();">
+                                            <option value="1" selected="selected">3 IP Address</option>
+                                            <option value="4" >4 IP Address</option>
+                                            <option value="5" >5 IP Address</option>
+                                            <option value="6" >6 IP Address</option>
+                                            <option value="7" >7 IP Address</option>
+                                            <option value="8" >8 IP Address</option>
+                                            <option value="9" >9 IP Address</option>
+                                            <option value="10" >10 IP Address</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group margin-bottom-0">
+                                        <select class="software-updates form-control center_box" 
+                                            id="subscription_3956c7b8e1b9412c17b932da965aa596" 
+                                            name="subscription[]" 
+                                            onchange="return updateCartLisenceQty();">
+                                            <option selected="selected" value="3" selected="selected">3 months (Free Updates)</option>
+                                            <option  value="6">6 months (Free Updates)</option>
+                                            <option  value="12">12 months (Free Updates)</option>
+                                        </select>
+                                        <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
+                                        <input type="hidden" name="productTypeId[]" id="productTypeId" value="3">
+                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         @endif
                     @empty
                         

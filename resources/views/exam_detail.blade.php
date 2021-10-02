@@ -163,7 +163,9 @@
                                                         <div class="col-sm-12">
                                                             <input type="hidden" id="bundle_type" name="bundle_type" value="exam-bundle" />
                                                             <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />
-                                                            <input type="hidden" id='bundle_code' name="bundle_code" value="{{$exam->exam_code ?? ''}}" />
+                                                            <input type="hidden" id='vendor_id' name="vendor_id" value="{{$exam->vendor->id ?? ''}}" />
+                                                            <input type="hidden" id='certificate_id' name="certificate_id" value="{{$exam->certification_id ?? ''}}" />
+                                                            <input type="hidden" id='exam_code' name="exam_code" value="{{$exam->exam_code ?? ''}}" />
                                                             <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->bundle->orignal ?? 1 }}" />
                                                             <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->bundle->discounted ?? 1 }}" />
                                                             <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
@@ -260,8 +262,9 @@
                                                 <ul>
                                                     <form method="GET"  action="{{route('add_cart') }}" class="web_form">
                                                         <input type="hidden" id="bundle_type" name="bundle_type" value="exam-web" />
-                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />
-                                                        <input type="hidden" id='bundle_code' name="bundle_code" value="{{$exam->exam_code ?? ''}}" />
+                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />                                                            <input type="hidden" id='vendor_id' name="vendor_id" value="{{$exam->vendor->id ?? ''}}" />
+                                                        <input type="hidden" id='certificate_id' name="certificate_id" value="{{$exam->certification_id ?? ''}}" />
+                                                        <input type="hidden" id='exam_code' name="exam_code" value="{{$exam->exam_code ?? ''}}" />
                                                         <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->web->orignal ?? 1 }}" />
                                                         <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->web->discounted ?? 1 }}" />
                                                         <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
@@ -346,8 +349,9 @@
                                                 <ul>
                                                     <form method="GET"  action="{{route('add_cart') }}" class="pdf_form">
                                                         <input type="hidden" id="bundle_type" name="bundle_type" value="exam-pdf" />
-                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />
-                                                        <input type="hidden" id='bundle_code' name="bundle_code" value="{{$exam->exam_code ?? ''}}" />
+                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />                                                            <input type="hidden" id='vendor_id' name="vendor_id" value="{{$exam->vendor->id ?? ''}}" />
+                                                        <input type="hidden" id='certificate_id' name="certificate_id" value="{{$exam->certification_id ?? ''}}" />
+                                                        <input type="hidden" id='exam_code' name="exam_code" value="{{$exam->exam_code ?? ''}}" />
                                                         <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->pdf->orignal ?? 1 }}" />
                                                         <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->pdf->discounted ?? 1 }}" />
                                                         <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
@@ -445,8 +449,9 @@
                                                 <ul>
                                                     <form method="GET"  action="{{route('add_cart') }}" class="soft_form">
                                                         <input type="hidden" id="bundle_type" name="bundle_type" value="exam-desktop" />
-                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />
-                                                        <input type="hidden" id='bundle_code' name="bundle_code" value="{{$exam->exam_code ?? ''}}" />
+                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />                                                            <input type="hidden" id='vendor_id' name="vendor_id" value="{{$exam->vendor->id ?? ''}}" />
+                                                        <input type="hidden" id='certificate_id' name="certificate_id" value="{{$exam->certification_id ?? ''}}" />
+                                                        <input type="hidden" id='exam_code' name="exam_code" value="{{$exam->exam_code ?? ''}}" />
                                                         <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->desktop->orignal ?? 1 }}" />
                                                         <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->desktop->discounted ?? 1 }}" />
                                                         <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />

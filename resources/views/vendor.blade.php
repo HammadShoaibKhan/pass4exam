@@ -174,6 +174,7 @@
                               <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $vendor->getPricing()->bundle->orignal ?? 1 }}" />
                               <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $vendor->getPricing()->bundle->discounted ?? 1 }}" />
                               <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
+                              <input type="hidden" id="vendor_id" name="vendor_id" value="{{$vendor->id ?? ''}}" />
                               <div class="___class_+?54___">
                                 <button type="submit"  class="btn" href="">
                                   <i class="fa fa-shopping-cart"></i> Add to Cart

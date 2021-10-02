@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class CartController extends Controller
 {
@@ -15,45 +16,82 @@ class CartController extends Controller
     }
 
     public function addToCart(Request $request){
-        // session()->unset('carts');
-            unset($_SESSION['carts']);
+        // session()->put('carts', array());
+        // session()->forget('carts');
+        // session()->flush();
 
         $carts = session()->get('carts',[]);
+        
         if(count($carts)<1){
-           session()->unset('carts');
-            $carts = [
-                $request->bundleType => [
-                    "shop_type" =>  $request->shop_type,
-                    "bundleType"=>  $request->bundleType,
-                    "bundleIcon"=>  $request->bundleIcon,
-                    "bundle_name"=>  $request->bundle_name,
-                    "orignalPrice"=>  $request->orignalPrice,
-                    "discountedPrice"=>  $request->discountedPrice,
-                    "checkout_price"=>  $request->checkout_price,
-                    "bundle_type"=>  $request->bundle_type,
-                    "bundle_id"=>  $request->bundle_id,
-                    "individual_price_inc"=>  $request->individual_price_inc,
-                ]
+            $carts[0] = [
+                "bundle_type"=>  $request->bundle_type,
+                "bundle_title" =>  $request->bundle_title,
+                "vendor_id" =>  $request->vendor_id,
+                "certificate_id" =>  ($request->certificate_id) ? $request->certificate_id:'',
+                "exam_code" =>  ($request->exam_code) ? $request->exam_code:'',
+                // "bundleIcon"=>  $request->bundleIcon,
+                "orignalPrice"=>  $request->orignalPrice,
+                "discountedPrice"=>  $request->discountedPrice,
+                "subcribed_for"=>  $request->subcribed_for,
             ];
         }
-        else{
-            $newCart = [
-                $request->bundleType => [
-                    "shop_type" =>  $request->shop_type,
-                    "bundleType"=>  $request->bundleType,
-                    "bundleIcon"=>  $request->bundleIcon,
-                    "bundle_name"=>  $request->bundle_name,
+        else
+        {
+            $update_flag = 0;
+            foreach ($carts as  $key => $cart) {
+                if( ( (($cart['exam_code'] != "") && $cart['exam_code'] == $request->exam_code) && ($cart['bundle_type'] == $request->bundle_type) ) || 
+                    ( ($cart['vendor_id'] == $request->vendor_id) && ($cart['bundle_type'] == $request->bundle_type) ) 
+                )
+                {
+                    // if(($cart['exam_code'] != "")){
+                    //     if($cart['vendor_id'] == $cart['vendor_id'])
+                    // }
+                    $carts[$key] = [
+                        "bundle_type"=>  $request->bundle_type,
+                        "bundle_title" =>  $request->bundle_title,
+                        "vendor_id" =>  $request->vendor_id,
+                        "certificate_id" =>  ($request->certificate_id) ? $request->certificate_id:'',
+                        "exam_code" =>  ($request->exam_code) ? $request->exam_code:'',
+                        // "bundleIcon"=>  $request->bundleIcon,
+                        "orignalPrice"=>  $request->orignalPrice,
+                        "discountedPrice"=>  $request->discountedPrice,
+                        "subcribed_for"=>  $request->subcribed_for,
+                    ];
+
+                    $update_flag = 1;
+                }
+            }
+
+            if($update_flag == 0){
+                $newCart = [
+                    "bundle_type"=>  $request->bundle_type,
+                    "bundle_title" =>  $request->bundle_title,
+                    "vendor_id" =>  $request->vendor_id,
+                    "certificate_id" =>  ($request->certificate_id) ? $request->certificate_id:'',
+                    "exam_code" =>  ($request->exam_code) ? $request->exam_code:'',
+                    // "bundleIcon"=>  $request->bundleIcon,
                     "orignalPrice"=>  $request->orignalPrice,
                     "discountedPrice"=>  $request->discountedPrice,
-                    "checkout_price"=>  $request->checkout_price,
-                    "bundle_type"=>  $request->bundle_type,
-                    "bundle_id"=>  $request->bundle_id,
-                    "individual_price_inc"=>  $request->individual_price_inc,
-                ]
-            ];
-            array_push($carts, $newCart);
+                    "subcribed_for"=>  $request->subcribed_for,
+                ];
+                array_push($carts, $newCart);
+
+            }
+        //     $newCart = [
+        //         "bundle_type"=>  $request->bundle_type,
+        //         "bundle_title" =>  $request->bundle_title,
+        //         "vendor_id" =>  $request->vendor_id,
+        //         "certificate_id" =>  ($request->certificate_id) ? $request->certificate_id:'',
+        //         "exam_code" =>  ($request->exam_code) ? $request->exam_code:'',
+        //         // "bundleIcon"=>  $request->bundleIcon,
+        //         "orignalPrice"=>  $request->orignalPrice,
+        //         "discountedPrice"=>  $request->discountedPrice,
+        //         "subcribed_for"=>  $request->subcribed_for,
+        //     ];
+        //     array_push($carts, $newCart);
         }
         session()->put('carts', $carts);
+        // dd();
         return redirect()->route('cart_view');;
     }
 }
