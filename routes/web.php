@@ -123,15 +123,17 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('vendor/{slug}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
     Route::get('{vendor_slug}/info/{exam_slug}', [Exam_Controller::class, 'index'])->name('exam_info');
+    Route::post('demo-exam/practice-test', [Exam_Controller::class, 'startDemoExamPractice'])->name('exam.demo.practice');
     Route::get('demo-exam/{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
 
     Route::get('carts', [CartController::class, 'index'])->name('cart_view');
     Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
 
-    Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
-
     Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
     Route::post('user-login', [\App\Http\Controllers\UserController::class, 'userLogin'])->name('user.login');
+
+    Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
+
 });
 
 

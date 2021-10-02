@@ -132,7 +132,9 @@
               {{-- Central Content --}}
               <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
-                  <form method="post" action="practice_test.php">
+                  <form method="post" action="{{ route('exam.demo.practice') }}">
+                      {{ csrf_field() }}
+                      <input type="hidden" name="exam_id" value="{{ $exam->id }}">
                     <div class="row">
                       {{-- Case Study --}}
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -146,7 +148,7 @@
                                 <div class="col-lg-3 col-md-4 col-sm-4">
                                   <label  class="checkbox-inline">
                                     <input type="checkbox" {{ $key == 0 ? 'checked' : 'disabled' }}
-                                    data-val="14" value="1" name="case_studies[]" id="cs1" disabled/>
+                                    data-val="14" value="{{ $caseStudy->id }}" name="case_studies[]" id="cs1" disabled/>
                                     {{ $caseStudy->name ?? '' }}                                ({{$caseStudy->questions->count()}})
                                     <span class="checkmark"></span>
                                   </label>
@@ -265,12 +267,12 @@
                             <label>
                               Allocate Time (Hours : Minutes)
                             </label>
-                            <select  class="form-control" name="tHour" id="tHour">
+                            <select  class="form-control" name="hours" id="tHour">
                               <option value="00">00</option>
                               <option value="01" selected="selected">01</option>
                               <option value="02">02</option>
                             </select>
-                            <select  class="form-control" name="tMinutes" id="tMinutes">
+                            <select  class="form-control" name="mins" id="tMinutes">
                               <option value="00">00</option>
                               @for ($i=1; $i<60; $i++)
                                 <option value="{{$i}}">{{$i}}</option>
