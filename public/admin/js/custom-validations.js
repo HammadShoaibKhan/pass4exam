@@ -347,17 +347,11 @@ $('#edit-user-form').validate({
     rules : {
         name : {
             required : true
-        },
-        password : {
-            required : true
         }
     },
     messages : {
         name : {
             required : 'Name is required'
-        },
-        password : {
-            required : 'Password is required'
         }
     }
 });
