@@ -5,34 +5,34 @@
 .cstm-bg-blue {
     background: #22ad95;
 }
-.navbar-nav {
+.member .navbar-nav {
     margin-left: 150px;
 }
-.navbar-nav>.nav-item>.nav-link {
+.member .navbar-nav>.nav-item>.nav-link {
     color: #fff !important;
     font-size: 13px;
 }
-.navbar-nav>.nav-item.r3 {
+.member .navbar-nav>.nav-item.r3 {
     position: absolute;
     right: 0;
 }
-.navbar-nav>.nav-item.r2 {
+.member .navbar-nav>.nav-item.r2 {
     position: absolute;
     right: 80px;
     bottom: 3px;
 }
-.navbar-nav>.nav-item.r2>a {
+.member .navbar-nav>.nav-item.r2>a {
     border-left: 1px solid #fff;
 }
-.navbar-nav>.nav-item.r2 .dropdown-item {
+.member .navbar-nav>.nav-item.r2 .dropdown-item {
     font-size: 13px;
 }
-.navbar-nav>.nav-item.r1 {
+.member .navbar-nav>.nav-item.r1 {
     position: absolute;
     right: 200px;
     bottom: 3px;
 }
-.navbar-nav>.nav-item>.nav-link:hover {
+.member .navbar-nav>.nav-item>.nav-link:hover {
     color: #fff !important;
 }
 .sdr-profile {
