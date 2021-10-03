@@ -1,7 +1,16 @@
 @include('layouts.frontend.includes.head_files')
+<?php
+    $totalPayment = 0;
+    $totalDiscount = 0;
+    $subTotal=0;
 
+?>
     <span style="display:none;" class="closeBtn" onclick="closeDisBox(); return false;">X</span>
 	<style>
+        .cancel-img{
+            right: 4px !important; 
+            top: -44px !important;
+        }
 		.topDiscountBar {
 			width: 100%;
 			/*background: #041963;*/
@@ -354,7 +363,7 @@
                                 {{-- Description Section --}}
                                 <div class="col-sm-6 width-45 padding-right-0">
                                     <div class="bundle_pack_heading">
-                                        {{$cart['bundle_name'] ?? ''}}								
+                                        {{$cart['bundle_title'] ?? ''}}								
                                     </div>
                                     <div class="Product_included">
                                         Product included
@@ -374,15 +383,19 @@
                                 </div>
                                 {{-- Payment Section --}}
                                 <div class="col-sm-3 padding-left-0 text-right">
-                                    <a href="{route('')}}/carts/remove_item/1e7bd7121704624f24d0f514e57559d2" 
+                                    <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
                                         <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
                                     </a>
                                     <div class="bundle_price">
                                         <del>${{$cart['orignalPrice'] ?? ''}}</del>
                                         <span class="cartsinglesubtotal sub-total-amount">
-                                            {{$cart['discountedPrice'] ?? ''}}
+                                            ${{$cart['discountedPrice'] ?? ''}}
                                         </span>
+                                        <?php 
+                                            $subTotal = $subTotal + $cart['orignalPrice'] ?? 0 ;
+                                            $totalDiscount = $totalDiscount + ($cart['orignalPrice'] - $cart['discountedPrice']) ?? 0;
+                                        ?>
                                     </div>
                                     <div class="form-group margin-bottom-10">
                                         {{-- <select class="2 sffasf bselect form-control margin-bottom-10" id="subscription_plan_1e7bd7121704624f24d0f514e57559d2" name="subscription_plan[]" onchange="return updateCartLisenceQty();">
@@ -390,7 +403,7 @@
                                             <option value="corporate" > Corporate 10 PCs</option>
                                             <option value="trainer" > Trainer 25 PCs</option>
                                         </select> --}}
-                                        <select class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" onchange="return updateCartLisenceQty();">
+                                        <select class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" onchange="//return updateCartLisenceQty();">
                                             <option value="{{($cart['subcribed_for']=='3') ? $cart['subcribed_for'] :'3'}}" {{($cart['subcribed_for']=='3') ? "selected" :''}}>3 months (Free Updates)</option>                                            
                                             <option value="{{($cart['subcribed_for']=='6') ? $cart['subcribed_for'] :'6'}}" {{($cart['subcribed_for']=='6') ? "selected" :''}}>6 months (Free Updates)</option>
                                             <option value="{{($cart['subcribed_for']=='12')? $cart['subcribed_for'] :'12'}}" {{($cart['subcribed_for']=='12') ? "selected" :''}}>12 months (Free Updates)</option>
@@ -415,7 +428,7 @@
                                 {{-- Description Section --}}
                                 <div class="col-sm-6 width-45 padding-right-0">
                                     <div class="bundle_pack_heading">
-                                        {{$cart['bundle_name'] ?? ''}}								
+                                        {{$cart['bundle_title'] ?? ''}}								
                                     </div>
                                     <div class="Product_included">
                                         Product included
@@ -435,15 +448,19 @@
                                 </div>
                                 {{-- Payment Section --}}
                                 <div class="col-sm-3 padding-left-0 text-right">
-                                    <a href="{route('')}}/carts/remove_item/1e7bd7121704624f24d0f514e57559d2" 
+                                    <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
                                         <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
                                     </a>
                                     <div class="bundle_price">
                                         <del>${{$cart['orignalPrice'] ?? ''}}</del>
                                         <span class="cartsinglesubtotal sub-total-amount">
-                                            {{$cart['discountedPrice'] ?? ''}}
+                                            ${{$cart['discountedPrice'] ?? ''}}
                                         </span>
+                                        <?php 
+                                            $subTotal = $subTotal + $cart['orignalPrice'] ?? 0 ;
+                                            $totalDiscount = $totalDiscount + ($cart['orignalPrice'] - $cart['discountedPrice']) ?? 0;
+                                        ?>
                                     </div>
                                     <div class="form-group margin-bottom-10">
                                         {{-- <select class="2 sffasf bselect form-control margin-bottom-10" id="subscription_plan_1e7bd7121704624f24d0f514e57559d2" name="subscription_plan[]" onchange="return updateCartLisenceQty();">
@@ -451,7 +468,7 @@
                                             <option value="corporate" > Corporate 10 PCs</option>
                                             <option value="trainer" > Trainer 25 PCs</option>
                                         </select> --}}
-                                        <select class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" onchange="return updateCartLisenceQty();">
+                                        <select class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" onchange="//return updateCartLisenceQty();">
                                             <option value="{{($cart['subcribed_for']=='3') ? $cart['subcribed_for'] :'3'}}" {{($cart['subcribed_for']=='3') ? "selected" :''}}>3 months (Free Updates)</option>                                            
                                             <option value="{{($cart['subcribed_for']=='6') ? $cart['subcribed_for'] :'6'}}" {{($cart['subcribed_for']=='6') ? "selected" :''}}>6 months (Free Updates)</option>
                                             <option value="{{($cart['subcribed_for']=='12')? $cart['subcribed_for'] :'12'}}" {{($cart['subcribed_for']=='12') ? "selected" :''}}>12 months (Free Updates)</option>
@@ -472,22 +489,29 @@
                                 </div>
                                 <div class="col-sm-5 text-center_online">
                                     <div class="online-engin_heading">
-                                        Microsoft MB-340 Exam
+                                        {{$cart['bundle_title'] ?? ''}} 
                                     </div>
                                     <div class="item">
                                         <img src="https://www.study4exam.com/assets/site/image/cart_online_engin.png">
                                         <span class="product_name">Web-Based Practice Test</span>
                                     </div>
                                     <div class="online_engin_price">
-                                        <del>$98.00</del><span class="cartsinglesubtotal sub-total-amount">$49.00</span>
+                                        <del>${{$cart['orignalPrice'] ?? ''}}</del>
+                                        <span class="cartsinglesubtotal sub-total-amount">
+                                            ${{$cart['discountedPrice'] ?? ''}}
+                                        </span>
+                                        <?php 
+                                            $subTotal = $subTotal + $cart['orignalPrice'] ?? 0 ;
+                                            $totalDiscount = $totalDiscount + ($cart['orignalPrice'] - $cart['discountedPrice']) ?? 0;
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="col-sm-5 text-right padding-top-7">
-                                    <a href="https://www.study4exam.com/carts/remove_item/3956c7b8e1b9412c17b932da965aa596" 
+                                    <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
                                         <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
                                     </a>
-                                    <div class="form-group margin-bottom-10">
+                                    {{-- <div class="form-group margin-bottom-10">
                                         <input type="hidden"  id="subscription_plan_3956c7b8e1b9412c17b932da965aa596" name="subscription_plan[]" value="">
                                         <select name="cart_qty[]" id="cart_qty_3956c7b8e1b9412c17b932da965aa596"
                                             class="lisenceQty form-control center_box" 
@@ -501,19 +525,28 @@
                                             <option value="9" >9 IP Address</option>
                                             <option value="10" >10 IP Address</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group margin-bottom-0">
-                                        <select class="software-updates form-control center_box" 
+                                        {{-- <select class="software-updates form-control center_box" 
                                             id="subscription_3956c7b8e1b9412c17b932da965aa596" 
                                             name="subscription[]" 
                                             onchange="return updateCartLisenceQty();">
                                             <option selected="selected" value="3" selected="selected">3 months (Free Updates)</option>
                                             <option  value="6">6 months (Free Updates)</option>
                                             <option  value="12">12 months (Free Updates)</option>
+                                        </select> --}}
+                                        <select class="software-updates form-control center_box" 
+                                            id="subscription_3956c7b8e1b9412c17b932da965aa596" 
+                                            name="subscription[]" 
+                                            onchange="//return updateCartLisenceQty();">
+                                            <option value="{{($cart['subcribed_for']=='3') ? $cart['subcribed_for'] :'3'}}" {{($cart['subcribed_for']=='3') ? "selected" :''}}>3 months (Free Updates)</option>                                            
+                                            <option value="{{($cart['subcribed_for']=='6') ? $cart['subcribed_for'] :'6'}}" {{($cart['subcribed_for']=='6') ? "selected" :''}}>6 months (Free Updates)</option>
+                                            <option value="{{($cart['subcribed_for']=='12')? $cart['subcribed_for'] :'12'}}" {{($cart['subcribed_for']=='12') ? "selected" :''}}>12 months (Free Updates)</option>
                                         </select>
-                                        <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
+
+                                        {{-- <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
                                         <input type="hidden" name="productTypeId[]" id="productTypeId" value="3">
-                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340">
+                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340"> --}}
                                     </div>
                                 </div>
                             </div>
@@ -526,22 +559,29 @@
                                 </div>
                                 <div class="col-sm-5 text-center_online">
                                     <div class="online-engin_heading">
-                                        Microsoft MB-340 Exam
+                                        {{$cart['bundle_title'] ?? ''}} 
                                     </div>
                                     <div class="item">
-                                        <img src="https://www.study4exam.com/assets/site/image/cart_online_engin.png">
-                                        <span class="product_name">Web-Based Practice Test</span>
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_pdf.png">
+                                        <span class="product_name">Questions & Answers (PDF) </span>
                                     </div>
                                     <div class="online_engin_price">
-                                        <del>$98.00</del><span class="cartsinglesubtotal sub-total-amount">$49.00</span>
+                                        <del>${{$cart['orignalPrice'] ?? ''}}</del>
+                                        <span class="cartsinglesubtotal sub-total-amount">
+                                            ${{$cart['discountedPrice'] ?? ''}}
+                                        </span>
+                                        <?php 
+                                            $subTotal = $subTotal + $cart['orignalPrice'] ?? 0 ;
+                                            $totalDiscount = $totalDiscount + ($cart['orignalPrice'] - $cart['discountedPrice']) ?? 0;
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="col-sm-5 text-right padding-top-7">
-                                    <a href="https://www.study4exam.com/carts/remove_item/3956c7b8e1b9412c17b932da965aa596" 
+                                    <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
                                         <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
                                     </a>
-                                    <div class="form-group margin-bottom-10">
+                                    {{-- <div class="form-group margin-bottom-10">
                                         <input type="hidden"  id="subscription_plan_3956c7b8e1b9412c17b932da965aa596" name="subscription_plan[]" value="">
                                         <select name="cart_qty[]" id="cart_qty_3956c7b8e1b9412c17b932da965aa596"
                                             class="lisenceQty form-control center_box" 
@@ -555,19 +595,28 @@
                                             <option value="9" >9 IP Address</option>
                                             <option value="10" >10 IP Address</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group margin-bottom-0">
-                                        <select class="software-updates form-control center_box" 
+                                        {{-- <select class="software-updates form-control center_box" 
                                             id="subscription_3956c7b8e1b9412c17b932da965aa596" 
                                             name="subscription[]" 
                                             onchange="return updateCartLisenceQty();">
                                             <option selected="selected" value="3" selected="selected">3 months (Free Updates)</option>
                                             <option  value="6">6 months (Free Updates)</option>
                                             <option  value="12">12 months (Free Updates)</option>
+                                        </select> --}}
+                                        <select class="software-updates form-control center_box" 
+                                            id="subscription_3956c7b8e1b9412c17b932da965aa596" 
+                                            name="subscription[]" 
+                                            onchange="//return updateCartLisenceQty();">
+                                            <option value="{{($cart['subcribed_for']=='3') ? $cart['subcribed_for'] :'3'}}" {{($cart['subcribed_for']=='3') ? "selected" :''}}>3 months (Free Updates)</option>                                            
+                                            <option value="{{($cart['subcribed_for']=='6') ? $cart['subcribed_for'] :'6'}}" {{($cart['subcribed_for']=='6') ? "selected" :''}}>6 months (Free Updates)</option>
+                                            <option value="{{($cart['subcribed_for']=='12')? $cart['subcribed_for'] :'12'}}" {{($cart['subcribed_for']=='12') ? "selected" :''}}>12 months (Free Updates)</option>
                                         </select>
-                                        <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
+
+                                        {{-- <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
                                         <input type="hidden" name="productTypeId[]" id="productTypeId" value="3">
-                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340">
+                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340"> --}}
                                     </div>
                                 </div>
                             </div>
@@ -580,22 +629,29 @@
                                 </div>
                                 <div class="col-sm-5 text-center_online">
                                     <div class="online-engin_heading">
-                                        Microsoft MB-340 Exam
+                                        {{$cart['bundle_title'] ?? ''}} 
                                     </div>
                                     <div class="item">
-                                        <img src="https://www.study4exam.com/assets/site/image/cart_online_engin.png">
-                                        <span class="product_name">Web-Based Practice Test</span>
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_desktop.png">
+                                        <span class="product_name">Desktop Practice Test Software </span>
                                     </div>
                                     <div class="online_engin_price">
-                                        <del>$98.00</del><span class="cartsinglesubtotal sub-total-amount">$49.00</span>
+                                        <del>${{$cart['orignalPrice'] ?? ''}}</del>
+                                        <span class="cartsinglesubtotal sub-total-amount">
+                                            ${{$cart['discountedPrice'] ?? ''}}
+                                        </span>
+                                        <?php 
+                                            $subTotal = $subTotal + $cart['orignalPrice'] ?? 0 ;
+                                            $totalDiscount = $totalDiscount + ($cart['orignalPrice'] - $cart['discountedPrice']) ?? 0;
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="col-sm-5 text-right padding-top-7">
-                                    <a href="https://www.study4exam.com/carts/remove_item/3956c7b8e1b9412c17b932da965aa596" 
+                                    <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
                                         <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
                                     </a>
-                                    <div class="form-group margin-bottom-10">
+                                    {{-- <div class="form-group margin-bottom-10">
                                         <input type="hidden"  id="subscription_plan_3956c7b8e1b9412c17b932da965aa596" name="subscription_plan[]" value="">
                                         <select name="cart_qty[]" id="cart_qty_3956c7b8e1b9412c17b932da965aa596"
                                             class="lisenceQty form-control center_box" 
@@ -609,19 +665,28 @@
                                             <option value="9" >9 IP Address</option>
                                             <option value="10" >10 IP Address</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group margin-bottom-0">
-                                        <select class="software-updates form-control center_box" 
+                                        {{-- <select class="software-updates form-control center_box" 
                                             id="subscription_3956c7b8e1b9412c17b932da965aa596" 
                                             name="subscription[]" 
                                             onchange="return updateCartLisenceQty();">
                                             <option selected="selected" value="3" selected="selected">3 months (Free Updates)</option>
                                             <option  value="6">6 months (Free Updates)</option>
                                             <option  value="12">12 months (Free Updates)</option>
+                                        </select> --}}
+                                        <select class="software-updates form-control center_box" 
+                                            id="subscription_3956c7b8e1b9412c17b932da965aa596" 
+                                            name="subscription[]" 
+                                            readonly="true">
+                                            <option value="{{($cart['subcribed_for']=='3') ? $cart['subcribed_for'] :'3'}}" {{($cart['subcribed_for']=='3') ? "selected" :''}}>3 months (Free Updates)</option>                                            
+                                            <option value="{{($cart['subcribed_for']=='6') ? $cart['subcribed_for'] :'6'}}" {{($cart['subcribed_for']=='6') ? "selected" :''}}>6 months (Free Updates)</option>
+                                            <option value="{{($cart['subcribed_for']=='12')? $cart['subcribed_for'] :'12'}}" {{($cart['subcribed_for']=='12') ? "selected" :''}}>12 months (Free Updates)</option>
                                         </select>
-                                        <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
+
+                                        {{-- <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
                                         <input type="hidden" name="productTypeId[]" id="productTypeId" value="3">
-                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340">
+                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340"> --}}
                                     </div>
                                 </div>
                             </div>
@@ -684,7 +749,7 @@
                         </div>
                         <div class="col-xs-6 text-right">
                             <div class="Summaryheading">
-                                <span class="pull-right">$256.00</span>
+                                <span class="pull-right"> ${{ $subTotal }}</span>
                             </div>
                         </div>
                     </div>
@@ -697,7 +762,7 @@
                         <div class="col-xs-6 text-right">
                             <div class="Summaryheading">
                                 <span id="DiscountAmount " class="pull-right DiscountAmount">
-                                    $128.00
+                                    ${{$totalDiscount}}
                                 </span>
                                 <div class="discountInfo">
                                     (50% Off)
@@ -707,8 +772,9 @@
                     </div>
                     <div class="total_payment">
                         Total Payment &nbsp; 
+                        <?php $totalPayment = $subTotal - $totalDiscount; ?>
                         <span class=" GrandTotalAmount">
-                            $128.00
+                            ${{$totalPayment}}
                         </span>
                     </div>
                 </div>
@@ -733,7 +799,7 @@
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input onkeyup="saveValue(this);" type="text" required="required" readonly="readonly" name="email" class="form-control" id="email" placeholder="Enter Your Email" value="{{ (auth()->check()) ? auth()->user()->email : '' }}">
+                                        <input onkeyup="saveValue(this);" type="text" required="required" name="email" class="form-control" id="email" placeholder="Enter Your Email" value="{{ (auth()->check()) ? auth()->user()->email : '' }}">
                                         <span class="help-block email-error"></span>
                                     </div>
                                 </div>
@@ -784,10 +850,11 @@
                                 <div class="col-sm-4 col-xs-12">
                                     <div class="form-group">
                                         <label for="state">State</label>
-                                        <select id="state" name="state" class="form-control" required="required">
+                                        <input id="state" name="state" class="form-control" required="required">
+                                        {{-- <select id="state" name="state" class="form-control" required="required">
                                             <option value="">Select State</option>
                                             <option  value="other">other</option>
-                                        </select>
+                                        </select> --}}
                                     </div>
                                 </div>
                             </div>
@@ -1068,7 +1135,7 @@
     			
                 if(response.status == 'success')
     			{
-    			    //console.log(response);
+    			    console.log(response);
     				redirectPage(BASE_URL+"payments/thankyou/"+response.order_id);
     				$("#imgLoader").remove();
     			}
@@ -1205,85 +1272,85 @@
  }
  
  
- function checkEmailExistsCart(e) {
-    var t = BASE_URL + "register/checkifEmailExists";
-	if(e){
-    $.ajax({
-        type: "POST",
-        url: t,
-        data: {
-            email: e
-        },
-        dataType: "json",
-        beforeSend: function() {
-            $("#email").before(function() {
-                return getLoadingImg()
-            })
-        },
+//  function checkEmailExistsCart(e) {
+//     var t = BASE_URL + "register/checkifEmailExists";
+// 	if(e){
+//     $.ajax({
+//         type: "POST",
+//         url: t,
+//         data: {
+//             email: e
+//         },
+//         dataType: "json",
+//         beforeSend: function() {
+//             $("#email").before(function() {
+//                 return getLoadingImg()
+//             })
+//         },
 		
-        success: function(t) {
-			$("#imgLoader").remove();
-            if(t.msgStatus == "Success")
-			{
-				$('#emailCheckError').hide();
-			}
-			else
-			{
-			    $('#email').val('');
-				$('#loginCheck').html(e+', this account already exists.');
-				$('#emailCheckError').show();
+//         success: function(t) {
+// 			$("#imgLoader").remove();
+//             if(t.msgStatus == "Success")
+// 			{
+// 				$('#emailCheckError').hide();
+// 			}
+// 			else
+// 			{
+// 			    $('#email').val('');
+// 				$('#loginCheck').html(e+', this account already exists.');
+// 				$('#emailCheckError').show();
 	
-			}
-        },
-        error: function() {
-            alert("something went wrong please try again"), $("#imgLoader").remove()
-        }
-    })
-	}
-    }
+// 			}
+//         },
+//         error: function() {
+//             alert("something went wrong please try again"), $("#imgLoader").remove()
+//         }
+//     })
+// 	}
+//     }
 
-    function checkEmailExistsCartFnd(e) {
-        var t = BASE_URL + "register/checkifEmailExists";
-    	if(e){
-        $.ajax({
-            type: "POST",
-            url: t,
-            data: {
-                email: e
-            },
-            dataType: "json",
-            beforeSend: function() {
-                $("#emailFnd").before(function() {
-                    return getLoadingImg()
-                })
-            },
+    // function checkEmailExistsCartFnd(e) {
+    //     var t = BASE_URL + "register/checkifEmailExists";
+    // 	if(e){
+    //     $.ajax({
+    //         type: "POST",
+    //         url: t,
+    //         data: {
+    //             email: e
+    //         },
+    //         dataType: "json",
+    //         beforeSend: function() {
+    //             $("#emailFnd").before(function() {
+    //                 return getLoadingImg()
+    //             })
+    //         },
     		
-            success: function(t) {
-    			$("#imgLoader").remove();
-                if(t.msgStatus == "Success")
-    			{
-    				$('#emailCheckErrorFnd').hide();
-    			}
-    			else
-    			{
-    			    $('#emailFnd').val('');
-    				$('#loginCheckFnd').html(e+', this account already exists.');
-    				$('#emailCheckErrorFnd').show();
+    //         success: function(t) {
+    // 			$("#imgLoader").remove();
+    //             if(t.msgStatus == "Success")
+    // 			{
+    // 				$('#emailCheckErrorFnd').hide();
+    // 			}
+    // 			else
+    // 			{
+    // 			    $('#emailFnd').val('');
+    // 				$('#loginCheckFnd').html(e+', this account already exists.');
+    // 				$('#emailCheckErrorFnd').show();
     	
-    			}
-            },
-            error: function() {
-                alert("something went wrong please try again"), $("#imgLoader").remove()
-            }
-        })
-    	}
-    }
+    // 			}
+    //         },
+    //         error: function() {
+    //             alert("something went wrong please try again"), $("#imgLoader").remove()
+    //         }
+    //     })
+    // 	}
+    // }
 
-    $(document).ready(function(){
-    	$("#ApplyCouponNew").on("click", function() {
-                $Coupon = $("#coupon-code"), "" == $Coupon.val() ? $Coupon.focus() : validate_coupon_code_new($Coupon.val())
-        })
-    })
+    // $(document).ready(function(){
+    // 	$("#ApplyCouponNew").on("click", function() {
+    //             $Coupon = $("#coupon-code"), "" == $Coupon.val() ? $Coupon.focus() : validate_coupon_code_new($Coupon.val())
+    //     })
+    // })
 
     function UpdateGrandTotalNew() {
         var e, t = 0;
@@ -1298,86 +1365,86 @@
         }), e = parseInt($(".DiscountAmount").html().replace("$", "")), t = parseInt(r - e), t = parseFloat(t).toFixed(2), $("#DiscountNewAmount").html("$" + t), $("#GrandTotalAmount").html("$" + t)
     }
 
-    function validate_coupon_code_new(e) {
-        console.log(e);
-    	UpdateGrandTotalNew();
-        var t = BASE_URL + "carts/validate_coupon";
-        $(".loadingimg").css("display", "block"), $.ajax({
-            type: "POST",
-            url: t,
-            data: {
-                Coupon: e
-            },
-            dataType: "html",
-            beforeSend: function() {},
-            success: function(e) {
-                if (e = e.replace(/\s\s+/g, " "), RespObject = JSON.parse(e), RespObject.Status) {
-                    var t = RespObject.Coupon.id,
-                        r = RespObject.Coupon.coupon_code,
-                        a = (RespObject.Coupon.discount_type, 0),
-                        o = 0;
-                    $(".sub-total-amount").each(function() {
-                        var e = parseInt($(this).html().replace("$", ""));
-                        a = o = parseInt(o + e)
-                    });
-                    var n = 0;
-                    if ($(".cartQty").each(function() {
-                            var e = parseInt($(this).val().replace("$", ""));
-                            n = parseInt(n + e)
-                        }), 1 == RespObject.Coupon.discount_type) {
-                        var i = RespObject.Coupon.discount_amount,
-                            s = o - i,
-                            l = (a = s = Math.round(100 * s) / 100, i / o * 100);
-                        $(".disCode").html('"' + r + '"'), $(".disPer").html(l), console.log(r), console.log(l)
-                    } else if (2 == RespObject.Coupon.discount_type) {
-                        var c = RespObject.Coupon.discount_percent;
-                        s = o - (i = o * c / 100), a = s = Math.round(100 * s) / 100, l = RespObject.Coupon.discount_percent;
-                        $(".disCode").html('"' + r + '"'), $(".disPer").html(l), console.log(r), console.log(l), $(".coupon-discount-area").show()
-                    }
-                    i = parseFloat(i).toFixed(2), s = parseFloat(s).toFixed(2), a = parseFloat(a).toFixed(2), $(".DiscountAmount").html("$" + i), $("#DiscountNewAmount").html("$" + s), $(".GrandTotalAmount").html("$" + a), update_total(i, s, a, t), $(".codemsg").hide(), $(".couponApplied").show(), $(".coupon-field").hide()
-                } else $(".codemsg").addClass("invalid").html(RespObject.Message), $(".codemsg").show();
-                $(".loadingimg").css("display", "none");
-                location.reload();
-            },
-            error: function() {
-                console.log("something went wrong please try again"), $(".loadingimg").css("display", "none")
-            }
-        })
-    }
+    // function validate_coupon_code_new(e) {
+    //     console.log(e);
+    // 	UpdateGrandTotalNew();
+    //     var t = BASE_URL + "carts/validate_coupon";
+    //     $(".loadingimg").css("display", "block"), $.ajax({
+    //         type: "POST",
+    //         url: t,
+    //         data: {
+    //             Coupon: e
+    //         },
+    //         dataType: "html",
+    //         beforeSend: function() {},
+    //         success: function(e) {
+    //             if (e = e.replace(/\s\s+/g, " "), RespObject = JSON.parse(e), RespObject.Status) {
+    //                 var t = RespObject.Coupon.id,
+    //                     r = RespObject.Coupon.coupon_code,
+    //                     a = (RespObject.Coupon.discount_type, 0),
+    //                     o = 0;
+    //                 $(".sub-total-amount").each(function() {
+    //                     var e = parseInt($(this).html().replace("$", ""));
+    //                     a = o = parseInt(o + e)
+    //                 });
+    //                 var n = 0;
+    //                 if ($(".cartQty").each(function() {
+    //                         var e = parseInt($(this).val().replace("$", ""));
+    //                         n = parseInt(n + e)
+    //                     }), 1 == RespObject.Coupon.discount_type) {
+    //                     var i = RespObject.Coupon.discount_amount,
+    //                         s = o - i,
+    //                         l = (a = s = Math.round(100 * s) / 100, i / o * 100);
+    //                     $(".disCode").html('"' + r + '"'), $(".disPer").html(l), console.log(r), console.log(l)
+    //                 } else if (2 == RespObject.Coupon.discount_type) {
+    //                     var c = RespObject.Coupon.discount_percent;
+    //                     s = o - (i = o * c / 100), a = s = Math.round(100 * s) / 100, l = RespObject.Coupon.discount_percent;
+    //                     $(".disCode").html('"' + r + '"'), $(".disPer").html(l), console.log(r), console.log(l), $(".coupon-discount-area").show()
+    //                 }
+    //                 i = parseFloat(i).toFixed(2), s = parseFloat(s).toFixed(2), a = parseFloat(a).toFixed(2), $(".DiscountAmount").html("$" + i), $("#DiscountNewAmount").html("$" + s), $(".GrandTotalAmount").html("$" + a), update_total(i, s, a, t), $(".codemsg").hide(), $(".couponApplied").show(), $(".coupon-field").hide()
+    //             } else $(".codemsg").addClass("invalid").html(RespObject.Message), $(".codemsg").show();
+    //             $(".loadingimg").css("display", "none");
+    //             location.reload();
+    //         },
+    //         error: function() {
+    //             console.log("something went wrong please try again"), $(".loadingimg").css("display", "none")
+    //         }
+    //     })
+    // }
 
-    $(document).ready(function(){
-        $("#InputCountryFnd").change(function() {
-                var e = $(this).val();
-                if (e) {
-                    var t = '<option value="">Please Wait...</option>';
-                    $("#stateFnd").find("option").remove().end().append(t);
-                    var r = BASE_URL + "certifications/ajaxGetStates";
-                    $.ajax({
-                        type: "POST",
-                        url: r,
-                        data: {
-                            cid: e
-                        },
-                        dataType: "json",
-                        beforeSend: function() {
-                            $("#stateFnd").before(function() {
-                                return getLoadingImg()
-                            })
-                        },
-                        success: function(e) {
-                            for (var t = '<option value="">Select State</option>', r = 0; r < e.length; r++) t += '<option value="' + e[r].id + '">' + e[r].name + "</option>";
-                            t += '<option value="other">other</option>', $("#stateFnd").find("option").remove().end().append(t), $("#imgLoader").remove()
-                        },
-                        error: function() {
-                            alert("something went wrong please try again"), $("#imgLoader").remove()
-                        }
-                    })
-                } else {
-                    t = '<option value="">Select State</option>';
-                    $("#stateFnd").find("option").remove().end().append(t), $("#imgLoader").remove()
-                }
-            })
-    })
+    // $(document).ready(function(){
+    //     $("#InputCountryFnd").change(function() {
+    //             var e = $(this).val();
+    //             if (e) {
+    //                 var t = '<option value="">Please Wait...</option>';
+    //                 $("#stateFnd").find("option").remove().end().append(t);
+    //                 var r = BASE_URL + "certifications/ajaxGetStates";
+    //                 $.ajax({
+    //                     type: "POST",
+    //                     url: r,
+    //                     data: {
+    //                         cid: e
+    //                     },
+    //                     dataType: "json",
+    //                     beforeSend: function() {
+    //                         $("#stateFnd").before(function() {
+    //                             return getLoadingImg()
+    //                         })
+    //                     },
+    //                     success: function(e) {
+    //                         for (var t = '<option value="">Select State</option>', r = 0; r < e.length; r++) t += '<option value="' + e[r].id + '">' + e[r].name + "</option>";
+    //                         t += '<option value="other">other</option>', $("#stateFnd").find("option").remove().end().append(t), $("#imgLoader").remove()
+    //                     },
+    //                     error: function() {
+    //                         alert("something went wrong please try again"), $("#imgLoader").remove()
+    //                     }
+    //                 })
+    //             } else {
+    //                 t = '<option value="">Select State</option>';
+    //                 $("#stateFnd").find("option").remove().end().append(t), $("#imgLoader").remove()
+    //             }
+    //         })
+    // })
 </script>
 @include('layouts.frontend.includes.footer')
 @include('layouts.frontend.includes.footer_files')

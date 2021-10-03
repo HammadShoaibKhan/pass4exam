@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use App\Models\Vendor;
+use App\Models\Exam;
 
 class CartController extends Controller
 {
@@ -92,6 +94,26 @@ class CartController extends Controller
         }
         session()->put('carts', $carts);
         // dd();
-        return redirect()->route('cart_view');;
+        return redirect()->route('cart_view');
+    }
+    public function removeCart($id = null, $bundle_type = null){
+        if ( ( $id != null && (Vendor::where('id', $id)->exists() || Exam::where('exam_code', $id)->exists()) )
+            && ($bundle_type != null)
+        ){
+            $carts = session()->get('carts',[]);
+            if(count($carts)>=1){
+                foreach ($carts as  $key => $cart) {
+                    if( ( ($cart['vendor_id'] == $id || $cart['exam_code'] == $id ) 
+                        && ($cart['bundle_type'] == $bundle_type) ))
+                    {
+                        unset($carts[$key]);
+                        session()->put('carts', $carts);
+                        break;
+                    }
+                }
+            }
+        }
+        return redirect()->route('cart_view');
+        // return redirect()->back();
     }
 }
