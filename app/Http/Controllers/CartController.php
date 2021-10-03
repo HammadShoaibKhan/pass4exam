@@ -11,7 +11,7 @@ class CartController extends Controller
         $title = "Shoping Cart";
 
         $carts = session()->get('carts',[]);
-        dd($carts);
+        // dd($carts);
         return view('cart', compact('title','carts'));
     }
 
