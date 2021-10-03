@@ -123,10 +123,10 @@
 
                                     <div class="Payment_opetion_bundle">
                                         <strong>Payment Options</strong>
-                                        <form method="post" name="bundleInfoForm" id="bundleInfoForm"
-                                            action="https://certsidea.com/carts/" class="form-inline form">
+                                        <form method="GET" name="bundleInfoForm" id="bundleInfoForm"
+                                            action="{{route('add_cart') }}" class="form-inline form">
                                             <div class="Purchase_options row">
-                                                <div style="margin: 10px;">
+                                                {{-- <div style="margin: 10px;">
                                                     <div class="form-group">
                                                         <select class="selectpicker form-control" id="subscription_plan"
                                                             name="subscription_plan" onchange="updateBundlePriceExam();">
@@ -137,7 +137,7 @@
                                                             <option value="trainer">Trainer 25 PCs</option>
                                                         </select>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div style="margin: 10px;">
                                                     <div class="form-group">
                                                         <select class="selectpicker sel1 form-control" id="subscription"
@@ -155,43 +155,20 @@
                                                         Price: $<span id="lbl_price">
                                                             {{ $exam->getPricing()->bundle->discounted ?? 1 }}
                                                         </span>
-                                                        <del>Before: ${{ $exam->getPricing()->bundle->orignal ?? '' }}</del>
+                                                        <del>Before: ${{ $exam->getPricing()->bundle->orignal ?? 0 }}</del>
                                                     </div>
                                                 </div>
                                                 <div class="">
                                                     <div class=" row">
                                                         <div class="col-sm-12">
-                                                            <input type="hidden" id='bundle_name' name="bundle_name"
-                                                                value="{{ $exam->vendor->title ?? ''  }} {{ $exam->exam_code ?? ''  }} Bundle Pack" />
-                                                            <input type="hidden" id="price" name="price" value="158" />
-                                                            <input type="hidden" id="checkout_price" name="checkout_price"
-                                                                value="158" />
-                                                            <input type="hidden" id="bundle_type" name="bundle_type"
-                                                                value="default" />
-                                                            <input type="hidden" id="bundle_id" name="bundle_id" value="4" />
-                                                            <input type="hidden" id="bundle_type_id" name="bundle_type_id"
-                                                                value="3923" />
-                                                            <input type="hidden" id="subscription_price_3_inc"
-                                                                name="subscription_price_3_inc" value="0" />
-                                                            <input type="hidden" id="subscription_price_6_inc"
-                                                                name="subscription_price_6_inc" value="30" />
-                                                            <input type="hidden" id="subscription_price_12_inc"
-                                                                name="subscription_price_12_inc" value="50" />
-                                                            <input type="hidden" id="individual_pcs" name="individual_pcs"
-                                                                value="2" />
-                                                            <input type="hidden" id="individual_price_inc"
-                                                                name="individual_price_inc" value="0" />
-                                                            <input type="hidden" id="corporate_pcs" name="corporate_pcs"
-                                                                value="10" />
-                                                            <input type="hidden" id="corporate_price_inc" name="corporate_price_inc"
-                                                                value="50" />
-                                                            <input type="hidden" id="trainer_pcs" name="trainer_pcs" value="25" />
-                                                            <input type="hidden" id="trainer_price_inc" name="trainer_price_inc"
-                                                                value="100" />
-                                                            <input type="hidden" id="shop_type" name="shop_type" value="bundle" />
-                                                            <input type="hidden" id="bundleType" name="bundleType" value="3" />
-                                                            <input type="hidden" id="bundleIcon" name="bundleIcon"
-                                                                value="img_4210801752032.html" />
+                                                            <input type="hidden" id="bundle_type" name="bundle_type" value="exam-bundle" />
+                                                            <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />
+                                                            <input type="hidden" id='vendor_id' name="vendor_id" value="{{$exam->vendor->id ?? ''}}" />
+                                                            <input type="hidden" id='certificate_id' name="certificate_id" value="{{$exam->certification_id ?? ''}}" />
+                                                            <input type="hidden" id='exam_code' name="exam_code" value="{{$exam->exam_code ?? ''}}" />
+                                                            <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->bundle->orignal ?? 1 }}" />
+                                                            <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->bundle->discounted ?? 1 }}" />
+                                                            <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
                                                             <div class="add_to_cart">
                                                                 <button class="btn" type="submit">
                                                                     <i class="fa fa-shopping-cart"></i> Add to Cart
@@ -283,11 +260,14 @@
                                         <div class="">
                                             <div class="add_demo_btn">
                                                 <ul>
-                                                    <form action="https://certsidea.com/carts/" method="post" class="web_form">
-                                                        <input type="hidden" value="Online Practice Exam" name="product_name" />
-                                                        <input type="hidden" value="{{ $exam->exam_code ?? ''  }}" name="exam_code" />
-                                                        <input type="hidden" value="3" name="ptype_id" />
-                                                        <input type="hidden" value="single" name="shop_type" />
+                                                    <form method="GET"  action="{{route('add_cart') }}" class="web_form">
+                                                        <input type="hidden" id="bundle_type" name="bundle_type" value="exam-web" />
+                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />                                                            <input type="hidden" id='vendor_id' name="vendor_id" value="{{$exam->vendor->id ?? ''}}" />
+                                                        <input type="hidden" id='certificate_id' name="certificate_id" value="{{$exam->certification_id ?? ''}}" />
+                                                        <input type="hidden" id='exam_code' name="exam_code" value="{{$exam->exam_code ?? ''}}" />
+                                                        <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->web->orignal ?? 1 }}" />
+                                                        <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->web->discounted ?? 1 }}" />
+                                                        <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
                                                         <button id="btn-cart" type="submit" class="btn">
                                                             <i class="fa fa-shopping-cart"></i> Add To Cart
                                                         </button>
@@ -367,11 +347,14 @@
                                         <div class="">
                                             <div class="add_demo_btn">
                                                 <ul>
-                                                    <form action="https://certsidea.com/carts/" method="post" class="pdf_form">
-                                                        <input type="hidden" value="PDF" name="product_name" />
-                                                        <input type="hidden" value="{{ $exam->exam_code ?? ''  }}" name="exam_code" />
-                                                        <input type="hidden" value="1" name="ptype_id" />
-                                                        <input type="hidden" value="single" name="shop_type" />
+                                                    <form method="GET"  action="{{route('add_cart') }}" class="pdf_form">
+                                                        <input type="hidden" id="bundle_type" name="bundle_type" value="exam-pdf" />
+                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />                                                            <input type="hidden" id='vendor_id' name="vendor_id" value="{{$exam->vendor->id ?? ''}}" />
+                                                        <input type="hidden" id='certificate_id' name="certificate_id" value="{{$exam->certification_id ?? ''}}" />
+                                                        <input type="hidden" id='exam_code' name="exam_code" value="{{$exam->exam_code ?? ''}}" />
+                                                        <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->pdf->orignal ?? 1 }}" />
+                                                        <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->pdf->discounted ?? 1 }}" />
+                                                        <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
                                                         <button id="btn-cart1"  type="submit" class="btn">
                                                             <i class="fa fa-shopping-cart"></i>
                                                             Add To Cart
@@ -464,11 +447,14 @@
                                         <div class="">
                                             <div class="add_demo_btn">
                                                 <ul>
-                                                    <form action="https://certsidea.com/carts/" method="post" class="soft_form">
-                                                        <input type="hidden" value="Practice Exam" name="product_name" />
-                                                        <input type="hidden" value="{{ $exam->exam_code ?? ''  }}" name="exam_code" />
-                                                        <input type="hidden" value="2" name="ptype_id" />
-                                                        <input type="hidden" value="single" name="shop_type" />
+                                                    <form method="GET"  action="{{route('add_cart') }}" class="soft_form">
+                                                        <input type="hidden" id="bundle_type" name="bundle_type" value="exam-desktop" />
+                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />                                                            <input type="hidden" id='vendor_id' name="vendor_id" value="{{$exam->vendor->id ?? ''}}" />
+                                                        <input type="hidden" id='certificate_id' name="certificate_id" value="{{$exam->certification_id ?? ''}}" />
+                                                        <input type="hidden" id='exam_code' name="exam_code" value="{{$exam->exam_code ?? ''}}" />
+                                                        <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->desktop->orignal ?? 1 }}" />
+                                                        <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->desktop->discounted ?? 1 }}" />
+                                                        <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
                                                         <button id="btn-cart2"  type="submit" class="btn">
                                                             <i class="fa fa-shopping-cart"></i> Add To Cart
                                                         </button>
@@ -767,4 +753,29 @@
     <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        function updateBundlePriceExam() {
+            let orignalPrice=0;
+            let discountedPrice=0;
+            let subscribed_for = $("#subscription").val();
+            if(subscribed_for==3){
+                orignalPrice = '{{ $exam->getPricing()->bundle->orignal ?? 1 }}';
+                discountedPrice = '{{ $exam->getPricing()->bundle->discounted ?? 1 }}';
+            }
+            if(subscribed_for==6){
+                orignalPrice = '{{ $exam->getPricing()->bundle->orignal_price_2 ?? 1 }}';
+                discountedPrice = '{{ $exam->getPricing()->bundle->discounted_price_2 ?? 1 }}';
+            }
+            if(subscribed_for==12){
+                orignalPrice = '{{ $exam->getPricing()->bundle->orignal_price_3 ?? 1 }}';
+                discountedPrice = '{{ $exam->getPricing()->bundle->discounted_price_3 ?? 1 }}';
+            }
+
+            $(".bundle_price_exam #lbl_price").text(discountedPrice);
+            $(".bundle_price_exam del").text(' Before: $'+orignalPrice);
+            $("#orignalPrice").val(orignalPrice);
+            $("#discountedPrice").val(discountedPrice);
+            $("#subcribed_for").val(subscribed_for);
+        }
+      </script>
 @endsection

@@ -114,4 +114,27 @@ class VendorController extends Controller
         }
         return Response()->json('');
     }
+    
+    public function pricing(Request $request)
+    {
+        $pricing = [
+            'bundle' => [
+                'bundle_title' =>   $request->bundle_update_1,
+                'orignal'=> $request->bundle_price,
+                'discounted' => $request->discounted_bundle_price,
+                'bundle_title' =>   $request->bundle_update_2,
+                'orignal_price_2' => $request->bundle_price_2,
+                'discounted_price_2' => $request->discounted_bundle_price_2,
+                'bundle_title' =>   $request->bundle_update_3,
+                'orignal_price_3' => $request->bundle_price_3,
+                'discounted_price_3' => $request->discounted_bundle_price_3,
+            ],
+        ];
+        $pricing = json_encode($pricing);
+        $pricing = Vendor::where('id', $request->vendor_id)->update(['pricing' => $pricing]);
+        if ($pricing) {
+            return back()->with('success', 'Pricing updated successfully.');
+        }
+        return back()->with('error', 'Something went wrong.');
+    }
 }
