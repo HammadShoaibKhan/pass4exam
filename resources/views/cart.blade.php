@@ -291,7 +291,7 @@
                 <div class="col-sm-3 col-xs-3 padding-top-7">
                     <img src="{{ asset('frontend/assets/site/image/back_buuton.png') }}" class="margin-4">
                     <span class="background-btn">
-                        <a href="">Back</a>
+                        <a href="{{'#'}}">Back</a>
                     </span>
                 </div>
                 <div class="col-sm-6 col-xs-5 text-center">
@@ -626,7 +626,6 @@
                                 </div>
                             </div>
                         </div>
-
                         @endif
                     @empty
                         
@@ -734,7 +733,7 @@
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input onkeyup="saveValue(this);" type="text" required="required" readonly="readonly" name="email" class="form-control" id="email" placeholder="Enter Your Email">
+                                        <input onkeyup="saveValue(this);" type="text" required="required" readonly="readonly" name="email" class="form-control" id="email" placeholder="Enter Your Email" value="{{ (auth()->check()) ? auth()->user()->email : '' }}">
                                         <span class="help-block email-error"></span>
                                     </div>
                                 </div>
