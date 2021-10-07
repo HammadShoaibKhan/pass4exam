@@ -994,7 +994,7 @@
     {{-- ChatBox --}}
     {{-- <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=19954888"></script> --}}
 
-    <script src="{{ asset('frontend/assets/site/js/custom/functions.js?' . Rand()) }}"></script>
+    {{-- <script src="{{ asset('frontend/assets/site/js/custom/functions.js?' . Rand()) }}"></script> --}}
 
     <script>
         function processPayment(){
