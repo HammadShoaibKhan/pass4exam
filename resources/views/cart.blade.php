@@ -1,4 +1,16 @@
-@include('layouts.frontend.includes.head_files')
+{{-- @include('layouts.frontend.includes.head_files') --}}
+<!doctype html>
+<html lang="en">
+<style>
+    .error {
+      color : red !important;
+      font-weight: normal !important;
+    }
+  </style>
+</head>
+
+<body>
+
 <?php
     $totalPayment = 0;
     $totalDiscount = 0;
@@ -7,10 +19,10 @@
 ?>
     <span style="display:none;" class="closeBtn" onclick="closeDisBox(); return false;">X</span>
 	<style>
-        .cancel-img{
+        /* .cancel-img{
             right: 4px !important; 
             top: -44px !important;
-        }
+        } */
 		.topDiscountBar {
 			width: 100%;
 			/*background: #041963;*/
@@ -62,15 +74,27 @@
         }
 	</style>
    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <!-- Favicon -->
+    {{-- <meta name="keywords" content="Certsidea">
+    <link rel="shortcut icon" type="image/png" href="{{asset('frontend/assets/site/img/1617086695_pen.png')}}"/> --}}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{asset('frontend/assets/site/css/style.css')}}">
+    {{-- <link media="all" rel="stylesheet" type="text/css" href="{{ asset('assets/site/css/popup.css') }}" /> --}}
+    <script type="text/javascript" src="{{asset('frontend/assets/site/js/jquery-new.min.js')}}"></script>
+    {{-- FontAwesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- //  ........................................................... --}}
+      {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
       <!-- Bootstrap -->
-	  {{-- <link rel="shortcut icon" type="image/png" href="https://www.study4exam.com/assets/site/img/1617086695_pen.png"/> --}}
-      {{-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> --}}
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
       <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
       <link rel="stylesheet" href="{{asset('frontend/assets/site/css/cart.css')}}">
+
+      <title>{{!empty($title) ? $title : 'Certsidea'}}</title>
 
 	  <style>header, footer,.afterfooterarea, .justcertnav{ display: none; }</style>
 	  <script>
@@ -994,8 +1018,8 @@
     {{-- ChatBox --}}
     {{-- <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=19954888"></script> --}}
 
-    <script src="{{ asset('frontend/assets/site/js/custom/functions.js?' . Rand()) }}"></script>
-
+    {{-- <script src="{{ asset('frontend/assets/site/js/custom/functions.js?' . Rand()) }}"></script> --}}
+{{-- 
     <script>
         function processPayment(){
         
@@ -1038,6 +1062,7 @@
             $('.state-error').html('State is required');
             $('.state-error').show();
         }
+        alert(cardholderNameFnd);
         
             if(cardholderNameFnd != '' && emailFnd != '' && street_addressFnd != '' && cityFnd != '' && countryFnd != '' && stateFnd != '')
             {
@@ -1071,6 +1096,8 @@
             var stateFnd = $('#stateFnd').val();
             
             var data = {'cardholderName': cardholderNameFnd, 'email': emailFnd, 'street_address': street_addressFnd, 'city':cityFnd, 'country':countryFnd, 'state':stateFnd, 'response_data':response_data};
+            console.log(data);
+            alert(data);
             var url = BASE_URL+"payments/fondy_payment_process";
             $.ajax({
                 type: "POST",
@@ -1105,7 +1132,7 @@
     </script>
     
     <script type="text/javascript">
-            /*document.getElementById("cardholderNameFnd").value = getSavedValue("cardholderNameFnd");
+            document.getElementById("cardholderNameFnd").value = getSavedValue("cardholderNameFnd");
             document.getElementById("cardholderName").value = getSavedValue("cardholderName");
             
             document.getElementById("emailFnd").value = getSavedValue("emailFnd");
@@ -1115,7 +1142,7 @@
             document.getElementById("street_address").value = getSavedValue("street_address"); 
             
             document.getElementById("cityFnd").value = getSavedValue("cityFnd");
-            document.getElementById("city").value = getSavedValue("city");*/ 
+            document.getElementById("city").value = getSavedValue("city"); 
             /* Here you can add more inputs to set value. if it's saved */
     
             //Save the value function - save it to localStorage as (ID, VALUE)
@@ -1199,68 +1226,67 @@
     </script>
     
     <script>
-    
-     function remove_coupon_code(){
-         var URL= BASE_URL +'carts/remove_coupon';
-          $(".loadingimg").show('Please Wait Removing Coupon Code...');
-         $.ajax({type:'POST',url:URL,dataType:'html',
-         beforeSend:function(){},
-         success:function(resp){
-            //   waitingDialog.hide();
-               redirectPage(BASE_URL+'carts/viewCart');
-             },
-             error:function(){
-                 console.log('something went wrong please try again');
-                 
-             }
-             
-         });
-     }
-     
-     function updateCartSubscription(){
-         var url=BASE_URL+'carts/updateCartSubscription';
-         document.cartForm.action=url;
-         document.cartForm.submit();
-     }
-     
-     
-    //  function checkEmailExistsCart(e) {
-    //     var t = BASE_URL + "register/checkifEmailExists";
-    // 	if(e){
-    //     $.ajax({
-    //         type: "POST",
-    //         url: t,
-    //         data: {
-    //             email: e
-    //         },
-    //         dataType: "json",
-    //         beforeSend: function() {
-    //             $("#email").before(function() {
-    //                 return getLoadingImg()
-    //             })
-    //         },
-            
-    //         success: function(t) {
-    // 			$("#imgLoader").remove();
-    //             if(t.msgStatus == "Success")
-    // 			{
-    // 				$('#emailCheckError').hide();
-    // 			}
-    // 			else
-    // 			{
-    // 			    $('#email').val('');
-    // 				$('#loginCheck').html(e+', this account already exists.');
-    // 				$('#emailCheckError').show();
+        function remove_coupon_code(){
+            var URL= BASE_URL +'carts/remove_coupon';
+            $(".loadingimg").show('Please Wait Removing Coupon Code...');
+            $.ajax({type:'POST',url:URL,dataType:'html',
+            beforeSend:function(){},
+            success:function(resp){
+                //   waitingDialog.hide();
+                redirectPage(BASE_URL+'carts/viewCart');
+                },
+                error:function(){
+                    console.log('something went wrong please try again');
+                    
+                }
+                
+            });
+        }
         
-    // 			}
-    //         },
-    //         error: function() {
-    //             alert("something went wrong please try again"), $("#imgLoader").remove()
-    //         }
-    //     })
-    // 	}
-    //     }
-    
+        function updateCartSubscription(){
+            var url=BASE_URL+'carts/updateCartSubscription';
+            document.cartForm.action=url;
+            document.cartForm.submit();
+        }
+        
+        
+        //  function checkEmailExistsCart(e) {
+        //     var t = BASE_URL + "register/checkifEmailExists";
+        // 	if(e){
+        //     $.ajax({
+        //         type: "POST",
+        //         url: t,
+        //         data: {
+        //             email: e
+        //         },
+        //         dataType: "json",
+        //         beforeSend: function() {
+        //             $("#email").before(function() {
+        //                 return getLoadingImg()
+        //             })
+        //         },
+                
+        //         success: function(t) {
+        // 			$("#imgLoader").remove();
+        //             if(t.msgStatus == "Success")
+        // 			{
+        // 				$('#emailCheckError').hide();
+        // 			}
+        // 			else
+        // 			{
+        // 			    $('#email').val('');
+        // 				$('#loginCheck').html(e+', this account already exists.');
+        // 				$('#emailCheckError').show();
+            
+        // 			}
+        //         },
+        //         error: function() {
+        //             alert("something went wrong please try again"), $("#imgLoader").remove()
+        //         }
+        //     })
+        // 	}
+        //     }
+        
         // function checkEmailExistsCartFnd(e) {
         //     var t = BASE_URL + "register/checkifEmailExists";
         // 	if(e){
@@ -1397,6 +1423,6 @@
         //             }
         //         })
         // })
-    </script>
+    </script> --}}
 @include('layouts.frontend.includes.footer')
 @include('layouts.frontend.includes.footer_files')
