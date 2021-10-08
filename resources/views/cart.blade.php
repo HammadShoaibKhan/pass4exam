@@ -324,7 +324,7 @@
                 <div class="col-sm-3 col-xs-3 padding-top-7">
                     <img src="{{ asset('frontend/assets/site/image/back_buuton.png') }}" class="margin-4">
                     <span class="background-btn">
-                        <a href="{{'#'}}">Back</a>
+                        <a href="{{url()->previous() ?? '#'}}">Back</a>
                     </span>
                 </div>
                 <div class="col-sm-6 col-xs-5 text-center">

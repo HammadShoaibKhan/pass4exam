@@ -11,9 +11,7 @@ class CartController extends Controller
 {
     public function index(){
         $title = "Shoping Cart";
-
         $carts = session()->get('carts',[]);
-        // dd($carts);
         return view('cart', compact('title','carts'));
     }
 
@@ -41,13 +39,11 @@ class CartController extends Controller
         {
             $update_flag = 0;
             foreach ($carts as  $key => $cart) {
-                if( ( (($cart['exam_code'] != "") && $cart['exam_code'] == $request->exam_code) && ($cart['bundle_type'] == $request->bundle_type) ) || 
+                if( ( (($cart['exam_code'] != "") && $cart['exam_code'] == $request->exam_code) && 
+                    ($cart['bundle_type'] == $request->bundle_type) ) || 
                     ( ($cart['vendor_id'] == $request->vendor_id) && ($cart['bundle_type'] == $request->bundle_type) ) 
                 )
                 {
-                    // if(($cart['exam_code'] != "")){
-                    //     if($cart['vendor_id'] == $cart['vendor_id'])
-                    // }
                     $carts[$key] = [
                         "bundle_type"=>  $request->bundle_type,
                         "bundle_title" =>  $request->bundle_title,
@@ -114,6 +110,5 @@ class CartController extends Controller
             }
         }
         return redirect()->route('cart_view');
-        // return redirect()->back();
     }
 }
