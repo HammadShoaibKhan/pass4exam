@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var stripe = Stripe('pk_live_ZVcwTbQn1nHURECcz3RpgVsX');// Key For Affiliates
+    // var stripe = Stripe('pk_live_ZVcwTbQn1nHURECcz3RpgVsX');// Key For Affiliates
     var apiKey = PUBLIC_KEY;
     var stripe = Stripe(apiKey);
     var elements = stripe.elements();
