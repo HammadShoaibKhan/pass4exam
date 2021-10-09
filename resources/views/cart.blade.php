@@ -1013,8 +1013,6 @@
     {{-- <script src="https://www.study4exam.com/assets/site/js/jquery-3.4.1.min.js"></script> --}}
     <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="{{ asset('frontend/assets/site/js/custom/stripe_client.js?' . Rand()) }}"></script>
     {{-- ChatBox --}}
     {{-- <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=19954888"></script> --}}
 
