@@ -47,3 +47,8 @@ function getMediaFile($linkTable, $linkType, $linkID)
         'link_id' => $linkID
         ])->value('file_name');
 }
+
+function getCartTotalCount(){
+    $carts = session()->get('carts',[]);
+    return count($carts);
+}
