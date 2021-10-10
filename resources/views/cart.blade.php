@@ -98,8 +98,8 @@
 
 	  <style>header, footer,.afterfooterarea, .justcertnav{ display: none; }</style>
 	  <script>
-	    var BASE_URL = "http://localhost:8000/";
-	    var PUBLIC_KEY = "pk_live_ZVcwTbQn1nHURECcz3RpgVsX";
+	    var BASE_URL = env('APP_URL');
+	    var PUBLIC_KEY = env('PUBLIC_KEY');
 	  </script>
 	  <script src="https://pay.fondy.eu/latest/checkout.js" type="text/javascript"></script>
 	  <link rel="stylesheet" href="https://pay.fondy.eu/latest/checkout.css" type="text/css">
