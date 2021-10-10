@@ -12,6 +12,7 @@ use App\Http\Controllers\CaseStudyController;
 use \App\Http\Controllers\QuestionController;
 use \App\Http\Controllers\CartController;
 use \App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,7 +109,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('delete', [UserController::class, 'delete'])->name('admin.user.delete');
         Route::post('multiple-delete', [UserController::class, 'multipleDelete'])->name('admin.users.delete');
     });
-
+    
+    /**  ORDER ROUTES */
+    Route::get('orders', [OrderController::class, 'index'])->name('admin.orders');
+    Route::prefix('order')->group(function () {
+        Route::get('{id}/view', [OrderController::class, 'orderView'])->name('admin.order.view');
+        Route::post('change-status', [OrderController::class, 'changeStatus'])->name('admin.orders.change-status');
+    });
 
 });
 
