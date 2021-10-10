@@ -25,8 +25,8 @@ class CreateOrders extends Migration
             //     state
             //     city
             // }
-            $table->integer('total_bill')->nullable();
-            $table->integer('total_discount')->nullable();
+            $table->float('total_bill')->nullable();
+            $table->float('total_discount')->nullable();
             $table->longText('order_detail')->nullable();
             // OrderDetail {
             //     bundleType = vendor | exam-web | exam-pdf ...
