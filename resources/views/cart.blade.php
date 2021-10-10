@@ -19,10 +19,10 @@
 ?>
     <span style="display:none;" class="closeBtn" onclick="closeDisBox(); return false;">X</span>
 	<style>
-        /* .cancel-img{
-            right: 4px !important; 
-            top: -44px !important;
-        } */
+        .cancel-img-set{
+            right: 1% !important; 
+            top: -41px !important;
+        }
 		.topDiscountBar {
 			width: 100%;
 			/*background: #041963;*/
@@ -525,7 +525,7 @@
                                 <div class="col-sm-5 text-right padding-top-7">
                                     <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
-                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
+                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img cancel-img-set">
                                     </a>
                                     {{-- <div class="form-group margin-bottom-10">
                                         <input type="hidden"  id="subscription_plan_3956c7b8e1b9412c17b932da965aa596" name="subscription_plan[]" value="">
@@ -599,7 +599,7 @@
                                 <div class="col-sm-5 text-right padding-top-7">
                                     <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
-                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
+                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img cancel-img-set">
                                     </a>
                                     <div class="form-group margin-bottom-0">
                                         <input type="text" readonly value="{{($cart['subcribed_for'] ?? '')}} months (Free Updates)"
@@ -642,7 +642,7 @@
                                 <div class="col-sm-5 text-right padding-top-7">
                                     <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
-                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
+                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img cancel-img-set">
                                     </a>
                                     <div class="form-group margin-bottom-0">
                                         <input type="text" readonly value="{{($cart['subcribed_for'] ?? '')}} months (Free Updates)"
