@@ -110,7 +110,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('multiple-delete', [UserController::class, 'multipleDelete'])->name('admin.users.delete');
     });
     
-    // Order Routes
+    /**  ORDER ROUTES */
     Route::get('orders', [OrderController::class, 'index'])->name('admin.orders');
     Route::prefix('order')->group(function () {
         Route::get('{id}/view', [OrderController::class, 'orderView'])->name('admin.order.view');

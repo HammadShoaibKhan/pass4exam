@@ -11,9 +11,9 @@
             <ul class="list">
               <li><a href="javascript:;">Home</a></li>
               <li><a href="javascript:;">About us</a></li>
-
+              {{-- 
               <li><a href="javascript:;">Mega Packs</a></li>
-             <li><a href="javascript:;">Discount Deals</a></li>
+             <li><a href="javascript:;">Discount Deals</a></li> --}}
 
 
             </ul>
@@ -24,7 +24,7 @@
             <strong>CUSTOMER SERVICES</strong>
             <br>
             <ul class="footer-contact-info">
-              <li><a href="javascript:;">FAQ`s</a></li>
+              {{-- <li><a href="javascript:;">FAQ`s</a></li> --}}
 
 
               <li><a href="javascript:;">Contact Us</a></li>
@@ -50,7 +50,7 @@
              <li><a href="javascript:;">Terms And Conditions</a></li>
              <li><a href="javascript:;">Guarantee</a></li>
              <li><a href="javascript:;">Disclaimer</a></li>
-             <li><a rel="noopener" target="_blank" href="javascript:;">Get Latest Promotions</a></li>
+             {{-- <li><a rel="noopener" target="_blank" href="javascript:;">Get Latest Promotions</a></li> --}}
 
 
 
