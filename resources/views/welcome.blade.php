@@ -468,9 +468,9 @@
 
   
     {{-- <!------------- Certifications Testimonials --------------------------------------------> --}}
-    <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
+    {{-- <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
         <div class="section-title">
-            {{-- <span class="new_testimonials_bg_heading">TESTIMONIALS</span> --}}
+            <span class="new_testimonials_bg_heading">TESTIMONIALS</span>
             <h3> Certification Exam Testimonials</h3>
         </div>
         <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4">
@@ -482,7 +482,7 @@
                     <div class="media-body">
                         <p style="color: #22ad95;font-size: 20px;font-weight: 500;">
                             Virginia
-                            <!--<img src="https://flagcdn.com/w80/ca.png" alt="flag"  class="dicls">-->
+                            <img src="https://flagcdn.com/w80/ca.png" alt="flag"  class="dicls">-->
                             <span style="float: right;font-size: 16px;color: #da0606;"><i>Aug 30, 2021</i></span>
                         </p>
                         <div class="rating">
@@ -498,7 +498,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     {{-- END <!------------- Certifications Testimonials ----------------------------------------> --}}
 
     {{-- <!------------- Comments Area --------------------------------------------> --}}

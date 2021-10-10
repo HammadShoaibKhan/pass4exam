@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //var stripe = Stripe('pk_live_ZVcwTbQn1nHURECcz3RpgVsX'); Key For Affiliates
+    // var stripe = Stripe('pk_live_ZVcwTbQn1nHURECcz3RpgVsX');// Key For Affiliates
     var apiKey = PUBLIC_KEY;
     var stripe = Stripe(apiKey);
     var elements = stripe.elements();
@@ -91,6 +91,20 @@ $(document).ready(function () {
         setTimeout(function () {
             btn.prop("disabled", false);
         }, fewSeconds * 1000);
+
+        // TESTing
+// alert( cardholderName + email + {city, country, street_address,state});
+console.log({
+    name: cardholderName,
+    email: email,
+    address: {
+        city: city,
+        country: country,
+        line1: street_address,
+        line2: null,
+        state: state,
+    },
+});
 
         stripe
             .createPaymentMethod("card", cardElement, {

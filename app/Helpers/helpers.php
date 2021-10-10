@@ -2,7 +2,7 @@
 use \App\Models\Vendor;
 use App\Models\Media;
 use App\Models\Exam;
-
+use App\Models\User;
 /**to get vendors for header navbar */
 function navbarVendors()
 {
@@ -46,4 +46,18 @@ function getMediaFile($linkTable, $linkType, $linkID)
         'link_type' => $linkType,
         'link_id' => $linkID
         ])->value('file_name');
+}
+
+/**to get Carts Total Count */
+function getCartTotalCount(){
+    $carts = session()->get('carts',[]);
+    return count($carts);
+}
+/**to get userName */
+function getuserName($id=null){
+    if ($id != null && User::where('id', $id)->exists()) {
+        $user = User::find($id);
+        return $user->name;
+    }
+    return null;
 }

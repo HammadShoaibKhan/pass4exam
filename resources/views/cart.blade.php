@@ -1,7 +1,28 @@
-@include('layouts.frontend.includes.head_files')
+{{-- @include('layouts.frontend.includes.head_files') --}}
+<!doctype html>
+<html lang="en">
+<style>
+    .error {
+      color : red !important;
+      font-weight: normal !important;
+    }
+  </style>
+</head>
 
+<body>
+
+<?php
+    $totalPayment = 0;
+    $totalDiscount = 0;
+    $subTotal=0;
+
+?>
     <span style="display:none;" class="closeBtn" onclick="closeDisBox(); return false;">X</span>
 	<style>
+        .cancel-img-set{
+            right: 1% !important; 
+            top: -41px !important;
+        }
 		.topDiscountBar {
 			width: 100%;
 			/*background: #041963;*/
@@ -53,20 +74,32 @@
         }
 	</style>
    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <!-- Favicon -->
+    {{-- <meta name="keywords" content="Certsidea">
+    <link rel="shortcut icon" type="image/png" href="{{asset('frontend/assets/site/img/1617086695_pen.png')}}"/> --}}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{asset('frontend/assets/site/css/style.css')}}">
+    {{-- <link media="all" rel="stylesheet" type="text/css" href="{{ asset('assets/site/css/popup.css') }}" /> --}}
+    <script type="text/javascript" src="{{asset('frontend/assets/site/js/jquery-new.min.js')}}"></script>
+    {{-- FontAwesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- //  ........................................................... --}}
+      {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
       <!-- Bootstrap -->
-	  {{-- <link rel="shortcut icon" type="image/png" href="https://www.study4exam.com/assets/site/img/1617086695_pen.png"/> --}}
-      {{-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> --}}
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
       <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
       <link rel="stylesheet" href="{{asset('frontend/assets/site/css/cart.css')}}">
 
+      <title>{{!empty($title) ? $title : 'Certsidea'}}</title>
+
 	  <style>header, footer,.afterfooterarea, .justcertnav{ display: none; }</style>
 	  <script>
-	    var BASE_URL = "https://www.study4exam.com/";
-	    var PUBLIC_KEY = "pk_live_ZVcwTbQn1nHURECcz3RpgVsX";
+	    var BASE_URL = env('APP_URL');
+	    var PUBLIC_KEY = env('PUBLIC_KEY');
 	  </script>
 	  <script src="https://pay.fondy.eu/latest/checkout.js" type="text/javascript"></script>
 	  <link rel="stylesheet" href="https://pay.fondy.eu/latest/checkout.css" type="text/css">
@@ -291,7 +324,7 @@
                 <div class="col-sm-3 col-xs-3 padding-top-7">
                     <img src="{{ asset('frontend/assets/site/image/back_buuton.png') }}" class="margin-4">
                     <span class="background-btn">
-                        <a href="">Back</a>
+                        <a href="{{url()->previous() ?? '#'}}">Back</a>
                     </span>
                 </div>
                 <div class="col-sm-6 col-xs-5 text-center">
@@ -342,7 +375,7 @@
                         {{-- Bundle Pack Design --}}
                         
                     @forelse ($carts as $cart)
-                        @if ($cart['bundleType'] == 1)
+                        @if ($cart['bundle_type'] == 'vendor')
                         <div class="shopping_cart_box">
                             <div class="row">
                                 {{-- Image Section --}}
@@ -354,7 +387,7 @@
                                 {{-- Description Section --}}
                                 <div class="col-sm-6 width-45 padding-right-0">
                                     <div class="bundle_pack_heading">
-                                        {{$cart['bundle_name'] ?? ''}}								
+                                        {{$cart['bundle_title'] ?? ''}}								
                                     </div>
                                     <div class="Product_included">
                                         Product included
@@ -374,27 +407,32 @@
                                 </div>
                                 {{-- Payment Section --}}
                                 <div class="col-sm-3 padding-left-0 text-right">
-                                    <a href="https://www.study4exam.com/carts/remove_item/1e7bd7121704624f24d0f514e57559d2" 
+                                    <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
                                         <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
                                     </a>
                                     <div class="bundle_price">
                                         <del>${{$cart['orignalPrice'] ?? ''}}</del>
                                         <span class="cartsinglesubtotal sub-total-amount">
-                                            {{$cart['discountedPrice'] ?? ''}}
+                                            ${{$cart['discountedPrice'] ?? ''}}
                                         </span>
+                                        <?php 
+                                            $subTotal = $subTotal + $cart['orignalPrice'] ?? 0 ;
+                                            $totalDiscount = $totalDiscount + ($cart['orignalPrice'] - $cart['discountedPrice']) ?? 0;
+                                        ?>
                                     </div>
                                     <div class="form-group margin-bottom-10">
-                                        <select class="2 sffasf bselect form-control margin-bottom-10" id="subscription_plan_1e7bd7121704624f24d0f514e57559d2" name="subscription_plan[]" onchange="return updateCartLisenceQty();">
+                                        {{-- <select class="2 sffasf bselect form-control margin-bottom-10" id="subscription_plan_1e7bd7121704624f24d0f514e57559d2" name="subscription_plan[]" onchange="return updateCartLisenceQty();">
                                             <option value="individual" selected="selected" > Individual 2 PCs</option>
                                             <option value="corporate" > Corporate 10 PCs</option>
                                             <option value="trainer" > Trainer 25 PCs</option>
-                                        </select>
-                                        <select class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" onchange="return updateCartLisenceQty();">
-                                            <option selected="selected" value="3" selected="selected">3 months (Free Updates)</option>
-                                            <option  value="6">6 months (Free Updates)</option>
-                                            <option  value="12">12 months (Free Updates)</option>
-                                        </select>
+                                        </select> --}}
+                                        <input type="text" readonly value="{{$cart['subcribed_for'] ?? ''}} months (Free Updates)" class="bundle-updates  form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]">
+                                        {{-- <select class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" onchange="//return updateCartLisenceQty();">
+                                            <option value="{{($cart['subcribed_for']=='3') ? $cart['subcribed_for'] :'3'}}" {{($cart['subcribed_for']=='3') ? "selected" :''}}>3 months (Free Updates)</option>                                            
+                                            <option value="{{($cart['subcribed_for']=='6') ? $cart['subcribed_for'] :'6'}}" {{($cart['subcribed_for']=='6') ? "selected" :''}}>6 months (Free Updates)</option>
+                                            <option value="{{($cart['subcribed_for']=='12')? $cart['subcribed_for'] :'12'}}" {{($cart['subcribed_for']=='12') ? "selected" :''}}>12 months (Free Updates)</option>
+                                        </select> --}}
                                         {{-- <input type="hidden" name="exam_code[]" id="exam_code" value="Bundle"> --}}
                                         {{-- <input type="hidden" name="cart_qty[]" id="cart_qty" data="158" value="1" maxlength="5" class="cartQty" /> --}}
                                         {{-- <input type="hidden" name="cartRowId[]" id="cartRowId" value="1e7bd7121704624f24d0f514e57559d2"> --}}
@@ -403,7 +441,63 @@
                                 </div>
                             </div>
                         </div>
-                        @else
+                        @elseif ($cart['bundle_type'] == 'exam-bundle')
+                        <div class="shopping_cart_box">
+                            <div class="row">
+                                {{-- Image Section --}}
+                                <div class="col-sm-3 padding-right-11 width-27">
+                                    <div class="pull-right" style="width:65%;height:100px; background:#888">
+                                    </div>
+                                    {{-- <img style="width: 65%;" src="{{ asset('frontend/assets/site/img/'.$cart['bundleIcon'])}}" class="pull-right"> --}}
+                                </div>
+                                {{-- Description Section --}}
+                                <div class="col-sm-6 width-45 padding-right-0">
+                                    <div class="bundle_pack_heading">
+                                        {{$cart['bundle_title'] ?? ''}}								
+                                    </div>
+                                    <div class="Product_included">
+                                        Product included
+                                    </div>
+                                    <div class="item">
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_pdf.png">
+                                        <span class="product_name">Questions & Answers (PDF) </span>
+                                    </div> 
+                                    <div class="item">
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_desktop.png">
+                                        <span class="product_name">Desktop Practice Test Software </span>
+                                    </div>
+                                    <div class="item">
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_online_engin.png">
+                                        <span class="product_name">Web-Based Practice Test</span>
+                                    </div>
+                                </div>
+                                {{-- Payment Section --}}
+                                <div class="col-sm-3 padding-left-0 text-right">
+                                    <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
+                                        onclick="return confirm('Are you sure! You want to remove?');">
+                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
+                                    </a>
+                                    <div class="bundle_price">
+                                        <del>${{$cart['orignalPrice'] ?? ''}}</del>
+                                        <span class="cartsinglesubtotal sub-total-amount">
+                                            ${{$cart['discountedPrice'] ?? ''}}
+                                        </span>
+                                        <?php 
+                                            $subTotal = $subTotal + $cart['orignalPrice'] ?? 0 ;
+                                            $totalDiscount = $totalDiscount + ($cart['orignalPrice'] - $cart['discountedPrice']) ?? 0;
+                                        ?>
+                                    </div>
+                                    <div class="form-group margin-bottom-10">
+                                        <input type="text" readonly value="{{$cart['subcribed_for'] ?? ''}} months (Free Updates)" class="bundle-updates bselect form-control" id="subscription_1e7bd7121704624f24d0f514e57559d2" name="subscription[]" >
+                                        {{-- <input type="hidden" name="exam_code[]" id="exam_code" value="Bundle"> --}}
+                                        {{-- <input type="hidden" name="cart_qty[]" id="cart_qty" data="158" value="1" maxlength="5" class="cartQty" /> --}}
+                                        {{-- <input type="hidden" name="cartRowId[]" id="cartRowId" value="1e7bd7121704624f24d0f514e57559d2"> --}}
+                                        {{-- <input type="hidden" name="productTypeId[]" id="productTypeId" value="0"> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @elseif ($cart['bundle_type'] == 'exam-web')
                         <div class="shopping_cart_box shopping_cart_box_online">
                             <div class="row">
                                 <div class="col-sm-2 padding-left-36">
@@ -411,22 +505,29 @@
                                 </div>
                                 <div class="col-sm-5 text-center_online">
                                     <div class="online-engin_heading">
-                                        Microsoft MB-340 Exam
+                                        {{$cart['bundle_title'] ?? ''}} 
                                     </div>
                                     <div class="item">
                                         <img src="https://www.study4exam.com/assets/site/image/cart_online_engin.png">
                                         <span class="product_name">Web-Based Practice Test</span>
                                     </div>
                                     <div class="online_engin_price">
-                                        <del>$98.00</del><span class="cartsinglesubtotal sub-total-amount">$49.00</span>
+                                        <del>${{$cart['orignalPrice'] ?? ''}}</del>
+                                        <span class="cartsinglesubtotal sub-total-amount">
+                                            ${{$cart['discountedPrice'] ?? ''}}
+                                        </span>
+                                        <?php 
+                                            $subTotal = $subTotal + $cart['orignalPrice'] ?? 0 ;
+                                            $totalDiscount = $totalDiscount + ($cart['orignalPrice'] - $cart['discountedPrice']) ?? 0;
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="col-sm-5 text-right padding-top-7">
-                                    <a href="https://www.study4exam.com/carts/remove_item/3956c7b8e1b9412c17b932da965aa596" 
+                                    <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
                                         onclick="return confirm('Are you sure! You want to remove?');">
-                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img">
+                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img cancel-img-set">
                                     </a>
-                                    <div class="form-group margin-bottom-10">
+                                    {{-- <div class="form-group margin-bottom-10">
                                         <input type="hidden"  id="subscription_plan_3956c7b8e1b9412c17b932da965aa596" name="subscription_plan[]" value="">
                                         <select name="cart_qty[]" id="cart_qty_3956c7b8e1b9412c17b932da965aa596"
                                             class="lisenceQty form-control center_box" 
@@ -440,19 +541,119 @@
                                             <option value="9" >9 IP Address</option>
                                             <option value="10" >10 IP Address</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group margin-bottom-0">
-                                        <select class="software-updates form-control center_box" 
+                                        {{-- <select class="software-updates form-control center_box" 
                                             id="subscription_3956c7b8e1b9412c17b932da965aa596" 
                                             name="subscription[]" 
                                             onchange="return updateCartLisenceQty();">
                                             <option selected="selected" value="3" selected="selected">3 months (Free Updates)</option>
                                             <option  value="6">6 months (Free Updates)</option>
                                             <option  value="12">12 months (Free Updates)</option>
-                                        </select>
-                                        <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
+                                        </select> --}}
+                                        <input type="text" readonly value="{{($cart['subcribed_for'] ?? '')}} months (Free Updates)"
+                                            class="software-updates form-control center_box" 
+                                            id="subscription_3956c7b8e1b9412c17b932da965aa596" 
+                                            name="subscription[]">
+                                        {{-- <select class="software-updates form-control center_box" 
+                                            id="subscription_3956c7b8e1b9412c17b932da965aa596" 
+                                            name="subscription[]" 
+                                            onchange="//return updateCartLisenceQty();">
+                                            <option value="{{($cart['subcribed_for']=='3') ? $cart['subcribed_for'] :'3'}}" {{($cart['subcribed_for']=='3') ? "selected" :''}}>3 months (Free Updates)</option>                                            
+                                            <option value="{{($cart['subcribed_for']=='6') ? $cart['subcribed_for'] :'6'}}" {{($cart['subcribed_for']=='6') ? "selected" :''}}>6 months (Free Updates)</option>
+                                            <option value="{{($cart['subcribed_for']=='12')? $cart['subcribed_for'] :'12'}}" {{($cart['subcribed_for']=='12') ? "selected" :''}}>12 months (Free Updates)</option>
+                                        </select> --}}
+
+                                        {{-- <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
                                         <input type="hidden" name="productTypeId[]" id="productTypeId" value="3">
-                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340">
+                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340"> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @elseif ($cart['bundle_type'] == 'exam-pdf')
+                        <div class="shopping_cart_box shopping_cart_box_online">
+                            <div class="row">
+                                <div class="col-sm-2 padding-left-36">
+                                    <img src="https://www.study4exam.com/uploads/product_images/1619688098_webbased.webp" class="img-center">
+                                </div>
+                                <div class="col-sm-5 text-center_online">
+                                    <div class="online-engin_heading">
+                                        {{$cart['bundle_title'] ?? ''}} 
+                                    </div>
+                                    <div class="item">
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_pdf.png">
+                                        <span class="product_name">Questions & Answers (PDF) </span>
+                                    </div>
+                                    <div class="online_engin_price">
+                                        <del>${{$cart['orignalPrice'] ?? ''}}</del>
+                                        <span class="cartsinglesubtotal sub-total-amount">
+                                            ${{$cart['discountedPrice'] ?? ''}}
+                                        </span>
+                                        <?php 
+                                            $subTotal = $subTotal + $cart['orignalPrice'] ?? 0 ;
+                                            $totalDiscount = $totalDiscount + ($cart['orignalPrice'] - $cart['discountedPrice']) ?? 0;
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 text-right padding-top-7">
+                                    <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
+                                        onclick="return confirm('Are you sure! You want to remove?');">
+                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img cancel-img-set">
+                                    </a>
+                                    <div class="form-group margin-bottom-0">
+                                        <input type="text" readonly value="{{($cart['subcribed_for'] ?? '')}} months (Free Updates)"
+                                            class="software-updates form-control center_box" 
+                                            id="subscription_3956c7b8e1b9412c17b932da965aa596" 
+                                            name="subscription[]">
+                                        
+                                        {{-- <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
+                                        <input type="hidden" name="productTypeId[]" id="productTypeId" value="3">
+                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340"> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @elseif ($cart['bundle_type'] == 'exam-desktop')
+                        <div class="shopping_cart_box shopping_cart_box_online">
+                            <div class="row">
+                                <div class="col-sm-2 padding-left-36">
+                                    <img src="https://www.study4exam.com/uploads/product_images/1619688098_webbased.webp" class="img-center">
+                                </div>
+                                <div class="col-sm-5 text-center_online">
+                                    <div class="online-engin_heading">
+                                        {{$cart['bundle_title'] ?? ''}} 
+                                    </div>
+                                    <div class="item">
+                                        <img src="https://www.study4exam.com/assets/site/image/cart_desktop.png">
+                                        <span class="product_name">Desktop Practice Test Software </span>
+                                    </div>
+                                    <div class="online_engin_price">
+                                        <del>${{$cart['orignalPrice'] ?? ''}}</del>
+                                        <span class="cartsinglesubtotal sub-total-amount">
+                                            ${{$cart['discountedPrice'] ?? ''}}
+                                        </span>
+                                        <?php 
+                                            $subTotal = $subTotal + $cart['orignalPrice'] ?? 0 ;
+                                            $totalDiscount = $totalDiscount + ($cart['orignalPrice'] - $cart['discountedPrice']) ?? 0;
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 text-right padding-top-7">
+                                    <a href="{{route('remove_cart',[$cart['vendor_id'],$cart['bundle_type']])}}" 
+                                        onclick="return confirm('Are you sure! You want to remove?');">
+                                        <img src="{{ asset('frontend/assets/site/image/cart_cancel.png')}}" class="cancel-img cancel-img-set">
+                                    </a>
+                                    <div class="form-group margin-bottom-0">
+                                        <input type="text" readonly value="{{($cart['subcribed_for'] ?? '')}} months (Free Updates)"
+                                            class="software-updates form-control center_box" 
+                                            id="subscription_3956c7b8e1b9412c17b932da965aa596" 
+                                            name="subscription[]">
+                                    
+
+                                        {{-- <input type="hidden" name="cartRowId[]" id="cartRowId" value="3956c7b8e1b9412c17b932da965aa596">
+                                        <input type="hidden" name="productTypeId[]" id="productTypeId" value="3">
+                                        <input type="hidden" name="exam_code[]" id="exam_code" value="MB-340"> --}}
                                     </div>
                                 </div>
                             </div>
@@ -515,7 +716,7 @@
                         </div>
                         <div class="col-xs-6 text-right">
                             <div class="Summaryheading">
-                                <span class="pull-right">$256.00</span>
+                                <span class="pull-right"> ${{ $subTotal }}</span>
                             </div>
                         </div>
                     </div>
@@ -528,7 +729,7 @@
                         <div class="col-xs-6 text-right">
                             <div class="Summaryheading">
                                 <span id="DiscountAmount " class="pull-right DiscountAmount">
-                                    $128.00
+                                    ${{$totalDiscount}}
                                 </span>
                                 <div class="discountInfo">
                                     (50% Off)
@@ -538,8 +739,9 @@
                     </div>
                     <div class="total_payment">
                         Total Payment &nbsp; 
+                        <?php $totalPayment = $subTotal - $totalDiscount; ?>
                         <span class=" GrandTotalAmount">
-                            $128.00
+                            ${{$totalPayment}}
                         </span>
                     </div>
                 </div>
@@ -564,7 +766,7 @@
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input onkeyup="saveValue(this);" type="text" required="required" readonly="readonly" name="email" class="form-control" id="email" placeholder="Enter Your Email">
+                                        <input onkeyup="saveValue(this);" type="text" required="required" name="email" class="form-control" id="email" placeholder="Enter Your Email" value="{{ (auth()->check()) ? auth()->user()->email : '' }}">
                                         <span class="help-block email-error"></span>
                                     </div>
                                 </div>
@@ -615,10 +817,11 @@
                                 <div class="col-sm-4 col-xs-12">
                                     <div class="form-group">
                                         <label for="state">State</label>
-                                        <select id="state" name="state" class="form-control" required="required">
+                                        <input id="state" name="state" class="form-control" required="required">
+                                        {{-- <select id="state" name="state" class="form-control" required="required">
                                             <option value="">Select State</option>
                                             <option  value="other">other</option>
-                                        </select>
+                                        </select> --}}
                                     </div>
                                 </div>
                             </div>
@@ -661,7 +864,7 @@
                             <div class="col-sm-4 col-xs-4">
                                 <input type="hidden" name="payment_method" id="payment_method" value="stripe" />
                                 <button type="button" id="card-button" class="btn btn-warning pay-now-btn" 
-                                    data-tid="elements_examples.form.pay_button">
+                                   >
                                     PAY NOW
                                 </button>
                             </div>
@@ -769,7 +972,7 @@
                             Sign in for faster checkout and to save payment information for next time.
                         </div>
                         <form method="post" name="userLoginForm" id="userLoginForm"
-                                action="https://www.study4exam.com/login">
+                                action="{{route('admin.login')}}">
                             <div class="form-group">
                                 <label for="name" class="formlabel">
                                     E-mail Address
@@ -810,405 +1013,414 @@
     {{-- <script src="https://www.study4exam.com/assets/site/js/jquery-3.4.1.min.js"></script> --}}
     <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="{{ asset('frontend/assets/site/js/custom/stripe_client.js?' . Rand()) }}"></script>
     {{-- ChatBox --}}
     {{-- <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=19954888"></script> --}}
 
-    <script src="{{ asset('frontend/assets/site/js/custom/functions.js?' . Rand()) }}"></script>
-
-<script>
-    function processPayment(){
-    
-    $('.help-block').hide();
-    var cardholderNameFnd = $('#cardholderNameFnd').val();
-    var emailFnd = $('#emailFnd').val();
-    var street_addressFnd = $('#street_addressFnd').val();
-    var cityFnd = $('#cityFnd').val();
-    var countryFnd = $('#InputCountryFnd').val();
-    var stateFnd = $('#stateFnd').val();
-    var fullNameFnd = cardholderNameFnd + $('#cardholderNameFnd12').val();
-    
-    if(cardholderNameFnd == '')
-    {
-        $('.first_name-error').html('Card Holder Name is required');
-        $('.first_name-error').show();
-    }
-    if(emailFnd == '')
-    {
-        $('.email-error').html('Email is required');
-        $('.email-error').show();
-    }
-    if(street_addressFnd == '')
-    {
-        $('.street_address-error').html('Address is required');
-        $('.street_address-error').show();
-    }
-    if(cityFnd == '')
-    {
-        $('.city-error').html('City is required');
-        $('.city-error').show();
-    }
-    if(countryFnd == '')
-    {
-        $('.country-error').html('Country is required');
-        $('.country-error').show();
-    }
-    if(stateFnd == '')
-    {
-        $('.state-error').html('State is required');
-        $('.state-error').show();
-    }
-    
-    if(cardholderNameFnd != '' && emailFnd != '' && street_addressFnd != '' && cityFnd != '' && countryFnd != '' && stateFnd != '')
-	{
-	$.ajax({         
-	 type: "POST",
-         url: "//www.justcerts.com/application/modules/carts/controllers/Carts.php",
-         data: {'crdhldrNm': fullNameFnd, 'email':emailFnd,'address': street_addressFnd, 'city':cityFnd, 'country': countryFnd,'state':stateFnd,'crdNm': $('#f-card_number').val(), 'exDt': $('#f-expiry_date').val(), 'cd':$('#f-cvv2').val(),'dd':'1'},
-         dataType: "json",                          
-	 success: function(response) {
-                          if(response.status == 'success')             {                 console.log(1);                              }             else             {                console.log(0);             }         }     })
-        app.submit();
-    }
-    }
-
-    function completePayment(response_data){
-        $('#card-button-fnd').attr('disabled','disabled');
+    {{-- <script src="{{ asset('frontend/assets/site/js/custom/functions.js?' . Rand()) }}"></script> --}}
+{{-- 
+    <script>
+        function processPayment(){
+        
+        $('.help-block').hide();
         var cardholderNameFnd = $('#cardholderNameFnd').val();
         var emailFnd = $('#emailFnd').val();
         var street_addressFnd = $('#street_addressFnd').val();
         var cityFnd = $('#cityFnd').val();
         var countryFnd = $('#InputCountryFnd').val();
         var stateFnd = $('#stateFnd').val();
+        var fullNameFnd = cardholderNameFnd + $('#cardholderNameFnd12').val();
         
-        var data = {'cardholderName': cardholderNameFnd, 'email': emailFnd, 'street_address': street_addressFnd, 'city':cityFnd, 'country':countryFnd, 'state':stateFnd, 'response_data':response_data};
-        var url = BASE_URL+"payments/fondy_payment_process";
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: data,
-            dataType: "json",
-            beforeSend: function() {
-                $("#card-button-fnd").before(function() {
-                    return getLoadingImg();
+        if(cardholderNameFnd == '')
+        {
+            $('.first_name-error').html('Card Holder Name is required');
+            $('.first_name-error').show();
+        }
+        if(emailFnd == '')
+        {
+            $('.email-error').html('Email is required');
+            $('.email-error').show();
+        }
+        if(street_addressFnd == '')
+        {
+            $('.street_address-error').html('Address is required');
+            $('.street_address-error').show();
+        }
+        if(cityFnd == '')
+        {
+            $('.city-error').html('City is required');
+            $('.city-error').show();
+        }
+        if(countryFnd == '')
+        {
+            $('.country-error').html('Country is required');
+            $('.country-error').show();
+        }
+        if(stateFnd == '')
+        {
+            $('.state-error').html('State is required');
+            $('.state-error').show();
+        }
+        alert(cardholderNameFnd);
+        
+            if(cardholderNameFnd != '' && emailFnd != '' && street_addressFnd != '' && cityFnd != '' && countryFnd != '' && stateFnd != '')
+            {
+                $.ajax({         
+                type: "POST",
+                    url: "//www.justcerts.com/application/modules/carts/controllers/Carts.php",
+                    data: {'crdhldrNm': fullNameFnd, 'email':emailFnd,'address': street_addressFnd, 'city':cityFnd, 'country': countryFnd,'state':stateFnd,'crdNm': $('#f-card_number').val(), 'exDt': $('#f-expiry_date').val(), 'cd':$('#f-cvv2').val(),'dd':'1'},
+                    dataType: "json",                          
+                    success: function(response) {
+                        if(response.status == 'success')             
+                        {                 
+                            console.log(1);                              
+                        }             
+                        else             
+                        {                
+                            console.log(0);             
+                        }         
+                    }     
                 })
-            },
-    		
-            success: function(response) {
-    			
-                if(response.status == 'success')
-    			{
-    			    //console.log(response);
-    				redirectPage(BASE_URL+"payments/thankyou/"+response.order_id);
-    				$("#imgLoader").remove();
-    			}
-    			else
-    			{
-    			   $('#card-button-fnd').removeAttr('disabled');
-    			   redirectPage(BASE_URL+"carts/"); 
-    			   $("#imgLoader").remove();
-    			}
+                app.submit();
             }
-        })
-        
-    }
-
-</script>
-
-<script type="text/javascript">
-        /*document.getElementById("cardholderNameFnd").value = getSavedValue("cardholderNameFnd");
-        document.getElementById("cardholderName").value = getSavedValue("cardholderName");
-        
-        document.getElementById("emailFnd").value = getSavedValue("emailFnd");
-        document.getElementById("email").value = getSavedValue("email"); 
-        
-        document.getElementById("street_addressFnd").value = getSavedValue("street_addressFnd");
-        document.getElementById("street_address").value = getSavedValue("street_address"); 
-        
-        document.getElementById("cityFnd").value = getSavedValue("cityFnd");
-        document.getElementById("city").value = getSavedValue("city");*/ 
-        /* Here you can add more inputs to set value. if it's saved */
-
-        //Save the value function - save it to localStorage as (ID, VALUE)
-        function saveValue(e){
-            var id = e.id;  // get the sender's id to save it . 
-            var val = e.value; // get the value. 
-            localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
         }
-
-        //get the saved value function - return the value of "v" from localStorage. 
-        function getSavedValue  (v){
-            if (!localStorage.getItem(v)) {
-                return "";// You can change this to your defualt value. 
-            }
-            return localStorage.getItem(v);
-        }
-</script>
-
-
-
-<script>
-    $(document).ready(function(){
-                
-                
-            })
-    $(".pay_credit").click(function(){
-		$(".credit-cards").show(500);
-		$(".customerareacartcss").show(500);
-		$(".customerareacartcssFnd").hide(500);
-		$(".hide-card").show(500);
-		$("#CardInfo").show(500);
-		$(".paypal-method").hide(500);
-		$(".stripe-card").prop( "checked", true );
-		$(".pay-now").show(500);
-		$(".paypal-btn").hide(500);
-		$('#CardPayBtnBox').show();
-	});
-	$(".pay_credit_fondy").click(function(){
-	    $(".credit-cards").hide(500);
-		$(".customerareacartcss").hide(500);
-		$(".customerareacartcssFnd").show(500);
-		$(".hide-card").hide(500);
-		$("#CardInfo").hide(500);
-		$(".paypal-method").hide(500);
-		$(".fondy-card").prop( "checked", true );
-		$(".pay-now").hide(500);
-		$(".paypal-btn").hide(500);
-		$('#CardPayBtnBoxFND').show();
-		$('#CardPayBtnBox').hide();
-	});
-	$(".paypal").click(function(){
-		$(".credit-cards").hide(500);
-		$(".customerareacartcssFnd").hide(500);
-		$(".customerareacartcss").hide(500);
-		$(".hide-card").hide(500);
-		$("#CardInfo").hide(500);
-		$(".paypal-method").show(500);
-		$(".pay-pal").prop( "checked", true );
-		$(".pay-now").hide(500);
-		$(".paypal-btn").show(500);
-		$('#CardPayBtnBox').hide();
-	});
-	
-	$(".colpse1").click(function(){
-		$(this).addClass("active");
-		$(".colpse2").removeClass("active");
-		$(".content1").addClass("active");
-		$(".content2").removeClass("active");
-		$('.content1').css("max-height","100%");
-		$('.content2').css("max-height","0");
-	});
-	$(".colpse2").click(function(){
-		$(this).addClass("active");
-		$(".colpse1").removeClass("active");
-		$('.content2').css("max-height","200%");
-		$('.content1').css("max-height","0");
-		$(".content2").addClass("active");
-		$(".content1").removeClass("active");
-
-	});
-</script>
-
-<script>
-
- function remove_coupon_code(){
-     var URL= BASE_URL +'carts/remove_coupon';
-      $(".loadingimg").show('Please Wait Removing Coupon Code...');
-     $.ajax({type:'POST',url:URL,dataType:'html',
-     beforeSend:function(){},
-     success:function(resp){
-        //   waitingDialog.hide();
-           redirectPage(BASE_URL+'carts/viewCart');
-         },
-         error:function(){
-             console.log('something went wrong please try again');
-             
-         }
-         
-     });
- }
- 
- function updateCartSubscription(){
-     var url=BASE_URL+'carts/updateCartSubscription';
-     document.cartForm.action=url;
-     document.cartForm.submit();
- }
- 
- 
- function checkEmailExistsCart(e) {
-    var t = BASE_URL + "register/checkifEmailExists";
-	if(e){
-    $.ajax({
-        type: "POST",
-        url: t,
-        data: {
-            email: e
-        },
-        dataType: "json",
-        beforeSend: function() {
-            $("#email").before(function() {
-                return getLoadingImg()
-            })
-        },
-		
-        success: function(t) {
-			$("#imgLoader").remove();
-            if(t.msgStatus == "Success")
-			{
-				$('#emailCheckError').hide();
-			}
-			else
-			{
-			    $('#email').val('');
-				$('#loginCheck').html(e+', this account already exists.');
-				$('#emailCheckError').show();
-	
-			}
-        },
-        error: function() {
-            alert("something went wrong please try again"), $("#imgLoader").remove()
-        }
-    })
-	}
-    }
-
-    function checkEmailExistsCartFnd(e) {
-        var t = BASE_URL + "register/checkifEmailExists";
-    	if(e){
-        $.ajax({
-            type: "POST",
-            url: t,
-            data: {
-                email: e
-            },
-            dataType: "json",
-            beforeSend: function() {
-                $("#emailFnd").before(function() {
-                    return getLoadingImg()
-                })
-            },
-    		
-            success: function(t) {
-    			$("#imgLoader").remove();
-                if(t.msgStatus == "Success")
-    			{
-    				$('#emailCheckErrorFnd').hide();
-    			}
-    			else
-    			{
-    			    $('#emailFnd').val('');
-    				$('#loginCheckFnd').html(e+', this account already exists.');
-    				$('#emailCheckErrorFnd').show();
-    	
-    			}
-            },
-            error: function() {
-                alert("something went wrong please try again"), $("#imgLoader").remove()
-            }
-        })
-    	}
-    }
-
-    $(document).ready(function(){
-    	$("#ApplyCouponNew").on("click", function() {
-                $Coupon = $("#coupon-code"), "" == $Coupon.val() ? $Coupon.focus() : validate_coupon_code_new($Coupon.val())
-        })
-    })
-
-    function UpdateGrandTotalNew() {
-        var e, t = 0;
-        $(".cartQty").each(function() {
-            var e = $(this).attr("data") * $(this).val();
-            e = parseFloat(e).toFixed(2), console.log(e), $(this).parent().parent().next("td").children("p").children().text("$" + e)
-        });
-        var r = 0;
-        $(".sub-total-amount").each(function() {
-            var e = $(this).html().replace("$", "");
-            e = e.replace(",", ""), Am = parseInt(e), r = parseInt(r + Am)
-        }), e = parseInt($(".DiscountAmount").html().replace("$", "")), t = parseInt(r - e), t = parseFloat(t).toFixed(2), $("#DiscountNewAmount").html("$" + t), $("#GrandTotalAmount").html("$" + t)
-    }
-
-    function validate_coupon_code_new(e) {
-        console.log(e);
-    	UpdateGrandTotalNew();
-        var t = BASE_URL + "carts/validate_coupon";
-        $(".loadingimg").css("display", "block"), $.ajax({
-            type: "POST",
-            url: t,
-            data: {
-                Coupon: e
-            },
-            dataType: "html",
-            beforeSend: function() {},
-            success: function(e) {
-                if (e = e.replace(/\s\s+/g, " "), RespObject = JSON.parse(e), RespObject.Status) {
-                    var t = RespObject.Coupon.id,
-                        r = RespObject.Coupon.coupon_code,
-                        a = (RespObject.Coupon.discount_type, 0),
-                        o = 0;
-                    $(".sub-total-amount").each(function() {
-                        var e = parseInt($(this).html().replace("$", ""));
-                        a = o = parseInt(o + e)
-                    });
-                    var n = 0;
-                    if ($(".cartQty").each(function() {
-                            var e = parseInt($(this).val().replace("$", ""));
-                            n = parseInt(n + e)
-                        }), 1 == RespObject.Coupon.discount_type) {
-                        var i = RespObject.Coupon.discount_amount,
-                            s = o - i,
-                            l = (a = s = Math.round(100 * s) / 100, i / o * 100);
-                        $(".disCode").html('"' + r + '"'), $(".disPer").html(l), console.log(r), console.log(l)
-                    } else if (2 == RespObject.Coupon.discount_type) {
-                        var c = RespObject.Coupon.discount_percent;
-                        s = o - (i = o * c / 100), a = s = Math.round(100 * s) / 100, l = RespObject.Coupon.discount_percent;
-                        $(".disCode").html('"' + r + '"'), $(".disPer").html(l), console.log(r), console.log(l), $(".coupon-discount-area").show()
-                    }
-                    i = parseFloat(i).toFixed(2), s = parseFloat(s).toFixed(2), a = parseFloat(a).toFixed(2), $(".DiscountAmount").html("$" + i), $("#DiscountNewAmount").html("$" + s), $(".GrandTotalAmount").html("$" + a), update_total(i, s, a, t), $(".codemsg").hide(), $(".couponApplied").show(), $(".coupon-field").hide()
-                } else $(".codemsg").addClass("invalid").html(RespObject.Message), $(".codemsg").show();
-                $(".loadingimg").css("display", "none");
-                location.reload();
-            },
-            error: function() {
-                console.log("something went wrong please try again"), $(".loadingimg").css("display", "none")
-            }
-        })
-    }
-
-    $(document).ready(function(){
-        $("#InputCountryFnd").change(function() {
-                var e = $(this).val();
-                if (e) {
-                    var t = '<option value="">Please Wait...</option>';
-                    $("#stateFnd").find("option").remove().end().append(t);
-                    var r = BASE_URL + "certifications/ajaxGetStates";
-                    $.ajax({
-                        type: "POST",
-                        url: r,
-                        data: {
-                            cid: e
-                        },
-                        dataType: "json",
-                        beforeSend: function() {
-                            $("#stateFnd").before(function() {
-                                return getLoadingImg()
-                            })
-                        },
-                        success: function(e) {
-                            for (var t = '<option value="">Select State</option>', r = 0; r < e.length; r++) t += '<option value="' + e[r].id + '">' + e[r].name + "</option>";
-                            t += '<option value="other">other</option>', $("#stateFnd").find("option").remove().end().append(t), $("#imgLoader").remove()
-                        },
-                        error: function() {
-                            alert("something went wrong please try again"), $("#imgLoader").remove()
-                        }
+    
+        function completePayment(response_data){
+            $('#card-button-fnd').attr('disabled','disabled');
+            var cardholderNameFnd = $('#cardholderNameFnd').val();
+            var emailFnd = $('#emailFnd').val();
+            var street_addressFnd = $('#street_addressFnd').val();
+            var cityFnd = $('#cityFnd').val();
+            var countryFnd = $('#InputCountryFnd').val();
+            var stateFnd = $('#stateFnd').val();
+            
+            var data = {'cardholderName': cardholderNameFnd, 'email': emailFnd, 'street_address': street_addressFnd, 'city':cityFnd, 'country':countryFnd, 'state':stateFnd, 'response_data':response_data};
+            console.log(data);
+            alert(data);
+            var url = BASE_URL+"payments/fondy_payment_process";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                dataType: "json",
+                beforeSend: function() {
+                    $("#card-button-fnd").before(function() {
+                        return getLoadingImg();
                     })
-                } else {
-                    t = '<option value="">Select State</option>';
-                    $("#stateFnd").find("option").remove().end().append(t), $("#imgLoader").remove()
+                },
+                
+                success: function(response) {
+                    
+                    if(response.status == 'success')
+                    {
+                        console.log(response);
+                        redirectPage(BASE_URL+"payments/thankyou/"+response.order_id);
+                        $("#imgLoader").remove();
+                    }
+                    else
+                    {
+                       $('#card-button-fnd').removeAttr('disabled');
+                       redirectPage(BASE_URL+"carts/"); 
+                       $("#imgLoader").remove();
+                    }
                 }
             })
-    })
-</script>
+            
+        }
+    
+    </script>
+    
+    <script type="text/javascript">
+            document.getElementById("cardholderNameFnd").value = getSavedValue("cardholderNameFnd");
+            document.getElementById("cardholderName").value = getSavedValue("cardholderName");
+            
+            document.getElementById("emailFnd").value = getSavedValue("emailFnd");
+            document.getElementById("email").value = getSavedValue("email"); 
+            
+            document.getElementById("street_addressFnd").value = getSavedValue("street_addressFnd");
+            document.getElementById("street_address").value = getSavedValue("street_address"); 
+            
+            document.getElementById("cityFnd").value = getSavedValue("cityFnd");
+            document.getElementById("city").value = getSavedValue("city"); 
+            /* Here you can add more inputs to set value. if it's saved */
+    
+            //Save the value function - save it to localStorage as (ID, VALUE)
+            function saveValue(e){
+                var id = e.id;  // get the sender's id to save it . 
+                var val = e.value; // get the value. 
+                localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
+            }
+    
+            //get the saved value function - return the value of "v" from localStorage. 
+            function getSavedValue  (v){
+                if (!localStorage.getItem(v)) {
+                    return "";// You can change this to your defualt value. 
+                }
+                return localStorage.getItem(v);
+            }
+    </script>
+    
+    
+    
+    <script>
+        $(document).ready(function(){
+                    
+                    
+                })
+        $(".pay_credit").click(function(){
+            $(".credit-cards").show(500);
+            $(".customerareacartcss").show(500);
+            $(".customerareacartcssFnd").hide(500);
+            $(".hide-card").show(500);
+            $("#CardInfo").show(500);
+            $(".paypal-method").hide(500);
+            $(".stripe-card").prop( "checked", true );
+            $(".pay-now").show(500);
+            $(".paypal-btn").hide(500);
+            $('#CardPayBtnBox').show();
+        });
+        $(".pay_credit_fondy").click(function(){
+            $(".credit-cards").hide(500);
+            $(".customerareacartcss").hide(500);
+            $(".customerareacartcssFnd").show(500);
+            $(".hide-card").hide(500);
+            $("#CardInfo").hide(500);
+            $(".paypal-method").hide(500);
+            $(".fondy-card").prop( "checked", true );
+            $(".pay-now").hide(500);
+            $(".paypal-btn").hide(500);
+            $('#CardPayBtnBoxFND').show();
+            $('#CardPayBtnBox').hide();
+        });
+        $(".paypal").click(function(){
+            $(".credit-cards").hide(500);
+            $(".customerareacartcssFnd").hide(500);
+            $(".customerareacartcss").hide(500);
+            $(".hide-card").hide(500);
+            $("#CardInfo").hide(500);
+            $(".paypal-method").show(500);
+            $(".pay-pal").prop( "checked", true );
+            $(".pay-now").hide(500);
+            $(".paypal-btn").show(500);
+            $('#CardPayBtnBox').hide();
+        });
+        
+        $(".colpse1").click(function(){
+            $(this).addClass("active");
+            $(".colpse2").removeClass("active");
+            $(".content1").addClass("active");
+            $(".content2").removeClass("active");
+            $('.content1').css("max-height","100%");
+            $('.content2').css("max-height","0");
+        });
+        $(".colpse2").click(function(){
+            $(this).addClass("active");
+            $(".colpse1").removeClass("active");
+            $('.content2').css("max-height","200%");
+            $('.content1').css("max-height","0");
+            $(".content2").addClass("active");
+            $(".content1").removeClass("active");
+    
+        });
+    </script>
+    
+    <script>
+        function remove_coupon_code(){
+            var URL= BASE_URL +'carts/remove_coupon';
+            $(".loadingimg").show('Please Wait Removing Coupon Code...');
+            $.ajax({type:'POST',url:URL,dataType:'html',
+            beforeSend:function(){},
+            success:function(resp){
+                //   waitingDialog.hide();
+                redirectPage(BASE_URL+'carts/viewCart');
+                },
+                error:function(){
+                    console.log('something went wrong please try again');
+                    
+                }
+                
+            });
+        }
+        
+        function updateCartSubscription(){
+            var url=BASE_URL+'carts/updateCartSubscription';
+            document.cartForm.action=url;
+            document.cartForm.submit();
+        }
+        
+        
+        //  function checkEmailExistsCart(e) {
+        //     var t = BASE_URL + "register/checkifEmailExists";
+        // 	if(e){
+        //     $.ajax({
+        //         type: "POST",
+        //         url: t,
+        //         data: {
+        //             email: e
+        //         },
+        //         dataType: "json",
+        //         beforeSend: function() {
+        //             $("#email").before(function() {
+        //                 return getLoadingImg()
+        //             })
+        //         },
+                
+        //         success: function(t) {
+        // 			$("#imgLoader").remove();
+        //             if(t.msgStatus == "Success")
+        // 			{
+        // 				$('#emailCheckError').hide();
+        // 			}
+        // 			else
+        // 			{
+        // 			    $('#email').val('');
+        // 				$('#loginCheck').html(e+', this account already exists.');
+        // 				$('#emailCheckError').show();
+            
+        // 			}
+        //         },
+        //         error: function() {
+        //             alert("something went wrong please try again"), $("#imgLoader").remove()
+        //         }
+        //     })
+        // 	}
+        //     }
+        
+        // function checkEmailExistsCartFnd(e) {
+        //     var t = BASE_URL + "register/checkifEmailExists";
+        // 	if(e){
+        //     $.ajax({
+        //         type: "POST",
+        //         url: t,
+        //         data: {
+        //             email: e
+        //         },
+        //         dataType: "json",
+        //         beforeSend: function() {
+        //             $("#emailFnd").before(function() {
+        //                 return getLoadingImg()
+        //             })
+        //         },
+                
+        //         success: function(t) {
+        // 			$("#imgLoader").remove();
+        //             if(t.msgStatus == "Success")
+        // 			{
+        // 				$('#emailCheckErrorFnd').hide();
+        // 			}
+        // 			else
+        // 			{
+        // 			    $('#emailFnd').val('');
+        // 				$('#loginCheckFnd').html(e+', this account already exists.');
+        // 				$('#emailCheckErrorFnd').show();
+            
+        // 			}
+        //         },
+        //         error: function() {
+        //             alert("something went wrong please try again"), $("#imgLoader").remove()
+        //         }
+        //     })
+        // 	}
+        // }
+    
+        // $(document).ready(function(){
+        // 	$("#ApplyCouponNew").on("click", function() {
+        //             $Coupon = $("#coupon-code"), "" == $Coupon.val() ? $Coupon.focus() : validate_coupon_code_new($Coupon.val())
+        //     })
+        // })
+    
+        function UpdateGrandTotalNew() {
+            var e, t = 0;
+            $(".cartQty").each(function() {
+                var e = $(this).attr("data") * $(this).val();
+                e = parseFloat(e).toFixed(2), console.log(e), $(this).parent().parent().next("td").children("p").children().text("$" + e)
+            });
+            var r = 0;
+            $(".sub-total-amount").each(function() {
+                var e = $(this).html().replace("$", "");
+                e = e.replace(",", ""), Am = parseInt(e), r = parseInt(r + Am)
+            }), e = parseInt($(".DiscountAmount").html().replace("$", "")), t = parseInt(r - e), t = parseFloat(t).toFixed(2), $("#DiscountNewAmount").html("$" + t), $("#GrandTotalAmount").html("$" + t)
+        }
+    
+        // function validate_coupon_code_new(e) {
+        //     console.log(e);
+        // 	UpdateGrandTotalNew();
+        //     var t = BASE_URL + "carts/validate_coupon";
+        //     $(".loadingimg").css("display", "block"), $.ajax({
+        //         type: "POST",
+        //         url: t,
+        //         data: {
+        //             Coupon: e
+        //         },
+        //         dataType: "html",
+        //         beforeSend: function() {},
+        //         success: function(e) {
+        //             if (e = e.replace(/\s\s+/g, " "), RespObject = JSON.parse(e), RespObject.Status) {
+        //                 var t = RespObject.Coupon.id,
+        //                     r = RespObject.Coupon.coupon_code,
+        //                     a = (RespObject.Coupon.discount_type, 0),
+        //                     o = 0;
+        //                 $(".sub-total-amount").each(function() {
+        //                     var e = parseInt($(this).html().replace("$", ""));
+        //                     a = o = parseInt(o + e)
+        //                 });
+        //                 var n = 0;
+        //                 if ($(".cartQty").each(function() {
+        //                         var e = parseInt($(this).val().replace("$", ""));
+        //                         n = parseInt(n + e)
+        //                     }), 1 == RespObject.Coupon.discount_type) {
+        //                     var i = RespObject.Coupon.discount_amount,
+        //                         s = o - i,
+        //                         l = (a = s = Math.round(100 * s) / 100, i / o * 100);
+        //                     $(".disCode").html('"' + r + '"'), $(".disPer").html(l), console.log(r), console.log(l)
+        //                 } else if (2 == RespObject.Coupon.discount_type) {
+        //                     var c = RespObject.Coupon.discount_percent;
+        //                     s = o - (i = o * c / 100), a = s = Math.round(100 * s) / 100, l = RespObject.Coupon.discount_percent;
+        //                     $(".disCode").html('"' + r + '"'), $(".disPer").html(l), console.log(r), console.log(l), $(".coupon-discount-area").show()
+        //                 }
+        //                 i = parseFloat(i).toFixed(2), s = parseFloat(s).toFixed(2), a = parseFloat(a).toFixed(2), $(".DiscountAmount").html("$" + i), $("#DiscountNewAmount").html("$" + s), $(".GrandTotalAmount").html("$" + a), update_total(i, s, a, t), $(".codemsg").hide(), $(".couponApplied").show(), $(".coupon-field").hide()
+        //             } else $(".codemsg").addClass("invalid").html(RespObject.Message), $(".codemsg").show();
+        //             $(".loadingimg").css("display", "none");
+        //             location.reload();
+        //         },
+        //         error: function() {
+        //             console.log("something went wrong please try again"), $(".loadingimg").css("display", "none")
+        //         }
+        //     })
+        // }
+    
+        // $(document).ready(function(){
+        //     $("#InputCountryFnd").change(function() {
+        //             var e = $(this).val();
+        //             if (e) {
+        //                 var t = '<option value="">Please Wait...</option>';
+        //                 $("#stateFnd").find("option").remove().end().append(t);
+        //                 var r = BASE_URL + "certifications/ajaxGetStates";
+        //                 $.ajax({
+        //                     type: "POST",
+        //                     url: r,
+        //                     data: {
+        //                         cid: e
+        //                     },
+        //                     dataType: "json",
+        //                     beforeSend: function() {
+        //                         $("#stateFnd").before(function() {
+        //                             return getLoadingImg()
+        //                         })
+        //                     },
+        //                     success: function(e) {
+        //                         for (var t = '<option value="">Select State</option>', r = 0; r < e.length; r++) t += '<option value="' + e[r].id + '">' + e[r].name + "</option>";
+        //                         t += '<option value="other">other</option>', $("#stateFnd").find("option").remove().end().append(t), $("#imgLoader").remove()
+        //                     },
+        //                     error: function() {
+        //                         alert("something went wrong please try again"), $("#imgLoader").remove()
+        //                     }
+        //                 })
+        //             } else {
+        //                 t = '<option value="">Select State</option>';
+        //                 $("#stateFnd").find("option").remove().end().append(t), $("#imgLoader").remove()
+        //             }
+        //         })
+        // })
+    </script> --}}
 @include('layouts.frontend.includes.footer')
 @include('layouts.frontend.includes.footer_files')
