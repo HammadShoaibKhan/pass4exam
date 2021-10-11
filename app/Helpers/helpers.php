@@ -1,4 +1,6 @@
 <?php
+
+use App\Models\Certification;
 use \App\Models\Vendor;
 use App\Models\Media;
 use App\Models\Exam;
@@ -70,6 +72,14 @@ function getVendorName($id=null){
     if ($id != null && vendor::where('id', $id)->exists()) {
         $vendor = vendor::find($id);
         return $vendor->title;
+    }
+    return null;
+}
+/**to get vendorName */
+function getCertificateName($id=null){
+    if ($id != null && Certification::where('id', $id)->exists()) {
+        $Certificate = Certification::find($id);
+        return $Certificate->title;
     }
     return null;
 }
