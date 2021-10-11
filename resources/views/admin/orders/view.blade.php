@@ -3,25 +3,6 @@
 <?php
     $user_detail = json_decode($order->user_detail);
     $order_detail = json_decode($order->order_detail);
-// $tst=json_encode(array(
-//     'name'=>"UserName here",
-//     'address'=>"User address here", 
-//     'country'=>"Pakistan",
-//     'state'=> "Punjab",
-//     'city'=>"Multan"
-// ));
-// // dd($tst);
-// $tstq=json_encode(array(
-//     'bundleType'=>"Vendor-bundle",
-//     'bundleTitle'=>"Bundle Title here", 
-//     'vendor_id'=>1,
-//     'exam_code'=> "AZ-400",
-//     'certification_id'=>1,
-//     'orignalprice'=>33,
-//     'discountedprice'=>26
-// ));
-// dd($tstq);
-    // dd($user_detail,$order_detail);
 ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -30,7 +11,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Orders</h1>
+                        <h1>Order View</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -63,6 +44,13 @@
                                             <p class="form-control-plaintext">
                                                 @empty(!$order->user_id)
                                                     {{ $user_detail->name ?? 'User is Not Registered Yet' }}                                                    
+                                                @endempty
+                                            </p>
+                                        </div>
+                                        <div class="" style="margin-left: 14%">
+                                            <p class="form-control-plaintext">
+                                                @empty(!$order->created_at)
+                                                  <b>  {{ $order->created_at ?? '' }}</b>                                                    
                                                 @endempty
                                             </p>
                                         </div>
@@ -125,54 +113,69 @@
                                             Order Detail
                                         </label>
                                         <div class="col-sm-5">
-                                            <div class="row form-control-plaintext">
-                                                <label class="col-sm-6">Bundle Type</label>
-                                                <span>
-                                                    {{ $order_detail->bundleType ?? '' }}
-                                                </span>
-                                            </div>                                           
-                                            <div class="row form-control-plaintext">
-                                                <label class="col-sm-6">Bundle Title</label>
-                                                <span>
-                                                    {{ $order_detail->bundleTitle ?? '' }}
-                                                </span>
-                                            </div>                                           
-                                            <div class="row form-control-plaintext">
-                                                <label class="col-sm-6">Vendor</label>
-                                                <span>
-                                                    {{ $order_detail->vendor_id ?? '' }}
-                                                </span>
-                                            </div>                                           
-                                            <div class="row form-control-plaintext">
-                                                <label class="col-sm-6">Exam Code</label>
-                                                <span>
-                                                    {{ $order_detail->exam_code ?? '' }}
-                                                </span>
-                                            </div>                                           
-                                            <div class="row form-control-plaintext">
-                                                <label class="col-sm-6">Certification</label>
-                                                <span>
-                                                    {{ $order_detail->certification_id ?? '' }}
-                                                </span>
-                                            </div>                                           
-                                            <div class="row form-control-plaintext">
-                                                <label class="col-sm-6">Price</label>
-                                                <span>
-                                                    {{ $order_detail->orignalprice ?? '' }}
-                                                </span>
-                                            </div>                                           
-                                            <div class="row form-control-plaintext">
-                                                <label class="col-sm-6">Discount</label>
-                                                <span>
-                                                    {{ ($order_detail->orignalprice-$order_detail->discountedprice) ?? '' }}
-                                                </span>
-                                            </div>                                           
-                                            <div class="row form-control-plaintext">
-                                                <label class="col-sm-6">Total Payable</label>
-                                                <span>
-                                                    {{ ($order_detail->discountedprice) ?? '' }}
-                                                </span>
-                                            </div>                                           
+                                            @forelse ($order_detail as $order_d)  
+                                                {{-- @empty(!$order_d->bundleType)
+                                                    <div class="row form-control-plaintext">
+                                                        <label class="col-sm-6">Bundle Type</label>
+                                                        <span>
+                                                            {{ $order_d->bundleType ?? '' }}
+                                                        </span>
+                                                    </div>    
+                                                @endempty --}}
+                                                @empty(!$order_d->bundleTitle)
+                                                    <div class="row form-control-plaintext">
+                                                        <label class="col-sm-6">Bundle Title</label>
+                                                        <span>
+                                                            {{ $order_d->bundleTitle ?? '' }}
+                                                        </span>
+                                                    </div>              
+                                                @endempty 
+                                                @empty(!$order_d->vendor_id)
+                                                    <div class="row form-control-plaintext">
+                                                        <label class="col-sm-6">Vendor</label>
+                                                        <span>
+                                                            {{ getVendorName($order_d->vendor_id) ?? '' }}
+                                                        </span>
+                                                    </div> 
+                                                @endempty 
+                                                @empty(!$order_d->certification_id)
+                                                    <div class="row form-control-plaintext">
+                                                        <label class="col-sm-6">Certification</label>
+                                                        <span>
+                                                            {{ getCertificateName($order_d->certification_id) ?? '' }}
+                                                        </span>
+                                                    </div> 
+                                                @endempty                                  
+                                                @empty(!$order_d->exam_code)
+                                                    <div class="row form-control-plaintext">
+                                                        <label class="col-sm-6">Exam Code</label>
+                                                        <span>
+                                                            {{ $order_d->exam_code ?? '' }}
+                                                        </span>
+                                                    </div> 
+                                                @endempty  
+                                                <div class="row form-control-plaintext">
+                                                    <label class="col-sm-6">Price</label>
+                                                    <span>
+                                                        {{ $order_d->orignalprice ?? 0 }}
+                                                    </span>
+                                                </div>                                           
+                                                <div class="row form-control-plaintext">
+                                                    <label class="col-sm-6">Discount</label>
+                                                    <span>
+                                                        {{ ($order_d->orignalprice-$order_d->discountedprice) ?? 0 }}
+                                                    </span>
+                                                </div>                                           
+                                                <div class="row form-control-plaintext">
+                                                    <label class="col-sm-6">Total Payable</label>
+                                                    <span>
+                                                        {{ ($order_d->discountedprice) ?? 0 }}
+                                                    </span>
+                                                </div>
+                                                <hr>
+                                            @empty
+                                            
+                                            @endforelse                                               
                                         </div>
                                     </div>
                                 </div>
