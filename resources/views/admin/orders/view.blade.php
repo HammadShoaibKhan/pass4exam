@@ -1,6 +1,28 @@
 @extends('layouts.admin.master')
 @section('content')
-
+<?php
+    $user_detail = json_decode($order->user_detail);
+    $order_detail = json_decode($order->order_detail);
+// $tst=json_encode(array(
+//     'name'=>"UserName here",
+//     'address'=>"User address here", 
+//     'country'=>"Pakistan",
+//     'state'=> "Punjab",
+//     'city'=>"Multan"
+// ));
+// // dd($tst);
+// $tstq=json_encode(array(
+//     'bundleType'=>"Vendor-bundle",
+//     'bundleTitle'=>"Bundle Title here", 
+//     'vendor_id'=>1,
+//     'exam_code'=> "AZ-400",
+//     'certification_id'=>1,
+//     'orignalprice'=>33,
+//     'discountedprice'=>26
+// ));
+// dd($tstq);
+    // dd($user_detail,$order_detail);
+?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -40,7 +62,7 @@
                                         <div class="col-sm-5">
                                             <p class="form-control-plaintext">
                                                 @empty(!$order->user_id)
-                                                    {{ getuserName($order->user_id) ?? 'User is Not Registered Yet' }}                                                    
+                                                    {{ $user_detail->name ?? 'User is Not Registered Yet' }}                                                    
                                                 @endempty
                                             </p>
                                         </div>
@@ -64,9 +86,36 @@
                                             User Detail
                                         </label>
                                         <div class="col-sm-5">
-                                            <p class="form-control-plaintext" >
-                                                {{ $order->user_detail ?? 0 }}
-                                            </p>
+                                            {{-- <div class="row form-control-plaintext">
+                                                <label class="col-sm-3">Name</label>
+                                                <span>
+                                                    {{ $user_detail->name ?? '' }}
+                                                </span>
+                                            </div>                                            --}}
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-3">Address</label>
+                                                <span>
+                                                    {{ $user_detail->address ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-3">Country</label>
+                                                <span>
+                                                    {{ $user_detail->country ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-3">State</label>
+                                                <span>
+                                                    {{ $user_detail->state ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-3">City</label>
+                                                <span>
+                                                    {{ $user_detail->city ?? '' }}
+                                                </span>
+                                            </div>                                           
                                         </div>
                                     </div>
                                 </div>
@@ -76,9 +125,54 @@
                                             Order Detail
                                         </label>
                                         <div class="col-sm-5">
-                                            <p class="form-control-plaintext" >
-                                                {{ $order->order_detail ?? 0 }}
-                                            </p>
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-6">Bundle Type</label>
+                                                <span>
+                                                    {{ $order_detail->bundleType ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-6">Bundle Title</label>
+                                                <span>
+                                                    {{ $order_detail->bundleTitle ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-6">Vendor</label>
+                                                <span>
+                                                    {{ $order_detail->vendor_id ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-6">Exam Code</label>
+                                                <span>
+                                                    {{ $order_detail->exam_code ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-6">Certification</label>
+                                                <span>
+                                                    {{ $order_detail->certification_id ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-6">Price</label>
+                                                <span>
+                                                    {{ $order_detail->orignalprice ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-6">Discount</label>
+                                                <span>
+                                                    {{ ($order_detail->orignalprice-$order_detail->discountedprice) ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-6">Total Payable</label>
+                                                <span>
+                                                    {{ ($order_detail->discountedprice) ?? '' }}
+                                                </span>
+                                            </div>                                           
                                         </div>
                                     </div>
                                 </div>
