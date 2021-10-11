@@ -65,6 +65,14 @@ function getCartTotalCount(){
 //     return null;
 // }
 
+/**to get vendorName */
+function getVendorName($id=null){
+    if ($id != null && vendor::where('id', $id)->exists()) {
+        $vendor = vendor::find($id);
+        return $vendor->title;
+    }
+    return null;
+}
 /**to get Current Today Total order Count */
 function getTodayTotalOrderCount(){
     $date =  date('Y-m-d');
