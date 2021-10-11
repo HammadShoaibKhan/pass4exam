@@ -55,14 +55,15 @@ function getCartTotalCount(){
     $carts = session()->get('carts',[]);
     return count($carts);
 }
+
 /**to get userName */
-function getuserName($id=null){
-    if ($id != null && User::where('id', $id)->exists()) {
-        $user = User::find($id);
-        return $user->name;
-    }
-    return null;
-}
+// function getuserName($id=null){
+//     if ($id != null && User::where('id', $id)->exists()) {
+//         $user = User::find($id);
+//         return $user->name;
+//     }
+//     return null;
+// }
 
 /**to get Current Today Total order Count */
 function getTodayTotalOrderCount(){
