@@ -48,9 +48,9 @@
                                             </p>
                                         </div>
                                         <div class="" style="margin-left: 14%">
-                                            <p class="form-control-plaintext">
+                                            <p class="form-control-plaintext" style="padding: 5px;">
                                                 @empty(!$order->created_at)
-                                                  <b>  {{ $order->created_at ?? '' }}</b>                                                    
+                                                  <b style="font-size: 20px;color:green;">  <?php echo date_format($order->created_at,'d-M-Y   H:i') ?></b>                                                    
                                                 @endempty
                                             </p>
                                         </div>
