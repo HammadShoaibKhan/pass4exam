@@ -759,14 +759,14 @@
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <label for="cardholderName"> Name</label>
-                                        <input onkeyup="saveValue(this);" type="text" required="required" placeholder="Card Holder Name" name="first_name" class="form-control" id="cardholderName"  required="required">
+                                        <input onkeyup="saveValue(this);" type="text" required="required" placeholder="Card Holder Name" name="first_name" class="form-control" id="cardholderName"  required="required"  value="{{ (auth()->check()) ? auth()->user()->name : '' }}">
                                         <span class="help-block first_name-error"></span>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input onkeyup="saveValue(this);" type="text" required="required" name="email" class="form-control" id="email" placeholder="Enter Your Email" value="{{ (auth()->check()) ? auth()->user()->email : '' }}">
+                                        <input readonly onkeyup="saveValue(this);" type="text" required="required" name="email" class="form-control" id="email" placeholder="Enter Your Email" value="{{ (auth()->check()) ? auth()->user()->email : '' }}">
                                         <span class="help-block email-error"></span>
                                     </div>
                                 </div>
