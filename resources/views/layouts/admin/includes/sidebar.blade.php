@@ -58,14 +58,22 @@
               </a>
           </li>
           <li class="nav-item">
-              <a href="{{ route('admin.orders') }}" class="nav-link {{ request()->routeIs('admin.orders', 'admin.order.view', 'admin.order.change-status') ? 'active' : '' }}">
-                  <i class="nav-icon fas fa-cart-arrow-down"></i> 
-                  <p>
-                      Orders
-                  </p>
-              </a>
-          </li>
-        </ul>
+            <a href="{{ route('admin.orders') }}" class="nav-link {{ request()->routeIs('admin.orders', 'admin.order.view', 'admin.order.change-status') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-cart-arrow-down"></i> 
+                <p>
+                    Orders
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('admin.testimonials') }}" class="nav-link {{ request()->routeIs('admin.testimonials', 'admin.testimonial.view', 'admin.testimonial.change-status') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-cart-arrow-down"></i> 
+              <p>
+                  Testimonials
+              </p>
+          </a>
+      </li>
+  </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
