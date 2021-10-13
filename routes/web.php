@@ -13,6 +13,7 @@ use \App\Http\Controllers\QuestionController;
 use \App\Http\Controllers\CartController;
 use \App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,10 +119,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
     });
 
     /**  Testimonials ROUTES */
-    Route::get('testimonials', [OrderController::class, 'index'])->name('admin.testimonials');
+    Route::get('testimonials', [TestimonialController::class, 'index'])->name('admin.testimonials');
     Route::prefix('testimonials')->group(function () {
-        Route::get('{id}/view', [OrderController::class, 'orderView'])->name('admin.testimonials.view');
-        Route::post('change-status', [OrderController::class, 'changeStatus'])->name('admin.testimonials.change-status');
+        Route::get('{id}/view', [TestimonialController::class, 'testimonialView'])->name('admin.testimonial.view');
+        Route::post('change-status', [TestimonialController::class, 'changeStatus'])->name('admin.testimonial.change-status');
     });
 
 });
