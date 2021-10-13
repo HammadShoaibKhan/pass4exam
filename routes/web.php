@@ -117,6 +117,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('change-status', [OrderController::class, 'changeStatus'])->name('admin.orders.change-status');
     });
 
+    /**  Testimonials ROUTES */
+    Route::get('testimonials', [OrderController::class, 'index'])->name('admin.testimonials');
+    Route::prefix('testimonials')->group(function () {
+        Route::get('{id}/view', [OrderController::class, 'orderView'])->name('admin.testimonials.view');
+        Route::post('change-status', [OrderController::class, 'changeStatus'])->name('admin.testimonials.change-status');
+    });
+
 });
 
 Route::get('custodian', [LoginController::class, 'index'])->name('admin.login');
