@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Testimonial extends Model
 {
     use HasFactory;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+    */
+    protected $fillable = [
+        'name',
+        'email',
+        'subject',
+        'message',
+        'type',
+        'status',
+        'approved',
+    ];
 }
