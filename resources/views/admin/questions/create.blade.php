@@ -65,6 +65,14 @@
                                                             <p class="text-danger">{{ $message }}</p>
                                                             @enderror
                                                         </div>
+
+                                                        <div class="col-sm-12">
+                                                            <!-- text input -->
+                                                            <div class="form-group">
+                                                                <input name="demo_question" id="demo_question" type="checkbox" value="1">
+                                                                <label for="demo_question" style="font-weight: normal"> &nbsp;&nbsp;Show in Demo question</label>
+                                                            </div>
+                                                        </div>
                                                     </div>
 
                                                     <div class="row">
