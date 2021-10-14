@@ -1,9 +1,13 @@
 <?php
+
+use App\Models\Certification;
 use \App\Models\Vendor;
 use App\Models\Media;
 use App\Models\Exam;
 use App\Models\Question;
 use App\Models\Assessment;
+use App\Models\User;
+use App\Models\Order;
 
 /**to get vendors for header navbar */
 function navbarVendors()
@@ -166,4 +170,42 @@ function getQuestionCorrectAnswerwithAlphabet($questionID, $text = null)
         }
     }
     return $alphabet;
+}
+
+/**to get Carts Total Count */
+function getCartTotalCount(){
+    $carts = session()->get('carts',[]);
+    return count($carts);
+}
+
+/**to get userName */
+// function getuserName($id=null){
+//     if ($id != null && User::where('id', $id)->exists()) {
+//         $user = User::find($id);
+//         return $user->name;
+//     }
+//     return null;
+// }
+
+/**to get vendorName */
+function getVendorName($id=null){
+    if ($id != null && vendor::where('id', $id)->exists()) {
+        $vendor = vendor::find($id);
+        return $vendor->title;
+    }
+    return null;
+}
+/**to get vendorName */
+function getCertificateName($id=null){
+    if ($id != null && Certification::where('id', $id)->exists()) {
+        $Certificate = Certification::find($id);
+        return $Certificate->title;
+    }
+    return null;
+}
+/**to get Current Today Total order Count */
+function getTodayTotalOrderCount(){
+    $date =  date('Y-m-d');
+    $order_count = Order::Where('created_at', 'like', $date.'%')->where('status',1)->count();   
+    return $order_count;
 }

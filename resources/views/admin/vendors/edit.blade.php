@@ -101,6 +101,97 @@
                                   </form>
                                 </div>
                                 <!-- /.card-body -->
+                                
+                                {{-- Pricing --}}
+                                <div class="card card-primary cstm-border">
+                                  <div class="card-header">
+                                    <h3 class="card-title">Pricing</h3>
+                                  </div>
+
+                                  <div class="card-body">
+                                      <form action="{{route('admin.vendor.pricing')}}" method="POST">
+                                          {{csrf_field()}}
+                                          <input type="hidden" value="{{$vendor->id}}" name="vendor_id">
+                                            <div class="row">
+                                                <h5 class="p-2"><b>Bundle&nbspPricing</b></h5>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Period</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Orignal Price</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Discounted Price</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" readonly value="{{'3 Months Updates'}}" name="bundle_update_1" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="number" min="1" value="{{ $vendor->getPricing()->bundle->orignal ?? 1 }}" name="bundle_price" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="number" min="1" value="{{ $vendor->getPricing()->bundle->discounted ?? 1 }}" name="discounted_bundle_price" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" readonly value="{{'6 Months Updates'}}" name="bundle_update_2" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="number" min="1" value="{{ $vendor->getPricing()->bundle->orignal_price_2 ?? 1 }}" name="bundle_price_2" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="number" min="1" value="{{ $vendor->getPricing()->bundle->discounted_price_2 ?? 1  }}" name="discounted_bundle_price_2" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" readonly value="{{'12 Months Updates'}}" name="bundle_update_3" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="number" min="1" value="{{ $vendor->getPricing()->bundle->orignal_price_3 ?? 1 }}" name="bundle_price_3" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="number" min="1" value="{{ $vendor->getPricing()->bundle->discounted_price_3 ?? 1 }}" name="discounted_bundle_price_3" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          <div class="row">
+                                              <div class="col-md-2 offset-10">
+                                                  <button type="submit" class="btn btn-md btn-block btn-primary">Save</button>
+                                              </div>
+                                          </div>
+                                      </form>
+                                </div>
+                            </div>
+
                               </div>
                           </div>
                         </div>

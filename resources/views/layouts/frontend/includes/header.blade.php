@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav">
-                    <a style="position: relative;bottom: -8px;" id="navbar_cart" href="cart.html">
+                    <a style="position: relative;bottom: -8px;" id="navbar_cart" href="{{route('cart_view')}}">
                         <span class="badge" style="
                             right: 25px;
                             position: absolute;
@@ -120,7 +120,7 @@
                             background-color: #22ad95;
                             font-size: 16px;">
 
-                            0
+                            {{getCartTotalCount()}}
                         </span>
                         <img src="{{asset('frontend/assets/site/img/cart.png')}}" alt="">
                     </a>

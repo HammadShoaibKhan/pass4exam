@@ -892,3 +892,81 @@ $(document).on('click', '.delete-selected-users', function (e) {
         })
     }
 });
+
+
+/**script to change selected Order status */
+$(document).on('click', '.change-order-status', function (e) {
+    e.preventDefault();
+
+    var order_ids = [];
+    var url = $(this).attr('data-route');
+
+    /**fetch selected orders ids */
+    $('.checkboxes').each(function (i, el) {
+        var checkbox = $(el);
+        if (checkbox.is(':checked')) {
+            order_ids.push(checkbox.attr('data-id'));
+        }
+    });
+
+    if (order_ids.length > 0) {
+        Swal.fire({
+            title: 'Choose?',
+            text: "You want to active or disable orders!",
+            icon: 'question',
+            showCancelButton: true,
+            showDenyButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            denyButtonColor: '#f0ad4e',
+            confirmButtonText: 'Active',
+            denyButtonText: 'Disable',
+            allowOutsideClick: false,
+        }).then((result) => {
+            var data;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            if (result.isConfirmed) {
+                data = {
+                    status : 1,
+                    order_ids : order_ids
+                }
+
+            } else if (result.isDenied) {
+                data = {
+                    status : 0,
+                    order_ids : order_ids
+                }
+            }
+
+            $.ajax({
+                type : 'POST',
+                url : url,
+                data : data,
+                success:function (response) {
+
+                    $('#bind-orders').html(response);
+
+                    Swal.fire(
+                        'Changed!',
+                        'orders status has been changed.',
+                        'success',
+                    )
+                }
+            });
+
+        })
+    } else {
+        Swal.fire({
+            title: 'Not Selected!',
+            text: 'Please select atleast one order',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            allowOutsideClick: false,
+        })
+    }
+});

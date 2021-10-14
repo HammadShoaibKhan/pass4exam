@@ -140,7 +140,7 @@
                                 <option value="12">12 Months Updates</option>
                               </select>
                             </div>
-                            <div style="margin: 10px;">
+                            {{-- <div style="margin: 10px;">
                               <select style="height: 40px;
                                 border-radius: 5px;
                                 border: 2px solid #efefef;
@@ -156,30 +156,25 @@
                                 <option value="corporate">Corporate 10 PCs</option>
                                 <option value="trainer">Trainer 25 PCs</option>
                               </select>
-                            </div>
+                            </div> --}}
                           </div>
 
                           <div id="btnPlusprice" class="row">
                             <div class="___class_+?50___">
                               {{-- @TODO --}}
                               <div class="bundle_price">Price: $
-                                <span id="lbl_price">450</span>
-                                <del> Before: $900 </del>
+                                <span id="lbl_price">{{ $vendor->getPricing()->bundle->discounted ?? 1 }}</span>
+                                <del> Before: ${{ $vendor->getPricing()->bundle->orignal ?? 1 }} </del>
                               </div>
                             </div>
 
                             <div class="___class_+?53___">
-                              <input type="hidden" id='bundle_name' name="bundle_name"
-                                value="{{$vendor_title ?? ''}} Certification Exams Dumps" />
-                              <input type="hidden" id="orignalPrice" name="orignalPrice" value="900" />
-                              <input type="hidden" id="discountedPrice" name="discountedPrice" value="450" />
-                              <input type="hidden" id="checkout_price" name="checkout_price"   value="450" />
-                              <input type="hidden" id="bundle_type" name="bundle_type"
-                                value="custom" />
-                              <input type="hidden" id="bundle_id" name="bundle_id"
-                                value="70451074" />
-                              <input type="hidden" id="individual_price_inc"
-                                name="individual_price_inc" value="0" />
+                              <input type="hidden" id="bundle_type" name="bundle_type" value="vendor" />
+                              <input type="hidden" id='bundle_title' name="bundle_title" value="{{$vendor_title ?? ''}} Certification Exams Bundle" />
+                              <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $vendor->getPricing()->bundle->orignal ?? 1 }}" />
+                              <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $vendor->getPricing()->bundle->discounted ?? 1 }}" />
+                              <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
+                              <input type="hidden" id="vendor_id" name="vendor_id" value="{{$vendor->id ?? ''}}" />
                               <div class="___class_+?54___">
                                 <button type="submit"  class="btn" href="">
                                   <i class="fa fa-shopping-cart"></i> Add to Cart
@@ -301,41 +296,12 @@
 
 
           {{-- <!------------- Vendor Testimonials --------------------------------------------> --}}
-          <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
-            <div class="section-title">
-              {{-- <span class="new_testimonials_bg_heading">TESTIMONIALS</span> --}}
-              <h3>{{$vendor_title ?? ''}} Certification Exam Testimonials</h3>
-            </div>
-            <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
-              <div id="parant_comment" class="container mt-3">
-                <div class="media p-3">
-                  <div class="initalname">
-    		            V
-                  </div>
-                  <div class="media-body">
-                    <p style="color: #22ad95;font-size: 20px;font-weight: 500;">
-                      Virginia
-                      <!--<img src="https://flagcdn.com/w80/ca.png" alt="flag"  class="dicls">-->
-                      <span style="float: right;font-size: 16px;color: #da0606;"><i>Aug 30, 2021</i></span>
-                    </p>
-                    <div class="rating">
-                    </div>
-                    <p>
-                      Choosing DP-100 mock test of certsidea.com for practice was a conscious decision.
-                      I did not find anything better than these mock tests.
-                      They are designed to give practice to people who seriously want to clear the DP-100 exam .
-                      The tests are well within my budget and I am sure practicing on them will help me pass the exam in first attempt.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <br><br>
 
           {{-- END <!------------- Vendor Testimonials ----------------------------------------> --}}
 
           {{-- <!------------- Comments Area --------------------------------------------> --}}
-          <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;">
+          {{-- <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;">
             <div class="container">
               <div class="topArea">
                   <div class="row">
@@ -392,9 +358,8 @@
                 </div>
               </div>
             </div>
-          </section>
+          </section> --}}
           {{-- END <!------------- Comments Area ----------------------------------------> --}}
-
           {{-- <script>
             $("#submitcontactdata").click(function(){
 
@@ -661,5 +626,29 @@
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
+      <script>
+        function updateBundlePrice() {
+          let orignalPrice=0;
+          let discountedPrice=0;
+          let subscribed_for = $("#subscription").val();
+          if(subscribed_for==3){
+            orignalPrice = '{{ $vendor->getPricing()->bundle->orignal ?? 1 }}';
+            discountedPrice = '{{ $vendor->getPricing()->bundle->discounted ?? 1 }}';
+          }
+          if(subscribed_for==6){
+            orignalPrice = '{{ $vendor->getPricing()->bundle->orignal_price_2 ?? 1 }}';
+            discountedPrice = '{{ $vendor->getPricing()->bundle->discounted_price_2 ?? 1 }}';
+          }
+          if(subscribed_for==12){
+            orignalPrice = '{{ $vendor->getPricing()->bundle->orignal_price_3 ?? 1 }}';
+            discountedPrice = '{{ $vendor->getPricing()->bundle->discounted_price_3 ?? 1 }}';
+          }
+          $(".bundle_price #lbl_price").text(discountedPrice);
+          $(".bundle_price del").text(' Before: $'+orignalPrice);
+          $("#orignalPrice").val(orignalPrice);
+          $("#discountedPrice").val(discountedPrice);
+          $("#subcribed_for").val(subscribed_for);
+        }
+      </script>
 
     @endsection

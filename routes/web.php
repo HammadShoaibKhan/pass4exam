@@ -12,6 +12,7 @@ use App\Http\Controllers\CaseStudyController;
 use \App\Http\Controllers\QuestionController;
 use \App\Http\Controllers\CartController;
 use \App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('status-change', [VendorController::class, 'changeStatus'])->name('admin.vendors.change-status');
         Route::post('name-exists', [VendorController::class, 'checkNameExists']);
         Route::post('get-certifications', [VendorController::class, 'vendorCertifications'])->name('admin.vendor.certifications');
+        Route::post('pricing', [VendorController::class, 'pricing'])->name('admin.vendor.pricing');
     });
 
 
@@ -107,7 +109,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('delete', [UserController::class, 'delete'])->name('admin.user.delete');
         Route::post('multiple-delete', [UserController::class, 'multipleDelete'])->name('admin.users.delete');
     });
-
+    
+    /**  ORDER ROUTES */
+    Route::get('orders', [OrderController::class, 'index'])->name('admin.orders');
+    Route::prefix('order')->group(function () {
+        Route::get('{id}/view', [OrderController::class, 'orderView'])->name('admin.order.view');
+        Route::post('change-status', [OrderController::class, 'changeStatus'])->name('admin.orders.change-status');
+    });
 
 });
 
@@ -134,6 +142,9 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::get('carts', [CartController::class, 'index'])->name('cart_view');
     Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
+    Route::get('cart/{id}/{bundle_type}', [CartController::class, 'removeCart'])->name('remove_cart');
+    
+    Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 
     Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
     Route::post('user-login', [\App\Http\Controllers\UserController::class, 'userLogin'])->name('user.login');

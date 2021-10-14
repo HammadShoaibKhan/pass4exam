@@ -282,19 +282,18 @@
                                 </div>
                             </div>
                             {{-- 2nd Card --}}
-                            <div class="sample_page_2_right_bar_testimonials">
+                            {{-- <div class="sample_page_2_right_bar_testimonials">
                                 <div class="card" style="margin-bottom: 6px;border-radius: 5px;">
                                     <div class="card-header" style="background-color: #22ad95; border-radius: 5px 5px 0px 0px;" >
                                         <h4 style="font-size: 20px; cursor: auto; "> {{$exam->exam_code}} Exam Syllabus</h4>
                                     </div>
-                                    {{-- @TODO --}}
                                     <div class="card-body">
                                         <a style="color: #22ad95;" href="javascript:;">
                                             {{$exam->vendor->title}} {{$exam->exam_code}} Exam Syllabus
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- Extra Card Down Part --}}
                             {{-- <div class="sample_page_2_right_bar_testimonials">
                                 <h3 >
