@@ -135,6 +135,7 @@
                   <form method="post" action="{{ route('exam.demo.practice') }}">
                       {{ csrf_field() }}
                       <input type="hidden" name="exam_id" value="{{ $exam->id }}">
+                      <input type="hidden" name="exam_type" value="demo">
                     <div class="row">
                       {{-- Case Study --}}
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

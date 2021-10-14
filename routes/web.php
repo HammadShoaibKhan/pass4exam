@@ -125,6 +125,12 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('{vendor_slug}/info/{exam_slug}', [Exam_Controller::class, 'index'])->name('exam_info');
     Route::post('demo-exam/practice-test', [Exam_Controller::class, 'startDemoExamPractice'])->name('exam.demo.practice');
     Route::get('demo-exam/{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
+    Route::post('exam/practice-next', [Exam_Controller::class, 'nextAction'])->name('exam.practice.next');
+    Route::post('exam/practice-previous', [Exam_Controller::class, 'previousAction'])->name('exam.practice.previous');
+    Route::post('exam/counter-action', [Exam_Controller::class, 'examCounterAction'])->name('exam.practice.counter');
+    Route::post('exam/review-questions', [Exam_Controller::class, 'reviewQuestions'])->name('exam.practice.questions-reviews');
+    Route::post('exam/end', [Exam_Controller::class, 'examEnd'])->name('exam.practice.end');
+    Route::get('exam/{attempt_id}/result', [Exam_Controller::class, 'examResult'])->name('exam.practice.result');
 
     Route::get('carts', [CartController::class, 'index'])->name('cart_view');
     Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
