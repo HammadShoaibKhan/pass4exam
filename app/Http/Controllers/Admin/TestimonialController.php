@@ -10,6 +10,9 @@ class TestimonialController extends Controller
     function index(){
         echo 'Halo World';
     }
+    function create(){
+        dd('create');
+    }
     function testimonialView(){
 
     }
