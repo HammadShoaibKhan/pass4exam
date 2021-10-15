@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class Testimonial_Controller extends Controller
 {
     function index(){
-        Testimonial::where('approved',1)->get();
-        dd(Testimonial);
+        // Testimonial::where('approved',1)->get();
+        // dd(Testimonial);
     }
     function create(Request $request){
         // dd('I am here');
