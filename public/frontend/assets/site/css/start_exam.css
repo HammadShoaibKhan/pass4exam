@@ -1,0 +1,753 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #F6F8F9 !important;
+    box-sizing: border-box;
+}
+p
+{
+    margin-bottom: 0;
+}
+hr {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.mainnav {
+    position: relative;
+    padding: 9px;
+    box-shadow: 0px 0px 8px 1px #ccc;
+    background: white;
+    max-height: 100px;
+    height: 78px;
+}
+.nav-data
+{
+    display: flex;
+    justify-content: space-between;
+}
+.imagetopnav {
+    width: 200px;
+    height: 60px;
+    overflow: hidden;
+    padding: 0 15px;
+}
+.imagetopnav img {
+    width: 60%;
+    height: 100%;
+    margin-top: 0px;
+}
+.textdivtopnav {
+    text-align: center;
+    padding: 0 15px;
+}
+.textdivtopnav h2 {
+    font-weight: bold;
+    color: #656565;
+    font-size: 18px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.timmerarea {
+    padding: 0 15px;
+    margin-top: 0px;
+}
+.timmerarea button {
+    padding: 12px 22px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.roundedbuttonclass {
+    border-radius: 32px;
+    padding: 10px 30px;
+}
+.mainexamarea
+{
+    padding: 20px;
+}
+.caseStudyItem {
+    background: #FFFDF2;
+    /* width: 100%; */
+    padding: 2.5% 1% 5% 5%;
+    border-radius: none;
+    color: #000;
+    color: black;
+    margin-bottom: 10px;
+    display: block;
+    max-height: 150px;
+    box-shadow: 0px 0px 8px 1px #ccc;
+}
+.caseStudyItem h1 {
+    font-size: 18px;
+    color: #006DB3 !important;
+    font-weight: bold;
+    float: left;
+    width: 100%;
+    padding-bottom: 0px;
+    margin-bottom: 2px;
+    padding-top: 15px;
+}
+.caseStudyItem h3 {
+    font-size: 14px;
+    margin-bottom: 0;
+    /* display: contents; */
+}
+.accordion_main {
+    /* height: 75.46vh; */
+    overflow-y: auto;
+    box-shadow: 0px 0px 8px 1px #ccc;
+    padding: 26px 30px 10px 29px !important;
+    scrollbar-color: #ffd200 #1b57b0;
+    scrollbar-width: thin;
+    background: #FFFDF2;
+    height: calc(74vh - 8vw);
+    width: 100%;
+    max-width: 100%;
+}
+/* accordian */
+.accordion {
+    background-color: transparent;
+    color: #444;
+    cursor: pointer;
+    padding: 8px 0px;
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    display: block;
+    border-bottom: 1px solid lightgrey;
+}
+.accordion:focus
+{
+    outline: none;
+}
+  /* .accordion:hover */
+  .active {
+    background-color: transparent;
+    color: #006DB3 !important;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #006DB3 !important;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+  .active:after {
+    content: "\2212";
+  }
+
+  .panel {
+    padding: 0;
+    background-color: transparent;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.panel p {
+    padding: 10px 0;
+    border-bottom: 1px solid lightgrey;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 17px;
+}
+/* End accordian */
+
+.examarea_main
+{
+    background: white;
+    padding: 0px;
+    height: calc(91vh - 8vw);
+    box-shadow: 0px 0px 8px 1px #ccc;
+}
+.innermainexamarea {
+    margin-bottom: 0px;
+    padding: 12px 20px;
+    border-bottom: 1px solid #F4F4F4;
+    display: flex;
+    justify-content: space-between;
+}
+.innermainexamarea h2 {
+    margin-bottom: 0px;
+    font-size: 22px;
+    margin-top: 0px;
+    font-weight: bold;
+    color: #006DB3;
+}
+.checkbox-inline {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.mainexamarea input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.mainexamarea .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 0%;
+    border: 2px solid #595959;
+}
+.fullwidth .checkbox-inline .mainexamarea .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 0%;
+    border: 2px solid #595959;
+}
+.mainexamarea input[type=checkbox]:checked ~ span:last-child {
+    padding-left: 2px;
+}
+.mainexamarea input[type=checkbox]:checked ~ .checkmark {
+    background-color: #006DB3;
+    border-radius: 0px;
+    color: black;
+}
+.innermainexamarea h2 small {
+    font-weight: bold;
+    line-height: 1;
+    color: #777;
+}
+/* .mainexamarea input[type=checkbox]:checked ~ .checkmark:before {
+    content: "\f00c";
+    font-family: fontawesome;
+    color: white;
+    font-size: 12px;
+    padding-left: 0px;
+    padding-right: 8px;
+    margin-right: 0px;
+} */
+.checkbox-inline input:checked ~ .checkmark:after {
+    display: block;
+    content: "\f00c";
+    border: 0px;
+}
+.checkbox-inline .checkmark:after {
+    left: 2px;
+    top: -1px;
+    color: white;
+    font-family: fontawesome;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0px 3px 3px 0;
+    /* -webkit-transform: rotate(
+45deg); */
+    -ms-transform: rotate(45deg);
+    transform: rotate(
+0deg);
+position: absolute;
+}
+
+/* section start answerareabox */
+.mainquestion {
+    overflow-y: auto;
+    padding: 0px 20px;
+    height: 65vh;
+    scrollbar-color: #ffd200 #1b57b0;
+    scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+    width: 4px;
+    margin-right: 10px;
+    height: 4px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+    background: #006DB3;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffd200;
+    border-radius: 10px;
+}
+.mainquestion h3 {
+    font-weight: bold;
+    font-size: 20px;
+}
+.answerBox {
+    padding: 0;
+    border-radius: 5px;
+    width: 100%;
+    float: left;
+    margin-bottom: 0px;
+}
+.answerBox .answerBox {
+    border: 4px solid #ccc;
+    padding: 23px 20px 10px;
+    position: relative;
+    margin-top: 20px;
+}
+.answerBox {
+    padding: 0;
+    border-radius: 5px;
+    width: 100%;
+    float: left;
+    margin-bottom: 0px;
+}
+.answerBox .answerBox:before {
+    content: "ANSWER HERE:";
+    background: white;
+    top: -13px;
+    position: absolute;
+    width: 25%;
+    text-align: center;
+    left: 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.answerBox .radio {
+    margin-bottom: 20px;
+}
+.checkbox, .radio {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.mfp-content .checkbox label, .radio label {
+    padding-left: 33px;
+    padding-top: 3px;
+}
+.answerBox label {
+    float: none !important;
+}
+.mainexamarea label {
+    float: right;
+    /* width: 50%; */
+    padding-left: 36px;
+}
+.checkbox label, .radio label {
+    min-height: 20px;
+    /* padding-left: 20px; */
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+    position: absolute;
+    margin-top: 4px\9;
+    margin-left: -20px;
+}
+.answerBox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+input[type=checkbox], input[type=radio] {
+    margin: 4px 0 0;
+    margin-top: 1px\9;
+    line-height: normal;
+}
+.answerBox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-color: #eee; */
+    border-radius: 50% !important;
+    border: 2px solid #595959;
+    height: 24px;
+    width: 24px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+}
+.answerBox input:checked ~ .checkmark {
+    background-color: #006DB3;
+}
+.answerBox input:checked ~ .checkmark {
+    background-color: #006DB3;
+    color: white;
+}
+.answerBox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-color: #eee; */
+    border-radius: 50% !important;
+    border: 2px solid #595959;
+    height: 24px;
+    width: 24px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+}
+.answerBox input:checked ~ .checkmark:after {
+    display: block;
+    border: 0px;
+}
+.answerBox .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    /* background: white; */
+}
+.correctAnswers {
+    font-size: 20px;
+    /* padding: 15px; */
+    float: left;
+    margin-top: 16px;
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+.correctAnswers .explainarea, .correctAnswers .mainAnswer {
+    padding: 10px 20px;
+}
+.AnsTxt {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #ffd200;
+}
+.explainarea {
+    background: #F6F8F9 !important;
+}
+
+/* End section start answerareabox */
+
+/* full width footer */
+.full-width-footer {
+    position: fixed;
+    width: 100%;
+    height: 81px;
+    bottom: 0px;
+    padding: 20px 1%;
+    background: white;
+    box-shadow: 0px 0px 24px -6px #ccc;
+    left: 0px;
+    z-index: 1041;
+    display: flex;
+    align-items: center;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 30.6px;
+    margin-right: 5px;
+}
+.item-arrow:before {
+    content: "\f0dd";
+    position: absolute;
+    font-family: fontawesome;
+    color: #006DB3;
+    top: -40px;
+}
+.item-arrow:after {
+    content: "\f0de";
+    font-family: fontawesome;
+    position: absolute;
+    color: #006DB3;
+    top: 46px;
+}
+.slide_Item {
+    cursor: pointer;
+    background: white;
+    color: black;
+    border-radius: 50%;
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+}
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+.review_all {
+    z-index: 999999;
+    background: transparent;
+    color: #707070;
+    border-radius: 20px;
+    border-color: #707070;
+    padding: 2px 20px;
+}
+.footer_data {
+    text-align: center;
+}
+.showAnswerBtn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.show-answer {
+    border-radius: 23px;
+    padding: 8px 27px;
+    font-size: 16px;
+    line-height: 16px;
+    margin-right: 10px;
+    text-align: center;
+}
+.active-item
+{
+    background-color: #FFB100 !important;
+}
+.btn-success {
+    background: #67BB04;
+    border-color: #67BB04;
+}
+.btn.focus, .btn:focus, .btn:hover {
+    text-decoration: none;
+    outline: none !important;
+    box-shadow:none;
+}
+.btn-primary:hover, .btn-primary:focus{
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+.btn-primary {
+    background: #ffd200;
+    border-color: #ffd200;
+}
+.btn-light-primary:hover {
+    color: #fff;
+    background: #7FB5D9;
+    border: 1px solid #7FB5D9;
+}
+.btn-light-primary {
+    color: white;
+    background: #7FB5D9;
+    border: 1px solid #7FB5D9;
+}
+/* Full width footer */
+
+.markingvaluesnames {
+    width: 100%;
+    background: white;
+}
+.markingvaluesnames ul {
+    margin-bottom: 0px;
+    list-style: none;
+    padding-left: 0px;
+}
+.markingvaluesnames ul li {
+    float: left;
+}
+.markingvaluesnames ul li img {
+    width: 19px;
+    margin-right: 10px;
+    margin-left: 30px;
+}
+.markingvaluesnames ul li:nth-child(1) img {
+    margin-left: 0px;
+}
+
+.ci-result-heading {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+.result-status-box {
+    width: 100%;
+    border-left: 5px solid #006DB3;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 27px 0px #dddcdc;
+}
+.bold-count {
+    font-weight: bold;
+    color: #006DB3;
+}
+.questions-table {
+    width: 100%;
+}
+
+
+/* FULL SCREEN LOADER */
+/* Absolute Center Spinner */
+.loading {
+    position: fixed;
+    z-index: 1042;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* Transparent Overlay */
+  .loading:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+      background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+  
+    background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
+  }
+  
+  /* :not(:required) hides these rules from IE9 and below */
+  .loading:not(:required) {
+    /* hide "loading..." text */
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+  }
+  
+  .loading:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    -webkit-animation: spinner 150ms infinite linear;
+    -moz-animation: spinner 150ms infinite linear;
+    -ms-animation: spinner 150ms infinite linear;
+    -o-animation: spinner 150ms infinite linear;
+    animation: spinner 150ms infinite linear;
+    border-radius: 0.5em;
+    -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+  }
+  
+  /* Animation */
+  
+  @-webkit-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-moz-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-o-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .canvasjs-chart-canvas {
+      position: relative !important;
+  }
+
+  .percent-donut .ci-chart-type {
+      font-size: 20px;
+  }
+  .percent-donut .ci-chart-text {
+    font-size: 24px;
+}
+
+  .percent-donut {
+      position: relative;
+      text-align: center;
+      padding-top: 10px;
+  }

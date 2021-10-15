@@ -140,8 +140,15 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('vendor/{slug}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
     Route::get('{vendor_slug}/info/{exam_slug}', [Exam_Controller::class, 'index'])->name('exam_info');
-    Route::get('demo_exam/{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
-    
+    Route::post('demo-exam/practice-test', [Exam_Controller::class, 'startDemoExamPractice'])->name('exam.demo.practice');
+    Route::get('demo-exam/{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
+    Route::post('exam/practice-next', [Exam_Controller::class, 'nextAction'])->name('exam.practice.next');
+    Route::post('exam/practice-previous', [Exam_Controller::class, 'previousAction'])->name('exam.practice.previous');
+    Route::post('exam/counter-action', [Exam_Controller::class, 'examCounterAction'])->name('exam.practice.counter');
+    Route::post('exam/review-questions', [Exam_Controller::class, 'reviewQuestions'])->name('exam.practice.questions-reviews');
+    Route::post('exam/end', [Exam_Controller::class, 'examEnd'])->name('exam.practice.end');
+    Route::get('exam/{attempt_id}/result', [Exam_Controller::class, 'examResult'])->name('exam.practice.result');
+
     Route::get('carts', [CartController::class, 'index'])->name('cart_view');
     Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
     Route::get('cart/{id}/{bundle_type}', [CartController::class, 'removeCart'])->name('remove_cart');
@@ -153,6 +160,9 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
     Route::post('user-login', [\App\Http\Controllers\UserController::class, 'userLogin'])->name('user.login');
+
+    Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
+
 });
 
 
