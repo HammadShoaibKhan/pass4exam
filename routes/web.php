@@ -148,6 +148,7 @@ Route::group(['middleware' => 'guest'], function () {
     
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
     // Testimonial Creation
+    Route::get('testimonials', [Testimonial_Controller::class, 'index'])->name('testimonials');
     Route::post('testimonial/create', [Testimonial_Controller::class, 'create'])->name('testimonial_create');
 
     Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
