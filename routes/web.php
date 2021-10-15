@@ -14,6 +14,7 @@ use \App\Http\Controllers\CartController;
 use \App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Testimonial_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,7 +121,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
 
     /**  Testimonials ROUTES */
     Route::get('testimonials', [TestimonialController::class, 'index'])->name('admin.testimonials');
-    Route::prefix('testimonials')->group(function () {
+    Route::prefix('testimonial')->group(function () {
         Route::get('{id}/view', [TestimonialController::class, 'testimonialView'])->name('admin.testimonial.view');
         Route::post('change-status', [TestimonialController::class, 'changeStatus'])->name('admin.testimonial.change-status');
     });
@@ -146,6 +147,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('cart/{id}/{bundle_type}', [CartController::class, 'removeCart'])->name('remove_cart');
     
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
+    // Testimonial Creation
+    Route::post('testimonial/create', [Testimonial_Controller::class, 'create'])->name('testimonial_create');
 
     Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
     Route::post('user-login', [\App\Http\Controllers\UserController::class, 'userLogin'])->name('user.login');
