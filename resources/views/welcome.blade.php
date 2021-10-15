@@ -519,7 +519,9 @@
                             <div class="alert alert-success" style="display:none"></div>
                             <div class="alert alert-danger" style="display:none"></div>
                         </div>
-                        <!--<form method="post" name="contactusForm" id="contactusForm" action="https://www.certsidea.com/contact">-->
+
+                      <form  method="POST" name="contactusForm" class="contactusForm" id="contactusForm">
+                        <input type="hidden" value="home" id="GenratedFormtype" name="GenratedFormtype">
                         <div name="contactusForm" id="contactusForm">
                             <div class="inputArea">
                                 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -551,7 +553,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 col-xs-12">
-                                            <button class="btn btn-success" id="submitcontactdata">submit</button>
+                                            <button class="btn btn-success submitcontactdata" data-route="{{route('testimonial_create')}}" id="submitcontactdata">submit</button>
                                         </div>
                                     </div>
                                 </div>
