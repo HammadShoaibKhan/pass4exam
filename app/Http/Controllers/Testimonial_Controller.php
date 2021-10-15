@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class Testimonial_Controller extends Controller
 {
+    function index(){
+        Testimonial::where('approved',1)->get();
+        dd(Testimonial);
+    }
     function create(Request $request){
         // dd('I am here');
         // $request->validate([
@@ -25,8 +29,8 @@ class Testimonial_Controller extends Controller
         $data = [
             'name' => $request->name,
             'email' => $request->email,
-            'subject' => $request->email,
-            'message' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
             'type' => $request->type,
         ];
         Testimonial::create($data);
