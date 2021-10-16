@@ -66,8 +66,8 @@
             </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('admin.testimonials') }}" class="nav-link {{ request()->routeIs('admin.testimonials', 'admin.testimonial.view', 'admin.testimonial.change-status') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-cart-arrow-down"></i> 
+          <a href="{{ route('admin.testimonials') }}" class="nav-link {{ request()->routeIs('admin.testimonials', 'admin.testimonial.view', 'admin.testimonial.delete', 'admin.testimonial.change-status') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-comment-dots"></i>
               <p>
                   Testimonials
               </p>
