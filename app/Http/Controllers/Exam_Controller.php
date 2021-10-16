@@ -8,6 +8,7 @@ use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\Vendor;
 use App\Models\Exam;
+use App\Models\Testimonial;
 use App\Models\Certification;
 
 use function PHPUnit\Framework\isEmpty;
@@ -20,6 +21,7 @@ class Exam_Controller extends Controller
              ( $examSlug != null && Exam::where('slug', $examSlug)->exists() ) ) {
             $title = ucfirst($vendorSlug).' '.$examSlug.' - All You Need to Know';
             $exam = Exam::where('slug', $examSlug)->first();
+            // $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
             return view('exam_info', compact('title','exam'));
         }
         return redirect()->route('home');
@@ -31,7 +33,8 @@ class Exam_Controller extends Controller
              ( $examSlug != null && Exam::where('slug', $examSlug)->exists() ) ) {
             $title = ucfirst($vendorSlug).' '.$examSlug.' Actual Questions Instant Download';
             $exam = Exam::where('slug', $examSlug)->first();
-            return view('exam_detail', compact('title','exam'));
+            $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
+            return view('exam_detail', compact('title','exam','testimonials'));
         }
         return redirect()->route('home');
     }
