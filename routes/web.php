@@ -123,6 +123,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
     Route::get('testimonials', [TestimonialController::class, 'index'])->name('admin.testimonials');
     Route::prefix('testimonial')->group(function () {
         Route::get('{id}/view', [TestimonialController::class, 'testimonialView'])->name('admin.testimonial.view');
+        Route::post('delete', [TestimonialController::class, 'delete'])->name('admin.testimonial.delete');
+        Route::post('multiple-delete', [TestimonialController::class, 'multipleDelete'])->name('admin.testimonials.delete');
         Route::post('change-status', [TestimonialController::class, 'changeStatus'])->name('admin.testimonial.change-status');
     });
 
