@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'Certs Idea - Study for Certification Exams';
-        $vendors = Vendor::get();
+        $vendors = Vendor::whereHas('exams')->get();
         $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
         return view('welcome',compact('title','vendors','testimonials'));
     }

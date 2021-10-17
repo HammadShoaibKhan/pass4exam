@@ -18,3 +18,17 @@ $('#userRegisterForm').validate({
         }
     }
 });
+
+$('#demos_form').validate({
+    rules : {
+        demo_vendor_id : {
+            required : true
+        },
+        demo_exam_id : {
+            required : true
+        },
+        demo_email : {
+            required : true
+        }
+    }
+});

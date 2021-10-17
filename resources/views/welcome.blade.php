@@ -9,9 +9,10 @@
     </strong>
     <h1>
       Certification Exam <br>
-      Preparation Material 
+      Preparation Material
     </h1>
-    <form class="demo-from" id="demos_form" name="demos_form" action="javascript:;" method="post">
+    <form class="demo-from" id="demos_form" action="{{ route('exam.demo.download') }}" method="post">
+        {{ csrf_field() }}
       <div class="row">
         <div class="col-lg-7 col-md-12 col-sm-12">
           <div class="row">
@@ -27,17 +28,13 @@
                   width: 100%;
                   font-size: 13px;
                   font-weight: 400;margin-bottom: 10px;"
-                  class="option1" name="demo_vendor_id" 
-                  onchange="ajaxLoadVendorExams2(this.value);">
+                  class="option1 demo_vendor_id" name="demo_vendor_id" data-route={{ route('vendor.exams') }} required>
                   <option value="">Select Vendor</option>
                   @forelse ($vendors as $vendor)
                     <option value="{{$vendor->id}}">{{ $vendor->title ?? '' }}</option>
                   @empty
                   @endforelse
                 </select>
-                {{-- @TODO --}}
-                {{-- <input type="hidden" name="demo_product_type" value="1"  />
-                <input type="hidden" name="page_title" value="Home"  /> --}}
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -51,9 +48,9 @@
                   padding-left: 10px;
                   width: 100%;
                   font-size: 13px;
-                  font-weight: 400; margin-bottom: 10px;" class="option1" 
-                  aria-labelledBy="demo_exam_idLabel" 
-                  id="demo_exam_id" name="demo_exam_id">
+                  font-weight: 400; margin-bottom: 10px;" class="option1"
+                  aria-labelledBy="demo_exam_idLabel"
+                  id="demo_exam_id" name="demo_exam_id" required>
                   {{-- @TODO --}}
                   <option value="">Select Exam</option>
                 </select>
@@ -71,7 +68,7 @@
       </div>
       <div style="">
         <!--<a href="#" class="btn"></i>DOWNLOAD DEMO</a>-->
-        <button type="submit" class="btn btn-default btnDemo" >DOWNLOAD DEMO</button>
+        <button type="submit" class="btn btn-default btnDemo download-demo-btn" >DOWNLOAD DEMO</button>
       </div>
     </form>
   </div>
@@ -133,12 +130,12 @@
           <div class="overview-content">
             <div class="content left-content">
               <div style=" margin-bottom: 55px; margin-top: 7%;">
-              <h2>Popular Vendors</h2> 
+              <h2>Popular Vendors</h2>
               <p>
-                Certs Idea is a trusted brand for IT students to get a comprehensive range of practice questions to 
-                prepare for all in-demand certifications. At Certs Idea, we offer you accurate preparation material for exams 
-                conducted by Microsoft, Cisco, Oracle, CompTIA, and many other popular vendors. 
-                Certs Idea guarantees that you will not need anything else after preparing from our actual practice questions. 
+                Certs Idea is a trusted brand for IT students to get a comprehensive range of practice questions to
+                prepare for all in-demand certifications. At Certs Idea, we offer you accurate preparation material for exams
+                conducted by Microsoft, Cisco, Oracle, CompTIA, and many other popular vendors.
+                Certs Idea guarantees that you will not need anything else after preparing from our actual practice questions.
                 Save your time and download the free demo to get a fair idea about Certs Idea practice questions.
                 </p>
               </div>
@@ -161,13 +158,13 @@
                         @forelse($vendor->exams->where('status', 1) as $exam)
                           <div class="col-lg-6 col-md-4  col-sm-6  mb-3">
                             <div class="card" style="background-color: rgba(34,173,149,1); border-radius: 2px; border:0px solid;">
-                              <div class="card-body hvr-curl-bottom-right" 
+                              <div class="card-body hvr-curl-bottom-right"
                                 style="color: white; min-height: 100px;padding: 18px; min-height: 98px; border:0px solid;">
                                 <strong style="font-size: 100%; font-weight: bold;display: block;margin-bottom: 8px;">
                                 <a style="font-size: 14px;
                                   font-weight: 600;
                                   font-family: 'Poppins';
-                                  color: #fff;" 
+                                  color: #fff;"
                                   href="microsoft/az-700.html" class="white">
                                   {{ $exam->exam_code }}
                                 </a>
@@ -176,7 +173,7 @@
                                   font-weight: 500;
                                   font-family: 'Poppins';
                                   display: block;
-                                  margin-bottom: 8px;"> 
+                                  margin-bottom: 8px;">
                                   Total Questions : {{ $exam->questions->count() }}
                                 </span>
                                 <span style="font-size: 13px;
@@ -210,40 +207,40 @@
         <div class="overview-box">
           <div class="overview-content">
             <div class="content left-content" style="padding-bottom: 0px; padding-right: 20px;">
-              <div id="world-class-learning"> 
+              <div id="world-class-learning">
                 <h2>
                   World-class learning for anyone, everywhere
-                </h2> 
-              </div> 
-              <div id="world-class-learning2"> 
+                </h2>
+              </div>
+              <div id="world-class-learning2">
                 <p>
-                  Certs Idea offers comprehensive preparation 
-                  material that guarantees your first attempt success in the leading IT certification exams. We ensure that you will get 
-                  state-of-the-art and new practice questions from Certs Idea. It is our objective to help you prepare well for the most 
-                  expected questions so that you can attempt these difficult questions of your desired IT certification exam on the first try. 
-                  Certs Idea has paved the way&nbsp;for multiple candidates towards success. You can also get IT career 
+                  Certs Idea offers comprehensive preparation
+                  material that guarantees your first attempt success in the leading IT certification exams. We ensure that you will get
+                  state-of-the-art and new practice questions from Certs Idea. It is our objective to help you prepare well for the most
+                  expected questions so that you can attempt these difficult questions of your desired IT certification exam on the first try.
+                  Certs Idea has paved the way&nbsp;for multiple candidates towards success. You can also get IT career
                   benefits like a job promotion or boost a new career by preparing for your dream certification from Certs Idea.
-                </p> 
-              </div> 
-              <div class="row" style="margin-left: 20px; margin-bottom: 15%;margin-top: 8%;"> 
-                <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> 
+                </p>
+              </div>
+              <div class="row" style="margin-left: 20px; margin-bottom: 15%;margin-top: 8%;">
+                <div class="col-md-4 col-sm-4 col-xs-12 pb-3">
                   <div style="color: white; margin-left: 5%; text-align: center; ">
-                    <img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_user.png')}}" width="75" /> 
+                    <img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_user.png')}}" width="75" />
                     <b class="bold_offer">24/7 Customer<br /> Support</b>
-                  </div> 
-                </div> 
-                <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> 
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12 pb-3">
                   <div style="color: white; margin-left: 5%; text-align: center;">
-                    <img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_ero.png')}}" width="52" /> 
+                    <img alt="image" height="54" src="{{asset('frontend/assets/site/img/image_ero.png')}}" width="52" />
                     <b class="bold_offer">Free 3 Months<br /> Updates</b>
-                  </div> 
-                </div> 
-                <div class="col-md-4 col-sm-4 col-xs-12 pb-3"> 
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12 pb-3">
                   <div style="color: white; margin-left: 5%; text-align: center;">
-                    <img alt="image" height="59" src="{{asset('frontend/assets/site/img/image_tic.png')}}" width="51" /> 
+                    <img alt="image" height="59" src="{{asset('frontend/assets/site/img/image_tic.png')}}" width="51" />
                     <b class="bold_offer">Security and<br /> Privacy</b>
-                  </div> 
-                </div> 
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -260,11 +257,11 @@
     {{-- <!------------- Popular Exams--------------------------------------------> --}}
     <section class="home_popular_exam_section pt-5 pb-5 bg-f7fafd" style="">
       <div class="home_popular_exam_section_inner" style="">
-        <h3>Popular Exams</h3> 
+        <h3>Popular Exams</h3>
         <p>
-          Thousands of candidates have successfully prepared from Certs Idea high-quality preparation material. 
-          Our practice questions are enough for your success because of our experts&rsquo; continuous 
-          efforts to keep our preparation material updated and relevant. 
+          Thousands of candidates have successfully prepared from Certs Idea high-quality preparation material.
+          Our practice questions are enough for your success because of our experts&rsquo; continuous
+          efforts to keep our preparation material updated and relevant.
           Get instant access to recently updated practice material and walk out on exam day as a successful candidate.
         </p>
       </div>
@@ -309,120 +306,120 @@
       </div>
     </section>
     {{-- END <!------------- Popular Exams--------------------------------------------> --}}
-  
+
     <!--------------------------------------------------------- DIFFERENT --------------------------------------------------------->
-  
+
     {{-- <!------------- Serving Portion--------------------------------------------> --}}
     <section class="different_home_section pt-5 pb-5 bg-f7fafd" style=" ">
       <div class="different_home_section_inner_top" style="">
-        <h3>How Does Certs Idea Serve You?</h3> 
+        <h3>How Does Certs Idea Serve You?</h3>
         <p>
-          Our preparation material is the most reliable solution to quickly prepare for your dream IT certification exams. 
-          We are certain that our preparation material will guide you to get certified on the first try. 
+          Our preparation material is the most reliable solution to quickly prepare for your dream IT certification exams.
+          We are certain that our preparation material will guide you to get certified on the first try.
           Here is how we serve you to prepare successfully:
-        </p> 
-      </div> 
-      <div class="different_home_section_inner_bottom" style=""> 
-        <div class="row"> 
-          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
-            <div class="row"> 
+        </p>
+      </div>
+      <div class="different_home_section_inner_bottom" style="">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col">
+            <div class="row">
               <div class="col-xs-2">
                 <strong>
                   <img alt="pdf" height="80" src="{{asset('frontend/assets/site/img/image_pdf.png')}}" width="70" />
                 </strong>
-              </div> 
-              <div class="col-lg-10"> 
+              </div>
+              <div class="col-lg-10">
                 <p class="heading">
                   Free Demo of Preparation Material
-                </p> 
+                </p>
                 <p class="content">
-                  Try a free demo of our PDF and practice exam software before the purchase to get a closer look at practice 
+                  Try a free demo of our PDF and practice exam software before the purchase to get a closer look at practice
                   questions and answers.
-                </p> 
-              </div> 
-            </div> 
-          </div> 
-          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
-            <div class="row"> 
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col">
+            <div class="row">
               <div class="col-xs-2">
                 <strong>
                   <img alt="updates" height="58" src="{{asset('frontend/assets/site/img/image_ero1.png')}}" width="70" />
                 </strong>
-              </div> 
-              <div class="col-lg-10"> 
-                <p class="heading">Up to 3 Months of Free Updates</p> 
+              </div>
+              <div class="col-lg-10">
+                <p class="heading">Up to 3 Months of Free Updates</p>
                 <p class="content">
-                  Certs Idea updates its preparation material according to changes in the exam syllabus. 
+                  Certs Idea updates its preparation material according to changes in the exam syllabus.
                   We provide up to 3 months of free updates so that you get practice questions of today and not yesterday.
-                </p> 
-              </div> 
-            </div> 
-          </div> 
-          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
-            <div class="row"> 
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col">
+            <div class="row">
               <div class="col-xs-2">
                 <strong>
                   <img alt="Success" height="74" src="{{asset('frontend/assets/site/img/image_sun.png')}}" width="70" />
                 </strong>
-              </div> 
-              <div class="col-lg-10"> 
-                <p class="heading">Get Certified in First Attempt</p> 
+              </div>
+              <div class="col-lg-10">
+                <p class="heading">Get Certified in First Attempt</p>
                 <p class="content">
-                  We have a long list of satisfied customers from multiple countries. It does not matter which exam you are 
+                  We have a long list of satisfied customers from multiple countries. It does not matter which exam you are
                   attempting. Our practice questions will certainly assist you to get passing marks on the first attempt.
-                </p> 
-              </div> 
-            </div> 
-          </div> 
-          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
-            <div class="row"> 
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col">
+            <div class="row">
               <div class="col-xs-2">
                 <strong>
                   <img alt="Com" height="66" src="{{asset('frontend/assets/site/img/image_com.png')}}" width="70" />
                 </strong>
-              </div> 
-              <div class="col-lg-10"> 
-                <p class="heading">PDF Questions and Practice Test</p> 
+              </div>
+              <div class="col-lg-10">
+                <p class="heading">PDF Questions and Practice Test</p>
                 <p class="content">
-                  We strive to make certain that preparation material for every certification exam is authentic. 
+                  We strive to make certain that preparation material for every certification exam is authentic.
                   Certs Idea offers PDF questions, web-based and desktop practice tests that are consistently updated.
-                </p> 
-              </div> 
-            </div> 
-          </div> 
-          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
-            <div class="row"> 
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col">
+            <div class="row">
               <div class="col-xs-2">
                 <strong>
                   <img alt="Customer" height="70" src="{{asset('frontend/assets/site/img/image_user1.png')}}" width="70" />
                 </strong>
-              </div> 
-              <div class="col-lg-10"> 
-                <p class="heading">24/7 Customer Support</p> 
+              </div>
+              <div class="col-lg-10">
+                <p class="heading">24/7 Customer Support</p>
                 <p class="content">
-                  Certs Idea has a dedicated support team to answer your queries 24/7. Contact us if you face the technical 
+                  Certs Idea has a dedicated support team to answer your queries 24/7. Contact us if you face the technical
                   problems, login issues, payment and download issues. We will entertain you as soon as possible.
-                </p> 
-              </div> 
-            </div> 
-          </div> 
-          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col"> 
-            <div class="row"> 
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 pb-4 different_home_section_inner_bottom_col">
+            <div class="row">
               <div class="col-xs-2">
                 <strong>
                   <img alt="Guaranteed" height="62" src="{{asset('frontend/assets/site/img/image_guran.png')}}" width="70" />
                 </strong>
-              </div> 
-              <div class="col-lg-10"> 
-                <p class="heading">100% Guaranteed Customer Satisfaction</p> 
+              </div>
+              <div class="col-lg-10">
+                <p class="heading">100% Guaranteed Customer Satisfaction</p>
                 <p class="content">
-                  Certs Idea offers accurate practice questions at an affordable price. Thousands of customers have met 
+                  Certs Idea offers accurate practice questions at an affordable price. Thousands of customers have met
                   their learning needs by using our products. We ensure that upon using our exam products, you are satisfied.
-                </p> 
-              </div> 
-            </div> 
-          </div> 
-        </div> 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     {{-- END <!------------- Serving Portion --------------------------------------------> --}}
@@ -466,7 +463,7 @@
     </section>
     {{-- END <!------------- Recent Updated Exams ----------------------------------------> --}}
 
-  
+
     {{-- <!------------- Certifications Testimonials --------------------------------------------> --}}
     <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
         <div class="section-title">
