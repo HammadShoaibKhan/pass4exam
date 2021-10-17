@@ -34,6 +34,7 @@ $(document).on('click', '.submitcontactdata', function (e) {
             }
         }
     });
+});
 /** show/hide start exam timer option */
 $(document).on('click', '#withouttimer', function () {
     console.log('helo');
@@ -68,7 +69,7 @@ $(document).on('change', '.demo_vendor_id', function () {
         })
     }
 
-})
+});
 
 /** script to prevent user to mutiple click on download demo button
  * download demo button disabled for 3 seconds */
@@ -82,4 +83,4 @@ $(document).on('click', '.download-demo-btn', function () {
         }, 3000)
     }
 
-})
+});
