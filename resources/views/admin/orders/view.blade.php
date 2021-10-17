@@ -1,6 +1,9 @@
 @extends('layouts.admin.master')
 @section('content')
-
+<?php
+    $user_detail = json_decode($order->user_detail);
+    $order_detail = json_decode($order->order_detail);
+?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -8,7 +11,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Orders</h1>
+                        <h1>Order View</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -40,7 +43,14 @@
                                         <div class="col-sm-5">
                                             <p class="form-control-plaintext">
                                                 @empty(!$order->user_id)
-                                                    {{ getuserName($order->user_id) ?? 'User is Not Registered Yet' }}                                                    
+                                                    {{ $user_detail->name ?? 'User is Not Registered Yet' }}                                                    
+                                                @endempty
+                                            </p>
+                                        </div>
+                                        <div class="" style="margin-left: 14%">
+                                            <p class="form-control-plaintext" style="padding: 5px;">
+                                                @empty(!$order->created_at)
+                                                  <b style="font-size: 20px;color:green;">  <?php echo date_format($order->created_at,'d-M-Y   H:i') ?></b>                                                    
                                                 @endempty
                                             </p>
                                         </div>
@@ -64,9 +74,36 @@
                                             User Detail
                                         </label>
                                         <div class="col-sm-5">
-                                            <p class="form-control-plaintext" >
-                                                {{ $order->user_detail ?? 0 }}
-                                            </p>
+                                            {{-- <div class="row form-control-plaintext">
+                                                <label class="col-sm-3">Name</label>
+                                                <span>
+                                                    {{ $user_detail->name ?? '' }}
+                                                </span>
+                                            </div>                                            --}}
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-3">Address</label>
+                                                <span>
+                                                    {{ $user_detail->address ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-3">Country</label>
+                                                <span>
+                                                    {{ $user_detail->country ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-3">State</label>
+                                                <span>
+                                                    {{ $user_detail->state ?? '' }}
+                                                </span>
+                                            </div>                                           
+                                            <div class="row form-control-plaintext">
+                                                <label class="col-sm-3">City</label>
+                                                <span>
+                                                    {{ $user_detail->city ?? '' }}
+                                                </span>
+                                            </div>                                           
                                         </div>
                                     </div>
                                 </div>
@@ -76,9 +113,69 @@
                                             Order Detail
                                         </label>
                                         <div class="col-sm-5">
-                                            <p class="form-control-plaintext" >
-                                                {{ $order->order_detail ?? 0 }}
-                                            </p>
+                                            @forelse ($order_detail as $order_d)  
+                                                {{-- @empty(!$order_d->bundleType)
+                                                    <div class="row form-control-plaintext">
+                                                        <label class="col-sm-6">Bundle Type</label>
+                                                        <span>
+                                                            {{ $order_d->bundleType ?? '' }}
+                                                        </span>
+                                                    </div>    
+                                                @endempty --}}
+                                                @empty(!$order_d->bundleTitle)
+                                                    <div class="row form-control-plaintext">
+                                                        <label class="col-sm-6">Bundle Title</label>
+                                                        <span>
+                                                            {{ $order_d->bundleTitle ?? '' }}
+                                                        </span>
+                                                    </div>              
+                                                @endempty 
+                                                @empty(!$order_d->vendor_id)
+                                                    <div class="row form-control-plaintext">
+                                                        <label class="col-sm-6">Vendor</label>
+                                                        <span>
+                                                            {{ getVendorName($order_d->vendor_id) ?? '' }}
+                                                        </span>
+                                                    </div> 
+                                                @endempty 
+                                                @empty(!$order_d->certification_id)
+                                                    <div class="row form-control-plaintext">
+                                                        <label class="col-sm-6">Certification</label>
+                                                        <span>
+                                                            {{ getCertificateName($order_d->certification_id) ?? '' }}
+                                                        </span>
+                                                    </div> 
+                                                @endempty                                  
+                                                @empty(!$order_d->exam_code)
+                                                    <div class="row form-control-plaintext">
+                                                        <label class="col-sm-6">Exam Code</label>
+                                                        <span>
+                                                            {{ $order_d->exam_code ?? '' }}
+                                                        </span>
+                                                    </div> 
+                                                @endempty  
+                                                <div class="row form-control-plaintext">
+                                                    <label class="col-sm-6">Price</label>
+                                                    <span>
+                                                        {{ $order_d->orignalprice ?? 0 }}
+                                                    </span>
+                                                </div>                                           
+                                                <div class="row form-control-plaintext">
+                                                    <label class="col-sm-6">Discount</label>
+                                                    <span>
+                                                        {{ ($order_d->orignalprice-$order_d->discountedprice) ?? 0 }}
+                                                    </span>
+                                                </div>                                           
+                                                <div class="row form-control-plaintext">
+                                                    <label class="col-sm-6">Total Payable</label>
+                                                    <span>
+                                                        {{ ($order_d->discountedprice) ?? 0 }}
+                                                    </span>
+                                                </div>
+                                                <hr>
+                                            @empty
+                                            
+                                            @endforelse                                               
                                         </div>
                                     </div>
                                 </div>

@@ -23,7 +23,7 @@ class QuestionController extends Controller
         $request->validate([
             'question' => 'required'
         ], [ 'question.required' => 'Please enter a question']);
-        $question = Question::create($request->only('question', 'case_study_id'));
+        $question = Question::create($request->only('question', 'case_study_id', 'demo_question'));
         return redirect()->route('admin.question.edit', $question->id);
     }
 
@@ -39,10 +39,14 @@ class QuestionController extends Controller
 
     public function update(Request $request, $id)
     {
+        $demoQuestion = 0;
+        if ($request->has('demo_question')) {
+            $demoQuestion = $request->demo_question;
+        }
         $request->validate([
             'question' => 'required'
         ], [ 'question.required' => 'Please enter a question']);
-        Question::find($id)->update(['question' => $request->question]);
+        Question::find($id)->update(['question' => $request->question, 'demo_question' => $demoQuestion]);
         return back()->with('success', 'Question updated successfully.');
     }
 

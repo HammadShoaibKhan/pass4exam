@@ -295,72 +295,108 @@
           {{-- END <!-------------Certification vendor----------------------------------------> --}}
 
 
-          {{-- <!------------- Vendor Testimonials --------------------------------------------> --}}
-          <br><br>
-
-          {{-- END <!------------- Vendor Testimonials ----------------------------------------> --}}
-
-          {{-- <!------------- Comments Area --------------------------------------------> --}}
-          {{-- <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;">
-            <div class="container">
-              <div class="topArea">
-                  <div class="row">
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                          <div class="h4" > Leave Your Comment</div>
+          {{-- <!------------- Certifications Testimonials --------------------------------------------> --}}
+          <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
+            <div class="section-title">
+                <h3> Testimonials</h3>
+            </div>
+            <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4">
+              @forelse ($testimonials as $testimonial)
+                <div id="parant_comment" class="container mt-3">
+                  <div class="media p-3">
+                      <div class="initalname">
+                          @empty(!$testimonial->name)
+                            {{ ucfirst( Str::substr($testimonial->name, 0, 1) ) ?? '' }}                          
+                          @endempty
                       </div>
-                  </div>
-              </div>
-              <div class="mainformarea">
-                <div class="row">
-                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div id="form-messages" style="background:none;">
-
-                    </div>
-                    <div class="text-center">
-                      <div class="alert alert-success" style="display:none"></div>
-                      <div class="alert alert-danger" style="display:none"></div>
-                    </div>
-                    <!--<form method="post" name="contactusForm" id="contactusForm" action="https://www.certsidea.com/contact">-->
-                    <div name="contactusForm" id="contactusForm">
-                      <div class="inputArea">
-                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                          <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" class="NameSearch form-control" id="full_name" name="full_name" value="" placeholder="Full Name" required="required">
-                            <span class="help-block"></span>
+                      <div class="media-body">
+                          <p style="color: #22ad95;font-size: 20px;font-weight: 500;">
+                              {{$testimonial->subject ?? ''}}
+                              <span style="float: right;font-size: 16px;color: #da0606;"><i>{{date('M d, Y', strtotime($testimonial->created_at))}}</i></span>
+                          </p>
+                          <div class="rating">
                           </div>
-                          <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="NameSearch form-control" id="email" name="email" value="" placeholder="example@email.com" required="required">
-                            <span class="help-block"></span>
-                          </div>
-                          <div class="form-group">
-                            <label>Subject</label>
-                            <input type="text" class="NameSearch form-control" id="subject" name="subject" value="" placeholder="Subject" required="required">
-                            <span class="help-block"></span>
-                          </div>
+                          <p>
+                              {{ $testimonial->message ?? ''}}
+                          </p>
                         </div>
-                        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                          <div class="form-group">
-                            <label>Message</label>
-                            <textarea class="LgSearch form-control" id="message" name="message" rows="8" placeholder="Message" required="required"></textarea>
-                            <span class="help-block"></span>
-                          </div>
-                          <div class="row">
-                            <div class="col-sm-6 col-xs-12">
-                              <button class="btn btn-success" id="submitcontactdata">submit</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
-              </div>
+              @empty
+                  
+              @endforelse  
             </div>
-          </section> --}}
+          </section>
+          {{-- END <!------------- Certifications Testimonials ----------------------------------------> --}}
+
+          {{-- <!------------- Comments Area --------------------------------------------> --}}
+          <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;">
+              <div class="container">
+                  <div class="topArea">
+                      <div class="row">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <div class="h4"> Leave Your Comment</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="mainformarea">
+                      <div class="row">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <div id="form-messages" style="background:none;">
+
+                              </div>
+                              <div class="text-center">
+                                  <div class="alert alert-success" style="display:none"></div>
+                                  <div class="alert alert-danger" style="display:none"></div>
+                              </div>
+
+                            <form  method="POST" name="contactusForm" class="contactusForm" id="contactusForm">
+                              <input type="hidden" value="vendor" id="GenratedFormtype" name="GenratedFormtype">
+                              <div name="contactusForm" id="contactusForm">
+                                  <div class="inputArea">
+                                      <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                          <div class="form-group">
+                                              <label>Full Name</label>
+                                              <input type="text" class="NameSearch form-control" id="full_name" name="full_name"
+                                                  value="" placeholder="Full Name" required="required">
+                                              <span class="help-block"></span>
+                                          </div>
+                                          <div class="form-group">
+                                              <label>Email</label>
+                                              <input type="email" class="NameSearch form-control" id="email" name="email" value=""
+                                                  placeholder="example@email.com" required="required">
+                                              <span class="help-block"></span>
+                                          </div>
+                                          <div class="form-group">
+                                              <label>Subject</label>
+                                              <input type="text" class="NameSearch form-control" id="subject" name="subject"
+                                                  value="" placeholder="Subject" required="required">
+                                              <span class="help-block"></span>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                          <div class="form-group">
+                                              <label>Message</label>
+                                              <textarea class="LgSearch form-control" id="message" name="message" rows="8"
+                                                  placeholder="Message" required="required"></textarea>
+                                              <span class="help-block"></span>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-6 col-xs-12">
+                                                  <button class="btn btn-success submitcontactdata" data-route="{{route('testimonial_create')}}" id="submitcontactdata">submit</button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
           {{-- END <!------------- Comments Area ----------------------------------------> --}}
-          {{-- <script>
+
+              {{-- <script>
             $("#submitcontactdata").click(function(){
 
               name = $("#full_name").val();

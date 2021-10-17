@@ -651,40 +651,39 @@
             {{-- <!------------- Certifications Testimonials --------------------------------------------> --}}
             <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
                 <div class="section-title">
-                    {{-- <span class="new_testimonials_bg_heading">TESTIMONIALS</span> --}}
-                    <h3>{{ $exam->vendor->title ?? '' }} {{$exam->exam_code ?? ''}} Exam Testimonials</h3>
+                    <h3> Testimonials</h3>
                 </div>
                 <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4">
+                @forelse ($testimonials as $testimonial)
                     <div id="parant_comment" class="container mt-3">
-                        <div class="media p-3">
-                            <div class="initalname">
-                                V
-                            </div>
-                            <div class="media-body">
-                                <p style="color: #22ad95;font-size: 20px;font-weight: 500;">
-                                    Virginia
-                                    <!--<img src="https://flagcdn.com/w80/ca.png" alt="flag"  class="dicls">-->
-                                    <span style="float: right;font-size: 16px;color: #da0606;"><i>Aug 30, 2021</i></span>
-                                </p>
-                                <div class="rating">
-                                </div>
-                                <p>
-                                    Choosing {{ $exam->exam_code ?? '' }}  mock test of certsidea.com for practice was a conscious decision.
-                                    I did not find anything better than these mock tests.
-                                    They are designed to give practice to people who seriously want to clear the {{ $exam->exam_code ?? '' }} exam .
-                                    The tests are well within my budget and I am sure practicing on them will help me pass the exam
-                                    in first attempt.
-                                </p>
-                            </div>
+                    <div class="media p-3">
+                        <div class="initalname">
+                            @empty(!$testimonial->name)
+                                {{ ucfirst( Str::substr($testimonial->name, 0, 1) ) ?? '' }}                          
+                            @endempty
                         </div>
+                        <div class="media-body">
+                            <p style="color: #22ad95;font-size: 20px;font-weight: 500;">
+                                {{$testimonial->subject ?? ''}}
+                                <span style="float: right;font-size: 16px;color: #da0606;"><i>{{date('M d, Y', strtotime($testimonial->created_at))}}</i></span>
+                            </p>
+                            <div class="rating">
+                            </div>
+                            <p>
+                                {{ $testimonial->message ?? ''}}
+                            </p>
+                            </div>
                     </div>
+                    </div>
+                @empty
+                    
+                @endforelse  
                 </div>
             </section>
-
             {{-- END <!------------- Certifications Testimonials ----------------------------------------> --}}
 
             {{-- <!------------- Comments Area --------------------------------------------> --}}
-            <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;display:none;">
+            <section id="commentwriteareavendor" class="commentwritearea" style="background-color:#e1ffff;">
                 <div class="container">
                     <div class="topArea">
                         <div class="row">
@@ -703,7 +702,9 @@
                                     <div class="alert alert-success" style="display:none"></div>
                                     <div class="alert alert-danger" style="display:none"></div>
                                 </div>
-                                <!--<form method="post" name="contactusForm" id="contactusForm" action="https://www.certsidea.com/contact">-->
+
+                                <form  method="POST" name="contactusForm" class="contactusForm" id="contactusForm">
+                                <input type="hidden" value="exam" id="GenratedFormtype" name="GenratedFormtype">
                                 <div name="contactusForm" id="contactusForm">
                                     <div class="inputArea">
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -735,7 +736,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6 col-xs-12">
-                                                    <button class="btn btn-success" id="submitcontactdata">submit</button>
+                                                    <button class="btn btn-success submitcontactdata" data-route="{{route('testimonial_create')}}" id="submitcontactdata">submit</button>
                                                 </div>
                                             </div>
                                         </div>
