@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'Certs Idea - Study for Certification Exams';
-        $vendors = Vendor::get();
+        $vendors = Vendor::whereHas('exams')->get();
         return view('welcome',compact('title','vendors'));
     }
 }

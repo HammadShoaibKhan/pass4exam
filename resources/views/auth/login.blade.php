@@ -130,7 +130,16 @@
 					</form>
 				</div>
 				<div class="col">
-                    <form method="post" name="userRegisterForm" class="register-form" id="userRegisterForm" action="{{ route('register') }}">
+                    @if($errors->any())
+                        @foreach($errors->all() as $error)
+                            <div id="form-messages"><span class="alert alert-danger">{{ $error }}</span></div>
+                        @endforeach
+                    @endif
+
+                    @if(session('success'))
+                        <div id="form-messages"><span class="alert alert-success">{{ session('success') }}</span></div>
+                    @endif
+                    <form method="post" name="userRegisterForm" class="register-form" id="userRegisterForm" action="{{ route('user.register') }}">
                         {{ csrf_field() }}
 					    <div class="form-block">
     						<strong class="title">register account now</strong>

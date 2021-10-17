@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -29,6 +30,23 @@ class UserController extends Controller
             return redirect()->route('user.dashboard');
         }
         return back()->with('error', 'Password is not correct');
+    }
+
+    public function userRegister(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|unique:users',
+            'name' => 'required'
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make('isdummy'),
+        ]);
+
+        return back()->with('success', 'Account created successfully, please visit you email address for login details.');
+
     }
 
     public function dashboard()

@@ -109,7 +109,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('delete', [UserController::class, 'delete'])->name('admin.user.delete');
         Route::post('multiple-delete', [UserController::class, 'multipleDelete'])->name('admin.users.delete');
     });
-    
+
     /**  ORDER ROUTES */
     Route::get('orders', [OrderController::class, 'index'])->name('admin.orders');
     Route::prefix('order')->group(function () {
@@ -143,11 +143,17 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('carts', [CartController::class, 'index'])->name('cart_view');
     Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
     Route::get('cart/{id}/{bundle_type}', [CartController::class, 'removeCart'])->name('remove_cart');
-    
+
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 
     Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
     Route::post('user-login', [\App\Http\Controllers\UserController::class, 'userLogin'])->name('user.login');
+
+    Route::post('user-register', [\App\Http\Controllers\UserController::class, 'userRegister'])->name('user.register');
+
+
+    Route::post('vendor/exams', [App\Http\Controllers\VendorController::class, 'getVendorExams'])->name('vendor.exams');
+    Route::post('exam/download/demo-file', [Exam_Controller::class, 'downloadDemoFile'])->name('exam.demo.download');
 
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 

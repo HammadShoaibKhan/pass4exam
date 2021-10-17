@@ -30,4 +30,20 @@ class VendorController extends Controller
         }
         return redirect()->route('home');
     }
+
+    /**to get vendor exams options list if exam have demo pdf file */
+    public function getVendorExams(Request $request)
+    {
+        $vendor = Vendor::where('id', $request->vendor_id)->first();
+        $exams = $vendor->exams;
+        $html = '';
+        if (count($exams) > 0) {
+            foreach ($exams as $exam) {
+                if (getMediaFile('exams', 'demo_file', $exam->id) != null) {
+                    $html .= '<option value="' . $exam->id . '">' . $exam->title . '</option>';
+                }
+            }
+        }
+        return $html;
+    }
 }
