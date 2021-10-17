@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vendor;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,7 @@ class HomeController extends Controller
     {
         $title = 'Certs Idea - Study for Certification Exams';
         $vendors = Vendor::whereHas('exams')->get();
-        return view('welcome',compact('title','vendors'));
+        $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
+        return view('welcome',compact('title','vendors','testimonials'));
     }
 }

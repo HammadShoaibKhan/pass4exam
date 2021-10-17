@@ -6,6 +6,7 @@ use App\Models\Certification;
 use Illuminate\Http\Request;
 use App\Models\Vendor;
 use App\Models\Exam;
+use App\Models\Testimonial;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -26,7 +27,8 @@ class VendorController extends Controller
         if ($slug != null && Vendor::where('slug', $slug)->exists()) {
             $title = 'Vendors';
             $vendor = Vendor::where('slug', $slug)->first();
-            return view('vendor', compact('title','vendor'));
+            $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
+            return view('vendor', compact('title','vendor','testimonials'));
         }
         return redirect()->route('home');
     }
