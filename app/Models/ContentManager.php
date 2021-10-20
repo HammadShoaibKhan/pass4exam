@@ -17,6 +17,6 @@ class ContentManager extends Model
     protected $fillable = [
         'type',
         'placeholder_name',
-        'Placeholder_value',
+        'placeholder_value',
     ];  
 }
