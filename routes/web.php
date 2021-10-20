@@ -14,6 +14,7 @@ use \App\Http\Controllers\CartController;
 use \App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\ContentManagerController;
 use App\Http\Controllers\Testimonial_Controller;
 
 /*
@@ -128,6 +129,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('change-status', [TestimonialController::class, 'changeStatus'])->name('admin.testimonial.change-status');
     });
 
+    /**  ContentManager ROUTES */
+    Route::get('contents', [ContentManagerController::class, 'index'])->name('admin.contents');
+    Route::prefix('content')->group(function () {
+        Route::get('create', [ContentManagerController::class, 'create'])->name('admin.content.create');
+        Route::post('create', [ContentManagerController::class, 'store'])->name('admin.content.create');
+        Route::get('{id}/edit', [ContentManagerController::class, 'edit'])->name('admin.content.edit');
+        Route::post('update/{id}', [ContentManagerController::class, 'update'])->name('admin.content.update');
+    });
 });
 
 Route::get('custodian', [LoginController::class, 'index'])->name('admin.login');
