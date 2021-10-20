@@ -17,7 +17,7 @@ class CreateContentManagerTable extends Migration
             $table->id();
             $table->string('type');     /** page-type enum({ home|vendor|exam| ... })*/
             $table->string('placeholder_name'); /** placeholderName ==> Replaceable */
-            $table->longText('Placeholder_value')->nullable(); /** placeholderValue ==> Replacer */
+            $table->longText('placeholder_value')->nullable(); /** placeholderValue ==> Replacer */
             $table->timestamps();
         });
     }
