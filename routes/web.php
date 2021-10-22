@@ -134,7 +134,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
     Route::prefix('content')->group(function () {
         Route::get('create', [ContentManagerController::class, 'create'])->name('admin.content.create');
         Route::post('create', [ContentManagerController::class, 'store'])->name('admin.content.create');
-        Route::get('{id}/edit', [ContentManagerController::class, 'edit'])->name('admin.content.edit');
+        Route::get('{type}/edit', [ContentManagerController::class, 'edit'])->name('admin.content.edit');
         Route::post('update/{id}', [ContentManagerController::class, 'update'])->name('admin.content.update');
     });
 });
