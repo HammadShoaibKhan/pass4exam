@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ContentManager;
 use Illuminate\Support\Str;
-
+use DB;
 class ContentManagerController extends Controller
 {
     public function index()
     {
         $title = 'Content Manager';
-        $contentManagers = ContentManager::orderBy('id', 'DESC')->get();
+        $contentManagers = ContentManager::distinct()->get('type');
         return view('admin.contentManager.index', compact('title', 'contentManagers'));
     }
     public function create()
