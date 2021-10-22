@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>contentManagers</h1>
+                        <h1>Content Manager</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item active">contentManagers</li>
+                            <li class="breadcrumb-item active">Content Manager</li>
                         </ol>
                     </div>
                 </div>
