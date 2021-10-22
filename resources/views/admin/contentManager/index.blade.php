@@ -49,7 +49,7 @@
                                         <tr>
                                             <td>{{ $contentManager->type ?? '' }}</td>
                                             <td>
-                                                <a href="{{ route('admin.content.edit', $contentManager->id) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="{{ route('admin.content.edit', $contentManager->type) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
                                             </td>
                                         </tr>
                                     @empty
