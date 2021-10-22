@@ -39,34 +39,22 @@ class ContentManagerController extends Controller
         return back()->with('success', Str::upper($request->type).' Content created successfully!');
     }
 
-    public function edit($id = null) {
-        // if ($id != null && ContentManager::where('id', $id)->exists()) {
-        //     $title = 'ContentManager';
-        //     $ContentManager = ContentManager::find($id);
-        //     return view('admin.ContentManagers.edit', compact('title', 'ContentManager'));
-        // }
-        // return redirect()->route('admin.ContentManagers');
+    public function edit($type = null) {
+        if ($type != null && ContentManager::where('type', $type)->exists()) {
+            $title = 'Content Manager';
+            $ContentManager = ContentManager::WHERE('type',$type)->get();
+            return view('admin.contentManager.edit', compact('title', 'ContentManager'));
+        }
+        return redirect()->route('admin.contents');
     }
 
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'name' => 'required'
-        // ], [
-        //     'name.required' => 'Name is required'
-        // ]);
+        $data = [
+            'placeholder_value' => $request->placeholder_value
+        ];
 
-        // $data = [
-        //     'name' => $request->name,
-        //     'ContentManagername' => Str::Slug($request->name),
-        //     'type' => $request->type,
-        //     'status' => $request->status
-        // ];
-
-        // if ($request->password != '') {
-        //     $data['password'] = bcrypt($request->password);
-        // }
-        // ContentManager::find($id)->update($data);
-        // return back()->with('success', 'ContentManager updated successfully');
+        ContentManager::find($id)->update($data);
+        return back()->with('success', Str::upper($request->type).' Content Updated Successfully');
     }
 }
