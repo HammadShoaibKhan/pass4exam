@@ -85,6 +85,11 @@
                                                             <div class="form-group">
                                                                 <label>Placeholde Content</label>
                                                                 <textarea class="form-control" name="placeholder_value" id="summernote" rows="10"></textarea>
+                                                                <p class="text-danger">
+                                                                    @error('placeholder_value')
+                                                                    {{ $message }}
+                                                                    @enderror
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
