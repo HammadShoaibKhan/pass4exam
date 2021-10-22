@@ -6,6 +6,11 @@ $(document).ready(function () {
     $('#summernote').summernote({
         height: 300,
     });
+    
+    /**initialize summernote text editor */
+    $('.summernote').summernote({
+        height: 130,
+    });
 
 
 })
