@@ -73,6 +73,14 @@
               </p>
           </a>
       </li>
+      <li class="nav-item">
+        <a href="{{ route('admin.contents') }}" class="nav-link {{ request()->routeIs('admin.contents', 'admin.content.create', 'admin.content.edit') ? 'active' : '' }}">
+          <i class="nav-icon fas fa-comment"></i>
+            <p>
+              Content Manager
+            </p>
+        </a>
+      </li>
   </ul>
       </nav>
       <!-- /.sidebar-menu -->

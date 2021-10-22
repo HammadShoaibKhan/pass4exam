@@ -209,3 +209,14 @@ function getTodayTotalOrderCount(){
     $order_count = Order::Where('created_at', 'like', $date.'%')->where('status',1)->count();   
     return $order_count;
 }
+
+/**to get Page Types */
+function getPageTypes(){
+    $pageTypes = array(
+        'home' => "Home",
+        'vendor' => "Vendor",
+        'exam-detail'=> "Exam Detail",
+        'exam-info'=> "Exam Info",
+    );
+    return $pageTypes;
+}
