@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         $title = 'Certs Idea - Study for Certification Exams';
         $vendors = Vendor::whereHas('exams')->get();
-        $pageContent = ContentManager::WHERE('type','home')->get();
+        $pageContent = ContentManager::whereIn('type',['home', 'all'])->get();
         $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
         return view('welcome',compact('title','vendors','testimonials','pageContent'));
     }
