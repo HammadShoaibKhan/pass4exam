@@ -1,6 +1,6 @@
 @extends('layouts.frontend.master')
 @section('content')
-
+<?php $c=0; ?>
 {{-- <!------------- HOME Banner--------------------------------------------> --}}
 <section  class="home_banner_top ptb-70">
   <div class="home_banner_content">
@@ -8,8 +8,9 @@
       BE A CERTIFIED PROFESSIONAL WITH US
     </strong>
     <h1>
-      Certification Exam <br>
-      Preparation Material
+      @if ( !Empty($pageContent[$c]->placeholder_name == 'home-header-note'))
+            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+      @endif
     </h1>
     <form class="demo-from" id="demos_form" action="{{ route('exam.demo.download') }}" method="post">
         {{ csrf_field() }}
@@ -132,12 +133,10 @@
               <div style=" margin-bottom: 55px; margin-top: 7%;">
               <h2>Popular Vendors</h2>
               <p>
-                Certs Idea is a trusted brand for IT students to get a comprehensive range of practice questions to
-                prepare for all in-demand certifications. At Certs Idea, we offer you accurate preparation material for exams
-                conducted by Microsoft, Cisco, Oracle, CompTIA, and many other popular vendors.
-                Certs Idea guarantees that you will not need anything else after preparing from our actual practice questions.
-                Save your time and download the free demo to get a fair idea about Certs Idea practice questions.
-                </p>
+                @if ( !Empty($pageContent[$c]->placeholder_name == 'home-popular-vendors'))
+                  <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                @endif
+              </p>
               </div>
               <div style=" margin-top: -4%;">
                 <div class="topnav1_home">
@@ -214,12 +213,9 @@
               </div>
               <div id="world-class-learning2">
                 <p>
-                  Certs Idea offers comprehensive preparation
-                  material that guarantees your first attempt success in the leading IT certification exams. We ensure that you will get
-                  state-of-the-art and new practice questions from Certs Idea. It is our objective to help you prepare well for the most
-                  expected questions so that you can attempt these difficult questions of your desired IT certification exam on the first try.
-                  Certs Idea has paved the way&nbsp;for multiple candidates towards success. You can also get IT career
-                  benefits like a job promotion or boost a new career by preparing for your dream certification from Certs Idea.
+                  @if ( !Empty($pageContent[$c]->placeholder_name == 'home-offer-anyone'))
+                    <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                  @endif
                 </p>
               </div>
               <div class="row" style="margin-left: 20px; margin-bottom: 15%;margin-top: 8%;">
@@ -259,10 +255,9 @@
       <div class="home_popular_exam_section_inner" style="">
         <h3>Popular Exams</h3>
         <p>
-          Thousands of candidates have successfully prepared from Certs Idea high-quality preparation material.
-          Our practice questions are enough for your success because of our experts&rsquo; continuous
-          efforts to keep our preparation material updated and relevant.
-          Get instant access to recently updated practice material and walk out on exam day as a successful candidate.
+          @if ( !Empty($pageContent[$c]->placeholder_name == 'home-popular-exam'))
+            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+          @endif
         </p>
       </div>
       <div class="container">
@@ -314,9 +309,9 @@
       <div class="different_home_section_inner_top" style="">
         <h3>How Does Certs Idea Serve You?</h3>
         <p>
-          Our preparation material is the most reliable solution to quickly prepare for your dream IT certification exams.
-          We are certain that our preparation material will guide you to get certified on the first try.
-          Here is how we serve you to prepare successfully:
+          @if ( !Empty($pageContent[$c]->placeholder_name == 'all-serve-you'))
+            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+          @endif
         </p>
       </div>
       <div class="different_home_section_inner_bottom" style="">
