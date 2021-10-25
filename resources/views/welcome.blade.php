@@ -309,9 +309,9 @@
       <div class="different_home_section_inner_top" style="">
         <h3>How Does Certs Idea Serve You?</h3>
         <p>
-          Our preparation material is the most reliable solution to quickly prepare for your dream IT certification exams.
-          We are certain that our preparation material will guide you to get certified on the first try.
-          Here is how we serve you to prepare successfully:
+          @if ( !Empty($pageContent[$c]->placeholder_name == 'all-serve-you'))
+            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+          @endif
         </p>
       </div>
       <div class="different_home_section_inner_bottom" style="">
