@@ -9,9 +9,6 @@ use Illuminate\Http\Request;
 use App\Models\Vendor;
 use App\Models\Exam;
 use App\Models\Testimonial;
-use App\Models\Certification;
-
-use function PHPUnit\Framework\isEmpty;
 
 class Exam_Controller extends Controller
 {
@@ -125,7 +122,7 @@ class Exam_Controller extends Controller
         $initialAssessment = [];
         $correctAnswer = Question::getQuestionCorrectAnswer($questionID);
 
-        if ($markedQuestion == 'true') {    
+        if ($markedQuestion == 'true') {
             /** if question marked checked then both status and attempt status is 0 means skipped */
             $initialAssessment[] = [
                 'question_id' => $questionID,
@@ -153,7 +150,7 @@ class Exam_Controller extends Controller
                         'attempt_status' => 1
                     ];
                 }
-            } else {    
+            } else {
                 /** if question is skipped and not marked then status is 2 and attempt_status is 1 incomplete answer */
                 $initialAssessment[] = [
                     'question_id' => $questionID,
@@ -163,7 +160,7 @@ class Exam_Controller extends Controller
                 ];
             }
         }
-        
+
 
         /**loop on previously selected answers, regenerate the selected answers array
          * and replace already selected answer if again attempt previous question.
@@ -237,7 +234,7 @@ class Exam_Controller extends Controller
         $attemptID = $request->attempt_id;
         $assessment = Assessment::where('attempt_id', $attemptID)->first();
         $assessmentQuestions = json_decode($assessment->selected_questions, true);
-        
+
         $previousQuestionIndex = 0;
         $questionNo = 1;
         /** get previous question and question no */
@@ -258,6 +255,7 @@ class Exam_Controller extends Controller
         return view('exam.partials.practice', compact('noOfQuestions', 'extractedQuestion', 'questionNo', 'attemptID'));
     }
 
+    /** this function works when user click on counter widget */
     public function examCounterAction(Request $request)
     {
         $questionID = $request->question_id;
@@ -285,6 +283,7 @@ class Exam_Controller extends Controller
         return view('exam.partials.practice', compact('noOfQuestions', 'extractedQuestion', 'questionNo', 'attemptID'));
     }
 
+    /** this function works when user click on review all button */
     public function reviewQuestions(Request $request)
     {
         $html = '';
@@ -299,18 +298,19 @@ class Exam_Controller extends Controller
                     $color = '#D60404';
                 }
 
-                
+
                 $html .= '<div class="swiper-slide review-counter" data-question-id="' . $selectedAnswer['question_id'] . '">
                             <div class="slide_Item" style="background: ' . $color . '; color: #fff">
                                 <span>' . ($key + 1) . '</span>
                             </div>
                           </div>';
-            }   
+            }
         }
 
         return Response()->json($html);
     }
 
+    /** this function does the exam end work */
     public function examEnd(Request $request)
     {
         $questionID = $request->question_id;
@@ -322,7 +322,7 @@ class Exam_Controller extends Controller
         $initialAssessment = [];
         $correctAnswer = Question::getQuestionCorrectAnswer($questionID);
 
-        if ($markedQuestion == 'true') {    
+        if ($markedQuestion == 'true') {
             /** if question marked checked then both status and attempt status is 0 means skipped */
             $initialAssessment[] = [
                 'question_id' => $questionID,
@@ -350,7 +350,7 @@ class Exam_Controller extends Controller
                         'attempt_status' => 1
                     ];
                 }
-            } else {    
+            } else {
                 /** if question is skipped and not marked then status is 2 and attempt_status is 1 incomplete answer */
                 $initialAssessment[] = [
                     'question_id' => $questionID,
@@ -360,7 +360,7 @@ class Exam_Controller extends Controller
                 ];
             }
         }
-        
+
 
         /**loop on previously selected answers, regenerate the selected answers array
          * and replace already selected answer if again attempt previous question.
@@ -407,10 +407,11 @@ class Exam_Controller extends Controller
         return route('exam.practice.result', ['attempt_id' => $attemptID]);
     }
 
+    /** to show the exam result page */
     public function examResult($attemptID = null)
     {
         if ($attemptID != null && Assessment::where('attempt_id', $attemptID)->exists()) {
-                
+
             /** get total number of questions in exam attempt */
             $noOfQuestions = getNoOfQuestionInAttempt($attemptID);
 
@@ -426,5 +427,22 @@ class Exam_Controller extends Controller
             return view('exam.result', compact('attemptResult'));
         }
         return redirect()->to('home');
+    }
+
+    public function downloadDemoFile(Request $request)
+    {
+        $examID = $request->demo_exam_id;
+        if ($examID != null) {
+            $examCode = Exam::where('id', $examID)->value('exam_code');
+            $fileName = getMediaFile('exams', 'demo_file', $examID);
+            $file = public_path() . '/storage/demo_files/' . $fileName;
+
+            $headers = [
+                'Content-Type: application/pdf'
+            ];
+
+            $fileName = $examCode . '.pdf';
+            return Response()->download($file, $fileName, $headers);
+        }
     }
 }

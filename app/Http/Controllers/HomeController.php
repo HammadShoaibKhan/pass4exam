@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vendor;
 use App\Models\Testimonial;
+use App\Models\ContentManager;
 
 class HomeController extends Controller
 {
@@ -26,8 +27,9 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'Certs Idea - Study for Certification Exams';
-        $vendors = Vendor::get();
+        $vendors = Vendor::whereHas('exams')->get();
+        $pageContent = ContentManager::whereIn('type',['home', 'all'])->get();
         $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
-        return view('welcome',compact('title','vendors','testimonials'));
+        return view('welcome',compact('title','vendors','testimonials','pageContent'));
     }
 }

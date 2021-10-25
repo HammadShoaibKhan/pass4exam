@@ -14,6 +14,7 @@ use \App\Http\Controllers\CartController;
 use \App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\ContentManagerController;
 use App\Http\Controllers\Testimonial_Controller;
 
 /*
@@ -111,7 +112,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('delete', [UserController::class, 'delete'])->name('admin.user.delete');
         Route::post('multiple-delete', [UserController::class, 'multipleDelete'])->name('admin.users.delete');
     });
-    
+
     /**  ORDER ROUTES */
     Route::get('orders', [OrderController::class, 'index'])->name('admin.orders');
     Route::prefix('order')->group(function () {
@@ -128,6 +129,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('change-status', [TestimonialController::class, 'changeStatus'])->name('admin.testimonial.change-status');
     });
 
+    /**  ContentManager ROUTES */
+    Route::get('contents', [ContentManagerController::class, 'index'])->name('admin.contents');
+    Route::prefix('content')->group(function () {
+        Route::get('create', [ContentManagerController::class, 'create'])->name('admin.content.create');
+        Route::post('create', [ContentManagerController::class, 'store'])->name('admin.content.create');
+        Route::get('{type}/edit', [ContentManagerController::class, 'edit'])->name('admin.content.edit');
+        Route::post('update/{id}', [ContentManagerController::class, 'update'])->name('admin.content.update');
+    });
 });
 
 Route::get('custodian', [LoginController::class, 'index'])->name('admin.login');
@@ -154,7 +163,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('carts', [CartController::class, 'index'])->name('cart_view');
     Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
     Route::get('cart/{id}/{bundle_type}', [CartController::class, 'removeCart'])->name('remove_cart');
-    
+
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
     // Testimonial Creation
     Route::get('testimonials', [Testimonial_Controller::class, 'index'])->name('testimonials');
@@ -162,6 +171,12 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
     Route::post('user-login', [\App\Http\Controllers\UserController::class, 'userLogin'])->name('user.login');
+
+    Route::post('user-register', [\App\Http\Controllers\UserController::class, 'userRegister'])->name('user.register');
+
+
+    Route::post('vendor/exams', [App\Http\Controllers\VendorController::class, 'getVendorExams'])->name('vendor.exams');
+    Route::post('exam/download/demo-file', [Exam_Controller::class, 'downloadDemoFile'])->name('exam.demo.download');
 
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 
