@@ -217,6 +217,7 @@ function getPageTypes(){
         'vendor' => "Vendor",
         'exam-detail'=> "Exam Detail",
         'exam-info'=> "Exam Info",
+        'all'=> "All Pages",
     );
     return $pageTypes;
 }
