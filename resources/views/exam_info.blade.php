@@ -1,5 +1,6 @@
 @extends('layouts.frontend.master')
 @section('content')
+    <?php $c=0; ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -82,17 +83,10 @@
                                     <h2>
                                         <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Exam</strong>
                                     </h2>
-                                    <p>Certs Idea offers web-based and desktop practice tests for your easier preparation of the {{$exam->vendor->title}} {{$exam->exam_code}} certification exam.
-                                        Our desktop and web-based practice exams provide an actual exam environment.
-                                        We have experts and {{$exam->certification->title}} Fundamentals professionals who have designed practice questions after getting
-                                        feedback from successful candidates. All {{$exam->vendor->title}} {{$exam->exam_code}} exam questions are syllabus-based and
-                                        thoroughly cover all topics of the actual exam.
-                                        Our {{$exam->vendor->title}} {{$exam->exam_code}} practice questions appear in the final Microsoft exam.
-                                        The web-based and desktop practice tests highlight weak portions of your preparation so that you put more effort and
-                                        remove all mistakes before the actual
-                                        <a class="internal_link" href="{{ route('exam_info',[$exam->vendor->slug,$exam->slug])}}"> 
-                                            {{$exam->vendor->title}} {{$exam->exam_code}} exam.
-                                        </a>
+                                    <p>                                    
+                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-1'))
+                                            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                        @endif
                                     </p>
                                 </div>
                                 {{-- END <!------------- Exam Description----------------------------------------> --}}
@@ -120,21 +114,7 @@
                                     <div id="sample_page_2_middle_content_inner0">
                                         <div>
                                             <p>
-                                                The free demo of our {{$exam->vendor->title}} {{$exam->exam_code}}
-                                                <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                                    exam practice tests is available to help you get familiar with our product.
-                                                    Try the free demo and test features of desktop and web-based
-                                                </span>
-                                                {{$exam->certification->title}} Fundamentals
-                                                <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                                    certification exam practice tests before the purchase.
-                                                    You can evaluate preparation in an actual exam like environment with the following self-assessment features
-                                                    of our web-based and desktop
-                                                </span>
-                                                {{$exam->vendor->title}} {{$exam->exam_code}}
-                                                <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                                    exam practice tests.
-                                                </span>
+
                                             </p>
                                         </div>
                                         <div class="buyNowBtn mb-4 mb-4 m-auto text-center mt-3" >
