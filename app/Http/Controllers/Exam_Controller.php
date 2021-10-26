@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Vendor;
 use App\Models\Exam;
 use App\Models\Testimonial;
+use App\Models\ContentManager;
 
 class Exam_Controller extends Controller
 {
@@ -18,8 +19,9 @@ class Exam_Controller extends Controller
              ( $examSlug != null && Exam::where('slug', $examSlug)->exists() ) ) {
             $title = ucfirst($vendorSlug).' '.$examSlug.' - All You Need to Know';
             $exam = Exam::where('slug', $examSlug)->first();
+            $pageContent = ContentManager::whereIn('type',['exam-info'])->get();
             // $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
-            return view('exam_info', compact('title','exam'));
+            return view('exam_info', compact('title','exam','pageContent'));
         }
         return redirect()->route('home');
     }
