@@ -114,7 +114,9 @@
                                     <div id="sample_page_2_middle_content_inner0">
                                         <div>
                                             <p>
-
+                                                @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-2'))
+                                                    <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                                @endif    
                                             </p>
                                         </div>
                                         <div class="buyNowBtn mb-4 mb-4 m-auto text-center mt-3" >
