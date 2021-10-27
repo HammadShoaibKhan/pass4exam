@@ -190,14 +190,6 @@
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-free-updates'))
                                             <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
                                         @endif
-                                        The portability of our Microsoft
-                                        <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">
-                                            &nbsp;
-                                        </span>
-                                        {{$exam->certification->title}} Fundamentals certification exam PDF questions makes us a trusted brand in the
-                                        market. Without time and place restrictions, you can practice actual Microsoft
-                                        <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">&nbsp;</span>
-                                        {{$exam->exam_code}} questions via smartphones, computers, laptops, and tablets.
                                     </p>
                                     <h3>
                                         <strong>Self-Assessment With {{$exam->vendor->title}} {{$exam->exam_code}} Exam Practice Test</strong>
