@@ -168,18 +168,7 @@
                                     <p>
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-make-better-desc'))
                                             <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
-                                        @endif    
-
-                                        We take regular feedback from successful candidates of the {{$exam->certification->title}} Fundamentals
-                                        exam to make necessary changes in our preparation material.
-                                        Our {{$exam->vendor->title}} {{$exam->exam_code}} exam study material is syllabus-based and we update it
-                                        immediately if Microsoft&nbsp;changes the content of the
-                                        <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;
-                                        background-color: rgb(252, 252, 252);">
-                                        {{$exam->exam_code}}&nbsp;
-                                        </span>
-                                        exam. These regular updates make our {{$exam->vendor->title}} {{$exam->exam_code}} practice questions more effective and result-oriented.
-                                        To meet the learning needs of every candidate, the Certs Idea more effective.
+                                        @endif
                                     </p>
                                 </div>
                                 {{-- END <!-------------Feature Banner----------------------------------------> --}}
@@ -190,6 +179,9 @@
                                         <strong>New {{$exam->vendor->title}} {{$exam->exam_code}}&nbsp;Questions According to Latest Syllabus</strong>
                                     </h3>
                                     <p>
+                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus'))
+                                            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                        @endif
                                         We keep an eye on {{$exam->certification->title}} Fundamentals certification exam content.
                                         If there is any tweak in exam topics, we instantly update our {{$exam->vendor->title}} {{$exam->exam_code}} exam
                                         questions. Continuous feedback of successful candidates also helps us to keep practice
