@@ -182,17 +182,7 @@
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus'))
                                             <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
                                         @endif
-                                        We keep an eye on {{$exam->certification->title}} Fundamentals certification exam content.
-                                        If there is any tweak in exam topics, we instantly update our {{$exam->vendor->title}} {{$exam->exam_code}} exam
-                                        questions. Continuous feedback of successful candidates also helps us to keep practice
-                                        questions bank updated. These latest changes help our customers to prepare for the
-                                        recently updated {{$exam->certification->title}} Fundamentals questions and answers. This is the
-                                        strategy that makes our 3 formats of preparation material successful. Due to the
-                                        regular updates and relativity of our Microsoft
-                                        <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">
-                                            &nbsp;
-                                        </span>
-                                        AZ-140 practice questions, we provide a satisfaction guarantee.
+
                                     </p>
                                     <h3>
                                         <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Practice Questions with Free updates</strong>
