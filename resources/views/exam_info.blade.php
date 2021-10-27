@@ -182,12 +182,14 @@
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus'))
                                             <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
                                         @endif
-
                                     </p>
                                     <h3>
                                         <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Practice Questions with Free updates</strong>
                                     </h3>
                                     <p>
+                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-free-updates'))
+                                            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                        @endif
                                         The portability of our Microsoft
                                         <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">
                                             &nbsp;
