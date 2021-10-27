@@ -195,6 +195,9 @@
                                         <strong>Self-Assessment With {{$exam->vendor->title}} {{$exam->exam_code}} Exam Practice Test</strong>
                                     </h3>
                                     <p>
+                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-practice-test'))
+                                            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                        @endif
                                         You can evaluate preparation before the final exam by trying the {{$exam->vendor->title}} {{$exam->exam_code}}
                                         practice test in web-based and desktop versions. With our customizable mock exams,
                                         you can track your progress, identify weaker areas of preparation and remove mistakes before
