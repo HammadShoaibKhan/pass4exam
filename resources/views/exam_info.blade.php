@@ -166,6 +166,10 @@
                                 <div id="sample_page_2_middle_content_inner" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
                                     <h2>What Makes Our {{$exam->vendor->title}} {{$exam->exam_code}} Exam Material Better Than Others?</h2>
                                     <p>
+                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-make-better-desc'))
+                                            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                        @endif    
+
                                         We take regular feedback from successful candidates of the {{$exam->certification->title}} Fundamentals
                                         exam to make necessary changes in our preparation material.
                                         Our {{$exam->vendor->title}} {{$exam->exam_code}} exam study material is syllabus-based and we update it
