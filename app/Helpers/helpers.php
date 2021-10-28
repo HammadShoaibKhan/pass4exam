@@ -221,3 +221,14 @@ function getPageTypes(){
     );
     return $pageTypes;
 }
+
+
+/**to get Replaceables  */
+function getReplaceables(){
+    $Replaceables = array(
+        'To Put Exam Title use' => "{{EXAM-TITLE}}",
+        'To Put Exam Code use'=> "{{EXAM-CODE}}",
+        'To Put Vendor Title use' => "{{VENDOR-TITLE}}",
+    );
+    return $Replaceables;
+}
