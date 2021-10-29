@@ -180,7 +180,14 @@
                                     </h3>
                                     <p>
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus'))
-                                            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                            {{-- <?php //echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?> --}}
+                                            <?php 
+                                                $str=strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>');
+                                                foreach (getReplaceables() as $key => $item) {
+                                                    $str = str_replace("$item",$exam->exam_code,$str);
+                                                }
+                                                echo strip_tags($str ?? '','<br>');
+                                            ?>
                                         @endif
                                     </p>
                                     <h3>
