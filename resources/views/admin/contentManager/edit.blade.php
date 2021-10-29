@@ -40,11 +40,11 @@
                                         font-weight: bolder;
                                     }
                                 </style>
-                                <div class="row">
-                                    <ul class="Replaceables">
+                                <div class="col-sm-12">
+                                    <ul class="Replaceables row">
                                         @foreach (getReplaceables() as $key => $item)
                                             <li class="col-sm-12">
-                                                <span class="col-sm-7">{{$key}}</span><span class="col-sm-5 color_code">{{$item}}</span>                                             
+                                                <span class="col-sm-4">{{$key}}</span><span class="col-sm-5 color_code">{{$item}}</span>                                             
                                             </li>                                            
                                         @endforeach
                                     </ul>
