@@ -65,7 +65,7 @@
                                                                 @error('placeholder_value')
                                                                 {{ $message }}
                                                                 @enderror
-                                                            </p>
+                                                            </p> 
                                                         </div>
                                                     </div>
                                                 </div>    
