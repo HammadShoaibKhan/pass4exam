@@ -232,3 +232,15 @@ function getReplaceables(){
     );
     return $Replaceables;
 }
+
+/**to get Replaceables  */
+function getReplacedValues($str=null, $replacers = array()){
+    $str = strip_tags($str ?? '','<br>');
+    // dd($replacers);
+    foreach ($replacers as $key => $r_item) {
+        foreach (getReplaceables() as $key => $item) {
+            $str = str_replace("$item",$r_item,$str);
+        }
+    }
+    return strip_tags($str ?? '','<br>');
+}
