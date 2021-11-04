@@ -183,7 +183,7 @@
                                             $replacers = array('EXAM-CODE' => "$exam->exam_code");    
                                         ?>
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus'))
-                                        {{getReplacedValues($pageContent[$c++]->placeholder_value,$replacers)}}
+                                            {{getReplacedValues($pageContent[$c++]->placeholder_value,$replacers)}}
                                         @endif
                                     </p>
                                     <h3>
