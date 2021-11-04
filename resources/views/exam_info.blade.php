@@ -179,15 +179,11 @@
                                         <strong>New {{$exam->vendor->title}} {{$exam->exam_code}}&nbsp;Questions According to Latest Syllabus</strong>
                                     </h3>
                                     <p>
+                                        <?php 
+                                            $replacers = array('EXAM-CODE' => "$exam->exam_code");    
+                                        ?>
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus'))
-                                            {{-- <?php //echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?> --}}
-                                            <?php 
-                                                $str=strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>');
-                                                foreach (getReplaceables() as $key => $item) {
-                                                    $str = str_replace("$item",$exam->exam_code,$str);
-                                                }
-                                                echo strip_tags($str ?? '','<br>');
-                                            ?>
+                                        {{getReplacedValues($pageContent[$c++]->placeholder_value,$replacers)}}
                                         @endif
                                     </p>
                                     <h3>
