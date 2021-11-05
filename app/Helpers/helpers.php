@@ -229,18 +229,20 @@ function getReplaceables(){
         'To Put Exam Title use' => "{{EXAM-TITLE}}",
         'To Put Exam Code use'=> "{{EXAM-CODE}}",
         'To Put Vendor Title use' => "{{VENDOR-TITLE}}",
+        'To Put Certificate Title use' => "{{CERTIFICATE-TITLE}}",
     );
     return $Replaceables;
 }
 
 /**to get Replaceables  */
 function getReplacedValues($str=null, $replacers = array()){
-    $str = strip_tags($str ?? '','<br>');
-    // dd($replacers);
-    foreach ($replacers as $key => $r_item) {
+    $str = strip_tags($str ?? '', array('<br>','&nbsp;'));
+    foreach ($replacers as $r_key => $r_item) {
         foreach (getReplaceables() as $key => $item) {
-            $str = str_replace("$item",$r_item,$str);
+            if( $r_key == $item){
+                $str = str_replace("$item",$r_item,$str);
+            }
         }
     }
-    return strip_tags($str ?? '','<br>');
+    return strip_tags($str ?? '', array('<br>','&nbsp;'));
 }
