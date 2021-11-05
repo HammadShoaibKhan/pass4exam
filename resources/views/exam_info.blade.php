@@ -1,6 +1,16 @@
 @extends('layouts.frontend.master')
 @section('content')
-    <?php $c=0; ?>
+    <?php 
+        $c=0;   
+        // key must be equal to Replaceable Codes
+        // Replaceable values can be seen in helper file ==> getReplaceables()
+        $replacers = array(
+            '{{EXAM-CODE}}'         =>  $exam->exam_code,
+            '{{EXAM-TITLE}}'        =>  $exam->title,
+            '{{VENDOR-TITLE}}'      =>  $exam->vendor->title,
+            '{{CERTIFICATE-TITLE}}' =>  $exam->certification->title,
+        );    
+    ?>    
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -85,7 +95,7 @@
                                     </h2>
                                     <p>                                    
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-1'))
-                                            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
                                         @endif
                                     </p>
                                 </div>
@@ -115,7 +125,7 @@
                                         <div>
                                             <p>
                                                 @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-2'))
-                                                    <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                                    {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
                                                 @endif    
                                             </p>
                                         </div>
@@ -167,7 +177,7 @@
                                     <h2>What Makes Our {{$exam->vendor->title}} {{$exam->exam_code}} Exam Material Better Than Others?</h2>
                                     <p>
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-make-better-desc'))
-                                            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
                                         @endif
                                     </p>
                                 </div>
@@ -179,11 +189,8 @@
                                         <strong>New {{$exam->vendor->title}} {{$exam->exam_code}}&nbsp;Questions According to Latest Syllabus</strong>
                                     </h3>
                                     <p>
-                                        <?php 
-                                            $replacers = array('EXAM-CODE' => "$exam->exam_code");    
-                                        ?>
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus'))
-                                            {{getReplacedValues($pageContent[$c++]->placeholder_value,$replacers)}}
+                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
                                         @endif
                                     </p>
                                     <h3>
@@ -191,7 +198,7 @@
                                     </h3>
                                     <p>
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-free-updates'))
-                                            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
                                         @endif
                                     </p>
                                     <h3>
@@ -199,7 +206,7 @@
                                     </h3>
                                     <p>
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-practice-test'))
-                                            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
                                         @endif
                                     </p>
                                 </div>
