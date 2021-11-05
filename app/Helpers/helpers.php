@@ -206,7 +206,7 @@ function getCertificateName($id=null){
 /**to get Current Today Total order Count */
 function getTodayTotalOrderCount(){
     $date =  date('Y-m-d');
-    $order_count = Order::Where('created_at', 'like', $date.'%')->where('status',1)->count();   
+    $order_count = Order::Where('created_at', 'like', $date.'%')->where('status',1)->count();
     return $order_count;
 }
 
@@ -234,7 +234,7 @@ function getReplaceables(){
     return $Replaceables;
 }
 
-/**to get Replaceables  */
+/**to get Replaced values  */
 function getReplacedValues($str = null, $replacers = array()){
     $str = strip_tags($str ?? '', array('<br>','&nbsp;'));
     if( count($replacers) > 0){
@@ -247,4 +247,10 @@ function getReplacedValues($str = null, $replacers = array()){
         }
     }
     return strip_tags($str ?? '', array('<br>','&nbsp;'));
+}
+
+/** to get assessment passing range by attempt id*/
+function getAssessmentPassingRange($attemptID)
+{
+    return Assessment::where('attempt_id', $attemptID)->value('passing_range');
 }

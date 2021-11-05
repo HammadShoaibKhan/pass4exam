@@ -47,9 +47,9 @@
             <h4>Result Analysis</h4>
         </div>
     </div>
-    
+
     <div class="row result-status-box" style="margin: 0">
-        
+
         <div class="col-md-3">
             <p>Total Questions: <span class="bold-count">5</span></p>
         </div>
@@ -64,14 +64,14 @@
             <p>Correct: <span class="bold-count">{{ $attemptResult['correct'] ?? 0 }}</span></p>
             <p>Missed: <span class="bold-count">{{ $attemptResult['missed'] ?? 0 }}</span></p>
         </div>
-    
+
     </div><br><br>
 
     <h4>Exam Result</h4>
     <div class="row" style="margin: 0">
         <div class="col-md-4" style="border: 1px solid #E8E8E8">
             <div class="percent-donut">
-                <span class="ci-chart-text">20/70</span>
+                <span class="ci-chart-text">{{ ($attemptResult['correct']/$attemptResult['total_questions']) * 100 }}/{{ getAssessmentPassingRange($attemptResult['attempt_id']) }}</span>
                 <p class="ci-chart-type">Percentage</p>
                 <div id="percentChart" style="height: 150px; width: 100%;"></div>
             </div>
@@ -154,18 +154,18 @@
   <div class="modal fade" id="answerStatsModal">
     <div class="modal-dialog modal-lg">
       <div class="modal-content" style="min-height: 200px">
-      
+
         <!-- Modal Header -->
         <div class="modal-header">
             <h6>Review Question</h6>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        
+
         <!-- Modal body -->
         <div class="modal-body reviewbody">
-                
+
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -211,9 +211,9 @@ window.onload = function () {
             indexLabel: "{label} - #percent%",
             toolTipContent: "<b>{label}:</b> {y} (#percent%)",
             dataPoints: [
-                { y: 67, label: "Total" },
-                { y: 28, label: "Passing" },
-                { y: 10, label: "Yours" }
+                { y: 100, label: "Total" },
+                { y: {{ getAssessmentPassingRange($attemptResult['attempt_id']) }}, label: "Passing" },
+                { y: {{ ($attemptResult['correct']/$attemptResult['total_questions']) * 100 }}, label: "Yours" }
             ]
         }]
     });
@@ -231,7 +231,7 @@ window.onload = function () {
             toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
             dataPoints: [
                 { y: {{ getNoOfQuestionInAttempt($attemptResult['attempt_id']) }}, label: "Total" },
-                { y: 28, label: "Yours" }
+                { y: {{ $attemptResult['total_attempt'] }}, label: "Yours" }
             ]
         }]
     });
