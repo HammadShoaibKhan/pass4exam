@@ -235,12 +235,14 @@ function getReplaceables(){
 }
 
 /**to get Replaceables  */
-function getReplacedValues($str=null, $replacers = array()){
+function getReplacedValues($str = null, $replacers = array()){
     $str = strip_tags($str ?? '', array('<br>','&nbsp;'));
-    foreach ($replacers as $r_key => $r_item) {
-        foreach (getReplaceables() as $key => $item) {
-            if( $r_key == $item){
-                $str = str_replace("$item",$r_item,$str);
+    if( count($replacers) > 0){
+        foreach ($replacers as $r_key => $r_item) {
+            foreach (getReplaceables() as $key => $item) {
+                if( $r_key == $item){
+                    $str = str_replace("$item",$r_item,$str);
+                }
             }
         }
     }
