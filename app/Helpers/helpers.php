@@ -229,8 +229,24 @@ function getReplaceables(){
         'To Put Exam Title use' => "{{EXAM-TITLE}}",
         'To Put Exam Code use'=> "{{EXAM-CODE}}",
         'To Put Vendor Title use' => "{{VENDOR-TITLE}}",
+        'To Put Certificate Title use' => "{{CERTIFICATE-TITLE}}",
     );
     return $Replaceables;
+}
+
+/**to get Replaced values  */
+function getReplacedValues($str = null, $replacers = array()){
+    $str = strip_tags($str ?? '', array('<br>','&nbsp;'));
+    if( count($replacers) > 0){
+        foreach ($replacers as $r_key => $r_item) {
+            foreach (getReplaceables() as $key => $item) {
+                if( $r_key == $item){
+                    $str = str_replace("$item",$r_item,$str);
+                }
+            }
+        }
+    }
+    return strip_tags($str ?? '', array('<br>','&nbsp;'));
 }
 
 /** to get assessment passing range by attempt id*/
