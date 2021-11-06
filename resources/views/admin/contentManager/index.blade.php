@@ -23,13 +23,13 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                {{-- <div class="row">
+                <div class="row">
                     <div class="col-9">
                     </div>
                     <div class="col-3">
                         <a href="{{ route('admin.content.create') }}" class="btn btn-block btn-primary btn-md"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add&nbspPage Content</a>
                     </div>
-                </div> --}}
+                </div>
                 <br>
 
                 <div class="row">
