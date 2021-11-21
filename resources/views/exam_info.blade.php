@@ -1,5 +1,16 @@
 @extends('layouts.frontend.master')
 @section('content')
+    <?php 
+        $c=0;   
+        // key must be equal to Replaceable Codes
+        // Replaceable values can be seen in helper file ==> getReplaceables()
+        $replacers = array(
+            '{{EXAM-CODE}}'         =>  $exam->exam_code,
+            '{{EXAM-TITLE}}'        =>  $exam->title,
+            '{{VENDOR-TITLE}}'      =>  $exam->vendor->title,
+            '{{CERTIFICATE-TITLE}}' =>  $exam->certification->title,
+        );    
+    ?>    
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -82,17 +93,10 @@
                                     <h2>
                                         <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Exam</strong>
                                     </h2>
-                                    <p>Certs Idea offers web-based and desktop practice tests for your easier preparation of the {{$exam->vendor->title}} {{$exam->exam_code}} certification exam.
-                                        Our desktop and web-based practice exams provide an actual exam environment.
-                                        We have experts and {{$exam->certification->title}} Fundamentals professionals who have designed practice questions after getting
-                                        feedback from successful candidates. All {{$exam->vendor->title}} {{$exam->exam_code}} exam questions are syllabus-based and
-                                        thoroughly cover all topics of the actual exam.
-                                        Our {{$exam->vendor->title}} {{$exam->exam_code}} practice questions appear in the final Microsoft exam.
-                                        The web-based and desktop practice tests highlight weak portions of your preparation so that you put more effort and
-                                        remove all mistakes before the actual
-                                        <a class="internal_link" href="{{ route('exam_info',[$exam->vendor->slug,$exam->slug])}}"> 
-                                            {{$exam->vendor->title}} {{$exam->exam_code}} exam.
-                                        </a>
+                                    <p>                                    
+                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-1'))
+                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                        @endif
                                     </p>
                                 </div>
                                 {{-- END <!------------- Exam Description----------------------------------------> --}}
@@ -120,21 +124,9 @@
                                     <div id="sample_page_2_middle_content_inner0">
                                         <div>
                                             <p>
-                                                The free demo of our {{$exam->vendor->title}} {{$exam->exam_code}}
-                                                <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                                    exam practice tests is available to help you get familiar with our product.
-                                                    Try the free demo and test features of desktop and web-based
-                                                </span>
-                                                {{$exam->certification->title}} Fundamentals
-                                                <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                                    certification exam practice tests before the purchase.
-                                                    You can evaluate preparation in an actual exam like environment with the following self-assessment features
-                                                    of our web-based and desktop
-                                                </span>
-                                                {{$exam->vendor->title}} {{$exam->exam_code}}
-                                                <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                                    exam practice tests.
-                                                </span>
+                                                @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-2'))
+                                                    {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                                @endif    
                                             </p>
                                         </div>
                                         <div class="buyNowBtn mb-4 mb-4 m-auto text-center mt-3" >
@@ -184,16 +176,9 @@
                                 <div id="sample_page_2_middle_content_inner" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
                                     <h2>What Makes Our {{$exam->vendor->title}} {{$exam->exam_code}} Exam Material Better Than Others?</h2>
                                     <p>
-                                        We take regular feedback from successful candidates of the {{$exam->certification->title}} Fundamentals
-                                        exam to make necessary changes in our preparation material.
-                                        Our {{$exam->vendor->title}} {{$exam->exam_code}} exam study material is syllabus-based and we update it
-                                        immediately if Microsoft&nbsp;changes the content of the
-                                        <span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 16px; text-align: justify;
-                                        background-color: rgb(252, 252, 252);">
-                                        {{$exam->exam_code}}&nbsp;
-                                        </span>
-                                        exam. These regular updates make our {{$exam->vendor->title}} {{$exam->exam_code}} practice questions more effective and result-oriented.
-                                        To meet the learning needs of every candidate, the Certs Idea more effective.
+                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-make-better-desc'))
+                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                        @endif
                                     </p>
                                 </div>
                                 {{-- END <!-------------Feature Banner----------------------------------------> --}}
@@ -204,40 +189,25 @@
                                         <strong>New {{$exam->vendor->title}} {{$exam->exam_code}}&nbsp;Questions According to Latest Syllabus</strong>
                                     </h3>
                                     <p>
-                                        We keep an eye on {{$exam->certification->title}} Fundamentals certification exam content.
-                                        If there is any tweak in exam topics, we instantly update our {{$exam->vendor->title}} {{$exam->exam_code}} exam
-                                        questions. Continuous feedback of successful candidates also helps us to keep practice
-                                        questions bank updated. These latest changes help our customers to prepare for the
-                                        recently updated {{$exam->certification->title}} Fundamentals questions and answers. This is the
-                                        strategy that makes our 3 formats of preparation material successful. Due to the
-                                        regular updates and relativity of our Microsoft
-                                        <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">
-                                            &nbsp;
-                                        </span>
-                                        AZ-140 practice questions, we provide a satisfaction guarantee.
+                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus'))
+                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                        @endif
                                     </p>
                                     <h3>
                                         <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Practice Questions with Free updates</strong>
                                     </h3>
                                     <p>
-                                        The portability of our Microsoft
-                                        <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">
-                                            &nbsp;
-                                        </span>
-                                        {{$exam->certification->title}} Fundamentals certification exam PDF questions makes us a trusted brand in the
-                                        market. Without time and place restrictions, you can practice actual Microsoft
-                                        <span style="box-sizing: inherit; max-height: 1e+06px; font-weight: bolder;">&nbsp;</span>
-                                        {{$exam->exam_code}} questions via smartphones, computers, laptops, and tablets.
+                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-free-updates'))
+                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                        @endif
                                     </p>
                                     <h3>
                                         <strong>Self-Assessment With {{$exam->vendor->title}} {{$exam->exam_code}} Exam Practice Test</strong>
                                     </h3>
                                     <p>
-                                        You can evaluate preparation before the final exam by trying the {{$exam->vendor->title}} {{$exam->exam_code}}
-                                        practice test in web-based and desktop versions. With our customizable mock exams,
-                                        you can track your progress, identify weaker areas of preparation and remove mistakes before
-                                        the actual {{$exam->certification->title}} Fundamentals certification exam. These exam simulation tests
-                                        help you overcome anxiety about the actual exam by providing a real exam like scenario.
+                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-practice-test'))
+                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                        @endif
                                     </p>
                                 </div>
                                 {{-- END <!-------------Feature List----------------------------------------> --}}

@@ -28,9 +28,29 @@
                         <div class="card card-primary card-outline card-outline-tabs">
                             <div class="card-body">
                                 @include('layouts.admin.includes.messages')
+                                <style>
+                                    .Replaceables li{
+                                        /* display: inline-block; */
+                                    }
+                                    .Replaceables li span{
+                                        display: inline-block;
+                                    }
+                                    .color_code{
+                                        color:red;
+                                        font-weight: bolder;
+                                    }
+                                </style>
+                                <div class="col-sm-12">
+                                    <ul class="Replaceables row">
+                                        @foreach (getReplaceables() as $key => $item)
+                                            <li class="col-sm-12">
+                                                <span class="col-sm-4">{{$key}}</span><span class="col-sm-5 color_code">{{$item}}</span>                                             
+                                            </li>                                            
+                                        @endforeach
+                                    </ul>
+                                </div>
                                 @forelse ($ContentManager as $content)
                                     <div class="card card-primary">
-                                        
                                         <div class="card-body">
                                             <form action="{{ route('admin.content.update', $content->id) }}" method="POST" id="edit-content-form">
                                                 {{ csrf_field() }}
