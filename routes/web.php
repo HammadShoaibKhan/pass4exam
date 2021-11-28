@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ContentManagerController;
 use App\Http\Controllers\Testimonial_Controller;
+use App\Http\Controllers\UserExamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -144,6 +145,16 @@ Route::get('custodian', [LoginController::class, 'index'])->name('admin.login');
 Auth::routes();
 
 
+
+Route::group(['middleware' => 'customer'], function () {
+    Route::get('dashboard', [\App\Http\Controllers\UserController::class, 'dashboard'])->name('user.dashboard');
+    Route::get('user-exam/pdf-files', [UserExamController::class, 'showUserPdfFiles'])->name('user.exam.pdf');
+    Route::get('user-exam/web-based', [UserExamController::class, 'showUserWebBasedExam'])->name('user.exam.web-based');
+    Route::get('premium-exam/{vendor_slug}/{exam_slug}', [UserExamController::class, 'premiumExam'])->name('user.premium_exam');
+});
+
+
+
 /**customer middleware check if user is a guest or user is logged in as a customer,
  * Note: admin has no access to these routes while logged in.
  */
@@ -177,14 +188,11 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::post('vendor/exams', [App\Http\Controllers\VendorController::class, 'getVendorExams'])->name('vendor.exams');
     Route::post('exam/download/demo-file', [Exam_Controller::class, 'downloadDemoFile'])->name('exam.demo.download');
+    Route::get('exam/download/pdf-file/{exam_id}', [Exam_Controller::class, 'downloadPdfFile'])->name('exam.pdf.download');
 
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 
 });
 
-
-Route::group(['middleware' => 'customer'], function () {
-    Route::get('dashboard', [\App\Http\Controllers\UserController::class, 'dashboard'])->name('user.dashboard');
-});
 
 

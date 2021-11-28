@@ -83,7 +83,7 @@
                                     <h2>
                                         <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Exam</strong>
                                     </h2>
-                                    <p>                                    
+                                    <p>
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-1'))
                                             <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
                                         @endif
@@ -116,7 +116,7 @@
                                             <p>
                                                 @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-2'))
                                                     <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
-                                                @endif    
+                                                @endif
                                             </p>
                                         </div>
                                         <div class="buyNowBtn mb-4 mb-4 m-auto text-center mt-3" >
@@ -181,7 +181,7 @@
                                     <p>
                                         @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus'))
                                             {{-- <?php //echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?> --}}
-                                            <?php 
+                                            <?php
                                                 $str=strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>');
                                                 foreach (getReplaceables() as $key => $item) {
                                                     $str = str_replace("$item",$exam->exam_code,$str);

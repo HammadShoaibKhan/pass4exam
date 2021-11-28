@@ -447,4 +447,20 @@ class Exam_Controller extends Controller
             return Response()->download($file, $fileName, $headers);
         }
     }
+
+    public function downloadPdfFile($examID = null)
+    {
+        if ($examID != null) {
+            $examCode = Exam::where('id', $examID)->value('exam_code');
+            $fileName = getMediaFile('exams', 'pdf_file', $examID);
+            $file = public_path() . '/storage/pdf_files/' . $fileName;
+
+            $headers = [
+                'Content-Type: application/pdf'
+            ];
+
+            $fileName = $examCode . '.pdf';
+            return Response()->download($file, $fileName, $headers);
+        }
+    }
 }
