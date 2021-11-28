@@ -1,7 +1,7 @@
 @extends('layouts.frontend.master')
 @section('content')
     <?php 
-        $c=0;   
+        $c = 0;   
         // key must be equal to Replaceable Codes
         // Replaceable values can be seen in helper file ==> getReplaceables()
         $replacers = array(
@@ -93,10 +93,12 @@
                                     <h2>
                                         <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Exam</strong>
                                     </h2>
-                                    <p>                                    
-                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-1'))
-                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
-                                        @endif
+                                    <p>
+                                        @isset($pageContent[$c]->placeholder_name)
+                                            @if ($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-1')
+                                                {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                            @endif
+                                        @endisset
                                     </p>
                                 </div>
                                 {{-- END <!------------- Exam Description----------------------------------------> --}}
@@ -124,9 +126,11 @@
                                     <div id="sample_page_2_middle_content_inner0">
                                         <div>
                                             <p>
-                                                @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-2'))
-                                                    {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
-                                                @endif    
+                                                @isset($pageContent[$c]->placeholder_name)
+                                                    @if ($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-2')
+                                                        {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                                    @endif
+                                                @endisset
                                             </p>
                                         </div>
                                         <div class="buyNowBtn mb-4 mb-4 m-auto text-center mt-3" >
@@ -176,9 +180,11 @@
                                 <div id="sample_page_2_middle_content_inner" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
                                     <h2>What Makes Our {{$exam->vendor->title}} {{$exam->exam_code}} Exam Material Better Than Others?</h2>
                                     <p>
-                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-make-better-desc'))
-                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
-                                        @endif
+                                        @isset($pageContent[$c]->placeholder_name)                                            
+                                            @if ( $pageContent[$c]->placeholder_name == 'exam-info-make-better-desc')
+                                                {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                            @endif
+                                        @endisset
                                     </p>
                                 </div>
                                 {{-- END <!-------------Feature Banner----------------------------------------> --}}
@@ -189,25 +195,31 @@
                                         <strong>New {{$exam->vendor->title}} {{$exam->exam_code}}&nbsp;Questions According to Latest Syllabus</strong>
                                     </h3>
                                     <p>
-                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus'))
-                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
-                                        @endif
+                                        @isset($pageContent[$c]->placeholder_name)
+                                            @if ($pageContent[$c]->placeholder_name == 'exam-info-latest-syllabus')
+                                                {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                            @endif
+                                        @endisset
                                     </p>
                                     <h3>
                                         <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Practice Questions with Free updates</strong>
                                     </h3>
                                     <p>
-                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-free-updates'))
-                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
-                                        @endif
+                                        @isset($pageContent[$c]->placeholder_name)
+                                            @if ($pageContent[$c]->placeholder_name == 'exam-info-free-updates')
+                                                {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                            @endif
+                                        @endisset
                                     </p>
                                     <h3>
                                         <strong>Self-Assessment With {{$exam->vendor->title}} {{$exam->exam_code}} Exam Practice Test</strong>
                                     </h3>
                                     <p>
-                                        @if ( !Empty($pageContent[$c]->placeholder_name == 'exam-info-practice-test'))
-                                            {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
-                                        @endif
+                                        @isset($pageContent[$c]->placeholder_name)
+                                            @if ($pageContent[$c]->placeholder_name == 'exam-info-practice-test')
+                                                {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                            @endif
+                                        @endisset
                                     </p>
                                 </div>
                                 {{-- END <!-------------Feature List----------------------------------------> --}}

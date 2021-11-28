@@ -1,6 +1,6 @@
 @extends('layouts.frontend.master')
 @section('content')
-<?php $c=0; ?>
+<?php $c = 0; ?>
 {{-- <!------------- HOME Banner--------------------------------------------> --}}
 <section  class="home_banner_top ptb-70">
   <div class="home_banner_content">
@@ -8,9 +8,11 @@
       BE A CERTIFIED PROFESSIONAL WITH US
     </strong>
     <h1>
-      @if ( !Empty($pageContent[$c]->placeholder_name == 'home-header-note'))
-            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
-      @endif
+      @isset($pageContent[$c]->placeholder_name)
+        @if ($pageContent[$c]->placeholder_name == 'home-header-note')
+          <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+        @endif
+      @endisset
     </h1>
     <form class="demo-from" id="demos_form" action="{{ route('exam.demo.download') }}" method="post">
         {{ csrf_field() }}
@@ -133,9 +135,11 @@
               <div style=" margin-bottom: 55px; margin-top: 7%;">
               <h2>Popular Vendors</h2>
               <p>
-                @if ( !Empty($pageContent[$c]->placeholder_name == 'home-popular-vendors'))
-                  <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
-                @endif
+                @isset($pageContent[$c]->placeholder_name)
+                  @if ($pageContent[$c]->placeholder_name == 'home-popular-vendors')
+                    <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                  @endif
+                @endisset
               </p>
               </div>
               <div style=" margin-top: -4%;">
@@ -212,10 +216,12 @@
                 </h2>
               </div>
               <div id="world-class-learning2">
-                <p>
-                  @if ( !Empty($pageContent[$c]->placeholder_name == 'home-offer-anyone'))
-                    <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
-                  @endif
+                <p>  
+                  @isset($pageContent[$c]->placeholder_name)
+                    @if ($pageContent[$c]->placeholder_name == 'home-offer-anyone')
+                      <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+                    @endif
+                  @endisset
                 </p>
               </div>
               <div class="row" style="margin-left: 20px; margin-bottom: 15%;margin-top: 8%;">
@@ -255,9 +261,11 @@
       <div class="home_popular_exam_section_inner" style="">
         <h3>Popular Exams</h3>
         <p>
-          @if ( !Empty($pageContent[$c]->placeholder_name == 'home-popular-exam'))
-            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
-          @endif
+          @isset($pageContent[$c]->placeholder_name)
+            @if ($pageContent[$c]->placeholder_name == 'home-popular-exam')
+              <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+            @endif
+          @endisset
         </p>
       </div>
       <div class="container">
@@ -309,9 +317,11 @@
       <div class="different_home_section_inner_top" style="">
         <h3>How Does Certs Idea Serve You?</h3>
         <p>
-          @if ( !Empty($pageContent[$c]->placeholder_name == 'all-serve-you'))
-            <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
-          @endif
+          @isset($pageContent[$c]->placeholder_name)
+            @if ($pageContent[$c]->placeholder_name == 'all-serve-you')
+              <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
+            @endif
+          @endisset
         </p>
       </div>
       <div class="different_home_section_inner_bottom" style="">
