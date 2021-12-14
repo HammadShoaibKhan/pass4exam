@@ -9,38 +9,39 @@ class BlogController extends Controller
 {
     function index(){
         $title = "Blogs";
-        // $testimonials = Testimonial::orderBY('id', 'DESC')->get();
-        // return view('admin.blogs.index', compact('title','testimonials'));
+        // $blogs = blog::orderBY('id', 'DESC')->get();
+        $blogs = array();
+        return view('admin.blogs.index', compact('title','blogs'));
     }
 
-    function testimonialView($id=null){
-        // if ($id != null && Testimonial::where('id', $id)->exists()) {
-        //     $title = "Testimonials";
-        //     $testimonial = Testimonial::find($id);
-        //     return view('admin.testimonials.view', compact('title', 'testimonial'));
+    function blogView($id=null){
+        // if ($id != null && blog::where('id', $id)->exists()) {
+        //     $title = "blogs";
+        //     $blog = blog::find($id);
+        //     return view('admin.blogs.view', compact('title', 'blog'));
         // }
-        // return redirect()->route('admin.testimonials');
+        // return redirect()->route('admin.blogs');
     }
     
     public function delete(Request $request)
     {
-        // $user = Testimonial::find($request->testimonial_id);
+        // $user = blog::find($request->blog_id);
         // $user->delete();
-        // $testimonials = Testimonial::orderBY('id', 'DESC')->get();
-        // return view('admin.testimonials.partials.testimonial-listings', compact('testimonials'));
+        // $blogs = blog::orderBY('id', 'DESC')->get();
+        // return view('admin.blogs.partials.blog-listings', compact('blogs'));
     }
     
     public function multipleDelete(Request $request)
     {
-        // Testimonial::whereIn('id', $request->testimonial_ids)->delete();
-        // $testimonials = Testimonial::orderBY('id', 'DESC')->get();
-        // return view('admin.testimonials.partials.testimonial-listings', compact('testimonials'));
+        // blog::whereIn('id', $request->blog_ids)->delete();
+        // $blogs = blog::orderBY('id', 'DESC')->get();
+        // return view('admin.blogs.partials.blog-listings', compact('blogs'));
     }
 
     public function changeStatus(Request $request)
     {
-        // testimonial::whereIn('id', $request->testimonial_ids)->update(['approved' => $request->approved]);
-        // $testimonials = Testimonial::orderBY('id', 'DESC')->get();
-        // return view('admin.testimonials.partials.testimonial-listings', compact('testimonials'));
+        // blog::whereIn('id', $request->blog_ids)->update(['approved' => $request->approved]);
+        // $blogs = blog::orderBY('id', 'DESC')->get();
+        // return view('admin.blogs.partials.blog-listings', compact('blogs'));
     }
 }
