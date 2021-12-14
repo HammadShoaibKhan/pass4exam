@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ContentManagerController;
 use App\Http\Controllers\Testimonial_Controller;
+use App\Http\Controllers\Admin\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -136,6 +137,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('create', [ContentManagerController::class, 'store'])->name('admin.content.create');
         Route::get('{type}/edit', [ContentManagerController::class, 'edit'])->name('admin.content.edit');
         Route::post('update/{id}', [ContentManagerController::class, 'update'])->name('admin.content.update');
+    });
+
+    /**  Blogs ROUTES */
+    Route::get('blogs', [BlogController::class, 'index'])->name('admin.blogs');
+    Route::prefix('blogs')->group(function () {
+        Route::get('{id}/view', [BlogController::class, 'blogView'])->name('admin.blog.view');
+        Route::post('delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
+        Route::post('multiple-delete', [BlogController::class, 'multipleDelete'])->name('admin.blogs.delete');
+        Route::post('change-status', [BlogController::class, 'changeStatus'])->name('admin.blog.change-status');
     });
 });
 
