@@ -142,6 +142,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
     /**  Blogs ROUTES */
     Route::get('blogs', [BlogController::class, 'index'])->name('admin.blogs');
     Route::prefix('blogs')->group(function () {
+        Route::get('create', [BlogController::class, 'create'])->name('admin.blog.create');
+        Route::post('name-exists', [BlogController::class, 'checkNameExists'])->name('admin.blog.name-exists');
         Route::get('{id}/view', [BlogController::class, 'blogView'])->name('admin.blog.view');
         Route::post('delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
         Route::post('multiple-delete', [BlogController::class, 'multipleDelete'])->name('admin.blogs.delete');
