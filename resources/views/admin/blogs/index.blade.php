@@ -24,15 +24,17 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-4">
                     </div>
                     <div class="col-2 offset-2">
-                        <a href="javascript:;" class="btn btn-block btn-info btn-md change-testimonial-status" data-route="{{ route('admin.testimonial.change-status') }}"><i class="fa fa-exchange-alt"></i>&nbsp;&nbsp; Change Status</a>
+                        <a href="javascript:;" class="btn btn-block btn-info btn-md change-blog-status" data-route="{{ route('admin.blog.change-status') }}"><i class="fa fa-exchange-alt"></i>&nbsp;&nbsp; Change Status</a>
                     </div>            
                     <div class="col-2">
                         <a href="javascript:;" class="btn btn-block btn-danger btn-md delete-selected-blogs" data-route="{{ route('admin.blogs.delete') }}"><i class="fa fa-trash-alt"></i>&nbsp;&nbsp; Delete Selected</a>
-                      </div>
-          
+                    </div>
+                    <div class="col-2">
+                        <a href="{{ route('admin.blog.create') }}" class="btn btn-block btn-primary btn-md"><i class="fa fa-plus"></i>&nbsp;&nbsp; Add Blog</a>
+                    </div>        
                 </div>
                 <br>
 
