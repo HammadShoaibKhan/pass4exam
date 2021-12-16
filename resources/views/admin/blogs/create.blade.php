@@ -20,7 +20,6 @@
       </div><!-- /.container-fluid -->
     </section>
 
-
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -50,10 +49,10 @@
                                             @enderror
                                             </p>
                                         </div>
-                                    </div>
-                                    <input type="hidden" id="blog-name-exist" value="{{ route('admin.blog.name-exists') }}">
+                                      </div>
+                                      <input type="hidden" id="blog-name-exist" value="{{ route('admin.blog.name-exists') }}">
 
-                                    <div class="col-sm-4">
+                                      <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Status</label>
                                             <select name="status" class="form-control">
@@ -61,9 +60,39 @@
                                                 <option value="0">Disabled</option>
                                             </select>
                                         </div>
-                                    </div>
+                                      </div>
 
                                     </div>
+
+                                    <div class="row">
+                                      <div class="col-sm-12">
+                                        <!-- Image input -->
+                                        <div class="form-group">
+                                          <label>Banner</label>
+                                          
+                                          {{-- <form id="blog_banner" action="{{ route('admin.blog.banner-file') }}" enctype="multipart/form-data" method="POST"> --}}
+                                            {{-- {{ csrf_field() }} --}}
+                                            {{-- <input type="hidden" name="exam_id" value="{{ $exam->id }}"><br> --}}
+                                            <div class="row p-4">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="file" name="blog_banner_file">
+                                                        <p class="text-danger error_desktop_file">
+                                                            @error('desktop_file')
+                                                            {{ $message }}
+                                                            @enderror
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                {{-- <div class="col-md-4">
+                                                    <input type="submit" value="Update Desktop File">
+                                                </div> --}}
+                                            </div>
+                                        {{-- </form> --}}
+                                        </div>
+                                      </div>
+                                    </div>
+
                                     <div class="row">
 
                                       <div class="col-sm-12">
