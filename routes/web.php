@@ -144,6 +144,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
     Route::prefix('blogs')->group(function () {
         Route::get('create', [BlogController::class, 'create'])->name('admin.blog.create');
         Route::post('name-exists', [BlogController::class, 'checkNameExists'])->name('admin.blog.name-exists');
+        Route::post('banner-file', [BlogController::class, 'uploadBlogBanner'])->name('admin.blog.banner-file');
         Route::get('{id}/view', [BlogController::class, 'blogView'])->name('admin.blog.view');
         Route::post('delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
         Route::post('multiple-delete', [BlogController::class, 'multipleDelete'])->name('admin.blogs.delete');
