@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Media;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -32,6 +34,44 @@ class BlogController extends Controller
         return "true";
     }
 
+    /**
+     * @description create or update desktop file
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function uploadDesktopFile(Request $request)
+    {
+        $request->validate([
+            'blog_banner_file' => 'required'
+        ], [
+            'blog_banner_file.required' => 'Select an Image file'
+        ]);
+
+        if ($request->hasFile('blog_banner_file')) {
+            $fileName = removeSpacesAndLowerCase(uniqid() . '_' . $request->blog_banner_file->getClientOriginalName());
+            /*delete existing file if any*/
+            // $file = Media::where([
+            //     'link_table' => 'exams',
+            //     'link_type' => 'blog_banner_file',
+            //     'link_id' => $request->exam_id
+            // ])->first();
+            // if (!empty($file)) {
+            //     if (Storage::delete('public/blog_banner_files/'. $file->file_name)) {
+            //         $file->delete();
+            //     }
+            // }
+
+            $request->blog_banner_file->storeAS('blog_banner_files/', $fileName, 'public');
+            Media::create([
+                'link_table' => 'blogs',
+                'link_id' => $request->id,
+                'link_type' => 'blog_banner_file',
+                'file_name' => $fileName
+            ]);
+            return back()->with('success', 'Blog Banner uploaded successfully.');
+        }
+        return back()->with('error', 'Something went wrong!');
+    }
 
     function blogView($id=null){
         // if ($id != null && blog::where('id', $id)->exists()) {
