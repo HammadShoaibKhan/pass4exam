@@ -143,6 +143,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
     Route::get('blogs', [BlogController::class, 'index'])->name('admin.blogs');
     Route::prefix('blogs')->group(function () {
         Route::get('create', [BlogController::class, 'create'])->name('admin.blog.create');
+        Route::post('create', [BlogController::class, 'store'])->name('admin.blog.create');
         Route::post('name-exists', [BlogController::class, 'checkNameExists'])->name('admin.blog.name-exists');
         Route::post('banner-file', [BlogController::class, 'uploadBlogBanner'])->name('admin.blog.banner-file');
         Route::get('{id}/view', [BlogController::class, 'blogView'])->name('admin.blog.view');
