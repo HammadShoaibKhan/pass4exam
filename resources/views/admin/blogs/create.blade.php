@@ -69,32 +69,31 @@
                                         <!-- Image input -->
                                         <div class="form-group">
                                           <label>Banner</label>
-                                          
-                                          {{-- <form id="blog_banner" action="{{ route('admin.blog.banner-file') }}" enctype="multipart/form-data" method="POST"> --}}
-                                            {{-- {{ csrf_field() }} --}}
-                                            {{-- <input type="hidden" name="exam_id" value="{{ $exam->id }}"><br> --}}
-                                            <div class="row p-4">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <input type="file" name="blog_banner_file">
-                                                        <p class="text-danger error_desktop_file">
-                                                            @error('desktop_file')
-                                                            {{ $message }}
-                                                            @enderror
-                                                        </p>
-                                                    </div>
+                                          <div class="row">
+                                            <div class="col-sm-12">
+                                              <div class="form-group">
+                                                <!-- Image Box -->
+                                                <div id="banner_box" style="width: 100%;">
+                                                  <img class="img-fluid rounded" id="blog_banner" width="100%">
                                                 </div>
-                                                {{-- <div class="col-md-4">
-                                                    <input type="submit" value="Update Desktop File">
-                                                </div> --}}
+                                                <!-- END Image Box -->
+                                                <div class="custom-file mt-2">
+                                                  <input type="file" class="custom-file-input" onchange="readURL(this);" id="blog_banner_file" name="blog_banner_file" >
+                                                  <label class="custom-file-label">Choose Blog Banner file...</label>
+                                                  <p class="text-danger error_blog_banner_file">
+                                                    @error('blog_banner_file')
+                                                    {{ $message }}
+                                                    @enderror
+                                                  </p>
+                                                </div>
+                                              </div>
                                             </div>
-                                        {{-- </form> --}}
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
 
                                     <div class="row">
-
                                       <div class="col-sm-12">
                                         <!-- text input -->
                                         <div class="form-group">
@@ -125,5 +124,21 @@
     </section>
 
 </div>
-
+<script>
+//  Photo Setting
+function readURL(input) 
+{
+  if (input.files && input.files[0]) 
+  {
+    var reader = new FileReader();
+    reader.onload = function (e) 
+    {
+      $('#blog_banner').attr('src', e.target.result);
+      $('#blog_banner').attr('style', 'height:300px !important');
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}    
+// END Photo Setting
+</script>
 @endsection
