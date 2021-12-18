@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ContentManagerController;
 use App\Http\Controllers\Testimonial_Controller;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\UserExamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -137,11 +139,36 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::get('{type}/edit', [ContentManagerController::class, 'edit'])->name('admin.content.edit');
         Route::post('update/{id}', [ContentManagerController::class, 'update'])->name('admin.content.update');
     });
+
+    /**  Blogs ROUTES */
+    Route::get('blogs', [BlogController::class, 'index'])->name('admin.blogs');
+    Route::prefix('blogs')->group(function () {
+        Route::get('create', [BlogController::class, 'create'])->name('admin.blog.create');
+        Route::post('create', [BlogController::class, 'store'])->name('admin.blog.create');
+        Route::post('name-exists', [BlogController::class, 'checkNameExists'])->name('admin.blog.name-exists');
+        Route::post('banner-file', [BlogController::class, 'uploadBlogBanner'])->name('admin.blog.banner-file');
+        Route::get('{id}/view', [BlogController::class, 'blogView'])->name('admin.blog.view');
+        Route::post('delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
+        Route::post('multiple-delete', [BlogController::class, 'multipleDelete'])->name('admin.blogs.delete');
+        Route::post('change-status', [BlogController::class, 'changeStatus'])->name('admin.blog.change-status');
+    });
 });
 
 Route::get('custodian', [LoginController::class, 'index'])->name('admin.login');
 
 Auth::routes();
+
+
+
+Route::group(['middleware' => 'customer'], function () {
+    Route::get('dashboard', [\App\Http\Controllers\UserController::class, 'dashboard'])->name('user.dashboard');
+    Route::get('user-exam/pdf-files', [UserExamController::class, 'showUserPdfFiles'])->name('user.exam.pdf');
+    Route::get('user-exam/web-based', [UserExamController::class, 'showUserWebBasedExam'])->name('user.exam.web-based');
+    Route::get('premium-exam/{vendor_slug}/{exam_slug}', [UserExamController::class, 'premiumExam'])->name('user.premium_exam');
+    Route::post('premium-exam/practice-test', [UserExamController::class, 'startPremiumExamPractice'])->name('exam.premium.practice');
+    Route::get('exam/attempt-history/{exam_id}', [UserExamController::class, 'examAttemptHistory'])->name('exam.attempt_history');
+});
+
 
 
 /**customer middleware check if user is a guest or user is logged in as a customer,
@@ -164,7 +191,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
     Route::get('cart/{id}/{bundle_type}', [CartController::class, 'removeCart'])->name('remove_cart');
 
-    Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
     // Testimonial Creation
     Route::get('testimonials', [Testimonial_Controller::class, 'index'])->name('testimonials');
     Route::post('testimonial/create', [Testimonial_Controller::class, 'create'])->name('testimonial_create');
@@ -177,14 +203,12 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::post('vendor/exams', [App\Http\Controllers\VendorController::class, 'getVendorExams'])->name('vendor.exams');
     Route::post('exam/download/demo-file', [Exam_Controller::class, 'downloadDemoFile'])->name('exam.demo.download');
+    Route::get('exam/download/pdf-file/{exam_id}', [Exam_Controller::class, 'downloadPdfFile'])->name('exam.pdf.download');
 
+    /** always put this route in the end of file*/
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 
 });
 
-
-Route::group(['middleware' => 'customer'], function () {
-    Route::get('dashboard', [\App\Http\Controllers\UserController::class, 'dashboard'])->name('user.dashboard');
-});
 
 

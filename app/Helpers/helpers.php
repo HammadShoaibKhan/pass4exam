@@ -8,6 +8,7 @@ use App\Models\Question;
 use App\Models\Assessment;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\UserExam;
 
 /**to get vendors for header navbar */
 function navbarVendors()
@@ -253,4 +254,19 @@ function getReplacedValues($str = null, $replacers = array()){
 function getAssessmentPassingRange($attemptID)
 {
     return Assessment::where('attempt_id', $attemptID)->value('passing_range');
+}
+
+function getVendorByID($vendorID = null) {
+    if ($vendorID != null) {
+        return Vendor::where('id', $vendorID)->first();
+    }
+}
+
+function isUserOwnExam($examID = null) {
+    $exists = false;
+    $userID = auth()->user()->id;
+    if ($examID != null) {
+        $exists = UserExam::where(['user_id' => $userID, 'exam_id' => $examID])->exists();
+    }
+    return $exists;
 }

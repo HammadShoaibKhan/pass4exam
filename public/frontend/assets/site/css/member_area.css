@@ -160,3 +160,7 @@
     font-size: 12px;
     font-weight: 700;
 }
+
+.ci-right-body-wrpr{
+    padding: 50px !important;
+}

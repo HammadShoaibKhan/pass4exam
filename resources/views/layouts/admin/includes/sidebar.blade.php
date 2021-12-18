@@ -81,6 +81,14 @@
             </p>
         </a>
       </li>
+      <li class="nav-item">
+        <a href="{{ route('admin.blogs') }}" class="nav-link {{ request()->routeIs('admin.blogs', 'admin.blog.view', 'admin.blog.delete', 'admin.blog.change-status') ? 'active' : '' }}">
+          <i class="nav-icon fas fa-scroll"></i>
+            <p>
+                Blogs
+            </p>
+        </a>
+    </li>
   </ul>
       </nav>
       <!-- /.sidebar-menu -->
