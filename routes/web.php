@@ -191,6 +191,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('exam/download/demo-file', [Exam_Controller::class, 'downloadDemoFile'])->name('exam.demo.download');
     Route::get('exam/download/pdf-file/{exam_id}', [Exam_Controller::class, 'downloadPdfFile'])->name('exam.pdf.download');
 
+    Route::get('discount-deals/{sort_by?}', [\App\Http\Controllers\VendorController::class, 'discountDeals'])->name('discount_deals');
+
     /** always put this route in the end of file*/
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 

@@ -86,6 +86,9 @@ $(document).on('click', '.download-demo-btn', function () {
 });
 
 
-$(document).ready(function () {
-    $('#datatable').dataTable();
-});
+$(document).on('change', '.sort_by_vendor', function () {
+    var alphabet = $(this).val().toLowerCase();
+    var url = $(this).attr('data-route');
+
+    window.location.href = url + '/' + alphabet;
+})
