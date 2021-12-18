@@ -66,7 +66,6 @@ class Exam_Controller extends Controller
             $convertHoursInMinutes = $hours * 60;
             $duration = $convertHoursInMinutes + $minutes;
         }
-//        dd($examID, $caseStudy, $questionRange, $passingRange, $hours, $minutes, $withoutTimer);
         $exam = Exam::find($examID);
         $attemptID = $exam->exam_code . uniqid() . date('hsi');
         $examType = $request->exam_type;
@@ -414,6 +413,9 @@ class Exam_Controller extends Controller
     {
         if ($attemptID != null && Assessment::where('attempt_id', $attemptID)->exists()) {
 
+            $assessment = Assessment::where('attempt_id', $attemptID)->first();
+            $exam = Exam::where('id', $assessment->exam_id)->first();
+            $examCode = $exam->certification->title . ' ' . $exam->exam_code;
             /** get total number of questions in exam attempt */
             $noOfQuestions = getNoOfQuestionInAttempt($attemptID);
 
@@ -423,7 +425,11 @@ class Exam_Controller extends Controller
                 'total_attempt' => getAssessmentAttemptResult($attemptID, 'attempt_questions'),
                 'correct' => getAssessmentAttemptResult($attemptID, 'correct'),
                 'wrong' => getAssessmentAttemptResult($attemptID, 'wrong'),
-                'missed' => getAssessmentAttemptResult($attemptID, 'missed')
+                'missed' => getAssessmentAttemptResult($attemptID, 'missed'),
+                'exam_code' => $examCode,
+                'exam_id' => $exam->id,
+                'vendor_slug' => $exam->vendor->slug,
+                'exam_slug' => $exam->slug
             ];
 
             return view('exam.result', compact('attemptResult'));
@@ -438,6 +444,22 @@ class Exam_Controller extends Controller
             $examCode = Exam::where('id', $examID)->value('exam_code');
             $fileName = getMediaFile('exams', 'demo_file', $examID);
             $file = public_path() . '/storage/demo_files/' . $fileName;
+
+            $headers = [
+                'Content-Type: application/pdf'
+            ];
+
+            $fileName = $examCode . '.pdf';
+            return Response()->download($file, $fileName, $headers);
+        }
+    }
+
+    public function downloadPdfFile($examID = null)
+    {
+        if ($examID != null) {
+            $examCode = Exam::where('id', $examID)->value('exam_code');
+            $fileName = getMediaFile('exams', 'pdf_file', $examID);
+            $file = public_path() . '/storage/pdf_files/' . $fileName;
 
             $headers = [
                 'Content-Type: application/pdf'

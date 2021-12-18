@@ -1,7 +1,7 @@
 @extends('layouts.frontend.master')
 @section('content')
-    <?php 
-        $c = 0;   
+    <?php
+        $c = 0;
         // key must be equal to Replaceable Codes
         // Replaceable values can be seen in helper file ==> getReplaceables()
         $replacers = array(
@@ -9,8 +9,8 @@
             '{{EXAM-TITLE}}'        =>  $exam->title,
             '{{VENDOR-TITLE}}'      =>  $exam->vendor->title,
             '{{CERTIFICATE-TITLE}}' =>  $exam->certification->title,
-        );    
-    ?>    
+        );
+    ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -180,7 +180,7 @@
                                 <div id="sample_page_2_middle_content_inner" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-4 mb-4" >
                                     <h2>What Makes Our {{$exam->vendor->title}} {{$exam->exam_code}} Exam Material Better Than Others?</h2>
                                     <p>
-                                        @isset($pageContent[$c]->placeholder_name)                                            
+                                        @isset($pageContent[$c]->placeholder_name)
                                             @if ( $pageContent[$c]->placeholder_name == 'exam-info-make-better-desc')
                                                 {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
                                             @endif
