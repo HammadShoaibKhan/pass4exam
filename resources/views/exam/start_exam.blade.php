@@ -31,7 +31,7 @@
                         </a>
                     </div>
                     <div class="textdivtopnav">
-                        <h2>Microsoft MS-740 Web-Based Practice Exam Demo</h2>
+                        <h2>Microsoft MS-740 Web-Based Practice Exam {{ $assessment->exam_type == 'demo' ? 'Demo' : 'Premium' }}</h2>
                         <p>Troubleshooting Microsoft Teams</p>
                     </div>
                     <div class="timmerarea">
@@ -196,20 +196,20 @@
   <div class="modal fade" id="reviewAllModal">
     <div class="modal-dialog modal-lg">
       <div class="modal-content" style="min-height: 200px">
-      
+
         <!-- Modal Header -->
         <div class="modal-header">
             <h6>Review Question</h6>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        
+
         <!-- Modal body -->
         <div class="modal-body">
                 <div class="swiper-wrapper bind-swiper-items" style="padding: 15px; justify-content: left">
 
                 </div>
         </div>
-        
+
         <!-- Modal footer -->
         <div class="modal-footer">
             <div class="markingvaluesnames">
@@ -220,7 +220,7 @@
                 </ul>
             </div>
         </div>
-        
+
       </div>
     </div>
   </div>

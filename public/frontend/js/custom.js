@@ -84,3 +84,8 @@ $(document).on('click', '.download-demo-btn', function () {
     }
 
 });
+
+
+$(document).ready(function () {
+    $('#datatable').dataTable();
+});

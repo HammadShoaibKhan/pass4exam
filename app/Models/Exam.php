@@ -35,7 +35,7 @@ class Exam extends Model
 
     public function getTotalQuestions()
     {
-        return $this->questions->count();   
+        return $this->questions->count();
     }
 
     public function caseStudies()
@@ -47,4 +47,5 @@ class Exam extends Model
     {
         return $this->hasManyThrough(Question::class, CaseStudy::class);
     }
+
 }

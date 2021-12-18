@@ -30,8 +30,7 @@
                         </a>
                     </div>
                     <div class="textdivtopnav">
-                        <h2>Microsoft MS-740 Web-Based Practice Exam Demo</h2>
-                        <p>Troubleshooting Microsoft Teams</p>
+                        <h2>{{ $attemptResult['exam_code'] ?? '' }} Web-Based Practice Exam</h2>
                     </div>
                     <div class="timmerarea">
                     </div>
@@ -54,7 +53,7 @@
             <p>Total Questions: <span class="bold-count">5</span></p>
         </div>
         <div class="col-md-3">
-            <p>Attempt ID: <span class="bold-count">Study4Exam_DEMO_1633859533</span></p>
+            <p>Attempt ID: <span class="bold-count">CertsIdea_{{$attemptResult['attempt_id']}}</span></p>
         </div>
         <div class="col-md-3">
             <p>Attempted: <span class="bold-count">{{ $attemptResult['total_attempt'] ?? 0 }}</span></p>
@@ -143,8 +142,8 @@
         <div class="row">
             <div class="col-lg-4 offset-4">
                 <div class="showAnswerBtn">
-                    <button id="" class="btn btn-light-primary show-answer">Retake&nbspExam</button>
-                    <button id="" class="btn btn-primary show-answer">Attempt&nbspHistory</button>
+                    <a id="" class="btn btn-light-primary show-answer" href="{{ route('user.premium_exam', ['vendor_slug' => $attemptResult['vendor_slug'], 'exam_slug' => $attemptResult['exam_slug']]) }}">Retake&nbspExam</a>
+                    <a class="btn btn-primary show-answer" href="{{ route('exam.attempt_history', $attemptResult['exam_id']) }}">Attempt&nbspHistory</a>
                 </div>
             </div>
         </div>
@@ -152,7 +151,7 @@
 
     <!-- Review All Modal -->
   <div class="modal fade" id="answerStatsModal">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content" style="min-height: 200px">
 
         <!-- Modal Header -->
