@@ -39,74 +39,23 @@ class BlogController extends Controller
     {
         $slug = Str::slug($request->title);
         $request->request->add(['slug' => $slug]);
-        // $blog = Blog::create($request->only('title', 'slug', 'description', 'status'));
-        $id=1;
-        dd($request->blog_banner_file);
+        $blog = Blog::create($request->only('title', 'slug', 'description', 'status'));
 
-        if($id)
+        if($blog->id)
         {
-            if ($request->request->hasFile('blog_banner_file')) {
+            if ($request->hasFile('blog_banner_file')) {
                 $fileName = removeSpacesAndLowerCase(uniqid() . '_' . $request->blog_banner_file->getClientOriginalName());
                 
-                /*delete existing file if any*/
-                // $file = Media::where([
-                //     'link_table' => 'exams',
-                //     'link_type' => 'blog_banner_file',
-                //     'link_id' => $request->exam_id
-                // ])->first();
-                // if (!empty($file)) {
-                //     if (Storage::delete('public/blog_banner_files/'. $file->file_name)) {
-                //         $file->delete();
-                //     }
-                // }
-    
                 $request->blog_banner_file->storeAS('blog_banner_files/', $fileName, 'public');
                 Media::create([
                     'link_table' => 'blogs',
-                    'link_id' => $id,
+                    'link_id' => $blog->id,
                     'link_type' => 'blog_banner_file',
                     'file_name' => $fileName
                 ]);
-                dd($fileName);
-
             }
         }
         return back()->with('success', 'Blog Added Successfully');
-    }
-
-    /**
-     * @description create or update desktop file
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function uploadDesktopFile(Request $request)
-    {
-        
-
-        if ($request->hasFile('blog_banner_file')) {
-            $fileName = removeSpacesAndLowerCase(uniqid() . '_' . $request->blog_banner_file->getClientOriginalName());
-            /*delete existing file if any*/
-            // $file = Media::where([
-            //     'link_table' => 'exams',
-            //     'link_type' => 'blog_banner_file',
-            //     'link_id' => $request->exam_id
-            // ])->first();
-            // if (!empty($file)) {
-            //     if (Storage::delete('public/blog_banner_files/'. $file->file_name)) {
-            //         $file->delete();
-            //     }
-            // }
-
-            $request->blog_banner_file->storeAS('blog_banner_files/', $fileName, 'public');
-            Media::create([
-                'link_table' => 'blogs',
-                'link_id' => $request->id,
-                'link_type' => 'blog_banner_file',
-                'file_name' => $fileName
-            ]);
-            return back()->with('success', 'Blog Banner uploaded successfully.');
-        }
-        return back()->with('error', 'Something went wrong!');
     }
 
     function blogView($id=null){

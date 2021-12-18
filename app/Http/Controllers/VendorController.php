@@ -48,4 +48,15 @@ class VendorController extends Controller
         }
         return $html;
     }
+
+    /** show discount deals page*/
+    public function discountDeals($sortBy = null)
+    {
+        $vendors = Vendor::where('status', 1);
+        if ($sortBy != null) {
+            $vendors = $vendors->where('slug', 'like', $sortBy . '%');
+        }
+        $vendors = $vendors->inRandomOrder()->get();
+        return view('discount_deals', compact('vendors'));
+    }
 }

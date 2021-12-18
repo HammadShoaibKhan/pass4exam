@@ -100,7 +100,7 @@
                 @endforelse
 
                     <div class="nav-item dropdown">
-                        <a href="vendors.html" class="nav-link hvr-underline-from-center" data-toggle="">Discount Deals <img id="DiscountDeals_img" style="
+                        <a href="{{ route('discount_deals') }}" class="nav-link hvr-underline-from-center" data-toggle="">Discount Deals <img id="DiscountDeals_img" style="
                             position: relative;
                             width: 30px;
                             right: 4px;
