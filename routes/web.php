@@ -151,6 +151,8 @@ Route::group(['middleware' => 'customer'], function () {
     Route::get('user-exam/pdf-files', [UserExamController::class, 'showUserPdfFiles'])->name('user.exam.pdf');
     Route::get('user-exam/web-based', [UserExamController::class, 'showUserWebBasedExam'])->name('user.exam.web-based');
     Route::get('premium-exam/{vendor_slug}/{exam_slug}', [UserExamController::class, 'premiumExam'])->name('user.premium_exam');
+    Route::post('premium-exam/practice-test', [UserExamController::class, 'startPremiumExamPractice'])->name('exam.premium.practice');
+    Route::get('exam/attempt-history/{exam_id}', [UserExamController::class, 'examAttemptHistory'])->name('exam.attempt_history');
 });
 
 
@@ -175,7 +177,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
     Route::get('cart/{id}/{bundle_type}', [CartController::class, 'removeCart'])->name('remove_cart');
 
-    Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
     // Testimonial Creation
     Route::get('testimonials', [Testimonial_Controller::class, 'index'])->name('testimonials');
     Route::post('testimonial/create', [Testimonial_Controller::class, 'create'])->name('testimonial_create');
@@ -190,6 +191,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('exam/download/demo-file', [Exam_Controller::class, 'downloadDemoFile'])->name('exam.demo.download');
     Route::get('exam/download/pdf-file/{exam_id}', [Exam_Controller::class, 'downloadPdfFile'])->name('exam.pdf.download');
 
+    /** always put this route in the end of file*/
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 
 });

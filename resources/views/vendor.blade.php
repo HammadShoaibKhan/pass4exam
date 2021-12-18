@@ -3,7 +3,13 @@
 <?php
   $vendor_title = ($vendor->title)? $vendor->title:'';
   $vendor_description = ($vendor->description)? $vendor->description:'';
-?>
+
+  // key must be equal to Replaceable Codes
+  // Replaceable values can be seen in helper file ==> getReplaceables()
+  $replacers = array(
+    '{{VENDOR-TITLE}}'      =>  $vendor_title,
+  );    
+?>    
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -206,7 +212,7 @@
             </div>
             <div class="container-fluid">
               <p class="content">
-                <?php echo strip_tags($vendor_description ?? '','<br>') ?>
+                {{ getReplacedValues(($vendor_description), $replacers ) }}
               </p>
             </div>
           </section>
