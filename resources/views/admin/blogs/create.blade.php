@@ -35,7 +35,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                  <form action="{{ route('admin.blog.create') }}" method="POST" id="add-blog-form">
+                                  <form action="{{ route('admin.blog.create') }}" method="POST"  enctype="multipart/form-data" id="add-blog-form">
                                     {{ csrf_field() }}
                                     <div class="row">
                                       <div class="col-sm-8">
