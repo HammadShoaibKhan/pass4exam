@@ -58,6 +58,36 @@ class BlogController extends Controller
         return back()->with('success', 'Blog Added Successfully');
     }
 
+
+    public function edit($id = null)
+    {
+        if ($id != null && Blog::where('id', $id)->exists()) {
+            $title = "Update Blog";
+            $blog = Blog::find($id);
+            // $vendors = Vendor::orderBy('title', 'ASC')->whereStatus(1)->select('id', 'title')->get();
+            // $certifications = Certification::orderBy('title', 'ASC')->whereStatus(1)->select('id', 'title')->get();
+            return view('admin.blogs.edit', compact('title', 'blog'));
+        }
+        return redirect()->route('admin.Blogs')->with('error', 'Something went wrong');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $slug = Str::slug($request->title);
+        $BlogCode = strToUpper(Str::slug($request->Blog_code));
+        $data = [
+            'title' => $request->title,
+            'vendor_id' => $request->vendor_id,
+            'certification_id' => $request->certification_id,
+            'Blog_code' => $BlogCode,
+            'slug' => $slug,
+            'status' => $request->status,
+            'description' => $request->description
+        ];
+        Blog::find($id)->update($data);
+        return back()->with('success', 'Blog Updated Successfully');
+    }
+
     function blogView($id=null){
         // if ($id != null && blog::where('id', $id)->exists()) {
         //     $title = "blogs";
@@ -69,17 +99,17 @@ class BlogController extends Controller
     
     public function delete(Request $request)
     {
-        // $user = blog::find($request->blog_id);
-        // $user->delete();
-        // $blogs = blog::orderBY('id', 'DESC')->get();
-        // return view('admin.blogs.partials.blog-listings', compact('blogs'));
+        $blog = blog::find($request->blog_id);
+        $blog->delete();
+        $blogs = blog::orderBY('id', 'DESC')->get();
+        return view('admin.blogs.partials.blog-listings', compact('blogs'));
     }
     
     public function multipleDelete(Request $request)
     {
-        // blog::whereIn('id', $request->blog_ids)->delete();
-        // $blogs = blog::orderBY('id', 'DESC')->get();
-        // return view('admin.blogs.partials.blog-listings', compact('blogs'));
+        blog::whereIn('id', $request->blog_ids)->delete();
+        $blogs = blog::orderBY('id', 'DESC')->get();
+        return view('admin.blogs.partials.blog-listings', compact('blogs'));
     }
 
     public function changeStatus(Request $request)
