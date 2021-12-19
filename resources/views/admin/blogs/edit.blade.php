@@ -76,7 +76,7 @@
                                               <div class="form-group">
                                                 <!-- Image Box -->
                                                 <div id="banner_box" style="width: 100%;">
-                                                  <img class="img-fluid rounded" id="blog_banner" width="100%" src="{{ asset('storage/demo_files/' . getMediaFile('blog_banner_files', 'demo_file', $exam->id)) }}">
+                                                  {{-- <img class="img-fluid rounded" id="blog_banner" width="100%" src="{{ asset('storage/demo_files/' . getMediaFile('blog_banner_files', 'demo_file', $exam->id)) }}"> --}}
                                                 </div>
                                                 <!-- END Image Box -->
                                                 <div class="custom-file mt-2">
