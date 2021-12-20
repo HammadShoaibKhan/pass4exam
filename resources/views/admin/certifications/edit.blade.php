@@ -34,7 +34,7 @@
                         </ul>
                       </div>
                       <div class="card-body">
-                          
+
                       @include('layouts.admin.includes.messages')
                         <div class="tab-content" id="custom-tabs-four-tabContent">
                           <div class="tab-pane active show fade" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
@@ -60,7 +60,7 @@
                                         </div>
                                       </div>
                                       <input type="hidden" id="cert-name-exist" value="{{ route('admin.certification.name-exists') }}">
-                                    
+
                                       <div class="col-sm-4">
                                           <div class="form-group">
                                               <label>Vednors</label>
@@ -90,8 +90,9 @@
                                     </div>
 
                                     </div>
-                                    <div class="row">
-                                        
+
+                                    <div class="row" style="display: none">
+
                                       <div class="col-sm-12">
                                         <!-- text input -->
                                         <div class="form-group">
@@ -100,13 +101,13 @@
                                         </div>
                                       </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-2 offset-10">
                                             <button class="btn btn-md btn-block btn-primary" type="submit">Save</button>
                                         </div>
                                     </div>
-                                    
+
                                   </form>
                                 </div>
                                 <!-- /.card-body -->
