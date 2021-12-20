@@ -131,7 +131,8 @@
                                       </div>
 
                                       </div>
-                                      <div class="row">
+
+                                      <div class="row" style="display: none">
 
                                         <div class="col-sm-12">
                                           <!-- text input -->
@@ -162,7 +163,7 @@
                                         <form action="{{route('admin.exam.pricing')}}" method="POST">
                                             {{csrf_field()}}
                                             <input type="hidden" value="{{$exam->id}}" name="exam_id">
-                                            <div style="background-color: #e0f5e0;" class="col-12">
+                                            <div class="col-12">
                                                 <div class="row">
                                                     <h5 class="p-2"><b>Bundle&nbspPricing</b></h5>
                                                 </div>
