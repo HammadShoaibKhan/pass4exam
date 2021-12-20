@@ -270,3 +270,18 @@ function isUserOwnExam($examID = null) {
     }
     return $exists;
 }
+
+function totalVendors()
+{
+    return Vendor::count();
+}
+
+function totalCertifications()
+{
+    return Certification::count();
+}
+
+function totalExams()
+{
+    return Exam::count();
+}

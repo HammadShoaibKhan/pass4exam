@@ -65,7 +65,7 @@
                                       </div>
 
                                     </div>
-                                    <div class="row">
+                                    <div style="display: none" class="row">
 
                                       <div class="col-sm-12">
                                         <!-- text input -->
@@ -101,7 +101,7 @@
                                   </form>
                                 </div>
                                 <!-- /.card-body -->
-                                
+
                                 {{-- Pricing --}}
                                 <div class="card card-primary cstm-border">
                                   <div class="card-header">

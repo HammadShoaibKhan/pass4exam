@@ -9,10 +9,10 @@
             <strong>ABOUT US</strong>
             <br>
             <ul class="list">
-              <li><a href="javascript:;">Home</a></li>
-              <li><a href="javascript:;">About us</a></li>              
+              <li><a href="{{ route('home') }}">Home</a></li>
+              <li><a href="javascript:;">About us</a></li>
               {{-- <li><a href="javascript:;">Mega Packs</a></li> --}}
-             <li><a href="javascript:;">Discount Deals</a></li>
+             <li><a href="{{ route('discount_deals') }}">Discount Deals</a></li>
 
 
             </ul>

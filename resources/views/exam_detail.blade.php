@@ -81,19 +81,19 @@
                                 </div>
                                 <div class="left-content-sec">
                                     <div class="row">
-                                        <div class="versions hvr-grow-shadow">
-                                            <div class="row">
-                                                <div class="versions_inner_left"
-                                                    style="  background-color: rgba(244,244,244,1); padding: 8px 12px; padding-top: 22px;">
-                                                    <img alt="Desktop Practice Test software"
-                                                        src="{{ asset('frontend/assets/site/img/Image_244.png') }}" width="38" height="38">
-                                                </div>
-                                                <div class="versions_inner_right" style="">
-                                                    <span style="">Desktop Practice <br>Test software
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
+{{--                                        <div class="versions hvr-grow-shadow">--}}
+{{--                                            <div class="row">--}}
+{{--                                                <div class="versions_inner_left"--}}
+{{--                                                    style="  background-color: rgba(244,244,244,1); padding: 8px 12px; padding-top: 22px;">--}}
+{{--                                                    <img alt="Desktop Practice Test software"--}}
+{{--                                                        src="{{ asset('frontend/assets/site/img/Image_244.png') }}" width="38" height="38">--}}
+{{--                                                </div>--}}
+{{--                                                <div class="versions_inner_right" style="">--}}
+{{--                                                    <span style="">Desktop Practice <br>Test software--}}
+{{--                                                    </span>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                         <div class="versions hvr-grow-shadow">
                                             <div class="row">
                                                 <div class="versions_inner_left"
@@ -273,9 +273,9 @@
                                                         </button>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;
                                                     </form>
-                                                    <button id="btn-demo6"  class="try-5 btn pop_onloneDemo demo" data_val="1" demo>
+                                                    <a href="{{($exam->getTotalQuestions() >= 5) ? route('exam_demo',[$exam->vendor->slug,$exam->slug]) : 'javascript:;'}}" id="btn-demo6"  class="try-5 btn pop_onloneDemo demo" data_val="1" demo>
                                                         Demo
-                                                    </button>
+                                                    </a>
                                                 </ul>
                                             </div>
                                         </div>
@@ -361,9 +361,15 @@
                                                         </button>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;
                                                     </form>
-                                                    <button id="btn-demo8" class="try-5 btn pop_pdfDemo demo" data_val="1">
+                                                    @if(!empty(getMediaFile('exams', 'pdf_file', $exam->id)))
+                                                    <button onclick="$('#download-demo-pdf').submit()" id="btn-demo8" class="try-5 btn pop_pdfDemo demo" data_val="1">
                                                         Demo
                                                     </button>
+                                                    <form id="download-demo-pdf" method="POST" action="{{ route('exam.demo.download') }}">
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" name="demo_exam_id" value="{{ $exam->id }}">
+                                                    </form>
+                                                    @endif
                                                 </ul>
                                             </div>
                                         </div>
@@ -383,100 +389,101 @@
             {{-- END <!------------- PDF Pack ----------------------------------------> --}}
 
             {{-- <!------------- Desktop Pack --------------------------------------------> --}}
-            <section class="desktop_version_exam bg-f7fafd">
-                <div class="container-fluid p-0">
-                    <div class="overview-box">
-                        {{-- Left Side Image --}}
-                        <div class="overview-image">
-                            <div class="image" style="width: 528px; height: 512px; background:#ccc">
-                                {{-- <img style="width: 80%" src="../assets/site/img/image_4.webp" alt="image"> --}}
-                            </div>
-                        </div>
-                        <div class="overview-content" style="padding-top: 60px;">
-                            <div class="content left-content pt-5">
-                                <div class="left-content-inner"style="">
-                                    <h2>{{ $exam->exam_code ?? ''  }} Desktop Practice Test Software</h2>
-                                    <br>
-                                    <ul class="services-list">
-                                        <li>
-                                            <span class="hvr-wobble-skew"><i class="far fa-calendar-check"></i>
-                                                Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span class="hvr-wobble-skew"><i class="fa fa-question-circle"></i>
-                                                {{ $exam->getTotalQuestions() ?? 0 }} Total Questions
-                                            </span>
-                                        </li>
-                                    </ul>
-                                    &nbsp;
-                                    <p style=" margin-bottom: 2%;">
-                                        {{ $exam->exam_code ?? ''  }} Desktop Practice Test
-                                    </p>
-                                    <ul class="desktop_ul">
-                                        <li>
-                                            <span><i class="fas fa-check"></i></span>
-                                            Best {{ $exam->exam_code ?? ''  }} Self-Assesment Software
-                                        </li>
-                                        <li>
-                                            <span><i class="fas fa-check"></i></span>
-                                            Reduce your chances of failure in actual {{ $exam->exam_code ?? ''  }} exam
-                                        </li>
-                                        <li>
-                                            <span><i class="fas fa-check"></i></span>
-                                            500+ Satisfied Customers
-                                        </li>
-                                        <li>
-                                            <span><i class="fas fa-check"></i></span>
-                                            Compatible with Windows 8/8.1/10
-                                        </li>
-                                        <li>
-                                            <span><i class="fas fa-check"></i></span>
-                                            Customizable Test Sessions, Try Free
-                                        </li>
-                                    </ul>
-                                    <br />
-                                    &nbsp;
-                                    <div id="btnPlusprice_exam_desktop" class="row">
-                                        <div class="">
-                                            <div class="bundle_price_exam_desktop">
-                                                Price: ${{ $exam->getPricing()->desktop->discounted ?? 1 }}
-                                                <del>Before: ${{ $exam->getPricing()->desktop->orignal ?? '' }}</del>
-                                            </div>
-                                        </div>
-                                        <div class="">
-                                            <div class="add_demo_btn">
-                                                <ul>
-                                                    <form method="GET"  action="{{route('add_cart') }}" class="soft_form">
-                                                        <input type="hidden" id="bundle_type" name="bundle_type" value="exam-desktop" />
-                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />                                                            <input type="hidden" id='vendor_id' name="vendor_id" value="{{$exam->vendor->id ?? ''}}" />
-                                                        <input type="hidden" id='certificate_id' name="certificate_id" value="{{$exam->certification_id ?? ''}}" />
-                                                        <input type="hidden" id='exam_code' name="exam_code" value="{{$exam->exam_code ?? ''}}" />
-                                                        <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->desktop->orignal ?? 1 }}" />
-                                                        <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->desktop->discounted ?? 1 }}" />
-                                                        <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />
-                                                        <button id="btn-cart2"  type="submit" class="btn">
-                                                            <i class="fa fa-shopping-cart"></i> Add To Cart
-                                                        </button>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;
-                                                    </form>
-                                                    <button id="btn-demo1" class="try-5 btn pop_softDemo demo" data_val="2">
-                                                        Demo
-                                                    </button>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+{{--            <section class="desktop_version_exam bg-f7fafd">--}}
+{{--                <div class="container-fluid p-0">--}}
+{{--                    <div class="overview-box">--}}
+{{--                        --}}{{-- Left Side Image --}}
+{{--                        <div class="overview-image">--}}
+{{--                            <div class="image" style="width: 528px; height: 512px; background:#ccc">--}}
+{{--                                --}}{{-- <img style="width: 80%" src="../assets/site/img/image_4.webp" alt="image"> --}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="overview-content" style="padding-top: 60px;">--}}
+{{--                            <div class="content left-content pt-5">--}}
+{{--                                <div class="left-content-inner"style="">--}}
+{{--                                    <h2>{{ $exam->exam_code ?? ''  }} Desktop Practice Test Software</h2>--}}
+{{--                                    <br>--}}
+{{--                                    <ul class="services-list">--}}
+{{--                                        <li>--}}
+{{--                                            <span class="hvr-wobble-skew"><i class="far fa-calendar-check"></i>--}}
+{{--                                                Last Updated : {{ $exam->getUpdatedAt() ?? '' }}--}}
+{{--                                            </span>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <span class="hvr-wobble-skew"><i class="fa fa-question-circle"></i>--}}
+{{--                                                {{ $exam->getTotalQuestions() ?? 0 }} Total Questions--}}
+{{--                                            </span>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                    &nbsp;--}}
+{{--                                    <p style=" margin-bottom: 2%;">--}}
+{{--                                        {{ $exam->exam_code ?? ''  }} Desktop Practice Test--}}
+{{--                                    </p>--}}
+{{--                                    <ul class="desktop_ul">--}}
+{{--                                        <li>--}}
+{{--                                            <span><i class="fas fa-check"></i></span>--}}
+{{--                                            Best {{ $exam->exam_code ?? ''  }} Self-Assesment Software--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <span><i class="fas fa-check"></i></span>--}}
+{{--                                            Reduce your chances of failure in actual {{ $exam->exam_code ?? ''  }} exam--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <span><i class="fas fa-check"></i></span>--}}
+{{--                                            500+ Satisfied Customers--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <span><i class="fas fa-check"></i></span>--}}
+{{--                                            Compatible with Windows 8/8.1/10--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <span><i class="fas fa-check"></i></span>--}}
+{{--                                            Customizable Test Sessions, Try Free--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                    <br />--}}
+{{--                                    &nbsp;--}}
+{{--                                    <div id="btnPlusprice_exam_desktop" class="row">--}}
+{{--                                        <div class="">--}}
+{{--                                            <div class="bundle_price_exam_desktop">--}}
+{{--                                                Price: ${{ $exam->getPricing()->desktop->discounted ?? 1 }}--}}
+{{--                                                <del>Before: ${{ $exam->getPricing()->desktop->orignal ?? '' }}</del>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="">--}}
+{{--                                            <div class="add_demo_btn">--}}
+{{--                                                <ul>--}}
+{{--                                                    <form method="GET"  action="{{route('add_cart') }}" class="soft_form">--}}
+{{--                                                        <input type="hidden" id="bundle_type" name="bundle_type" value="exam-desktop" />--}}
+{{--                                                        <input type="hidden" id='bundle_title' name="bundle_title" value="{{$exam->title ?? ''}}" />                                                            <input type="hidden" id='vendor_id' name="vendor_id" value="{{$exam->vendor->id ?? ''}}" />--}}
+{{--                                                        <input type="hidden" id='certificate_id' name="certificate_id" value="{{$exam->certification_id ?? ''}}" />--}}
+{{--                                                        <input type="hidden" id='exam_code' name="exam_code" value="{{$exam->exam_code ?? ''}}" />--}}
+{{--                                                        <input type="hidden" id="orignalPrice" name="orignalPrice" value="{{ $exam->getPricing()->desktop->orignal ?? 1 }}" />--}}
+{{--                                                        <input type="hidden" id="discountedPrice" name="discountedPrice" value="{{ $exam->getPricing()->desktop->discounted ?? 1 }}" />--}}
+{{--                                                        <input type="hidden" id="subcribed_for" name="subcribed_for" value="3" />--}}
+{{--                                                        <button id="btn-cart2"  type="submit" class="btn">--}}
+{{--                                                            <i class="fa fa-shopping-cart"></i> Add To Cart--}}
+{{--                                                        </button>--}}
+{{--                                                        &nbsp;&nbsp;&nbsp;&nbsp;--}}
+{{--                                                    </form>--}}
+{{--                                                    <button id="btn-demo1" class="try-5 btn pop_softDemo demo" data_val="2">--}}
+{{--                                                        Demo--}}
+{{--                                                    </button>--}}
+{{--                                                </ul>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </section>--}}
             {{-- END <!------------- Desktop Pack ----------------------------------------> --}}
 
             {{-- <!------------- Features of Exam --------------------------------------------> --}}
             <section class="features_exam pt-5 pb-5 bg-f7fafd">
+                <hr>
 
                 <section class="features_exam pt-5 pb-5 bg-f7fafd" style=" ">
                     <div class="section-title">
@@ -659,7 +666,7 @@
                     <div class="media p-3">
                         <div class="initalname">
                             @empty(!$testimonial->name)
-                                {{ ucfirst( Str::substr($testimonial->name, 0, 1) ) ?? '' }}                          
+                                {{ ucfirst( Str::substr($testimonial->name, 0, 1) ) ?? '' }}
                             @endempty
                         </div>
                         <div class="media-body">
@@ -676,8 +683,8 @@
                     </div>
                     </div>
                 @empty
-                    
-                @endforelse  
+
+                @endforelse
                 </div>
             </section>
             {{-- END <!------------- Certifications Testimonials ----------------------------------------> --}}
