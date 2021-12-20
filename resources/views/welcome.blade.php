@@ -168,7 +168,7 @@
                                   font-weight: 600;
                                   font-family: 'Poppins';
                                   color: #fff;"
-                                  href="microsoft/az-700.html" class="white">
+                                  href="{{ route('exam_info', [ 'vendor_slug' => $vendor->slug, 'exam_slug' => $exam->slug]) }}" class="white">
                                   {{ $exam->exam_code }}
                                 </a>
                                 </strong>
@@ -216,7 +216,7 @@
                 </h2>
               </div>
               <div id="world-class-learning2">
-                <p>  
+                <p>
                   @isset($pageContent[$c]->placeholder_name)
                     @if ($pageContent[$c]->placeholder_name == 'home-offer-anyone')
                       <?php echo strip_tags($pageContent[$c++]->placeholder_value ?? '','<br>') ?>
@@ -287,7 +287,7 @@
                     transition-duration: .3s;">
                     <div id="popular_exam_cards_body_content">
                       <strong >
-                        <a href="javascript:;">
+                        <a href="{{ route('exam_info', [ 'vendor_slug' => $vendor->slug, 'exam_slug' => $exam->slug]) }}">
                           {{ $exam->exam_code }}
                         </a>
                       </strong>
@@ -443,7 +443,7 @@
                   <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
                       <div style="text-align: center;">
-                        <b><a href="javascript:;">{{ $recent_exam->exam_code }}</a></b>
+                        <b><a href="{{ route('exam_info', [ 'vendor_slug' => $vendor->slug, 'exam_slug' => $exam->slug]) }}">{{ $recent_exam->exam_code }}</a></b>
                         <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
                         {{ $recent_exam->title }}
                         </strong>
@@ -480,7 +480,7 @@
               <div class="media p-3">
                   <div class="initalname">
                       @empty(!$testimonial->name)
-                        {{ ucfirst( Str::substr($testimonial->name, 0, 1) ) ?? '' }}                          
+                        {{ ucfirst( Str::substr($testimonial->name, 0, 1) ) ?? '' }}
                       @endempty
                   </div>
                   <div class="media-body">
@@ -497,8 +497,8 @@
               </div>
             </div>
           @empty
-              
-          @endforelse  
+
+          @endforelse
         </div>
     </section>
     {{-- END <!------------- Certifications Testimonials ----------------------------------------> --}}

@@ -112,9 +112,11 @@
                                             {{-- <input type="hidden" name="site" value="Certsidea"> --}}
                                             {{-- <input type="hidden" name="siteurl" value="../../index.html"> --}}
                                             {{-- <button class="demoLoginUserBtn btn demo"  type="submit" style="text-transform: none;"> --}}
-                                                <a href="{{route('exam_demo',[$exam->vendor->slug,$exam->slug])}}" target="_blank" class="btn mt-3" style="text-transform: none;">
+
+                                                <a href="{{($exam->getTotalQuestions() >= 5) ? route('exam_demo',[$exam->vendor->slug,$exam->slug]) : 'javascript:;'}}" target="_blank" class="btn mt-3" style="text-transform: none;">
                                                     Take a Free Self-Assessment Quiz
                                                 </a>
+
                                             {{-- </button> --}}
                                         {{-- </form> --}}
                                     </div>

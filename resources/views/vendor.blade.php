@@ -8,8 +8,8 @@
   // Replaceable values can be seen in helper file ==> getReplaceables()
   $replacers = array(
     '{{VENDOR-TITLE}}'      =>  $vendor_title,
-  );    
-?>    
+  );
+?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -64,16 +64,16 @@
                       <input type="hidden" id="bundleIcon" name="bundleIcon" value="IMG_4210801752032.png" />
                       <div class="left-content-sec">
                         <div class="row">
-                          <div class="versions hvr-grow-shadow">
-                            <div class="row">
-                              <div class="versions_inner_left " style="  background-color: rgba(244,244,244,1); padding: 8px 12px; padding-top: 22px;">
-                                <img width="38" height="38" alt="Desktop Practice Test software" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">
-                              </div>
-                              <div class="versions_inner_right">
-                                <span style="">Desktop Practice <br>Test software</span>
-                              </div>
-                            </div>
-                          </div>
+{{--                          <div class="versions hvr-grow-shadow">--}}
+{{--                            <div class="row">--}}
+{{--                              <div class="versions_inner_left " style="  background-color: rgba(244,244,244,1); padding: 8px 12px; padding-top: 22px;">--}}
+{{--                                <img width="38" height="38" alt="Desktop Practice Test software" src="{{ asset('frontend/assets/site/img/Image_244.png') }}">--}}
+{{--                              </div>--}}
+{{--                              <div class="versions_inner_right">--}}
+{{--                                <span style="">Desktop Practice <br>Test software</span>--}}
+{{--                              </div>--}}
+{{--                            </div>--}}
+{{--                          </div>--}}
                           <div class="versions hvr-grow-shadow">
                             <div class="row">
                               <div class="versions_inner_left" style="background-color: rgba(244,244,244,1); padding: 8px 14px;padding-top: 22px;">
@@ -312,7 +312,7 @@
                   <div class="media p-3">
                       <div class="initalname">
                           @empty(!$testimonial->name)
-                            {{ ucfirst( Str::substr($testimonial->name, 0, 1) ) ?? '' }}                          
+                            {{ ucfirst( Str::substr($testimonial->name, 0, 1) ) ?? '' }}
                           @endempty
                       </div>
                       <div class="media-body">
@@ -329,8 +329,8 @@
                   </div>
                 </div>
               @empty
-                  
-              @endforelse  
+
+              @endforelse
             </div>
           </section>
           {{-- END <!------------- Certifications Testimonials ----------------------------------------> --}}
