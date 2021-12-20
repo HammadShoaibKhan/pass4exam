@@ -18,7 +18,7 @@
           </div>
         </div>
         </div>
-      </div><!-- /.container-fluid -->
+        <!-- /.container-fluid -->
     </section>
 
 
@@ -174,7 +174,7 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label>Orignal Price</label>
+                                                            <label>Original Price</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -234,6 +234,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div><br><hr>
+                                            <div class="row">
+                                                <h5 class="p-2"><b>Single&nbspPricing</b></h5>
                                             </div>
                                             <div class="row mt-2">
                                                 <div class="col-md-4">
@@ -271,7 +274,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label><span style="color:red;">Discounted</span> DesktopFilePrice</label>
+                                                        <label><span style="color:red;">Discounted</span> Desktop&nbsp;File&nbsp;Price</label>
                                                         <input type="number" min="1" value="{{ $exam->getPricing()->desktop->discounted ?? 1 }}" name="discounted_desktop_price" class="form-control">
                                                     </div>
                                                 </div>
@@ -399,69 +402,69 @@
                               </div>
 
                               <!--Desktop File-->
-                              <div class="card card-primary cstm-border">
-                                  <div class="card-header">
-                                      <h3 class="card-title">Desktop File</h3>
-                                  </div>
-                                  @if(empty(getMediaFile('exams', 'desktop_file', $exam->id)))
-                                      <form id="desktop_file_form" action="{{ route('admin.exam.desktop-file') }}" enctype="multipart/form-data" method="POST">
-                                          {{ csrf_field() }}
-                                          <input type="hidden" name="exam_id" value="{{ $exam->id }}"><br>
-                                          <div class="row p-4">
-                                              <div class="col-md-4">
-                                                  <div class="form-group">
-                                                      <input type="file" name="desktop_file">
-                                                      <p class="text-danger error_desktop_file">
-                                                          @error('desktop_file')
-                                                          {{ $message }}
-                                                          @enderror
-                                                      </p>
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-4">
-                                                  <input type="submit" value="Upload File">
-                                              </div>
-                                          </div>
-                                      </form>
-                                  @else
-                                      <table class="table table-stripped">
-                                          <thead>
-                                          <tr>
-                                              <th>File</th>
-                                          </tr>
-                                          </thead>
-                                          <tbody>
-                                          <tr>
-                                              <td><a href="{{ asset('storage/desktop_files/' . getMediaFile('exams', 'desktop_file', $exam->id)) }}" target="_blank">Desktop&nbspFile</a></td>
-                                          </tr>
-                                          <tr>
-                                              <td>
-                                                  <form id="desktop_file_form" action="{{ route('admin.exam.desktop-file') }}" enctype="multipart/form-data" method="POST">
-                                                      {{ csrf_field() }}
-                                                      <input type="hidden" name="exam_id" value="{{ $exam->id }}"><br>
-                                                      <div class="row p-4">
-                                                          <div class="col-md-4">
-                                                              <div class="form-group">
-                                                                  <input type="file" name="desktop_file">
-                                                                  <p class="text-danger error_desktop_file">
-                                                                      @error('desktop_file')
-                                                                      {{ $message }}
-                                                                      @enderror
-                                                                  </p>
-                                                              </div>
-                                                          </div>
-                                                          <div class="col-md-4">
-                                                              <input type="submit" value="Update Desktop File">
-                                                          </div>
-                                                      </div>
-                                                  </form>
-                                              </td>
-                                          </tr>
-                                          </tbody>
+{{--                              <div class="card card-primary cstm-border">--}}
+{{--                                  <div class="card-header">--}}
+{{--                                      <h3 class="card-title">Desktop File</h3>--}}
+{{--                                  </div>--}}
+{{--                                  @if(empty(getMediaFile('exams', 'desktop_file', $exam->id)))--}}
+{{--                                      <form id="desktop_file_form" action="{{ route('admin.exam.desktop-file') }}" enctype="multipart/form-data" method="POST">--}}
+{{--                                          {{ csrf_field() }}--}}
+{{--                                          <input type="hidden" name="exam_id" value="{{ $exam->id }}"><br>--}}
+{{--                                          <div class="row p-4">--}}
+{{--                                              <div class="col-md-4">--}}
+{{--                                                  <div class="form-group">--}}
+{{--                                                      <input type="file" name="desktop_file">--}}
+{{--                                                      <p class="text-danger error_desktop_file">--}}
+{{--                                                          @error('desktop_file')--}}
+{{--                                                          {{ $message }}--}}
+{{--                                                          @enderror--}}
+{{--                                                      </p>--}}
+{{--                                                  </div>--}}
+{{--                                              </div>--}}
+{{--                                              <div class="col-md-4">--}}
+{{--                                                  <input type="submit" value="Upload File">--}}
+{{--                                              </div>--}}
+{{--                                          </div>--}}
+{{--                                      </form>--}}
+{{--                                  @else--}}
+{{--                                      <table class="table table-stripped">--}}
+{{--                                          <thead>--}}
+{{--                                          <tr>--}}
+{{--                                              <th>File</th>--}}
+{{--                                          </tr>--}}
+{{--                                          </thead>--}}
+{{--                                          <tbody>--}}
+{{--                                          <tr>--}}
+{{--                                              <td><a href="{{ asset('storage/desktop_files/' . getMediaFile('exams', 'desktop_file', $exam->id)) }}" target="_blank">Desktop&nbspFile</a></td>--}}
+{{--                                          </tr>--}}
+{{--                                          <tr>--}}
+{{--                                              <td>--}}
+{{--                                                  <form id="desktop_file_form" action="{{ route('admin.exam.desktop-file') }}" enctype="multipart/form-data" method="POST">--}}
+{{--                                                      {{ csrf_field() }}--}}
+{{--                                                      <input type="hidden" name="exam_id" value="{{ $exam->id }}"><br>--}}
+{{--                                                      <div class="row p-4">--}}
+{{--                                                          <div class="col-md-4">--}}
+{{--                                                              <div class="form-group">--}}
+{{--                                                                  <input type="file" name="desktop_file">--}}
+{{--                                                                  <p class="text-danger error_desktop_file">--}}
+{{--                                                                      @error('desktop_file')--}}
+{{--                                                                      {{ $message }}--}}
+{{--                                                                      @enderror--}}
+{{--                                                                  </p>--}}
+{{--                                                              </div>--}}
+{{--                                                          </div>--}}
+{{--                                                          <div class="col-md-4">--}}
+{{--                                                              <input type="submit" value="Update Desktop File">--}}
+{{--                                                          </div>--}}
+{{--                                                      </div>--}}
+{{--                                                  </form>--}}
+{{--                                              </td>--}}
+{{--                                          </tr>--}}
+{{--                                          </tbody>--}}
 
-                                      </table>
-                                  @endif
-                              </div>
+{{--                                      </table>--}}
+{{--                                  @endif--}}
+{{--                              </div>--}}
 
                           </div>
 
