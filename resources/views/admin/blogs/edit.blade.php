@@ -58,8 +58,8 @@
                                         <div class="form-group">
                                             <label>Status</label>
                                             <select name="status" class="form-control">
-                                                <option value="1">Active</option>
-                                                <option value="0">Disabled</option>
+                                              <option value="1" {{ $blog->status == 1 ? 'selected' : '' }}>Active</option>
+                                              <option value="0" {{ $blog->status == 0 ? 'selected' : '' }}>Disabled</option>
                                             </select>
                                         </div>
                                       </div>
@@ -76,7 +76,11 @@
                                               <div class="form-group">
                                                 <!-- Image Box -->
                                                 <div id="banner_box" style="width: 100%;">
-                                                  {{-- <img class="img-fluid rounded" id="blog_banner" width="100%" src="{{ asset('storage/demo_files/' . getMediaFile('blog_banner_files', 'demo_file', $exam->id)) }}"> --}}
+                                                  <img class="img-fluid rounded" id="blog_banner"
+                                                    src="{{ asset('storage/blog_banner_files/' . getMediaFile('blogs','blog_banner_file', $blog->id)) }}"
+                                                    alt="Banner not exists"
+                                                    width="100%" height="250px" 
+                                                  >
                                                 </div>
                                                 <!-- END Image Box -->
                                                 <div class="custom-file mt-2">
