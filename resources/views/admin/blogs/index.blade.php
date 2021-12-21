@@ -58,14 +58,14 @@
                                             <td><input type="checkbox" class="checkboxes" data-id="{{ $blog->id }}"></td>
                                             <td>{{ $blog->title ?? '' }}</td>
                                             <td>
-                                                @if ($blog->approved == 1)
+                                                @if ($blog->status == 1)
                                                     <span class="badge badge-success">Active</span>
                                                 @else
                                                     <span class="badge badge-danger">Disabled</span>
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.blog.view', $blog->id) }}" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
+                                                <a href="{{ route('admin.blog.edit', $blog->id) }}" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
                                                 <a href="javascript:;" data-id="{{ $blog->id }}" data-route="{{ route('admin.blog.delete') }}" class="btn btn-sm btn-danger del-blog"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>

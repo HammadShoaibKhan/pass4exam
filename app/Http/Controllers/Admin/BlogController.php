@@ -41,21 +41,56 @@ class BlogController extends Controller
         $request->request->add(['slug' => $slug]);
         $blog = Blog::create($request->only('title', 'slug', 'description', 'status'));
 
-        if($blog->id)
-        {
-            if ($request->hasFile('blog_banner_file')) {
-                $fileName = removeSpacesAndLowerCase(uniqid() . '_' . $request->blog_banner_file->getClientOriginalName());
-                
-                $request->blog_banner_file->storeAS('blog_banner_files/', $fileName, 'public');
-                Media::create([
-                    'link_table' => 'blogs',
-                    'link_id' => $blog->id,
-                    'link_type' => 'blog_banner_file',
-                    'file_name' => $fileName
-                ]);
-            }
+        if($blog->id && $request->hasFile('blog_banner_file')) {
+            $fileName = removeSpacesAndLowerCase(uniqid() . '_' . $request->blog_banner_file->getClientOriginalName());
+            
+            $request->blog_banner_file->storeAS('blog_banner_files/', $fileName, 'public');
+            $this->insertMediaFile($blog->id, $fileName);                
         }
         return back()->with('success', 'Blog Added Successfully');
+    }
+
+    public function edit($id = null)
+    {
+        if ($id != null && Blog::where('id', $id)->exists()) {
+            $title = "Update Blog";
+            $blog = Blog::find($id);
+            // $media = Media::Where('link_id', $id)->get();
+            // $media = $media[0];
+            return view('admin.blogs.edit', compact('title', 'blog'));
+        }
+        return redirect()->route('admin.Blogs')->with('error', 'Something went wrong');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $slug = Str::slug($request->title);
+        $data = [
+            'title' => $request->title,
+            'slug' => $slug,
+            'status' => $request->status,
+            'description' => $request->description
+        ];
+        Blog::find($id)->update($data);
+        if($id && $request->hasFile('blog_banner_file')) {
+            $fileName = removeSpacesAndLowerCase(uniqid() . '_' . $request->blog_banner_file->getClientOriginalName());
+            
+            $request->blog_banner_file->storeAS('blog_banner_files/', $fileName, 'public');
+            $this->insertMediaFile($id, $fileName);
+        }
+        return back()->with('success', 'Blog Updated Successfully');
+    }
+
+    private function insertMediaFile($id = null, $fileName = null)
+    {
+        if (($id != null && Blog::where('id', $id)->exists()) && ($fileName != null )){
+            Media::create([
+                'link_table' => 'blogs',
+                'link_id' => $id,
+                'link_type' => 'blog_banner_file',
+                'file_name' => $fileName
+            ]);
+        }
     }
 
     function blogView($id=null){
@@ -69,23 +104,23 @@ class BlogController extends Controller
     
     public function delete(Request $request)
     {
-        // $user = blog::find($request->blog_id);
-        // $user->delete();
-        // $blogs = blog::orderBY('id', 'DESC')->get();
-        // return view('admin.blogs.partials.blog-listings', compact('blogs'));
+        $blog = Blog::find($request->blog_id);
+        $blog->delete();
+        $blogs = Blog::orderBY('id', 'DESC')->get();
+        return view('admin.blogs.partials.blog-listings', compact('blogs'));
     }
     
     public function multipleDelete(Request $request)
     {
-        // blog::whereIn('id', $request->blog_ids)->delete();
-        // $blogs = blog::orderBY('id', 'DESC')->get();
-        // return view('admin.blogs.partials.blog-listings', compact('blogs'));
+        Blog::whereIn('id', $request->blog_ids)->delete();
+        $blogs = Blog::orderBY('id', 'DESC')->get();
+        return view('admin.blogs.partials.blog-listings', compact('blogs'));
     }
 
     public function changeStatus(Request $request)
     {
-        // blog::whereIn('id', $request->blog_ids)->update(['approved' => $request->approved]);
-        // $blogs = blog::orderBY('id', 'DESC')->get();
-        // return view('admin.blogs.partials.blog-listings', compact('blogs'));
+        Blog::whereIn('id', $request->blog_ids)->update(['status' => $request->approved]);
+        $blogs = Blog::orderBY('id', 'DESC')->get();
+        return view('admin.blogs.partials.blog-listings', compact('blogs'));
     }
 }

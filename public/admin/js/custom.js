@@ -1170,3 +1170,199 @@ $(document).on('click', '.change-testimonial-status', function (e) {
         })
     }
 });
+
+/**delete single Blog script */
+$(document).on('click', '.del-blog', function (e) {
+
+    var id = $(this).attr('data-id');
+    var url = $(this).attr('data-route');
+
+    if (id != '') {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            allowOutsideClick: false,
+          }).then((result) => {
+            if (result.isConfirmed) {
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type : 'POST',
+                    url : url,
+                    data : {
+                        blog_id : id
+                    },
+                    success:function (response) {
+                        $('#bind-blogs').html(response);
+
+                        Swal.fire(
+                            'Deleted!',
+                            'Blog has been deleted.',
+                            'success'
+                        )
+                    }
+                });
+            }
+          })
+
+    } else {
+        Swal.fire({
+            title: 'Not Selected!',
+            text: 'Please select a Blog',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            allowOutsideClick: false,
+          })
+    }
+});
+
+/**script to delete mutiple selected Blog */
+$(document).on('click', '.delete-selected-blogs', function (e) {
+    e.preventDefault();
+
+    var blog_ids = [];
+    var url = $(this).attr('data-route');
+
+    /**fetch the ids of selected vendors */
+    $('.checkboxes').each(function (i, el) {
+        var checkbox = $(el);
+        if (checkbox.is(':checked')) {
+            blog_ids.push(checkbox.attr('data-id'));
+        }
+    });
+
+    if (blog_ids.length > 0) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            allowOutsideClick: false,
+          }).then((result) => {
+            if (result.isConfirmed) {
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type : 'POST',
+                    url : url,
+                    data : {
+                        blog_ids : blog_ids
+                    },
+                    success:function (response) {
+                        $('#bind-blogs').html(response);
+
+                        Swal.fire(
+                            'Deleted!',
+                            'Blogs has been deleted.',
+                            'success'
+                        )
+                    }
+                });
+            }
+          })
+    } else {
+        Swal.fire({
+            title: 'Not Selected!',
+            text: 'Please select atleast one Blog',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            allowOutsideClick: false,
+          })
+    }
+});
+
+/**script to change selected Blog status */
+$(document).on('click', '.change-blog-status', function (e) {
+    e.preventDefault();
+
+    var blog_ids = [];
+    var url = $(this).attr('data-route');
+
+    /**fetch selected blogs ids */
+    $('.checkboxes').each(function (i, el) {
+        var checkbox = $(el);
+        if (checkbox.is(':checked')) {
+            blog_ids.push(checkbox.attr('data-id'));
+        }
+    });
+
+    if (blog_ids.length > 0) {
+        Swal.fire({
+            title: 'Choose?',
+            text: "You want to active or disable Blogs!",
+            icon: 'question',
+            showCancelButton: true,
+            showDenyButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            denyButtonColor: '#f0ad4e',
+            confirmButtonText: 'Active',
+            denyButtonText: 'Disable',
+            allowOutsideClick: false,
+        }).then((result) => {
+            var data;
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            if (result.isConfirmed) {
+                data = {
+                    approved : 1,
+                    blog_ids : blog_ids
+                }
+
+            } else if (result.isDenied) {
+                data = {
+                    approved : 0,
+                    blog_ids : blog_ids
+                }
+            }
+
+            $.ajax({
+                type : 'POST',
+                url : url,
+                data : data,
+                success:function (response) {
+
+                    $('#bind-blogs').html(response);
+
+                    Swal.fire(
+                        'Changed!',
+                        'Blogs status has been changed.',
+                        'success',
+                    )
+                }
+            });
+
+        })
+    } else {
+        Swal.fire({
+            title: 'Not Selected!',
+            text: 'Please select atleast one Blog',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+            allowOutsideClick: false,
+        })
+    }
+});
