@@ -285,3 +285,14 @@ function totalExams()
 {
     return Exam::count();
 }
+
+/** get assessment duration and spend time*/
+function getAssessmentSpendTime($attemptID, $key) {
+    $assessment = Assessment::where('attempt_id', $attemptID)->select('duration', 'spend_time')->first();
+
+    if ($key == 'duration') {
+        return $assessment->duration;
+    } else {
+        return $assessment->spend_time;
+    }
+}

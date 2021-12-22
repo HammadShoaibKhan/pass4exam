@@ -15,7 +15,7 @@ for (i = 0; i < acc.length; i++) {
 
 $(document).ready(function() {
 
- 
+
         $('#results-table').DataTable({
             "lengthChange": false
         });
@@ -52,7 +52,7 @@ $(document).on('click', '.next-question', function (e) {
     var question_id = $('.current_question_id').val();
     /** check if answer is attempted then change color of
      * position counter blue/attempt-color otherwise color is peach and move position counter arrows to next position*/
- 
+
     $('.question_no_wdg').each(function (i, el) {
         if ($(el).attr('data-question-id') == question_id) {
 
@@ -137,7 +137,7 @@ $(document).on('click', '.previous-question', function (e) {
                 element.css('display', 'none');
             }
 
-            
+
         }
     });
 
@@ -225,11 +225,11 @@ $(document).on('click', '.marked-question', function () {
     $('.question_no_wdg').each(function (i, el) {
         if ($(el).attr('data-question-id') == question_id) {
             if (marked_checkbox) {
-                $(el).css({'background' : 'rgb(255, 177, 0)', 'color' : '#fff'});    
+                $(el).css({'background' : 'rgb(255, 177, 0)', 'color' : '#fff'});
             } else {
                 $(el).css({'background' : '#fff', 'color' : '#000'});
             }
-        } 
+        }
     })
 });
 
@@ -250,7 +250,7 @@ $(document).on('click', '.review-counter', function(){
 /** script to end practice exam */
 $(document).on('click', '.end-exam', function (e) {
     e.preventDefault();
-   
+
     Swal.fire({
         title: 'End Exam',
         text: 'Are you sure you want to end the exam?',
@@ -273,10 +273,10 @@ $(document).on('click', '.end-exam', function (e) {
             var question_id = $('.current_question_id').val();
             /** check if answer is attempted then change color of
              * position counter blue/attempt-color otherwise color is peach and move position counter arrows to next position*/
-         
+
             $('.question_no_wdg').each(function (i, el) {
                 if ($(el).attr('data-question-id') == question_id) {
-        
+
                     if (marked_question) {
                         $(el).css({'background' : '#FFB100', 'color' : '#fff'});
                     } else {
@@ -286,17 +286,17 @@ $(document).on('click', '.end-exam', function (e) {
                             $(el).css({'background' : '#D60404', 'color' : '#fff'});
                         }
                     }
-        
+
                 }
             });
-        
+
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-        
-        
+
+
             $.ajax({
                 url : url,
                 type : 'POST',
@@ -304,7 +304,8 @@ $(document).on('click', '.end-exam', function (e) {
                     question_id : question_id,
                     answer : answer,
                     attempt_id : attempt_id,
-                    marked_question : marked_question
+                    marked_question : marked_question,
+                    spend_time: $('#spend_minutes').val()
                 },
                 beforeSend : function () {
                     $('.loading').css('display', 'block');

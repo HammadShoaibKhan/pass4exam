@@ -35,10 +35,12 @@
                         <p>Troubleshooting Microsoft Teams</p>
                     </div>
                     <div class="timmerarea">
-                        <!-- <h4 class="timeBox" style="/* display: none; */">
-                        <img src="images/timer.png" class="" alt="">
-                        <span id="timeRem" class="style size_sm"></span>
-                        </h4> -->
+                        @if($assessment->duration > 0)
+                        <h4 class="timeBox" style="/* display: none; */">
+                        <img src="{{ asset('frontend/assets/site/images/timer.png') }}" style="position: absolute; top: 25px; right: 290px" class="" alt="">
+                        <span id="timeRem" class="style size_sm" style="position: absolute; top: 25px; right: 200px"></span>
+                        </h4>
+                        @endif
                         <button class="btn btn-danger roundedbuttonclass end-exam" data-route="{{ route('exam.practice.end') }}">End Exam</button>
                     </div>
                 </div>
@@ -224,6 +226,7 @@
       </div>
     </div>
   </div>
+    <input type="hidden" id="spend_minutes" value="">
 </section>
 
 
@@ -246,5 +249,39 @@
 
 <!-- Custom Css -->
 <script src="{{asset('frontend/assets/site/js/start_exam.js')}}"></script>
+
+@if($assessment->duration > 0)
+    <script>
+        var durationInMinutes = {{ $assessment->duration }};
+        var hours = Math.floor(durationInMinutes / 60);
+        var minutes = (durationInMinutes - (hours * 60)) - 1;
+        if (minutes < 0) {
+            minutes = 0;
+        }
+        var seconds = 59;
+        var spend_minutes = 0;
+        var interval = setInterval(function () {
+            $('#timeRem').html(hours + ':' + minutes + ':' + seconds);
+            seconds--;
+            if (minutes == 0 && seconds == 0) {
+                if (hours >= 1) {
+                    minutes = 60;
+                    hours--;
+                } else {
+                    clearInterval(interval);
+                    $('.end-exam').click();
+                    $('#spend_minutes').val(spend_minutes + 1);
+                }
+            }
+
+            if (seconds == 0) {
+                minutes--;
+                seconds = 59;
+                spend_minutes++;
+                $('#spend_minutes').val(spend_minutes);
+            }
+        }, 1000);
+    </script>
+@endif
 </body>
 </html>

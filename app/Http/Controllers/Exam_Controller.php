@@ -322,6 +322,7 @@ class Exam_Controller extends Controller
         $userSelectedAnswers = json_decode($assessment->user_selected_answers_with_questions, true);
         $initialAssessment = [];
         $correctAnswer = Question::getQuestionCorrectAnswer($questionID);
+        $spendTime = ($request->spend_time != '') ? $request->spend_time : 0;
 
         if ($markedQuestion == 'true') {
             /** if question marked checked then both status and attempt status is 0 means skipped */
@@ -403,7 +404,7 @@ class Exam_Controller extends Controller
 
         $finalAssessment = json_encode($initialAssessment);
 
-        $assessment->update(['user_selected_answers_with_questions' => $finalAssessment]);
+        $assessment->update(['user_selected_answers_with_questions' => $finalAssessment, 'spend_time' => $spendTime]);
 
         return route('exam.practice.result', ['attempt_id' => $attemptID]);
     }
@@ -429,7 +430,9 @@ class Exam_Controller extends Controller
                 'exam_code' => $examCode,
                 'exam_id' => $exam->id,
                 'vendor_slug' => $exam->vendor->slug,
-                'exam_slug' => $exam->slug
+                'exam_slug' => $exam->slug,
+                'duration' => getAssessmentSpendTime($attemptID, 'duration'),
+                'spend_time' => getAssessmentSpendTime($attemptID, 'spend_time')
             ];
 
             return view('exam.result', compact('attemptResult'));

@@ -228,7 +228,7 @@
                           <h4>
                             Set your Desired Pass Percentage:
                           </h4>
-                          <input type="range" min="10" max="100"
+                          <input type="range" min="10" max="70"
                             oninput="PassRangevalue.value = PassRange.valueAsNumber"
                             value="70" class="slider" name="PassRange" id="PassRange">
                           <div class="pRangeOutput">

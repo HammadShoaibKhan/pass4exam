@@ -248,9 +248,8 @@ window.onload = function () {
             indexLabel: "{label} - #percent%",
             toolTipContent: "<b>{label}:</b> {y} (#percent%)",
             dataPoints: [
-                { y: 67, label: "Inbox" },
-                { y: 28, label: "Archives" },
-                { y: 10, label: "Labels" }
+                { y: {{ $attemptResult['duration'] }}, label: "Total Duration" },
+                { y: {{ $attemptResult['spend_time'] }}, label: "Spend Time" }
             ]
         }]
     });
