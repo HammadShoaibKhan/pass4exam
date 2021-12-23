@@ -92,6 +92,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
     Route::prefix('case-study')->group(function () {
         Route::get('create/{exam_id}', [CaseStudyController::class, 'create'])->name('admin.case-study.create');
         Route::get('{id}/questions', [CaseStudyController::class, 'showQuestions'])->name('admin.case-study.questions');
+        Route::post('delete', [CaseStudyController::class, 'delete'])->name('admin.case-study.delete');
     });
 
     /** QUESTIONS ROUTES */

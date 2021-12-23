@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Assessment;
+use App\Models\CaseStudy;
+use App\Models\Question;
+use App\Models\UserExam;
 use Illuminate\Http\Request;
 use App\Models\Exam;
 use App\Models\Vendor;
@@ -90,7 +94,25 @@ class ExamController extends Controller
 
     public function delete(Request $request)
     {
-        Exam::find($request->exam_id)->delete();
+        $exam = Exam::find($request->exam_id);
+        $caseStudiesIDs = $exam->caseStudies->pluck('id');
+
+        if (count($caseStudiesIDs) > 0) {
+            /** delete case studies questions*/
+            Question::whereIn('case_study_id', $caseStudiesIDs)->delete();
+            /** delete exam case studies*/
+            CaseStudy::whereIn('id', $caseStudiesIDs)->delete();
+        }
+
+        /** delete exam assessments*/
+        Assessment::where('exam_id', $exam->id)->delete();
+
+        /** delete user exams*/
+        UserExam::where('exam_id', $exam->id)->delete();
+
+        /** delete exam*/
+        $exam->delete();
+
         $exams = Exam::orderBY('id', 'DESC')->get();
         return view('admin.exams.partials.exam-listings', compact('exams'));
 
