@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ContentManagerController;
 use App\Http\Controllers\Testimonial_Controller;
+use App\Http\Controllers\Blog_Controller;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\UserExamController;
 
@@ -198,7 +199,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('testimonial/create', [Testimonial_Controller::class, 'create'])->name('testimonial_create');
 
     // Blog View
-    // Route::get('{id}/view', [BlogController::class, 'blogView'])->name('admin.blog.view');
+    Route::get('blogs', [Blog_Controller::class, 'index'])->name('blogs');
 
     Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
     Route::post('user-login', [\App\Http\Controllers\UserController::class, 'userLogin'])->name('user.login');
