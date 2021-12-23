@@ -6,7 +6,7 @@ $(document).ready(function () {
     $('#summernote').summernote({
         height: 300,
     });
-    
+
     /**initialize summernote text editor */
     $('.summernote').summernote({
         height: 130,
@@ -1366,3 +1366,27 @@ $(document).on('click', '.change-blog-status', function (e) {
         })
     }
 });
+
+$(document).on('click', '.del-case-study', function () {
+    var case_study_id = $(this).attr('data-case-study-id');
+    var exam_id = $(this).attr('data-exam-id');
+    var url = $(this).attr('data-route');
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        type : 'POST',
+        url : url,
+        data : {
+            exam_id,
+            case_study_id
+        },
+        success : function (response) {
+            $('#bind-case-studies').html(response);
+        }
+    })
+})
