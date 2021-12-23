@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class Blog_Controller extends Controller
 {
-    //
+    function index()
+    {
+        //
+    }
 }
