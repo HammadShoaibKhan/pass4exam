@@ -41,7 +41,7 @@
                             <div class="media p-3">
                                 <div class="media-body">
                                     <h3 class="p-2">{{ strtoupper($blog->title) ?? '' }}</h3>                          
-                                    <p style="color: #22ad95;font-size: 16px;font-weight: 400;">
+                                    <p class="pl-4" style="color: #22ad95;font-size: 16px;font-weight: 400;">
                                         <?php echo (Str::substr(strip_tags($blog->description),0,300)) ?? ''?>
                                         ...<a href="{{ route('blog_view',$blog->slug)}}" class=""> Read more</a>
                                     </p>
