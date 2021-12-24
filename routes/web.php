@@ -200,6 +200,7 @@ Route::group(['middleware' => 'guest'], function () {
 
     // Blog View
     Route::get('blogs', [Blog_Controller::class, 'index'])->name('blogs');
+    Route::get('blog/{slug}', [Blog_Controller::class, 'blog'])->name('blog_view');
 
     Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
     Route::post('user-login', [\App\Http\Controllers\UserController::class, 'userLogin'])->name('user.login');
