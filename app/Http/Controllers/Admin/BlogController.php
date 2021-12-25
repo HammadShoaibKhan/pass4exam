@@ -55,8 +55,6 @@ class BlogController extends Controller
         if ($id != null && Blog::where('id', $id)->exists()) {
             $title = "Update Blog";
             $blog = Blog::find($id);
-            // $media = Media::Where('link_id', $id)->get();
-            // $media = $media[0];
             return view('admin.blogs.edit', compact('title', 'blog'));
         }
         return redirect()->route('admin.Blogs')->with('error', 'Something went wrong');
@@ -75,8 +73,21 @@ class BlogController extends Controller
         if($id && $request->hasFile('blog_banner_file')) {
             $fileName = removeSpacesAndLowerCase(uniqid() . '_' . $request->blog_banner_file->getClientOriginalName());
             
-            $request->blog_banner_file->storeAS('blog_banner_files/', $fileName, 'public');
-            $this->insertMediaFile($id, $fileName);
+            if (($id && Blog::where('id', $id)->exists()) && ($fileName != null )){
+                $media_id = Media::where([
+                    'link_table' => 'blogs',
+                    'link_type' => 'blog_banner_file',
+                    'link_id' => $id
+                    ])->value('id');
+
+                if(count($media_id) && Media::where('id',$media_id)->exists()){
+                    Media::find($media_id)->update(['file_name' => $fileName]);
+                }   
+                else{
+                    $request->blog_banner_file->storeAS('blog_banner_files/', $fileName, 'public');
+                    $this->insertMediaFile($id, $fileName);
+                }
+            }
         }
         return back()->with('success', 'Blog Updated Successfully');
     }
