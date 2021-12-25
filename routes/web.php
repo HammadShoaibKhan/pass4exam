@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ContentManagerController;
 use App\Http\Controllers\Testimonial_Controller;
+use App\Http\Controllers\Blog_Controller;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\UserExamController;
 
@@ -149,7 +150,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'custodian'], function () {
         Route::post('update/{id}', [BlogController::class,'update'])->name('admin.blog.update');
         Route::post('name-exists', [BlogController::class, 'checkNameExists'])->name('admin.blog.name-exists');
         // Route::post('banner-file', [BlogController::class, 'uploadBlogBanner'])->name('admin.blog.banner-file');
-        Route::get('{id}/view', [BlogController::class, 'blogView'])->name('admin.blog.view');
+        // Route::get('{id}/view', [BlogController::class, 'blogView'])->name('admin.blog.view');
         Route::post('delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
         Route::post('multiple-delete', [BlogController::class, 'multipleDelete'])->name('admin.blogs.delete');
         Route::post('change-status', [BlogController::class, 'changeStatus'])->name('admin.blog.change-status');
@@ -196,6 +197,10 @@ Route::group(['middleware' => 'guest'], function () {
     // Testimonial Creation
     Route::get('testimonials', [Testimonial_Controller::class, 'index'])->name('testimonials');
     Route::post('testimonial/create', [Testimonial_Controller::class, 'create'])->name('testimonial_create');
+
+    // Blog View
+    Route::get('blogs', [Blog_Controller::class, 'index'])->name('blogs');
+    Route::get('blog/{slug}', [Blog_Controller::class, 'blog'])->name('blog_view');
 
     Route::post('register/verify-user', [\App\Http\Controllers\UserController::class, 'verifyUserExists'])->name('user.email.verify');
     Route::post('user-login', [\App\Http\Controllers\UserController::class, 'userLogin'])->name('user.login');
