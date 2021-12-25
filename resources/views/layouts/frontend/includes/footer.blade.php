@@ -23,7 +23,7 @@
             <strong>CUSTOMER SERVICES</strong>
             <br>
             <ul class="footer-contact-info">
-              <li><a href="javascript:;">FAQ`s</a></li>
+              <li><a href="{{route('blogs')}}">Blogs</a></li>
 
 
               <li><a href="javascript:;">Contact Us</a></li>
