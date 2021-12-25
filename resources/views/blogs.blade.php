@@ -35,14 +35,14 @@
         <section class="content">
             {{-- <!------------- Blogs List --------------------------------------------> --}}
             <section class="exam_vendor_testimonials pt-5 pb-5" style=" ">
-                <div id="sample_page_2_new_testimonials" class="col-xl-8 col-lg-8 col-md-7 col-sm-8 mt-3 mb-3">
+                <div id="sample_page_2_new_testimonials" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-3 mb-3">
                     <div id="parant_comment" class="container mt-3">
                         @forelse ($blogs as $blog)
                             <div class="media p-3">
                                 <div class="media-body">
                                     <h3 class="p-2">{{ strtoupper($blog->title) ?? '' }}</h3>                          
                                     <p class="pl-4" style="color: #22ad95;font-size: 16px;font-weight: 400;">
-                                        <?php echo (Str::substr(strip_tags($blog->description),0,300)) ?? ''?>
+                                        <?php echo (Str::substr(strip_tags($blog->description),0,500)) ?? ''?>
                                         ...<a href="{{ route('blog_view',$blog->slug)}}" class=""> Read more</a>
                                     </p>
                                     <div class="rating">
