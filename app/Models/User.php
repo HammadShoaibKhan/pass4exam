@@ -24,6 +24,14 @@ class User extends Authenticatable
         'status',
         'type',
         'password',
+        'slug',
+        'phone',
+        'address',
+        'city',
+        'country',
+        'state',
+        'zip',
+        'vat_number',
     ];
 
     /**
