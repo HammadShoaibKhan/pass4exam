@@ -48,14 +48,14 @@
             <h6>Customer Profile</h6><br><br>
             <ul>
                 <li>
-                    <a href="javascript:;"><i class="fa fa-user"></i> &nbsp;&nbsp;&nbsp;Edit your profile</a>
+                    <a href="{{ route('user.profile') }}"><i class="fa fa-user"></i> &nbsp;&nbsp;&nbsp;Edit your profile</a>
                 </li>
                 <li>
                     <a href="javascript:;"><i class="fa fa-lock"></i> &nbsp;&nbsp;&nbsp;Change Password</a>
                 </li>
             </ul>
 
-            <a type="button" class="btn btn-lg btn-primary sign_out">Sign Out</a>
+            <a type="button" class="btn btn-lg btn-primary sign_out" onclick="$('#logout_form').submit()">Sign Out</a>
         </div>
     </div>
 

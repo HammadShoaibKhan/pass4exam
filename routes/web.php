@@ -170,6 +170,8 @@ Route::group(['middleware' => 'customer'], function () {
     Route::get('premium-exam/{vendor_slug}/{exam_slug}', [UserExamController::class, 'premiumExam'])->name('user.premium_exam');
     Route::post('premium-exam/practice-test', [UserExamController::class, 'startPremiumExamPractice'])->name('exam.premium.practice');
     Route::get('exam/attempt-history/{exam_id}', [UserExamController::class, 'examAttemptHistory'])->name('exam.attempt_history');
+    Route::get('profile', [\App\Http\Controllers\UserController::class, 'profile'])->name('user.profile');
+    Route::post('profile/update', [\App\Http\Controllers\UserController::class, 'profileUpdate'])->name('user.profile.update');
 });
 
 
