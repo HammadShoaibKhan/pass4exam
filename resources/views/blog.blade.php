@@ -45,16 +45,19 @@
                     <div id="parant_comment" class="container">
                         <div class="media p-3">
                             <div class="media-body">
-                                <div class="row p-2">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="">
-                                        <!-- Image Box -->
-                                        <img class="img-fluid rounded" id="blog_banner"
-                                            src="{{ asset('storage/blog_banner_files/' . getMediaFile('blogs','blog_banner_file', $blog->id)) }}"
-                                            style="width:100%; height: 350px;" 
-                                        >
-                                        <!-- END Image Box -->
+                                <?php $fileName = getMediaFile('blogs','blog_banner_file', $blog->id); ?>
+                                @empty(!$fileName)                                    
+                                    <div class="row p-2">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="">
+                                            <!-- Image Box -->
+                                            <img class="img-fluid rounded" id="blog_banner"
+                                                src="{{ asset('storage/blog_banner_files/'.$fileName ) }}"
+                                                style="width:100%; height: 350px;" 
+                                            >
+                                            <!-- END Image Box -->
+                                        </div>
                                     </div>
-                                </div>
+                                @endempty
 
                                 <h1 class="p-2 mt-2">{{ strtoupper($blog->title) ?? '' }}</h1>
 
