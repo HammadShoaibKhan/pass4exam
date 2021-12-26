@@ -80,7 +80,7 @@ class BlogController extends Controller
                     'link_id' => $id
                     ])->value('id');
 
-                if(count($media_id) && Media::where('id',$media_id)->exists()){
+                if($media_id && Media::where('id',$media_id)->exists()){
                     Media::find($media_id)->update(['file_name' => $fileName]);
                 }   
                 else{

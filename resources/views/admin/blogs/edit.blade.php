@@ -79,7 +79,7 @@
                                                   <img class="img-fluid rounded" id="blog_banner"
                                                     src="{{ asset('storage/blog_banner_files/' . getMediaFile('blogs','blog_banner_file', $blog->id)) }}"
                                                     alt="Banner not exists"
-                                                    width="100%" height="250px" 
+                                                    style="width:100%; height: 350px;" 
                                                   >
                                                 </div>
                                                 <!-- END Image Box -->
