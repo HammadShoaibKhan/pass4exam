@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -41,6 +42,7 @@ class UserController extends Controller
 
         User::create([
             'name' => $request->name,
+            'username' => Str::Slug($request->name),
             'email' => $request->email,
             'password' => Hash::make('isdummy'),
         ]);
@@ -52,5 +54,36 @@ class UserController extends Controller
     public function dashboard()
     {
         return view('customer.dashboard');
+    }
+
+    public function profile()
+    {
+        $title = "Member Area";
+        $user = auth()->user();
+        return view('customer.profile', compact('title', 'user'));
+    }
+
+    public function profileUpdate(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+        ], [
+            'name.required' => 'Name is required'
+        ]);
+
+        $user = auth()->user();
+        $user->update([
+            'name' => $request->name,
+            'username' => Str::Slug($request->name),
+            'phone' => $request->phone,
+            'vat_number' => $request->vat_number,
+            'state' => $request->state,
+            'address' => $request->address,
+            'city' => $request->city,
+            'zip' => $request->zip,
+            'country' => $request->country
+        ]);
+
+        return back()->with('success', 'Profile Updated Successfully.');
     }
 }

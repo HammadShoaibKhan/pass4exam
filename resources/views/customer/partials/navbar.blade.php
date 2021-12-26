@@ -17,9 +17,9 @@
                         <a class="nav-link" href="#"><i class="fa fa-bell"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a>
                     </li>
                     <li class="nav-item r2 dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;&nbsp;Hammad Khan</a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;&nbsp;@if(auth()->check()) {{ auth()->user()->name }} @endif</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="javascript:;">Profile</a>
+                            <a class="dropdown-item" href="{{ route('user.profile') }}">Profile</a>
                             <a class="dropdown-item" onclick="$('#logout_form').submit()" href="javascript:;">Logout</a>
                         </div>
                     </li>
