@@ -14,7 +14,6 @@ class ContentManagerSeed extends Seeder
      */
     public function run()
     {
-        //
         $data = [
             [
                 'type' => 'all',
