@@ -42,11 +42,13 @@
                                 </style>
                                 <div class="col-sm-12">
                                     <ul class="Replaceables row">
-                                        @foreach (getReplaceables() as $key => $item)
-                                            <li class="col-sm-12">
-                                                <span class="col-sm-4">{{$key}}</span><span class="col-sm-5 color_code">{{$item}}</span>                                             
-                                            </li>                                            
-                                        @endforeach
+                                        @if (Str::upper($ContentManager[0]->type) != "ALL")
+                                            @foreach (getReplaceables() as $key => $item)
+                                                <li class="col-sm-12">
+                                                    <span class="col-sm-4">{{$key}}</span><span class="col-sm-5 color_code">{{$item}}</span>                                             
+                                                </li>                                            
+                                            @endforeach
+                                        @endif
                                     </ul>
                                 </div>
                                 @forelse ($ContentManager as $content)
