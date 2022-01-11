@@ -443,7 +443,7 @@
                   <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" id="border-col">
                       <div style="text-align: center;">
-                        <b><a href="{{ route('exam_info', [ 'vendor_slug' => $recent_exam->slug, 'exam_slug' => $recent_exam->slug]) }}">{{ $recent_exam->exam_code }}</a></b>
+                        <b><a href="{{ route('exam_info', [ 'vendor_slug' => $recent_exam->vendor->slug, 'exam_slug' => $recent_exam->slug]) }}">{{ $recent_exam->exam_code }}</a></b>
                         <strong style="font-weight: 500;font-size: 13px;font-family: Roboto;display: block;margin-bottom: 8px;">
                         {{ $recent_exam->title }}
                         </strong>
