@@ -469,4 +469,19 @@ class Exam_Controller extends Controller
             return Response()->download($file, $fileName, $headers);
         }
     }
+
+    public function syllabus($vendorSlug = null, $exam_code = null)
+    {
+        if ( ( $vendorSlug != null && Vendor::where('slug', $vendorSlug)->exists() ) &&
+             ( $exam_code != null && Exam::where('exam_code', $exam_code)->exists() ) ) {
+            $title = ucfirst($vendorSlug).' '.$exam_code.' - All You Need to Know';
+            $exam = Exam::where('exam_code', $exam_code)->first();
+            $pageContent = ContentManager::whereIn('type',['exam-info'])->get();
+            // $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
+            return view('syllabus', compact('title','exam','pageContent'));
+        }
+dd('here');
+        return redirect()->route('home');
+    }
+
 }
