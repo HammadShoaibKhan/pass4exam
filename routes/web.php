@@ -183,6 +183,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('vendor/{slug}', [App\Http\Controllers\VendorController::class, 'index'])->name('vendor');
     Route::get('{vendor_slug}/info/{exam_slug}', [Exam_Controller::class, 'index'])->name('exam_info');
+    Route::get('{vendor_slug}/syllabus/{exam_slug}', [Exam_Controller::class, 'syllabus'])->name('certificate_syllabus');
     Route::post('demo-exam/practice-test', [Exam_Controller::class, 'startDemoExamPractice'])->name('exam.demo.practice');
     Route::get('demo-exam/{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDemo'])->name('exam_demo');
     Route::post('exam/practice-next', [Exam_Controller::class, 'nextAction'])->name('exam.practice.next');
