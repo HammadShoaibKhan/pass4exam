@@ -232,7 +232,7 @@
                                 <div id="sample_page_note_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
                                     <div class="terms">
                                         <p class="taxonomy">
-                                            <a class="vocab-term" href="javascript:;">{{$exam->certification->title}}</a>
+                                            <a class="vocab-term" href="{{ route('certificate_syllabus', [$exam->vendor->slug, $exam->exam_code]) }}">{{$exam->certification->title}}</a>
                                             | <a  class="vocab-term" href="javascript:;">{{$exam->certification->title}} Administrators</a>
                                             | <a  class="vocab-term" href="javascript:;">Microsoft Business User</a>
                                             | <a  class="vocab-term" href="javascript:;">Microsoft Technology Manager</a>
