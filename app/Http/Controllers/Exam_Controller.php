@@ -480,7 +480,6 @@ class Exam_Controller extends Controller
             // $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
             return view('syllabus', compact('title','exam','pageContent'));
         }
-dd('here');
         return redirect()->route('home');
     }
 
