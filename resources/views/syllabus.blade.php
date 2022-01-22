@@ -53,61 +53,61 @@
             <section class="sample_page_2">
                 <div class="container-fluid">
                     <section class="sample_page">
-
                         <div class="container-fluid">
-                            
                             <div class="row">
                                 <div id="sample_page_top_heading" class="col-sm-12 mb-4">
                                     <h1>Microsoft AZ-400 Exam Syllabus</h1>
-                                </div>
-                                            
-                                          
+                                </div>    
                                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-4"> 
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 mb-4">
-                                    <div class="card sample_page_card hvr-grow-shadow">
-                                                        <div class="card-header" >
-                                                            <strong style="cursor: auto; color: #fff;font-size: 18px;font-family: 'Roboto';text-align: center;font-weight: 600;">Microsoft AZ-400 Exam </strong>
-                                                        </div>
-                                                        <div class="card-body text-center">
-                                                            <p>
-                                                                Designing and Implementing Microsoft DevOps Solutions                                        </p>
-                                                            
-                                                            <span>
-                                                                <!--AZ-400 Exam Syllabus-->
-                                                                Total Questions: 341                                        </span>
-                
-                                                        </div> 
-                                                        <div class="card-footer">
-                                                            <span style="font-size: 12px;font-weight: 700;color: #ffffff;font-family: 'Roboto';text-align: center;">
-                                                                Last Updated : 05-01-2022                                        </span>
-                                                        </div>
-                                    </div>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 mb-4">
+                                            <div class="card sample_page_card hvr-grow-shadow">
+                                                <div class="card-header" >
+                                                    <strong style="cursor: auto; color: #fff;font-size: 18px;font-family: 'Roboto';text-align: center;font-weight: 600;">
+                                                        Microsoft AZ-400 Exam 
+                                                    </strong>
+                                                </div>
+                                                <div class="card-body text-center">
+                                                    <p>
+                                                        Designing and Implementing Microsoft DevOps Solutions                                        
+                                                    </p>
+                                                    <span>
+                                                        <!--AZ-400 Exam Syllabus-->
+                                                        Total Questions: 341                                        
+                                                    </span>
+                                                </div> 
+                                                <div class="card-footer">
+                                                    <span style="font-size: 12px;font-weight: 700;color: #ffffff;font-family: 'Roboto';text-align: center;">
+                                                        Last Updated : 05-01-2022                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
                                 
-                            
-                                <div id="sample_page_top_content" class="col-xl-9 col-lg-9 col-md-8 col-sm-7 mb-4">
-                                    <h2>
-                                        <strong>What is Included in the Microsoft AZ-400 Exam?</strong>
-                                    </h2> 
-                                    <p>
-                                        Authentic information about the syllabus and an effective study guide is essential to go through the Microsoft
-                                        <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> </span>
-                                        AZ-400
-                                        <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                        exam in the first attempt. The study guide of Study4Exam provides you with comprehensive information about the syllabus of the 
-                                        </span>
-                                        Microsoft<span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">&nbsp;</span>AZ-400<span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> 
-                                        exam. You should get this information at the start of your preparation because it helps you make an effective study plan. We have designed this </span>Microsoft Azure DevOps Engineer Expert
-                                        <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> certification exam preparation guide to give the exam overview, practice questions, practice test, prerequisites,
-                                        and information about exam topics that help to go through the </span>Microsoft Designing and Implementing Microsoft DevOps Solutions<span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> 
-                                        (2021) exam. We recommend you to the preparation material mentioned in this study guide to cover the entire </span>Microsoft
-                                        <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">&nbsp;</span>AZ-400
-                                        <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                        syllabus. Study4Exam offers 3 formats of </span>Microsoft 
-                                        <a class="internal_link" href="https://www.study4exam.com/microsoft/az-400"> AZ-400 exam</a> 
-                                        preparation material. Each format provides new practice questions in PDF format, web-based and desktop practice exams to get passing marks in the first attempt.</p>             
-                                </div>
+                                
+                                    <div id="sample_page_top_content" class="col-xl-9 col-lg-9 col-md-8 col-sm-7 mb-4">
+                                        <h2>
+                                            <strong>What is Included in the Microsoft AZ-400 Exam?</strong>
+                                        </h2> 
+                                        <p>
+                                            Authentic information about the syllabus and an effective study guide is essential to go through the Microsoft
+                                            <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> </span>
+                                            AZ-400
+                                            <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">
+                                            exam in the first attempt. The study guide of Study4Exam provides you with comprehensive information about the syllabus of the 
+                                            </span>
+                                            Microsoft<span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">&nbsp;</span>AZ-400<span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> 
+                                            exam. You should get this information at the start of your preparation because it helps you make an effective study plan. We have designed this </span>Microsoft Azure DevOps Engineer Expert
+                                            <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> certification exam preparation guide to give the exam overview, practice questions, practice test, prerequisites,
+                                            and information about exam topics that help to go through the </span>Microsoft Designing and Implementing Microsoft DevOps Solutions<span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> 
+                                            (2021) exam. We recommend you to the preparation material mentioned in this study guide to cover the entire </span>Microsoft
+                                            <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">&nbsp;</span>AZ-400
+                                            <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">
+                                            syllabus. Study4Exam offers 3 formats of </span>Microsoft 
+                                            <a class="internal_link" href="https://www.study4exam.com/microsoft/az-400"> AZ-400 exam</a> 
+                                            preparation material. Each format provides new practice questions in PDF format, web-based and desktop practice exams to get passing marks in the first attempt.
+                                        </p>             
+                                    </div>
                             
                             <div id="sample_syllabus_page_table_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
                                 
