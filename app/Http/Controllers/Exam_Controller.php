@@ -469,4 +469,33 @@ class Exam_Controller extends Controller
             return Response()->download($file, $fileName, $headers);
         }
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     * search exam or vendor, and if not found shw not found page.
+     */
+    public function examSearch(Request $request)
+    {
+        $searchString = $request->search_exam;
+
+        $vendor = Vendor::where('title', 'LIKE', '%' . $searchString . '%')->where('status', 1)->first();
+
+        /** if vendor first found then show the vendor page*/
+        if (!empty($vendor)) {
+            return redirect()->route('vendor', $vendor->slug);
+        }
+
+        $exam = Exam::where('status', 1)->where(function ($query) use ($searchString) {
+            $query->where('title', 'LIKE', '%' . $searchString . '%');
+                $query->orWhere('exam_code', 'LIKE', '%' . $searchString . '%');
+            })->first();
+
+        /** if vendor not found but exam found then show the exam page**/
+        if (!empty($exam)) {
+            return redirect()->route('exam_detail', ['vendor_slug' => $exam->vendor->slug, 'exam_slug' => $exam->slug]);
+        }
+
+        return view('404');
+    }
 }

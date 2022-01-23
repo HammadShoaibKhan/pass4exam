@@ -72,12 +72,13 @@
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav" style="margin:auto;">
-                    <form style=" padding-right: 20px;" method="post" action="javascript:;">
+                    <form style=" padding-right: 20px;" method="post" action="{{ route('exam.search') }}">
+                        {{ csrf_field() }}
                         <div class="boxContainer">
                             <table class="elementsContainer">
                                 <tr>
                                     <td>
-                                        <input type="search" required="required" name="top-search-bar" value="" placeholder="Search Here..." class=search>
+                                        <input type="search" required="required" name="search_exam" value="" placeholder="Search Here..." class=search>
                                     </td>
                                     <td style=" text-align: right;">
                                         <button aria-label="Search" style="border: 0px; background-color: transparent;
