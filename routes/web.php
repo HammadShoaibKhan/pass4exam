@@ -191,6 +191,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('exam/review-questions', [Exam_Controller::class, 'reviewQuestions'])->name('exam.practice.questions-reviews');
     Route::post('exam/end', [Exam_Controller::class, 'examEnd'])->name('exam.practice.end');
     Route::get('exam/{attempt_id}/result', [Exam_Controller::class, 'examResult'])->name('exam.practice.result');
+    Route::post('exam/search', [Exam_Controller::class, 'examSearch'])->name('exam.search');
 
     Route::get('carts', [CartController::class, 'index'])->name('cart_view');
     Route::get('cart', [CartController::class, 'addToCart'])->name('add_cart');
