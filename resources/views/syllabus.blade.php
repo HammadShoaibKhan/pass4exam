@@ -46,6 +46,163 @@
             </div>
           {{-- END <!-------------Breadcrumb----------------------------------------> --}}
         </section>
+        
+        <!-- Main content -->
+        <section class="content">
+
+            {{-- <!-------------Exam Detailed Info--------------------------------------------> --}}
+            <section class="sample_page_2">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div id="sample_page_2_top_heading" class="col-sm-12 mb-4">
+                            <h1> {{$exam->vendor->title}} {{$exam->exam_code}} Exam Syllabus</h1>
+                        </div>
+
+                        {{-- <!-------------LEFT SIDE PORTION 75% Area--------------------------------------------> --}}
+                        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-4">
+                            <div class="row">
+                                {{-- <!------------- Left Promo Card--------------------------------------------> --}}
+                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 mb-4">
+                                    {{-- @TODO --}}
+                                    <div class="card sample_page_card hvr-grow-shadow">
+                                        <div class="card-header" >
+                                            <!--<a href=""></a>-->
+                                            <strong style="cursor: auto; color: #fff;font-size: 18px;font-family: 'Roboto';text-align: center;font-weight: 600;">
+                                                What is Included in the {{$exam->vendor->title}} {{$exam->exam_code}} Exam?
+                                            </strong>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <p>
+                                                {{$exam->certification->title}} Fundamentals
+                                            </p>
+                                            <span>
+                                                <!--{{$exam->exam_code}} Certification Practice Exam-->
+                                                Total Questions: {{ $exam->getTotalQuestions() ?? 0 }}
+                                            </span>
+                                        </div>
+                                        <div class="card-footer">
+                                            <span style="font-size: 12px;font-weight: 700;color: #ffffff;font-family: 'Roboto';text-align: center;">
+                                                Last Updated : {{ $exam->getUpdatedAt() ?? '' }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- END <!------------- Left Promo Card----------------------------------------> --}}
+
+                                {{-- <!------------- Exam Description--------------------------------------------> --}}
+                                <div id="sample_page_2_top_content" class="col-xl-9 col-lg-9 col-md-8 col-sm-7 mb-4">
+                                    <h2>
+                                        <strong>{{$exam->vendor->title}} {{$exam->exam_code}} Exam</strong>
+                                    </h2>
+                                    <p>
+                                        @isset($pageContent[$c]->placeholder_name)
+                                            @if ($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-1')
+                                                {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                            @endif
+                                        @endisset
+                                    </p>
+                                </div>
+                                {{-- END <!------------- Exam Description----------------------------------------> --}}
+
+                                {{-- <!------------- Free Test Trigger--------------------------------------------> --}}
+                                <div class="tryonlineBtn col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4 m-auto text-center" >
+                                    <div>
+                                        {{-- <form method="post" action="javascript:;" id="demos_form" name="demos_form" target="_blank"> --}}
+                                            {{-- <input type="hidden" name="exam_code" value="{{$exam->exam_code}}"> --}}
+                                            {{-- <input type="hidden" name="demo" value="1"> --}}
+                                            {{-- <input type="hidden" name="site" value="Certsidea"> --}}
+                                            {{-- <input type="hidden" name="siteurl" value="../../index.html"> --}}
+                                            {{-- <button class="demoLoginUserBtn btn demo"  type="submit" style="text-transform: none;"> --}}
+
+                                        @if(($exam->getTotalQuestions() >= 5))
+                                                <a href="{{ route('exam_demo', [$exam->vendor->slug,$exam->slug]) }}" target="_blank" class="btn mt-3" style="text-transform: none;">
+                                                    Take a Free Self-Assessment Quiz
+                                                </a>
+                                        @endif
+
+                                            {{-- </button> --}}
+                                        {{-- </form> --}}
+                                    </div>
+                                </div>
+                                {{-- END <!------------- Free Test Trigger----------------------------------------> --}}
+
+                                {{-- <!------------- Premium Description--------------------------------------------> --}}
+                                
+                                {{-- END <!------------- Premium Description----------------------------------------> --}}
+
+                                {{-- <!------------- Premium Check List--------------------------------------------> --}}
+                               
+                                {{-- END <!------------- Premium Check List----------------------------------------> --}}
+
+                                {{-- <!-------------Feature Banner--------------------------------------------> --}}
+                                
+                                {{-- END <!-------------Feature Banner----------------------------------------> --}}
+
+                                {{-- <!-------------Feature List--------------------------------------------> --}}
+                                
+                                {{-- END <!-------------Feature List----------------------------------------> --}}
+
+                                {{-- <!-------------Frequent Links--------------------------------------------> --}}
+                                <div id="sample_page_note_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+                                    <div class="terms">
+                                        <p class="taxonomy">
+                                            <a class="vocab-term" href="{{ route('certificate_syllabus', [$exam->vendor->slug, $exam->exam_code]) }}">{{$exam->certification->title}}</a>
+                                            | <a  class="vocab-term" href="javascript:;">{{$exam->certification->title}} Administrators</a>
+                                            | <a  class="vocab-term" href="javascript:;">Microsoft Business User</a>
+                                            | <a  class="vocab-term" href="javascript:;">Microsoft Technology Manager</a>
+                                            | <a class="vocab-term" href="javascript:;">Microsoft Beginner</a> |
+                                            <a class="vocab-term" href="javascript:;">{{$exam->exam_code}} Exam Topics</a>
+                                            | <a class="vocab-term" href="javascript:;">{{$exam->exam_code}} Questions Answers</a>
+                                            | <a class="vocab-term" href="javascript:;">{{$exam->exam_code}} Real Questions</a>
+                                            | <a class="vocab-term" href="javascript:;">{{$exam->certification->title}} Fundamentals Course Details</a>
+                                        </p>
+
+                                    </div>
+                                </div>
+                                {{-- END <!-------------Frequent Links----------------------------------------> --}}
+
+                            </div>
+                        </div>
+                        {{-- END <!-------------LEFT SIDE PORTION 75% Area ----------------------------------------> --}}
+
+                        {{-- <!-------------Right Side Promo Cards--------------------------------------------> --}}
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4 sample_page_2_right_bar">
+                            <div class="sample_page_2_right_bar_testimonials">
+                                <div class="card" style="margin-bottom: 6px;border-radius: 5px;">
+                                    <div class="card-header" style="background-color: #22ad95; border-radius: 5px 5px 0px 0px;" >
+                                        <!--<a href=""></a>-->
+                                        <h4 style="font-size: 20px;">Free {{$exam->exam_code}} Questions</h4>
+                                    </div>
+                                    {{-- @TODO --}}
+                                    <div class="card-body">
+                                        <a style="color: #22ad95;" href="javascript:;">
+                                            Free {{$exam->vendor->title}} {{$exam->exam_code}} Exam  Questions
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- 2nd Card --}}
+                            <div class="sample_page_2_right_bar_testimonials">
+                                <div class="card" style="margin-bottom: 6px;border-radius: 5px;">
+                                    <div class="card-header" style="background-color: #22ad95; border-radius: 5px 5px 0px 0px;" >
+                                        <h4 style="font-size: 20px; cursor: auto; "> {{$exam->exam_code}} Exam Syllabus</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a style="color: #22ad95;" href="javascript:;">
+                                            {{$exam->vendor->title}} {{$exam->exam_code}} Exam Syllabus
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- END <!-------------Right Side Promo Cards----------------------------------------> --}}
+                    </div>
+                </div>
+            </section>
+            {{-- END <!-------------Exam Detailed Info--------------------------------------------> --}}
+        </section>
+        <!-- /.content -->
+-----------------------------------------------------------------------------------------------------
         <!-- Main content -->
         <section class="content">
 
@@ -54,60 +211,9 @@
                 <div class="container-fluid">
                     <section class="sample_page">
                         <div class="container-fluid">
-                            <div class="row">
-                                <div id="sample_page_top_heading" class="col-sm-12 mb-4">
-                                    <h1>Microsoft AZ-400 Exam Syllabus</h1>
-                                </div>    
+                            <div class="row">   
                                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 mb-4"> 
                                     <div class="row">
-                                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 mb-4">
-                                            <div class="card sample_page_card hvr-grow-shadow">
-                                                <div class="card-header" >
-                                                    <strong style="cursor: auto; color: #fff;font-size: 18px;font-family: 'Roboto';text-align: center;font-weight: 600;">
-                                                        Microsoft AZ-400 Exam 
-                                                    </strong>
-                                                </div>
-                                                <div class="card-body text-center">
-                                                    <p>
-                                                        Designing and Implementing Microsoft DevOps Solutions                                        
-                                                    </p>
-                                                    <span>
-                                                        <!--AZ-400 Exam Syllabus-->
-                                                        Total Questions: 341                                        
-                                                    </span>
-                                                </div> 
-                                                <div class="card-footer">
-                                                    <span style="font-size: 12px;font-weight: 700;color: #ffffff;font-family: 'Roboto';text-align: center;">
-                                                        Last Updated : 05-01-2022                                        
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                
-                                    <div id="sample_page_top_content" class="col-xl-9 col-lg-9 col-md-8 col-sm-7 mb-4">
-                                        <h2>
-                                            <strong>What is Included in the Microsoft AZ-400 Exam?</strong>
-                                        </h2> 
-                                        <p>
-                                            Authentic information about the syllabus and an effective study guide is essential to go through the Microsoft
-                                            <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> </span>
-                                            AZ-400
-                                            <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                            exam in the first attempt. The study guide of Study4Exam provides you with comprehensive information about the syllabus of the 
-                                            </span>
-                                            Microsoft<span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">&nbsp;</span>AZ-400<span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> 
-                                            exam. You should get this information at the start of your preparation because it helps you make an effective study plan. We have designed this </span>Microsoft Azure DevOps Engineer Expert
-                                            <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> certification exam preparation guide to give the exam overview, practice questions, practice test, prerequisites,
-                                            and information about exam topics that help to go through the </span>Microsoft Designing and Implementing Microsoft DevOps Solutions<span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;"> 
-                                            (2021) exam. We recommend you to the preparation material mentioned in this study guide to cover the entire </span>Microsoft
-                                            <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">&nbsp;</span>AZ-400
-                                            <span style="color: rgb(0, 0, 0); font-family: Roboto; font-size: 16px; text-align: justify;">
-                                            syllabus. Study4Exam offers 3 formats of </span>Microsoft 
-                                            <a class="internal_link" href="https://www.study4exam.com/microsoft/az-400"> AZ-400 exam</a> 
-                                            preparation material. Each format provides new practice questions in PDF format, web-based and desktop practice exams to get passing marks in the first attempt.
-                                        </p>             
-                                    </div>
                             
                             <div id="sample_syllabus_page_table_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
                                 
