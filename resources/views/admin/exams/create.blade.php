@@ -131,7 +131,7 @@
                                         </div>
                                       </div>
                                     </div>
-
+{{--  --}}
                                     <div class="card card-primary cstm-border">
                                       <div class="card-header">
                                           <h3 class="card-title">Pricing</h3>
@@ -213,7 +213,7 @@
                                               </div><br>
                                       </div>
                                     </div>
-
+{{--  --}}
                                     <div class="row">
                                         <div class="col-md-2 offset-10">
                                             <button class="btn btn-md btn-block btn-primary" type="submit">Create</button>
