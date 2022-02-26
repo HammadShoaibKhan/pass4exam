@@ -498,4 +498,15 @@ class Exam_Controller extends Controller
 
         return view('404');
     }
+
+    public function certsHeroDetailPage($vendorSlug, $examSlug)
+    {
+        if ( ( $vendorSlug != null && Vendor::where('slug', $vendorSlug)->exists() ) &&
+            ( $examSlug != null && Exam::where('slug', $examSlug)->exists() ) ) {
+            $title = ucfirst($vendorSlug).' '.$examSlug.' Practice Questions';
+            $exam = Exam::where('slug', $examSlug)->first();
+            return view('certs-hero', compact('title','exam'));
+        }
+        return redirect()->route('home');
+    }
 }

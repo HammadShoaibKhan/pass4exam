@@ -217,6 +217,7 @@ Route::group(['middleware' => 'guest'], function () {
 
     Route::get('discount-deals/{sort_by?}', [\App\Http\Controllers\VendorController::class, 'discountDeals'])->name('discount_deals');
 
+    Route::get('{vendor_slug}/{exam_slug}/practice-questions', [Exam_Controller::class, 'certsHeroDetailPage'])->name('exam_detail');
     /** always put this route in the end of file*/
     Route::get('{vendor_slug}/{exam_slug}', [Exam_Controller::class, 'examDetail'])->name('exam_detail');
 
