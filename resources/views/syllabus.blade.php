@@ -218,54 +218,47 @@
                             <div id="sample_syllabus_page_table_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
                                 
                                 <h3>
-                                    Microsoft AZ-400 Exam Overview :
+                                    VENDOR-TITLE EXAM-CODE Exam Overview :
                                 </h3>
                                 
-                                <table class="table table-bordered">
-                                    
-                                    <tbody>
-                      <tr>
-                        <td>Exam Name</td>
-                        <td>Designing and Implementing Microsoft DevOps Solutions</td>
-                        
-                      </tr>
-                      <tr>
-                        <td>Exam Code</td>
-                        <td>AZ-400</td>
-                        
-                      </tr>
-                             <tr>
-                        <td>Actual Exam Duration</td>
-                        <td>150 minutes</td>
-                      </tr>
-                                   <tr>
-                        <td>Expected no. of Questions in Actual Exam</td>
-                        <td>60</td>
-                      </tr>
-                                   <tr>
-                        <td>Exam Registration Price</td>
-                        <td>$165</td>
-                      </tr>
-                                   <tr>
-                        <td>Official Information</td>
-                        <td><a style="color: #429482;" rel="noreferrer" href="https://www.microsoft.com/en-us/learning/exam-az-400.aspx">https://www.microsoft.com/en-us/learning/exam-az-400.aspx</a></td>
-                      </tr>
-                                        <tr>
-                        <td>See Expected Questions</td>
-                        <td><a style="color: #429482;" href="https://www.study4exam.com/microsoft/free-az-400-questions">Microsoft AZ-400</a> Expected Questions in Actual Exam</td>
-                      </tr>
-                            
-                      <tr>
-                        <td>Take Self-Assessment</td>
-                        <td> Use <a style="color: #429482;" href="https://www.study4exam.com/microsoft/info/az-400"> Microsoft AZ-400 Practice Test </a> to Assess your preparation - Save Time and Reduce Chances of Failure</td>
-                        
-                      </tr>
-                      
-                    </tbody>
-                    
-                                </table>
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td>Exam Name</td>
+            <td>EXAM-TITLE</td>
+        </tr>
+        <tr>
+            <td>Exam Code</td>
+            <td>EXAM-CODE</td>
+        </tr>
+        <tr>
+            <td>Actual Exam Duration</td>
+            <td>150 minutes</td>
+        </tr>
+        <tr>
+            <td>Expected no. of Questions in Actual Exam</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>Exam Registration Price</td>
+            <td>$165</td>
+        </tr>
+        <tr>
+            <td>Official Information</td>
+            <td><a style="color: #429482;" rel="noreferrer" href="https://www.microsoft.com/en-us/learning/exam-az-400.aspx">https://www.microsoft.com/en-us/learning/exam-az-400.aspx</a></td>
+        </tr>
+        <tr>
+            <td>See Expected Questions</td>
+            <td><a style="color: #429482;" href="https://www.study4exam.com/microsoft/free-az-400-questions">Microsoft AZ-400</a> Expected Questions in Actual Exam</td>
+        </tr>
+        <tr>
+            <td>Take Self-Assessment</td>
+            <td> Use <a style="color: #429482;" href="https://www.study4exam.com/microsoft/info/az-400"> Microsoft AZ-400 Practice Test </a> to Assess your preparation - Save Time and Reduce Chances of Failure</td>
+        </tr>
+    </tbody>
+</table>
                             </div>
-                                                    <div id="sample_syllabus_page_table_2_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+                                <div id="sample_syllabus_page_table_2_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
                                 
                                 <h3>
                                     Microsoft AZ-400 Exam Topics :
@@ -323,114 +316,17 @@
                             <div id="sample_syllabus_page_inner_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
                                 
                                 <div style="text-align: justify;">
-                                    <h3><strong>Updates in the Microsoft AZ-400 Exam Syllabus:</strong></h3> <p>Microsoft<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> </span>AZ-400<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> exam questions and practice test are the best ways to get fully prepared. Study4exam&#39;s trusted preparation material consists of both practice questions and practice test. To pass the actual&nbsp;</span>Azure DevOps Engineer Expert<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> </span>AZ-400&nbsp;<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);">exam on the first attempt, you need to put in hard work on these&nbsp;</span>Microsoft<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);">&nbsp;</span>AZ-400<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> questions&nbsp;that&nbsp;provide updated information about the entire exam syllabus. Besides studying actual questions, you should take the&nbsp;</span>Microsoft<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);">&nbsp;</span>AZ-400<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> practice test&nbsp;for self-assessment and actual exam simulation. Revise actual exam questions and remove your mistakes with the </span>Designing and Implementing Microsoft DevOps Solutions&nbsp;AZ-400<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> exam practice test. Online and windows-based formats of the </span>AZ-400 exam practice test are available for self-assessment.</p> <p>&nbsp;</p>                 </div>
+                                    <h3><strong>Updates in the Microsoft AZ-400 Exam Syllabus:</strong></h3> 
+                                        <p>Microsoft<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> </span>AZ-400<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);">
+                                            exam questions and practice test are the best ways to get fully prepared. Study4exam&#39;s trusted preparation material consists of both practice questions and practice test. To pass the actual&nbsp;</span>
+                                            Azure DevOps Engineer Expert<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> </span>AZ-400&nbsp;<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);">exam on the first attempt, you need to put in hard work on these&nbsp;</span>
+                                            Microsoft<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);">&nbsp;</span>AZ-400<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> questions&nbsp;that&nbsp;provide updated information about the entire exam syllabus. Besides studying actual questions, you should take the&nbsp;</span>
+                                        Microsoft<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);">&nbsp;</span>AZ-400<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> practice test&nbsp;for self-assessment and actual exam simulation. Revise actual exam questions and remove your mistakes with the </span>
+                                        Designing and Implementing Microsoft DevOps Solutions&nbsp;AZ-400<span style="color: rgb(54, 54, 54); font-family: Roboto; font-size: 15px; text-align: justify; background-color: rgb(252, 252, 252);"> exam practice test. Online and windows-based formats of the </span>
+                                        AZ-400 exam practice test are available for self-assessment.</p> <p>&nbsp;
+                                        </p>                 
+                                </div>
                             </div>
-                            
-                            <style>
-                                    .content_sec{
-                                        border: 1px solid #370d48;
-                    color: #fff;
-                    background-color: #511e66;
-                    padding: 10px;
-                    max-width: 684px;
-                    min-height: 80px;
-                    margin: auto;
-                    border-radius: 5px 5px 5px 5px;
-                    box-shadow: 0 2px 15px rgb(0 0 0 / 10%);}
-                    .img_sec{
-                            position: absolute;
-                    top: -40px;
-                    left: -48px;
-                    width: 20%;
-                    /* display: inline-block; */
-                    padding: 3px 5px;
-                    border: 10px solid #ffbf1f;
-                    border-radius: 15px;
-                    background-color: #511e66;
-                    }
-                    .main_content_sec{
-                                margin-bottom: 45px;
-                                    margin-top: 15px;
-                    }
-                    .main_img_sec{
-                        position: relative;
-                    }
-                    .img_sec img{
-                            width: 40px;
-                    }
-                    
-                    .img_sec p{
-                            color: #fff;
-                    margin: 0px;
-                    font-weight: 700;
-                    font-size: 12px;
-                    }
-                    .link_text {
-                        font-weight: 600;
-                        padding-left: 90px;
-                        padding-top: 16px;
-                        display: block;
-                    }
-                    
-                    .off_offer{animation:color_changes .9s infinite alternate;color:#fff}
-                    @keyframes color_changes{from{color:#fff}to{color:#ffbf1f}}
-                    @-webkit-keyframes color_changes{from{color:#fff}to{color:#ffbf1f}}@-moz-keyframes color_changes{from{color:#fff}to{color:#ffbf1f}}
-                    @-o-keyframes color_changes{from{color:#fff}to{color:#ffbf1f}}
-                   
-                    
-                    @media(max-width: 767px){
-                        
-                        .img_sec {
-                            position: inherit;
-                    display: block;
-                    margin: auto;
-                    width: 100%;
-                    left: 0px;
-                    top: -5px;
-                    margin-bottom: 10px;
-                        }
-                        .content_sec {
-                            border-radius: 5px;
-                        }
-                        .img_sec p {
-                    display: inline-block;
-                }
-                .link_text{
-                      font-weight: 600;
-                    padding-left: 0px;
-                    padding-top: 16px;
-                    display: block;  
-                    }
-                    
-                    }
-                                </style>
-                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3 m-auto text-center">
-                                <div class="main_content_sec">
-                                    <a href="https://www.study4exam.com/microsoft/az-400"> 
-                                    <div class="content_sec">
-                                        <div class="main_img_sec">
-                                            <div class="img_sec">
-                                                <p>
-                                                    Limited Time Offer
-                                                </p>
-                                                <p class="off_offer" style="font-size: 31px;">
-                                                    50%
-                                                </p>
-                                                <p style="text-align: right;
-                    margin-top: -14px;
-                    font-size: 16px;">Off</p>
-                                                <!--<img src="https://www.study4exam.com/assets/site/images/Group 2.webp" alt="DemoImgs1"> -->
-                                            </div>
-                                           
-                                            <span class="link_text" style="">
-                                                Get Premium AZ-400 Questions as Interactive Practice Test or PDF
-                                            </span>
-                                        </div>
-                                        
-                                    </div>
-                                    </a>
-                                </div>
-                                </div>
                                 
                             <div id="sample_page_note_content" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
                                 
