@@ -7,6 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 <!-- Favicon -->
 
+<meta name="robots" content="noindex">
+
 <meta name="keywords" content="Certsidea">
 <link rel="shortcut icon" type="image/png" href="{{asset('frontend/assets/site/img/1617086695_pen.png')}}"/>
 
