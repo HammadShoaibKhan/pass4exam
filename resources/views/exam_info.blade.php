@@ -96,7 +96,7 @@
                                     <p>
                                         @isset($pageContent[$c]->placeholder_name)
                                             @if ($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-1')
-                                                {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                                {!! getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) !!}
                                             @endif
                                         @endisset
                                     </p>
@@ -132,7 +132,7 @@
                                             <p>
                                                 @isset($pageContent[$c]->placeholder_name)
                                                     @if ($pageContent[$c]->placeholder_name == 'exam-info-exam-desc-2')
-                                                        {{ getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) }}
+                                                        {!! getReplacedValues($pageContent[$c++]->placeholder_value,$replacers) !!}
                                                     @endif
                                                 @endisset
                                             </p>
