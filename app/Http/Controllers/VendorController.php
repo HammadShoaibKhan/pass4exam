@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Vendor;
 use App\Models\Exam;
 use App\Models\Testimonial;
+use App\Models\ContentManager;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -28,9 +29,10 @@ class VendorController extends Controller
             $title = 'Vendors';
             $vendor = Vendor::where('slug', $slug)->first();
             $testimonials = Testimonial::where('approved',1)->inRandomOrder()->limit(4)->get();
-            return view('vendor', compact('title','vendor','testimonials'));
+            $pageContent = ContentManager::where(['type' => 'vendor', 'placeholder_name' => 'vendor-description-note'])->first();
+            return view('vendor', compact('title','vendor','testimonials', 'pageContent'));
         }
-        return redirect()->route('home');
+    return redirect()->route('home');
     }
 
     /**to get vendor exams options list if exam have demo pdf file */

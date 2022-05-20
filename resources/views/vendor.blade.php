@@ -212,7 +212,7 @@
             </div>
             <div class="container-fluid">
               <p class="content">
-                {{ getReplacedValues(($vendor_description), $replacers ) }}
+                  {!! getReplacedValues($pageContent->placeholder_value,$replacers) !!}
               </p>
             </div>
           </section>
